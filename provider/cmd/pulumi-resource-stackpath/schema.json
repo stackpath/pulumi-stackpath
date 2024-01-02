@@ -1,5 +1,6 @@
 {
     "name": "stackpath",
+    "displayName": "StackPath",
     "description": "A Pulumi package for creating and managing stackpath cloud resources.",
     "keywords": [
         "pulumi",
@@ -10,25 +11,28 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`stackpath` Terraform Provider](https://github.com/stackpath/terraform-provider-stackpath).",
     "repository": "https://github.com/stackpath/pulumi-stackpath",
+    "pluginDownloadURL": "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}",
     "publisher": "StackPath",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
     },
     "language": {
         "csharp": {
-            "compatibility": "tfbridge20",
-            "namespaces": null,
             "packageReferences": {
                 "Pulumi": "3.*"
-            }
+            },
+            "compatibility": "tfbridge20",
+            "rootNamespace": "Stackpath"
         },
         "go": {
-            "generateExtraInputTypes": true,
+            "importBasePath": "github.com/stackpath/pulumi-stackpath/sdk/go/stackpath",
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/stackpath/pulumi-stackpath/sdk/go/stackpath"
+            "generateExtraInputTypes": true
         },
         "nodejs": {
-            "compatibility": "tfbridge20",
+            "packageName": "@stackpath/pulumi-stackpath",
+            "packageDescription": "A Pulumi package for creating and managing stackpath cloud resources.",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/stackpath/terraform-provider-stackpath)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-stackpath` repo](https://github.com/stackpath/pulumi-stackpath/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-stackpath` repo](https://github.com/stackpath/terraform-provider-stackpath/issues).",
             "dependencies": {
                 "@pulumi/pulumi": "^3.0.0"
             },
@@ -36,33 +40,35 @@
                 "@types/mime": "^2.0.0",
                 "@types/node": "^10.0.0"
             },
-            "disableUnionOutputTypes": true,
-            "packageDescription": "A Pulumi package for creating and managing stackpath cloud resources.",
-            "packageName": "",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/stackpath/terraform-provider-stackpath)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-stackpath` repo](https://github.com/stackpath/pulumi-stackpath/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-stackpath` repo](https://github.com/stackpath/terraform-provider-stackpath/issues).",
-            "typescriptVersion": ""
+            "compatibility": "tfbridge20",
+            "disableUnionOutputTypes": true
         },
         "python": {
-            "compatibility": "tfbridge20",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/stackpath/terraform-provider-stackpath)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-stackpath` repo](https://github.com/stackpath/pulumi-stackpath/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-stackpath` repo](https://github.com/stackpath/terraform-provider-stackpath/issues).",
+            "packageName": "pulumi_stackpath",
             "requires": {
                 "pulumi": "\u003e=3.0.0,\u003c4.0.0"
-            }
+            },
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/stackpath/terraform-provider-stackpath)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-stackpath` repo](https://github.com/stackpath/pulumi-stackpath/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-stackpath` repo](https://github.com/stackpath/terraform-provider-stackpath/issues).",
+            "compatibility": "tfbridge20",
+            "pyproject": {}
         }
     },
     "config": {
         "variables": {
             "accessToken": {
-                "type": "string"
+                "type": "string",
+                "secret": true
             },
             "baseUrl": {
                 "type": "string"
             },
             "clientId": {
-                "type": "string"
+                "type": "string",
+                "secret": true
             },
             "clientSecret": {
-                "type": "string"
+                "type": "string",
+                "secret": true
             },
             "stackId": {
                 "type": "string"
@@ -73,36 +79,16 @@
         "stackpath:compute/NetworkPolicyEgress:NetworkPolicyEgress": {
             "properties": {
                 "action": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "description": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "protocol": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocol:NetworkPolicyEgressProtocol",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocol:NetworkPolicyEgressProtocol"
                 },
                 "to": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressTo:NetworkPolicyEgressTo",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressTo:NetworkPolicyEgressTo"
                 }
             },
             "type": "object",
@@ -113,60 +99,25 @@
         "stackpath:compute/NetworkPolicyEgressProtocol:NetworkPolicyEgressProtocol": {
             "properties": {
                 "ah": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolAh:NetworkPolicyEgressProtocolAh",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolAh:NetworkPolicyEgressProtocolAh"
                 },
                 "esp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolEsp:NetworkPolicyEgressProtocolEsp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolEsp:NetworkPolicyEgressProtocolEsp"
                 },
                 "gre": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolGre:NetworkPolicyEgressProtocolGre",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolGre:NetworkPolicyEgressProtocolGre"
                 },
                 "icmp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolIcmp:NetworkPolicyEgressProtocolIcmp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolIcmp:NetworkPolicyEgressProtocolIcmp"
                 },
                 "tcp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolTcp:NetworkPolicyEgressProtocolTcp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolTcp:NetworkPolicyEgressProtocolTcp"
                 },
                 "tcpUdp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolTcpUdp:NetworkPolicyEgressProtocolTcpUdp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolTcpUdp:NetworkPolicyEgressProtocolTcpUdp"
                 },
                 "udp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolUdp:NetworkPolicyEgressProtocolUdp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolUdp:NetworkPolicyEgressProtocolUdp"
                 }
             },
             "type": "object"
@@ -189,22 +140,12 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "sourcePorts": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -216,22 +157,12 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "sourcePorts": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -243,22 +174,12 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "sourcePorts": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -270,33 +191,18 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/NetworkPolicyEgressToInstanceSelector:NetworkPolicyEgressToInstanceSelector"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "ipBlocks": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/NetworkPolicyEgressToIpBlock:NetworkPolicyEgressToIpBlock"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "networkSelectors": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/NetworkPolicyEgressToNetworkSelector:NetworkPolicyEgressToNetworkSelector"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -305,30 +211,15 @@
         "stackpath:compute/NetworkPolicyEgressToInstanceSelector:NetworkPolicyEgressToInstanceSelector": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "operator": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -342,22 +233,12 @@
         "stackpath:compute/NetworkPolicyEgressToIpBlock:NetworkPolicyEgressToIpBlock": {
             "properties": {
                 "cidr": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "excepts": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -369,30 +250,15 @@
         "stackpath:compute/NetworkPolicyEgressToNetworkSelector:NetworkPolicyEgressToNetworkSelector": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "operator": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -406,36 +272,16 @@
         "stackpath:compute/NetworkPolicyIngress:NetworkPolicyIngress": {
             "properties": {
                 "action": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "description": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "from": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressFrom:NetworkPolicyIngressFrom",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressFrom:NetworkPolicyIngressFrom"
                 },
                 "protocol": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocol:NetworkPolicyIngressProtocol",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocol:NetworkPolicyIngressProtocol"
                 }
             },
             "type": "object",
@@ -449,33 +295,18 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/NetworkPolicyIngressFromInstanceSelector:NetworkPolicyIngressFromInstanceSelector"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "ipBlocks": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/NetworkPolicyIngressFromIpBlock:NetworkPolicyIngressFromIpBlock"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "networkSelectors": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/NetworkPolicyIngressFromNetworkSelector:NetworkPolicyIngressFromNetworkSelector"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -484,30 +315,15 @@
         "stackpath:compute/NetworkPolicyIngressFromInstanceSelector:NetworkPolicyIngressFromInstanceSelector": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "operator": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -521,22 +337,12 @@
         "stackpath:compute/NetworkPolicyIngressFromIpBlock:NetworkPolicyIngressFromIpBlock": {
             "properties": {
                 "cidr": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "excepts": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -548,30 +354,15 @@
         "stackpath:compute/NetworkPolicyIngressFromNetworkSelector:NetworkPolicyIngressFromNetworkSelector": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "operator": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -585,60 +376,25 @@
         "stackpath:compute/NetworkPolicyIngressProtocol:NetworkPolicyIngressProtocol": {
             "properties": {
                 "ah": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolAh:NetworkPolicyIngressProtocolAh",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolAh:NetworkPolicyIngressProtocolAh"
                 },
                 "esp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolEsp:NetworkPolicyIngressProtocolEsp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolEsp:NetworkPolicyIngressProtocolEsp"
                 },
                 "gre": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolGre:NetworkPolicyIngressProtocolGre",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolGre:NetworkPolicyIngressProtocolGre"
                 },
                 "icmp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolIcmp:NetworkPolicyIngressProtocolIcmp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolIcmp:NetworkPolicyIngressProtocolIcmp"
                 },
                 "tcp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolTcp:NetworkPolicyIngressProtocolTcp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolTcp:NetworkPolicyIngressProtocolTcp"
                 },
                 "tcpUdp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolTcpUdp:NetworkPolicyIngressProtocolTcpUdp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolTcpUdp:NetworkPolicyIngressProtocolTcpUdp"
                 },
                 "udp": {
-                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolUdp:NetworkPolicyIngressProtocolUdp",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolUdp:NetworkPolicyIngressProtocolUdp"
                 }
             },
             "type": "object"
@@ -661,22 +417,12 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "sourcePorts": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -688,22 +434,12 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "sourcePorts": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -715,22 +451,12 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "sourcePorts": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -739,30 +465,15 @@
         "stackpath:compute/NetworkPolicyInstanceSelector:NetworkPolicyInstanceSelector": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "operator": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -776,30 +487,15 @@
         "stackpath:compute/NetworkPolicyNetworkSelector:NetworkPolicyNetworkSelector": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "operator": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -816,11 +512,6 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/NetworkRouteGatewaySelectorInterfaceSelector:NetworkRouteGatewaySelectorInterfaceSelector"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -832,30 +523,15 @@
         "stackpath:compute/NetworkRouteGatewaySelectorInterfaceSelector:NetworkRouteGatewaySelectorInterfaceSelector": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "operator": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -872,84 +548,42 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "envs": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadContainerEnv:WorkloadContainerEnv"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "image": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "livenessProbe": {
-                    "$ref": "#/types/stackpath:compute/WorkloadContainerLivenessProbe:WorkloadContainerLivenessProbe",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerLivenessProbe:WorkloadContainerLivenessProbe"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadContainerPort:WorkloadContainerPort"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "readinessProbe": {
-                    "$ref": "#/types/stackpath:compute/WorkloadContainerReadinessProbe:WorkloadContainerReadinessProbe",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerReadinessProbe:WorkloadContainerReadinessProbe"
                 },
                 "resources": {
-                    "$ref": "#/types/stackpath:compute/WorkloadContainerResources:WorkloadContainerResources",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerResources:WorkloadContainerResources"
+                },
+                "securityContext": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerSecurityContext:WorkloadContainerSecurityContext"
                 },
                 "volumeMounts": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadContainerVolumeMount:WorkloadContainerVolumeMount"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -963,28 +597,14 @@
         "stackpath:compute/WorkloadContainerEnv:WorkloadContainerEnv": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "secretValue": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "value": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -995,60 +615,25 @@
         "stackpath:compute/WorkloadContainerLivenessProbe:WorkloadContainerLivenessProbe": {
             "properties": {
                 "failureThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "httpGet": {
-                    "$ref": "#/types/stackpath:compute/WorkloadContainerLivenessProbeHttpGet:WorkloadContainerLivenessProbeHttpGet",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerLivenessProbeHttpGet:WorkloadContainerLivenessProbeHttpGet"
                 },
                 "initialDelaySeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "periodSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "successThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "tcpSocket": {
-                    "$ref": "#/types/stackpath:compute/WorkloadContainerLivenessProbeTcpSocket:WorkloadContainerLivenessProbeTcpSocket",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerLivenessProbeTcpSocket:WorkloadContainerLivenessProbeTcpSocket"
                 },
                 "timeoutSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1063,36 +648,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "scheme": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1103,12 +668,7 @@
         "stackpath:compute/WorkloadContainerLivenessProbeTcpSocket:WorkloadContainerLivenessProbeTcpSocket": {
             "properties": {
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1119,36 +679,16 @@
         "stackpath:compute/WorkloadContainerPort:WorkloadContainerPort": {
             "properties": {
                 "enableImplicitNetworkPolicy": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "protocol": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1160,60 +700,25 @@
         "stackpath:compute/WorkloadContainerReadinessProbe:WorkloadContainerReadinessProbe": {
             "properties": {
                 "failureThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "httpGet": {
-                    "$ref": "#/types/stackpath:compute/WorkloadContainerReadinessProbeHttpGet:WorkloadContainerReadinessProbeHttpGet",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerReadinessProbeHttpGet:WorkloadContainerReadinessProbeHttpGet"
                 },
                 "initialDelaySeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "periodSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "successThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "tcpSocket": {
-                    "$ref": "#/types/stackpath:compute/WorkloadContainerReadinessProbeTcpSocket:WorkloadContainerReadinessProbeTcpSocket",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerReadinessProbeTcpSocket:WorkloadContainerReadinessProbeTcpSocket"
                 },
                 "timeoutSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1228,36 +733,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "scheme": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1268,12 +753,7 @@
         "stackpath:compute/WorkloadContainerReadinessProbeTcpSocket:WorkloadContainerReadinessProbeTcpSocket": {
             "properties": {
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1287,11 +767,6 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -1300,23 +775,157 @@
                 "requests"
             ]
         },
+        "stackpath:compute/WorkloadContainerRuntimeEnvironment:WorkloadContainerRuntimeEnvironment": {
+            "properties": {
+                "dns": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerRuntimeEnvironmentDns:WorkloadContainerRuntimeEnvironmentDns"
+                },
+                "securityContext": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerRuntimeEnvironmentSecurityContext:WorkloadContainerRuntimeEnvironmentSecurityContext"
+                },
+                "shareProcessNamespace": {
+                    "type": "boolean"
+                },
+                "terminationGracePeriodSeconds": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dns"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerRuntimeEnvironmentDns:WorkloadContainerRuntimeEnvironmentDns": {
+            "properties": {
+                "hostAliases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadContainerRuntimeEnvironmentDnsHostAlias:WorkloadContainerRuntimeEnvironmentDnsHostAlias"
+                    }
+                },
+                "resolverConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadContainerRuntimeEnvironmentDnsResolverConfig:WorkloadContainerRuntimeEnvironmentDnsResolverConfig"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadContainerRuntimeEnvironmentDnsHostAlias:WorkloadContainerRuntimeEnvironmentDnsHostAlias": {
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "hostnames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "address",
+                "hostnames"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerRuntimeEnvironmentDnsResolverConfig:WorkloadContainerRuntimeEnvironmentDnsResolverConfig": {
+            "properties": {
+                "nameservers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "options": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "searches": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadContainerRuntimeEnvironmentSecurityContext:WorkloadContainerRuntimeEnvironmentSecurityContext": {
+            "properties": {
+                "runAsGroup": {
+                    "type": "string"
+                },
+                "runAsNonRoot": {
+                    "type": "boolean"
+                },
+                "runAsUser": {
+                    "type": "string"
+                },
+                "supplementalGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sysctl": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadContainerSecurityContext:WorkloadContainerSecurityContext": {
+            "properties": {
+                "allowPrivilegeEscalation": {
+                    "type": "boolean"
+                },
+                "capabilities": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerSecurityContextCapabilities:WorkloadContainerSecurityContextCapabilities"
+                },
+                "readOnlyRootFilesystem": {
+                    "type": "boolean"
+                },
+                "runAsGroup": {
+                    "type": "string"
+                },
+                "runAsNonRoot": {
+                    "type": "boolean"
+                },
+                "runAsUser": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadContainerSecurityContextCapabilities:WorkloadContainerSecurityContextCapabilities": {
+            "properties": {
+                "adds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "drops": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
         "stackpath:compute/WorkloadContainerVolumeMount:WorkloadContainerVolumeMount": {
             "properties": {
                 "mountPath": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "slug": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1328,12 +937,7 @@
         "stackpath:compute/WorkloadImagePullCredential:WorkloadImagePullCredential": {
             "properties": {
                 "dockerRegistry": {
-                    "$ref": "#/types/stackpath:compute/WorkloadImagePullCredentialDockerRegistry:WorkloadImagePullCredentialDockerRegistry",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadImagePullCredentialDockerRegistry:WorkloadImagePullCredentialDockerRegistry"
                 }
             },
             "type": "object",
@@ -1345,35 +949,17 @@
             "properties": {
                 "email": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "password": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "server": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "username": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1388,95 +974,46 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadInstanceContainer:WorkloadInstanceContainer"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "externalIpAddress": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
+                },
+                "externalIpv6Address": {
+                    "type": "string"
                 },
                 "ipAddress": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
+                },
+                "ipv6Address": {
+                    "type": "string"
                 },
                 "location": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceLocation:WorkloadInstanceLocation",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceLocation:WorkloadInstanceLocation"
                 },
                 "message": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "metadata": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceMetadata:WorkloadInstanceMetadata",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceMetadata:WorkloadInstanceMetadata"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "networkInterfaces": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadInstanceNetworkInterface:WorkloadInstanceNetworkInterface"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "phase": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "reason": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "virtualMachine": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachine:WorkloadInstanceVirtualMachine",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachine:WorkloadInstanceVirtualMachine"
                 }
             },
             "type": "object",
@@ -1490,84 +1027,42 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "envs": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerEnv:WorkloadInstanceContainerEnv"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "image": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "livenessProbe": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerLivenessProbe:WorkloadInstanceContainerLivenessProbe",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerLivenessProbe:WorkloadInstanceContainerLivenessProbe"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerPort:WorkloadInstanceContainerPort"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "readinessProbe": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerReadinessProbe:WorkloadInstanceContainerReadinessProbe",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerReadinessProbe:WorkloadInstanceContainerReadinessProbe"
                 },
                 "resources": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerResources:WorkloadInstanceContainerResources",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerResources:WorkloadInstanceContainerResources"
+                },
+                "securityContext": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerSecurityContext:WorkloadInstanceContainerSecurityContext"
                 },
                 "volumeMounts": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerVolumeMount:WorkloadInstanceContainerVolumeMount"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -1581,28 +1076,14 @@
         "stackpath:compute/WorkloadInstanceContainerEnv:WorkloadInstanceContainerEnv": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "secretValue": {
                     "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "secret": true
                 },
                 "value": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1613,60 +1094,25 @@
         "stackpath:compute/WorkloadInstanceContainerLivenessProbe:WorkloadInstanceContainerLivenessProbe": {
             "properties": {
                 "failureThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "httpGet": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerLivenessProbeHttpGet:WorkloadInstanceContainerLivenessProbeHttpGet",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerLivenessProbeHttpGet:WorkloadInstanceContainerLivenessProbeHttpGet"
                 },
                 "initialDelaySeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "periodSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "successThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "tcpSocket": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerLivenessProbeTcpSocket:WorkloadInstanceContainerLivenessProbeTcpSocket",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerLivenessProbeTcpSocket:WorkloadInstanceContainerLivenessProbeTcpSocket"
                 },
                 "timeoutSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1681,36 +1127,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "scheme": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1721,12 +1147,7 @@
         "stackpath:compute/WorkloadInstanceContainerLivenessProbeTcpSocket:WorkloadInstanceContainerLivenessProbeTcpSocket": {
             "properties": {
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1737,36 +1158,16 @@
         "stackpath:compute/WorkloadInstanceContainerPort:WorkloadInstanceContainerPort": {
             "properties": {
                 "enableImplicitNetworkPolicy": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "protocol": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1778,60 +1179,25 @@
         "stackpath:compute/WorkloadInstanceContainerReadinessProbe:WorkloadInstanceContainerReadinessProbe": {
             "properties": {
                 "failureThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "httpGet": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerReadinessProbeHttpGet:WorkloadInstanceContainerReadinessProbeHttpGet",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerReadinessProbeHttpGet:WorkloadInstanceContainerReadinessProbeHttpGet"
                 },
                 "initialDelaySeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "periodSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "successThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "tcpSocket": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerReadinessProbeTcpSocket:WorkloadInstanceContainerReadinessProbeTcpSocket",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerReadinessProbeTcpSocket:WorkloadInstanceContainerReadinessProbeTcpSocket"
                 },
                 "timeoutSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1846,36 +1212,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "scheme": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1886,12 +1232,7 @@
         "stackpath:compute/WorkloadInstanceContainerReadinessProbeTcpSocket:WorkloadInstanceContainerReadinessProbeTcpSocket": {
             "properties": {
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -1905,11 +1246,6 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -1918,23 +1254,53 @@
                 "requests"
             ]
         },
+        "stackpath:compute/WorkloadInstanceContainerSecurityContext:WorkloadInstanceContainerSecurityContext": {
+            "properties": {
+                "allowPrivilegeEscalation": {
+                    "type": "boolean"
+                },
+                "capabilities": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerSecurityContextCapabilities:WorkloadInstanceContainerSecurityContextCapabilities"
+                },
+                "readOnlyRootFilesystem": {
+                    "type": "boolean"
+                },
+                "runAsGroup": {
+                    "type": "string"
+                },
+                "runAsNonRoot": {
+                    "type": "boolean"
+                },
+                "runAsUser": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInstanceContainerSecurityContextCapabilities:WorkloadInstanceContainerSecurityContextCapabilities": {
+            "properties": {
+                "adds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "drops": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
         "stackpath:compute/WorkloadInstanceContainerVolumeMount:WorkloadInstanceContainerVolumeMount": {
             "properties": {
                 "mountPath": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "slug": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -1946,108 +1312,43 @@
         "stackpath:compute/WorkloadInstanceLocation:WorkloadInstanceLocation": {
             "properties": {
                 "city": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "cityCode": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "continent": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "continentCode": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "country": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "countryCode": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "latitude": {
-                    "type": "number",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "number"
                 },
                 "longitude": {
-                    "type": "number",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "number"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "region": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "regionCode": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "subdivision": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "subdivisionCode": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -2058,22 +1359,12 @@
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "labels": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "pulumi.json#/Any"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -2082,118 +1373,72 @@
         "stackpath:compute/WorkloadInstanceNetworkInterface:WorkloadInstanceNetworkInterface": {
             "properties": {
                 "gateway": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ipAddress": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ipAddressAliases": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
-                "network": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                "ipv6Address": {
+                    "type": "string"
+                },
+                "ipv6AddressAliases": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
                     }
+                },
+                "ipv6Gateway": {
+                    "type": "string"
+                },
+                "network": {
+                    "type": "string"
                 }
             },
             "type": "object",
             "required": [
                 "gateway",
                 "ipAddress",
+                "ipv6Address",
+                "ipv6Gateway",
                 "network"
             ]
         },
         "stackpath:compute/WorkloadInstanceVirtualMachine:WorkloadInstanceVirtualMachine": {
             "properties": {
                 "image": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "livenessProbe": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbe:WorkloadInstanceVirtualMachineLivenessProbe",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbe:WorkloadInstanceVirtualMachineLivenessProbe"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachinePort:WorkloadInstanceVirtualMachinePort"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "readinessProbe": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbe:WorkloadInstanceVirtualMachineReadinessProbe",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbe:WorkloadInstanceVirtualMachineReadinessProbe"
                 },
                 "resources": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineResources:WorkloadInstanceVirtualMachineResources",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineResources:WorkloadInstanceVirtualMachineResources"
                 },
                 "userData": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "volumeMounts": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineVolumeMount:WorkloadInstanceVirtualMachineVolumeMount"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -2207,60 +1452,25 @@
         "stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbe:WorkloadInstanceVirtualMachineLivenessProbe": {
             "properties": {
                 "failureThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "httpGet": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeHttpGet:WorkloadInstanceVirtualMachineLivenessProbeHttpGet",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeHttpGet:WorkloadInstanceVirtualMachineLivenessProbeHttpGet"
                 },
                 "initialDelaySeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "periodSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "successThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "tcpSocket": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeTcpSocket:WorkloadInstanceVirtualMachineLivenessProbeTcpSocket",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeTcpSocket:WorkloadInstanceVirtualMachineLivenessProbeTcpSocket"
                 },
                 "timeoutSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -2275,36 +1485,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "scheme": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2315,12 +1505,7 @@
         "stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeTcpSocket:WorkloadInstanceVirtualMachineLivenessProbeTcpSocket": {
             "properties": {
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -2331,36 +1516,16 @@
         "stackpath:compute/WorkloadInstanceVirtualMachinePort:WorkloadInstanceVirtualMachinePort": {
             "properties": {
                 "enableImplicitNetworkPolicy": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "protocol": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2372,60 +1537,25 @@
         "stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbe:WorkloadInstanceVirtualMachineReadinessProbe": {
             "properties": {
                 "failureThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "httpGet": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeHttpGet:WorkloadInstanceVirtualMachineReadinessProbeHttpGet",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeHttpGet:WorkloadInstanceVirtualMachineReadinessProbeHttpGet"
                 },
                 "initialDelaySeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "periodSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "successThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "tcpSocket": {
-                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeTcpSocket:WorkloadInstanceVirtualMachineReadinessProbeTcpSocket",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeTcpSocket:WorkloadInstanceVirtualMachineReadinessProbeTcpSocket"
                 },
                 "timeoutSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -2440,36 +1570,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "scheme": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2480,12 +1590,7 @@
         "stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeTcpSocket:WorkloadInstanceVirtualMachineReadinessProbeTcpSocket": {
             "properties": {
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -2499,11 +1604,6 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -2515,20 +1615,10 @@
         "stackpath:compute/WorkloadInstanceVirtualMachineVolumeMount:WorkloadInstanceVirtualMachineVolumeMount": {
             "properties": {
                 "mountPath": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "slug": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2540,78 +1630,58 @@
         "stackpath:compute/WorkloadNetworkInterface:WorkloadNetworkInterface": {
             "properties": {
                 "enableOneToOneNat": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
+                    "type": "boolean"
+                },
+                "ipFamilies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
                     }
                 },
+                "ipv6Subnet": {
+                    "type": "string"
+                },
                 "network": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
+                },
+                "subnet": {
+                    "type": "string"
                 }
             },
             "type": "object",
             "required": [
                 "network"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "ipFamilies",
+                        "network"
+                    ]
+                }
+            }
         },
         "stackpath:compute/WorkloadTarget:WorkloadTarget": {
             "properties": {
                 "deploymentScope": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "maxReplicas": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "minReplicas": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "scaleSettings": {
-                    "$ref": "#/types/stackpath:compute/WorkloadTargetScaleSettings:WorkloadTargetScaleSettings",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadTargetScaleSettings:WorkloadTargetScaleSettings"
                 },
                 "selectors": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadTargetSelector:WorkloadTargetSelector"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -2628,11 +1698,6 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadTargetScaleSettingsMetric:WorkloadTargetScaleSettingsMetric"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -2644,28 +1709,13 @@
         "stackpath:compute/WorkloadTargetScaleSettingsMetric:WorkloadTargetScaleSettingsMetric": {
             "properties": {
                 "averageUtilization": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "averageValue": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "metric": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2676,30 +1726,15 @@
         "stackpath:compute/WorkloadTargetSelector:WorkloadTargetSelector": {
             "properties": {
                 "key": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "operator": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "values": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -2713,73 +1748,33 @@
         "stackpath:compute/WorkloadVirtualMachine:WorkloadVirtualMachine": {
             "properties": {
                 "image": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "livenessProbe": {
-                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineLivenessProbe:WorkloadVirtualMachineLivenessProbe",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineLivenessProbe:WorkloadVirtualMachineLivenessProbe"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "ports": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadVirtualMachinePort:WorkloadVirtualMachinePort"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "readinessProbe": {
-                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineReadinessProbe:WorkloadVirtualMachineReadinessProbe",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineReadinessProbe:WorkloadVirtualMachineReadinessProbe"
                 },
                 "resources": {
-                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineResources:WorkloadVirtualMachineResources",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineResources:WorkloadVirtualMachineResources"
                 },
                 "userData": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "volumeMounts": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineVolumeMount:WorkloadVirtualMachineVolumeMount"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -2793,60 +1788,25 @@
         "stackpath:compute/WorkloadVirtualMachineLivenessProbe:WorkloadVirtualMachineLivenessProbe": {
             "properties": {
                 "failureThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "httpGet": {
-                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineLivenessProbeHttpGet:WorkloadVirtualMachineLivenessProbeHttpGet",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineLivenessProbeHttpGet:WorkloadVirtualMachineLivenessProbeHttpGet"
                 },
                 "initialDelaySeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "periodSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "successThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "tcpSocket": {
-                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineLivenessProbeTcpSocket:WorkloadVirtualMachineLivenessProbeTcpSocket",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineLivenessProbeTcpSocket:WorkloadVirtualMachineLivenessProbeTcpSocket"
                 },
                 "timeoutSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -2861,36 +1821,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "scheme": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2901,12 +1841,7 @@
         "stackpath:compute/WorkloadVirtualMachineLivenessProbeTcpSocket:WorkloadVirtualMachineLivenessProbeTcpSocket": {
             "properties": {
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -2917,36 +1852,16 @@
         "stackpath:compute/WorkloadVirtualMachinePort:WorkloadVirtualMachinePort": {
             "properties": {
                 "enableImplicitNetworkPolicy": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "boolean"
                 },
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "protocol": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -2958,60 +1873,25 @@
         "stackpath:compute/WorkloadVirtualMachineReadinessProbe:WorkloadVirtualMachineReadinessProbe": {
             "properties": {
                 "failureThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "httpGet": {
-                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineReadinessProbeHttpGet:WorkloadVirtualMachineReadinessProbeHttpGet",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineReadinessProbeHttpGet:WorkloadVirtualMachineReadinessProbeHttpGet"
                 },
                 "initialDelaySeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "periodSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "successThreshold": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "tcpSocket": {
-                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineReadinessProbeTcpSocket:WorkloadVirtualMachineReadinessProbeTcpSocket",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineReadinessProbeTcpSocket:WorkloadVirtualMachineReadinessProbeTcpSocket"
                 },
                 "timeoutSeconds": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -3026,36 +1906,16 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 },
                 "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 },
                 "scheme": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -3066,12 +1926,7 @@
         "stackpath:compute/WorkloadVirtualMachineReadinessProbeTcpSocket:WorkloadVirtualMachineReadinessProbeTcpSocket": {
             "properties": {
                 "port": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "integer"
                 }
             },
             "type": "object",
@@ -3085,11 +1940,6 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -3098,23 +1948,82 @@
                 "requests"
             ]
         },
+        "stackpath:compute/WorkloadVirtualMachineRuntimeEnvironment:WorkloadVirtualMachineRuntimeEnvironment": {
+            "properties": {
+                "dns": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineRuntimeEnvironmentDns:WorkloadVirtualMachineRuntimeEnvironmentDns"
+                }
+            },
+            "type": "object",
+            "required": [
+                "dns"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineRuntimeEnvironmentDns:WorkloadVirtualMachineRuntimeEnvironmentDns": {
+            "properties": {
+                "hostAliases": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias:WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias"
+                    }
+                },
+                "resolverConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig:WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias:WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias": {
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "hostnames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "address",
+                "hostnames"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig:WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig": {
+            "properties": {
+                "nameservers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "options": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "searches": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
         "stackpath:compute/WorkloadVirtualMachineVolumeMount:WorkloadVirtualMachineVolumeMount": {
             "properties": {
                 "mountPath": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "slug": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -3126,28 +2035,16 @@
         "stackpath:compute/WorkloadVolumeClaim:WorkloadVolumeClaim": {
             "properties": {
                 "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
                 },
                 "resources": {
-                    "$ref": "#/types/stackpath:compute/WorkloadVolumeClaimResources:WorkloadVolumeClaimResources",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "$ref": "#/types/stackpath:compute/WorkloadVolumeClaimResources:WorkloadVolumeClaimResources"
                 },
                 "slug": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
+                    "type": "string"
+                },
+                "storageClass": {
+                    "type": "string"
                 }
             },
             "type": "object",
@@ -3162,11 +2059,6 @@
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
-                    },
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
                     }
                 }
             },
@@ -3180,16 +2072,19 @@
         "description": "The provider type for the stackpath package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
         "properties": {
             "accessToken": {
-                "type": "string"
+                "type": "string",
+                "secret": true
             },
             "baseUrl": {
                 "type": "string"
             },
             "clientId": {
-                "type": "string"
+                "type": "string",
+                "secret": true
             },
             "clientSecret": {
-                "type": "string"
+                "type": "string",
+                "secret": true
             },
             "stackId": {
                 "type": "string"
@@ -3197,16 +2092,19 @@
         },
         "inputProperties": {
             "accessToken": {
-                "type": "string"
+                "type": "string",
+                "secret": true
             },
             "baseUrl": {
                 "type": "string"
             },
             "clientId": {
-                "type": "string"
+                "type": "string",
+                "secret": true
             },
             "clientSecret": {
-                "type": "string"
+                "type": "string",
+                "secret": true
             },
             "stackId": {
                 "type": "string"
@@ -3221,6 +2119,15 @@
                     "additionalProperties": {
                         "type": "string"
                     }
+                },
+                "ipFamilies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ipv6Subnet": {
+                    "type": "string"
                 },
                 "labels": {
                     "type": "object",
@@ -3245,6 +2152,7 @@
                 }
             },
             "required": [
+                "ipFamilies",
                 "name",
                 "rootSubnet",
                 "slug",
@@ -3257,6 +2165,15 @@
                     "additionalProperties": {
                         "type": "string"
                     }
+                },
+                "ipFamilies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ipv6Subnet": {
+                    "type": "string"
                 },
                 "labels": {
                     "type": "object",
@@ -3287,6 +2204,15 @@
                         "additionalProperties": {
                             "type": "string"
                         }
+                    },
+                    "ipFamilies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "ipv6Subnet": {
+                        "type": "string"
                     },
                     "labels": {
                         "type": "object",
@@ -3640,6 +2566,111 @@
                 "type": "object"
             }
         },
+        "stackpath:compute/networkSubnet:NetworkSubnet": {
+            "properties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "string"
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "networkId",
+                "prefix",
+                "slug",
+                "version"
+            ],
+            "inputProperties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "prefix": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "networkId",
+                "prefix"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkSubnet resources.\n",
+                "properties": {
+                    "annotations": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "networkId": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "prefix": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "version": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "stackpath:compute/workload:Workload": {
             "properties": {
                 "annotations": {
@@ -3647,6 +2678,9 @@
                     "additionalProperties": {
                         "type": "string"
                     }
+                },
+                "containerRuntimeEnvironment": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerRuntimeEnvironment:WorkloadContainerRuntimeEnvironment"
                 },
                 "containers": {
                     "type": "array",
@@ -3690,8 +2724,14 @@
                         "$ref": "#/types/stackpath:compute/WorkloadTarget:WorkloadTarget"
                     }
                 },
+                "version": {
+                    "type": "string"
+                },
                 "virtualMachine": {
                     "$ref": "#/types/stackpath:compute/WorkloadVirtualMachine:WorkloadVirtualMachine"
+                },
+                "virtualMachineRuntimeEnvironment": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineRuntimeEnvironment:WorkloadVirtualMachineRuntimeEnvironment"
                 },
                 "volumeClaims": {
                     "type": "array",
@@ -3706,7 +2746,8 @@
                 "name",
                 "networkInterfaces",
                 "slug",
-                "targets"
+                "targets",
+                "version"
             ],
             "inputProperties": {
                 "annotations": {
@@ -3714,6 +2755,9 @@
                     "additionalProperties": {
                         "type": "string"
                     }
+                },
+                "containerRuntimeEnvironment": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerRuntimeEnvironment:WorkloadContainerRuntimeEnvironment"
                 },
                 "containers": {
                     "type": "array",
@@ -3761,6 +2805,9 @@
                 "virtualMachine": {
                     "$ref": "#/types/stackpath:compute/WorkloadVirtualMachine:WorkloadVirtualMachine"
                 },
+                "virtualMachineRuntimeEnvironment": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineRuntimeEnvironment:WorkloadVirtualMachineRuntimeEnvironment"
+                },
                 "volumeClaims": {
                     "type": "array",
                     "items": {
@@ -3781,6 +2828,9 @@
                         "additionalProperties": {
                             "type": "string"
                         }
+                    },
+                    "containerRuntimeEnvironment": {
+                        "$ref": "#/types/stackpath:compute/WorkloadContainerRuntimeEnvironment:WorkloadContainerRuntimeEnvironment"
                     },
                     "containers": {
                         "type": "array",
@@ -3825,8 +2875,14 @@
                             "$ref": "#/types/stackpath:compute/WorkloadTarget:WorkloadTarget"
                         }
                     },
+                    "version": {
+                        "type": "string"
+                    },
                     "virtualMachine": {
                         "$ref": "#/types/stackpath:compute/WorkloadVirtualMachine:WorkloadVirtualMachine"
+                    },
+                    "virtualMachineRuntimeEnvironment": {
+                        "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineRuntimeEnvironment:WorkloadVirtualMachineRuntimeEnvironment"
                     },
                     "volumeClaims": {
                         "type": "array",

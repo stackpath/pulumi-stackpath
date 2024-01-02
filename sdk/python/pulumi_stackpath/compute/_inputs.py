@@ -50,6 +50,13 @@ __all__ = [
     'WorkloadContainerReadinessProbeHttpGetArgs',
     'WorkloadContainerReadinessProbeTcpSocketArgs',
     'WorkloadContainerResourcesArgs',
+    'WorkloadContainerRuntimeEnvironmentArgs',
+    'WorkloadContainerRuntimeEnvironmentDnsArgs',
+    'WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs',
+    'WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs',
+    'WorkloadContainerRuntimeEnvironmentSecurityContextArgs',
+    'WorkloadContainerSecurityContextArgs',
+    'WorkloadContainerSecurityContextCapabilitiesArgs',
     'WorkloadContainerVolumeMountArgs',
     'WorkloadImagePullCredentialArgs',
     'WorkloadImagePullCredentialDockerRegistryArgs',
@@ -64,6 +71,8 @@ __all__ = [
     'WorkloadInstanceContainerReadinessProbeHttpGetArgs',
     'WorkloadInstanceContainerReadinessProbeTcpSocketArgs',
     'WorkloadInstanceContainerResourcesArgs',
+    'WorkloadInstanceContainerSecurityContextArgs',
+    'WorkloadInstanceContainerSecurityContextCapabilitiesArgs',
     'WorkloadInstanceContainerVolumeMountArgs',
     'WorkloadInstanceLocationArgs',
     'WorkloadInstanceMetadataArgs',
@@ -92,6 +101,10 @@ __all__ = [
     'WorkloadVirtualMachineReadinessProbeHttpGetArgs',
     'WorkloadVirtualMachineReadinessProbeTcpSocketArgs',
     'WorkloadVirtualMachineResourcesArgs',
+    'WorkloadVirtualMachineRuntimeEnvironmentArgs',
+    'WorkloadVirtualMachineRuntimeEnvironmentDnsArgs',
+    'WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs',
+    'WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs',
     'WorkloadVirtualMachineVolumeMountArgs',
     'WorkloadVolumeClaimArgs',
     'WorkloadVolumeClaimResourcesArgs',
@@ -1032,6 +1045,7 @@ class WorkloadContainerArgs:
                  liveness_probe: Optional[pulumi.Input['WorkloadContainerLivenessProbeArgs']] = None,
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerPortArgs']]]] = None,
                  readiness_probe: Optional[pulumi.Input['WorkloadContainerReadinessProbeArgs']] = None,
+                 security_context: Optional[pulumi.Input['WorkloadContainerSecurityContextArgs']] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerVolumeMountArgs']]]] = None):
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -1046,6 +1060,8 @@ class WorkloadContainerArgs:
             pulumi.set(__self__, "ports", ports)
         if readiness_probe is not None:
             pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
         if volume_mounts is not None:
             pulumi.set(__self__, "volume_mounts", volume_mounts)
 
@@ -1120,6 +1136,15 @@ class WorkloadContainerArgs:
     @readiness_probe.setter
     def readiness_probe(self, value: Optional[pulumi.Input['WorkloadContainerReadinessProbeArgs']]):
         pulumi.set(self, "readiness_probe", value)
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional[pulumi.Input['WorkloadContainerSecurityContextArgs']]:
+        return pulumi.get(self, "security_context")
+
+    @security_context.setter
+    def security_context(self, value: Optional[pulumi.Input['WorkloadContainerSecurityContextArgs']]):
+        pulumi.set(self, "security_context", value)
 
     @property
     @pulumi.getter(name="volumeMounts")
@@ -1549,6 +1574,326 @@ class WorkloadContainerResourcesArgs:
 
 
 @pulumi.input_type
+class WorkloadContainerRuntimeEnvironmentArgs:
+    def __init__(__self__, *,
+                 dns: pulumi.Input['WorkloadContainerRuntimeEnvironmentDnsArgs'],
+                 security_context: Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentSecurityContextArgs']] = None,
+                 share_process_namespace: Optional[pulumi.Input[bool]] = None,
+                 termination_grace_period_seconds: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "dns", dns)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
+        if share_process_namespace is not None:
+            pulumi.set(__self__, "share_process_namespace", share_process_namespace)
+        if termination_grace_period_seconds is not None:
+            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+
+    @property
+    @pulumi.getter
+    def dns(self) -> pulumi.Input['WorkloadContainerRuntimeEnvironmentDnsArgs']:
+        return pulumi.get(self, "dns")
+
+    @dns.setter
+    def dns(self, value: pulumi.Input['WorkloadContainerRuntimeEnvironmentDnsArgs']):
+        pulumi.set(self, "dns", value)
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentSecurityContextArgs']]:
+        return pulumi.get(self, "security_context")
+
+    @security_context.setter
+    def security_context(self, value: Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentSecurityContextArgs']]):
+        pulumi.set(self, "security_context", value)
+
+    @property
+    @pulumi.getter(name="shareProcessNamespace")
+    def share_process_namespace(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "share_process_namespace")
+
+    @share_process_namespace.setter
+    def share_process_namespace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "share_process_namespace", value)
+
+    @property
+    @pulumi.getter(name="terminationGracePeriodSeconds")
+    def termination_grace_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "termination_grace_period_seconds")
+
+    @termination_grace_period_seconds.setter
+    def termination_grace_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "termination_grace_period_seconds", value)
+
+
+@pulumi.input_type
+class WorkloadContainerRuntimeEnvironmentDnsArgs:
+    def __init__(__self__, *,
+                 host_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs']]]] = None,
+                 resolver_configs: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs']]]] = None):
+        if host_aliases is not None:
+            pulumi.set(__self__, "host_aliases", host_aliases)
+        if resolver_configs is not None:
+            pulumi.set(__self__, "resolver_configs", resolver_configs)
+
+    @property
+    @pulumi.getter(name="hostAliases")
+    def host_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs']]]]:
+        return pulumi.get(self, "host_aliases")
+
+    @host_aliases.setter
+    def host_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs']]]]):
+        pulumi.set(self, "host_aliases", value)
+
+    @property
+    @pulumi.getter(name="resolverConfigs")
+    def resolver_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs']]]]:
+        return pulumi.get(self, "resolver_configs")
+
+    @resolver_configs.setter
+    def resolver_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs']]]]):
+        pulumi.set(self, "resolver_configs", value)
+
+
+@pulumi.input_type
+class WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[str],
+                 hostnames: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "hostnames", hostnames)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def hostnames(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "hostnames")
+
+    @hostnames.setter
+    def hostnames(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "hostnames", value)
+
+
+@pulumi.input_type
+class WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs:
+    def __init__(__self__, *,
+                 nameservers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if nameservers is not None:
+            pulumi.set(__self__, "nameservers", nameservers)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if searches is not None:
+            pulumi.set(__self__, "searches", searches)
+
+    @property
+    @pulumi.getter
+    def nameservers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "nameservers")
+
+    @nameservers.setter
+    def nameservers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "nameservers", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter
+    def searches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "searches")
+
+    @searches.setter
+    def searches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "searches", value)
+
+
+@pulumi.input_type
+class WorkloadContainerRuntimeEnvironmentSecurityContextArgs:
+    def __init__(__self__, *,
+                 run_as_group: Optional[pulumi.Input[str]] = None,
+                 run_as_non_root: Optional[pulumi.Input[bool]] = None,
+                 run_as_user: Optional[pulumi.Input[str]] = None,
+                 supplemental_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sysctl: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_non_root is not None:
+            pulumi.set(__self__, "run_as_non_root", run_as_non_root)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+        if supplemental_groups is not None:
+            pulumi.set(__self__, "supplemental_groups", supplemental_groups)
+        if sysctl is not None:
+            pulumi.set(__self__, "sysctl", sysctl)
+
+    @property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_group")
+
+    @run_as_group.setter
+    def run_as_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_group", value)
+
+    @property
+    @pulumi.getter(name="runAsNonRoot")
+    def run_as_non_root(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "run_as_non_root")
+
+    @run_as_non_root.setter
+    def run_as_non_root(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_as_non_root", value)
+
+    @property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_user")
+
+    @run_as_user.setter
+    def run_as_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_user", value)
+
+    @property
+    @pulumi.getter(name="supplementalGroups")
+    def supplemental_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "supplemental_groups")
+
+    @supplemental_groups.setter
+    def supplemental_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supplemental_groups", value)
+
+    @property
+    @pulumi.getter
+    def sysctl(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "sysctl")
+
+    @sysctl.setter
+    def sysctl(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "sysctl", value)
+
+
+@pulumi.input_type
+class WorkloadContainerSecurityContextArgs:
+    def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[pulumi.Input[bool]] = None,
+                 capabilities: Optional[pulumi.Input['WorkloadContainerSecurityContextCapabilitiesArgs']] = None,
+                 read_only_root_filesystem: Optional[pulumi.Input[bool]] = None,
+                 run_as_group: Optional[pulumi.Input[str]] = None,
+                 run_as_non_root: Optional[pulumi.Input[bool]] = None,
+                 run_as_user: Optional[pulumi.Input[str]] = None):
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if read_only_root_filesystem is not None:
+            pulumi.set(__self__, "read_only_root_filesystem", read_only_root_filesystem)
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_non_root is not None:
+            pulumi.set(__self__, "run_as_non_root", run_as_non_root)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_privilege_escalation")
+
+    @allow_privilege_escalation.setter
+    def allow_privilege_escalation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_privilege_escalation", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input['WorkloadContainerSecurityContextCapabilitiesArgs']]:
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input['WorkloadContainerSecurityContextCapabilitiesArgs']]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter(name="readOnlyRootFilesystem")
+    def read_only_root_filesystem(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "read_only_root_filesystem")
+
+    @read_only_root_filesystem.setter
+    def read_only_root_filesystem(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only_root_filesystem", value)
+
+    @property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_group")
+
+    @run_as_group.setter
+    def run_as_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_group", value)
+
+    @property
+    @pulumi.getter(name="runAsNonRoot")
+    def run_as_non_root(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "run_as_non_root")
+
+    @run_as_non_root.setter
+    def run_as_non_root(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_as_non_root", value)
+
+    @property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_user")
+
+    @run_as_user.setter
+    def run_as_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_user", value)
+
+
+@pulumi.input_type
+class WorkloadContainerSecurityContextCapabilitiesArgs:
+    def __init__(__self__, *,
+                 adds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 drops: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if adds is not None:
+            pulumi.set(__self__, "adds", adds)
+        if drops is not None:
+            pulumi.set(__self__, "drops", drops)
+
+    @property
+    @pulumi.getter
+    def adds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "adds")
+
+    @adds.setter
+    def adds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "adds", value)
+
+    @property
+    @pulumi.getter
+    def drops(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "drops")
+
+    @drops.setter
+    def drops(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "drops", value)
+
+
+@pulumi.input_type
 class WorkloadContainerVolumeMountArgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[str],
@@ -1648,7 +1993,9 @@ class WorkloadInstanceArgs:
                  name: pulumi.Input[str],
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceContainerArgs']]]] = None,
                  external_ip_address: Optional[pulumi.Input[str]] = None,
+                 external_ipv6_address: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
+                 ipv6_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input['WorkloadInstanceLocationArgs']] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input['WorkloadInstanceMetadataArgs']] = None,
@@ -1661,8 +2008,12 @@ class WorkloadInstanceArgs:
             pulumi.set(__self__, "containers", containers)
         if external_ip_address is not None:
             pulumi.set(__self__, "external_ip_address", external_ip_address)
+        if external_ipv6_address is not None:
+            pulumi.set(__self__, "external_ipv6_address", external_ipv6_address)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if ipv6_address is not None:
+            pulumi.set(__self__, "ipv6_address", ipv6_address)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if message is not None:
@@ -1706,6 +2057,15 @@ class WorkloadInstanceArgs:
         pulumi.set(self, "external_ip_address", value)
 
     @property
+    @pulumi.getter(name="externalIpv6Address")
+    def external_ipv6_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "external_ipv6_address")
+
+    @external_ipv6_address.setter
+    def external_ipv6_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_ipv6_address", value)
+
+    @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "ip_address")
@@ -1713,6 +2073,15 @@ class WorkloadInstanceArgs:
     @ip_address.setter
     def ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_address", value)
 
     @property
     @pulumi.getter
@@ -1789,6 +2158,7 @@ class WorkloadInstanceContainerArgs:
                  liveness_probe: Optional[pulumi.Input['WorkloadInstanceContainerLivenessProbeArgs']] = None,
                  ports: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceContainerPortArgs']]]] = None,
                  readiness_probe: Optional[pulumi.Input['WorkloadInstanceContainerReadinessProbeArgs']] = None,
+                 security_context: Optional[pulumi.Input['WorkloadInstanceContainerSecurityContextArgs']] = None,
                  volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceContainerVolumeMountArgs']]]] = None):
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -1803,6 +2173,8 @@ class WorkloadInstanceContainerArgs:
             pulumi.set(__self__, "ports", ports)
         if readiness_probe is not None:
             pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
         if volume_mounts is not None:
             pulumi.set(__self__, "volume_mounts", volume_mounts)
 
@@ -1877,6 +2249,15 @@ class WorkloadInstanceContainerArgs:
     @readiness_probe.setter
     def readiness_probe(self, value: Optional[pulumi.Input['WorkloadInstanceContainerReadinessProbeArgs']]):
         pulumi.set(self, "readiness_probe", value)
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional[pulumi.Input['WorkloadInstanceContainerSecurityContextArgs']]:
+        return pulumi.get(self, "security_context")
+
+    @security_context.setter
+    def security_context(self, value: Optional[pulumi.Input['WorkloadInstanceContainerSecurityContextArgs']]):
+        pulumi.set(self, "security_context", value)
 
     @property
     @pulumi.getter(name="volumeMounts")
@@ -2306,6 +2687,112 @@ class WorkloadInstanceContainerResourcesArgs:
 
 
 @pulumi.input_type
+class WorkloadInstanceContainerSecurityContextArgs:
+    def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[pulumi.Input[bool]] = None,
+                 capabilities: Optional[pulumi.Input['WorkloadInstanceContainerSecurityContextCapabilitiesArgs']] = None,
+                 read_only_root_filesystem: Optional[pulumi.Input[bool]] = None,
+                 run_as_group: Optional[pulumi.Input[str]] = None,
+                 run_as_non_root: Optional[pulumi.Input[bool]] = None,
+                 run_as_user: Optional[pulumi.Input[str]] = None):
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if read_only_root_filesystem is not None:
+            pulumi.set(__self__, "read_only_root_filesystem", read_only_root_filesystem)
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_non_root is not None:
+            pulumi.set(__self__, "run_as_non_root", run_as_non_root)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_privilege_escalation")
+
+    @allow_privilege_escalation.setter
+    def allow_privilege_escalation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_privilege_escalation", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input['WorkloadInstanceContainerSecurityContextCapabilitiesArgs']]:
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input['WorkloadInstanceContainerSecurityContextCapabilitiesArgs']]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter(name="readOnlyRootFilesystem")
+    def read_only_root_filesystem(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "read_only_root_filesystem")
+
+    @read_only_root_filesystem.setter
+    def read_only_root_filesystem(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only_root_filesystem", value)
+
+    @property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_group")
+
+    @run_as_group.setter
+    def run_as_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_group", value)
+
+    @property
+    @pulumi.getter(name="runAsNonRoot")
+    def run_as_non_root(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "run_as_non_root")
+
+    @run_as_non_root.setter
+    def run_as_non_root(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_as_non_root", value)
+
+    @property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_user")
+
+    @run_as_user.setter
+    def run_as_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_user", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceContainerSecurityContextCapabilitiesArgs:
+    def __init__(__self__, *,
+                 adds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 drops: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if adds is not None:
+            pulumi.set(__self__, "adds", adds)
+        if drops is not None:
+            pulumi.set(__self__, "drops", drops)
+
+    @property
+    @pulumi.getter
+    def adds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "adds")
+
+    @adds.setter
+    def adds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "adds", value)
+
+    @property
+    @pulumi.getter
+    def drops(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "drops")
+
+    @drops.setter
+    def drops(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "drops", value)
+
+
+@pulumi.input_type
 class WorkloadInstanceContainerVolumeMountArgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[str],
@@ -2527,13 +3014,20 @@ class WorkloadInstanceNetworkInterfaceArgs:
     def __init__(__self__, *,
                  gateway: pulumi.Input[str],
                  ip_address: pulumi.Input[str],
+                 ipv6_address: pulumi.Input[str],
+                 ipv6_gateway: pulumi.Input[str],
                  network: pulumi.Input[str],
-                 ip_address_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 ip_address_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_address_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "gateway", gateway)
         pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "ipv6_address", ipv6_address)
+        pulumi.set(__self__, "ipv6_gateway", ipv6_gateway)
         pulumi.set(__self__, "network", network)
         if ip_address_aliases is not None:
             pulumi.set(__self__, "ip_address_aliases", ip_address_aliases)
+        if ipv6_address_aliases is not None:
+            pulumi.set(__self__, "ipv6_address_aliases", ipv6_address_aliases)
 
     @property
     @pulumi.getter
@@ -2554,6 +3048,24 @@ class WorkloadInstanceNetworkInterfaceArgs:
         pulumi.set(self, "ip_address", value)
 
     @property
+    @pulumi.getter(name="ipv6Address")
+    def ipv6_address(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ipv6_address")
+
+    @ipv6_address.setter
+    def ipv6_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ipv6_address", value)
+
+    @property
+    @pulumi.getter(name="ipv6Gateway")
+    def ipv6_gateway(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ipv6_gateway")
+
+    @ipv6_gateway.setter
+    def ipv6_gateway(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ipv6_gateway", value)
+
+    @property
     @pulumi.getter
     def network(self) -> pulumi.Input[str]:
         return pulumi.get(self, "network")
@@ -2570,6 +3082,15 @@ class WorkloadInstanceNetworkInterfaceArgs:
     @ip_address_aliases.setter
     def ip_address_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_address_aliases", value)
+
+    @property
+    @pulumi.getter(name="ipv6AddressAliases")
+    def ipv6_address_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "ipv6_address_aliases")
+
+    @ipv6_address_aliases.setter
+    def ipv6_address_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv6_address_aliases", value)
 
 
 @pulumi.input_type
@@ -3078,10 +3599,19 @@ class WorkloadInstanceVirtualMachineVolumeMountArgs:
 class WorkloadNetworkInterfaceArgs:
     def __init__(__self__, *,
                  network: pulumi.Input[str],
-                 enable_one_to_one_nat: Optional[pulumi.Input[bool]] = None):
+                 enable_one_to_one_nat: Optional[pulumi.Input[bool]] = None,
+                 ip_families: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_subnet: Optional[pulumi.Input[str]] = None,
+                 subnet: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "network", network)
         if enable_one_to_one_nat is not None:
             pulumi.set(__self__, "enable_one_to_one_nat", enable_one_to_one_nat)
+        if ip_families is not None:
+            pulumi.set(__self__, "ip_families", ip_families)
+        if ipv6_subnet is not None:
+            pulumi.set(__self__, "ipv6_subnet", ipv6_subnet)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
 
     @property
     @pulumi.getter
@@ -3100,6 +3630,33 @@ class WorkloadNetworkInterfaceArgs:
     @enable_one_to_one_nat.setter
     def enable_one_to_one_nat(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_one_to_one_nat", value)
+
+    @property
+    @pulumi.getter(name="ipFamilies")
+    def ip_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "ip_families")
+
+    @ip_families.setter
+    def ip_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_families", value)
+
+    @property
+    @pulumi.getter(name="ipv6Subnet")
+    def ipv6_subnet(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_subnet")
+
+    @ipv6_subnet.setter
+    def ipv6_subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_subnet", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet", value)
 
 
 @pulumi.input_type
@@ -3746,6 +4303,119 @@ class WorkloadVirtualMachineResourcesArgs:
 
 
 @pulumi.input_type
+class WorkloadVirtualMachineRuntimeEnvironmentArgs:
+    def __init__(__self__, *,
+                 dns: pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentDnsArgs']):
+        pulumi.set(__self__, "dns", dns)
+
+    @property
+    @pulumi.getter
+    def dns(self) -> pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentDnsArgs']:
+        return pulumi.get(self, "dns")
+
+    @dns.setter
+    def dns(self, value: pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentDnsArgs']):
+        pulumi.set(self, "dns", value)
+
+
+@pulumi.input_type
+class WorkloadVirtualMachineRuntimeEnvironmentDnsArgs:
+    def __init__(__self__, *,
+                 host_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs']]]] = None,
+                 resolver_configs: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs']]]] = None):
+        if host_aliases is not None:
+            pulumi.set(__self__, "host_aliases", host_aliases)
+        if resolver_configs is not None:
+            pulumi.set(__self__, "resolver_configs", resolver_configs)
+
+    @property
+    @pulumi.getter(name="hostAliases")
+    def host_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs']]]]:
+        return pulumi.get(self, "host_aliases")
+
+    @host_aliases.setter
+    def host_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs']]]]):
+        pulumi.set(self, "host_aliases", value)
+
+    @property
+    @pulumi.getter(name="resolverConfigs")
+    def resolver_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs']]]]:
+        return pulumi.get(self, "resolver_configs")
+
+    @resolver_configs.setter
+    def resolver_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs']]]]):
+        pulumi.set(self, "resolver_configs", value)
+
+
+@pulumi.input_type
+class WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[str],
+                 hostnames: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "hostnames", hostnames)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def hostnames(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "hostnames")
+
+    @hostnames.setter
+    def hostnames(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "hostnames", value)
+
+
+@pulumi.input_type
+class WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs:
+    def __init__(__self__, *,
+                 nameservers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if nameservers is not None:
+            pulumi.set(__self__, "nameservers", nameservers)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if searches is not None:
+            pulumi.set(__self__, "searches", searches)
+
+    @property
+    @pulumi.getter
+    def nameservers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "nameservers")
+
+    @nameservers.setter
+    def nameservers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "nameservers", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter
+    def searches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "searches")
+
+    @searches.setter
+    def searches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "searches", value)
+
+
+@pulumi.input_type
 class WorkloadVirtualMachineVolumeMountArgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[str],
@@ -3777,11 +4447,14 @@ class WorkloadVolumeClaimArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  resources: pulumi.Input['WorkloadVolumeClaimResourcesArgs'],
-                 slug: Optional[pulumi.Input[str]] = None):
+                 slug: Optional[pulumi.Input[str]] = None,
+                 storage_class: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
         if slug is not None:
             pulumi.set(__self__, "slug", slug)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
 
     @property
     @pulumi.getter
@@ -3809,6 +4482,15 @@ class WorkloadVolumeClaimArgs:
     @slug.setter
     def slug(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "slug", value)
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_class", value)
 
 
 @pulumi.input_type

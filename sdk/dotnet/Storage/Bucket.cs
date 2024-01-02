@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Storage
+namespace Stackpath.Stackpath.Storage
 {
     [StackpathResourceType("stackpath:storage/bucket:Bucket")]
     public partial class Bucket : global::Pulumi.CustomResource
@@ -47,6 +48,7 @@ namespace Pulumi.Stackpath.Storage
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

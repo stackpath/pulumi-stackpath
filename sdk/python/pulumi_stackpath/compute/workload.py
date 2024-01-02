@@ -20,12 +20,14 @@ class WorkloadArgs:
                  slug: pulumi.Input[str],
                  targets: pulumi.Input[Sequence[pulumi.Input['WorkloadTargetArgs']]],
                  annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 container_runtime_environment: Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentArgs']] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerArgs']]]] = None,
                  image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadImagePullCredentialArgs']]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceArgs']]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  virtual_machine: Optional[pulumi.Input['WorkloadVirtualMachineArgs']] = None,
+                 virtual_machine_runtime_environment: Optional[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentArgs']] = None,
                  volume_claims: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVolumeClaimArgs']]]] = None):
         """
         The set of arguments for constructing a Workload resource.
@@ -35,6 +37,8 @@ class WorkloadArgs:
         pulumi.set(__self__, "targets", targets)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if container_runtime_environment is not None:
+            pulumi.set(__self__, "container_runtime_environment", container_runtime_environment)
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
         if image_pull_credentials is not None:
@@ -47,6 +51,8 @@ class WorkloadArgs:
             pulumi.set(__self__, "name", name)
         if virtual_machine is not None:
             pulumi.set(__self__, "virtual_machine", virtual_machine)
+        if virtual_machine_runtime_environment is not None:
+            pulumi.set(__self__, "virtual_machine_runtime_environment", virtual_machine_runtime_environment)
         if volume_claims is not None:
             pulumi.set(__self__, "volume_claims", volume_claims)
 
@@ -85,6 +91,15 @@ class WorkloadArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="containerRuntimeEnvironment")
+    def container_runtime_environment(self) -> Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentArgs']]:
+        return pulumi.get(self, "container_runtime_environment")
+
+    @container_runtime_environment.setter
+    def container_runtime_environment(self, value: Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentArgs']]):
+        pulumi.set(self, "container_runtime_environment", value)
 
     @property
     @pulumi.getter
@@ -141,6 +156,15 @@ class WorkloadArgs:
         pulumi.set(self, "virtual_machine", value)
 
     @property
+    @pulumi.getter(name="virtualMachineRuntimeEnvironment")
+    def virtual_machine_runtime_environment(self) -> Optional[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentArgs']]:
+        return pulumi.get(self, "virtual_machine_runtime_environment")
+
+    @virtual_machine_runtime_environment.setter
+    def virtual_machine_runtime_environment(self, value: Optional[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentArgs']]):
+        pulumi.set(self, "virtual_machine_runtime_environment", value)
+
+    @property
     @pulumi.getter(name="volumeClaims")
     def volume_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVolumeClaimArgs']]]]:
         return pulumi.get(self, "volume_claims")
@@ -154,6 +178,7 @@ class WorkloadArgs:
 class _WorkloadState:
     def __init__(__self__, *,
                  annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 container_runtime_environment: Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentArgs']] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerArgs']]]] = None,
                  image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadImagePullCredentialArgs']]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceArgs']]]] = None,
@@ -162,13 +187,17 @@ class _WorkloadState:
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadNetworkInterfaceArgs']]]] = None,
                  slug: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadTargetArgs']]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  virtual_machine: Optional[pulumi.Input['WorkloadVirtualMachineArgs']] = None,
+                 virtual_machine_runtime_environment: Optional[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentArgs']] = None,
                  volume_claims: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVolumeClaimArgs']]]] = None):
         """
         Input properties used for looking up and filtering Workload resources.
         """
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if container_runtime_environment is not None:
+            pulumi.set(__self__, "container_runtime_environment", container_runtime_environment)
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
         if image_pull_credentials is not None:
@@ -185,8 +214,12 @@ class _WorkloadState:
             pulumi.set(__self__, "slug", slug)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if virtual_machine is not None:
             pulumi.set(__self__, "virtual_machine", virtual_machine)
+        if virtual_machine_runtime_environment is not None:
+            pulumi.set(__self__, "virtual_machine_runtime_environment", virtual_machine_runtime_environment)
         if volume_claims is not None:
             pulumi.set(__self__, "volume_claims", volume_claims)
 
@@ -198,6 +231,15 @@ class _WorkloadState:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="containerRuntimeEnvironment")
+    def container_runtime_environment(self) -> Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentArgs']]:
+        return pulumi.get(self, "container_runtime_environment")
+
+    @container_runtime_environment.setter
+    def container_runtime_environment(self, value: Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentArgs']]):
+        pulumi.set(self, "container_runtime_environment", value)
 
     @property
     @pulumi.getter
@@ -272,6 +314,15 @@ class _WorkloadState:
         pulumi.set(self, "targets", value)
 
     @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+    @property
     @pulumi.getter(name="virtualMachine")
     def virtual_machine(self) -> Optional[pulumi.Input['WorkloadVirtualMachineArgs']]:
         return pulumi.get(self, "virtual_machine")
@@ -279,6 +330,15 @@ class _WorkloadState:
     @virtual_machine.setter
     def virtual_machine(self, value: Optional[pulumi.Input['WorkloadVirtualMachineArgs']]):
         pulumi.set(self, "virtual_machine", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineRuntimeEnvironment")
+    def virtual_machine_runtime_environment(self) -> Optional[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentArgs']]:
+        return pulumi.get(self, "virtual_machine_runtime_environment")
+
+    @virtual_machine_runtime_environment.setter
+    def virtual_machine_runtime_environment(self, value: Optional[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentArgs']]):
+        pulumi.set(self, "virtual_machine_runtime_environment", value)
 
     @property
     @pulumi.getter(name="volumeClaims")
@@ -296,6 +356,7 @@ class Workload(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 container_runtime_environment: Optional[pulumi.Input[pulumi.InputType['WorkloadContainerRuntimeEnvironmentArgs']]] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadContainerArgs']]]]] = None,
                  image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadImagePullCredentialArgs']]]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadInstanceArgs']]]]] = None,
@@ -305,6 +366,7 @@ class Workload(pulumi.CustomResource):
                  slug: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadTargetArgs']]]]] = None,
                  virtual_machine: Optional[pulumi.Input[pulumi.InputType['WorkloadVirtualMachineArgs']]] = None,
+                 virtual_machine_runtime_environment: Optional[pulumi.Input[pulumi.InputType['WorkloadVirtualMachineRuntimeEnvironmentArgs']]] = None,
                  volume_claims: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadVolumeClaimArgs']]]]] = None,
                  __props__=None):
         """
@@ -336,6 +398,7 @@ class Workload(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 container_runtime_environment: Optional[pulumi.Input[pulumi.InputType['WorkloadContainerRuntimeEnvironmentArgs']]] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadContainerArgs']]]]] = None,
                  image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadImagePullCredentialArgs']]]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadInstanceArgs']]]]] = None,
@@ -345,6 +408,7 @@ class Workload(pulumi.CustomResource):
                  slug: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadTargetArgs']]]]] = None,
                  virtual_machine: Optional[pulumi.Input[pulumi.InputType['WorkloadVirtualMachineArgs']]] = None,
+                 virtual_machine_runtime_environment: Optional[pulumi.Input[pulumi.InputType['WorkloadVirtualMachineRuntimeEnvironmentArgs']]] = None,
                  volume_claims: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadVolumeClaimArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -356,6 +420,7 @@ class Workload(pulumi.CustomResource):
             __props__ = WorkloadArgs.__new__(WorkloadArgs)
 
             __props__.__dict__["annotations"] = annotations
+            __props__.__dict__["container_runtime_environment"] = container_runtime_environment
             __props__.__dict__["containers"] = containers
             __props__.__dict__["image_pull_credentials"] = image_pull_credentials
             __props__.__dict__["instances"] = instances
@@ -371,7 +436,9 @@ class Workload(pulumi.CustomResource):
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
             __props__.__dict__["virtual_machine"] = virtual_machine
+            __props__.__dict__["virtual_machine_runtime_environment"] = virtual_machine_runtime_environment
             __props__.__dict__["volume_claims"] = volume_claims
+            __props__.__dict__["version"] = None
         super(Workload, __self__).__init__(
             'stackpath:compute/workload:Workload',
             resource_name,
@@ -383,6 +450,7 @@ class Workload(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            container_runtime_environment: Optional[pulumi.Input[pulumi.InputType['WorkloadContainerRuntimeEnvironmentArgs']]] = None,
             containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadContainerArgs']]]]] = None,
             image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadImagePullCredentialArgs']]]]] = None,
             instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadInstanceArgs']]]]] = None,
@@ -391,7 +459,9 @@ class Workload(pulumi.CustomResource):
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadNetworkInterfaceArgs']]]]] = None,
             slug: Optional[pulumi.Input[str]] = None,
             targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadTargetArgs']]]]] = None,
+            version: Optional[pulumi.Input[str]] = None,
             virtual_machine: Optional[pulumi.Input[pulumi.InputType['WorkloadVirtualMachineArgs']]] = None,
+            virtual_machine_runtime_environment: Optional[pulumi.Input[pulumi.InputType['WorkloadVirtualMachineRuntimeEnvironmentArgs']]] = None,
             volume_claims: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadVolumeClaimArgs']]]]] = None) -> 'Workload':
         """
         Get an existing Workload resource's state with the given name, id, and optional extra
@@ -406,6 +476,7 @@ class Workload(pulumi.CustomResource):
         __props__ = _WorkloadState.__new__(_WorkloadState)
 
         __props__.__dict__["annotations"] = annotations
+        __props__.__dict__["container_runtime_environment"] = container_runtime_environment
         __props__.__dict__["containers"] = containers
         __props__.__dict__["image_pull_credentials"] = image_pull_credentials
         __props__.__dict__["instances"] = instances
@@ -414,7 +485,9 @@ class Workload(pulumi.CustomResource):
         __props__.__dict__["network_interfaces"] = network_interfaces
         __props__.__dict__["slug"] = slug
         __props__.__dict__["targets"] = targets
+        __props__.__dict__["version"] = version
         __props__.__dict__["virtual_machine"] = virtual_machine
+        __props__.__dict__["virtual_machine_runtime_environment"] = virtual_machine_runtime_environment
         __props__.__dict__["volume_claims"] = volume_claims
         return Workload(resource_name, opts=opts, __props__=__props__)
 
@@ -422,6 +495,11 @@ class Workload(pulumi.CustomResource):
     @pulumi.getter
     def annotations(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="containerRuntimeEnvironment")
+    def container_runtime_environment(self) -> pulumi.Output[Optional['outputs.WorkloadContainerRuntimeEnvironment']]:
+        return pulumi.get(self, "container_runtime_environment")
 
     @property
     @pulumi.getter
@@ -464,9 +542,19 @@ class Workload(pulumi.CustomResource):
         return pulumi.get(self, "targets")
 
     @property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "version")
+
+    @property
     @pulumi.getter(name="virtualMachine")
     def virtual_machine(self) -> pulumi.Output[Optional['outputs.WorkloadVirtualMachine']]:
         return pulumi.get(self, "virtual_machine")
+
+    @property
+    @pulumi.getter(name="virtualMachineRuntimeEnvironment")
+    def virtual_machine_runtime_environment(self) -> pulumi.Output[Optional['outputs.WorkloadVirtualMachineRuntimeEnvironment']]:
+        return pulumi.get(self, "virtual_machine_runtime_environment")
 
     @property
     @pulumi.getter(name="volumeClaims")

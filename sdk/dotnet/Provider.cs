@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath
+namespace Stackpath.Stackpath
 {
     /// <summary>
     /// The provider type for the stackpath package. By default, resources use package-wide configuration
@@ -51,6 +52,13 @@ namespace Pulumi.Stackpath
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}",
+                AdditionalSecretOutputs =
+                {
+                    "accessToken",
+                    "clientId",
+                    "clientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -62,16 +70,43 @@ namespace Pulumi.Stackpath
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        private Input<string>? _accessToken;
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("baseUrl")]
         public Input<string>? BaseUrl { get; set; }
 
         [Input("clientId")]
-        public Input<string>? ClientId { get; set; }
+        private Input<string>? _clientId;
+        public Input<string>? ClientId
+        {
+            get => _clientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        private Input<string>? _clientSecret;
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("stackId")]
         public Input<string>? StackId { get; set; }

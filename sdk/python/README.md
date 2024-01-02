@@ -1,10 +1,9 @@
 # Terraform Bridge Provider Boilerplate
 
-<!-- markdownlint-disable -->
+This repository contains boilerplate code for building a new Pulumi provider which wraps an existing Terraform provider.  
 
-This repository contains boilerplate code for building a new Pulumi provider which wraps an existing Terraform provider.
+## Background
 
-### Background
 This repository is part of the [guide for authoring and publishing a Pulumi Package](https://www.pulumi.com/docs/guides/pulumi-packages/how-to-author).
 
 Learn about the concepts behind [Pulumi Packages](https://www.pulumi.com/docs/guides/pulumi-packages/#pulumi-packages).
@@ -12,6 +11,7 @@ Learn about the concepts behind [Pulumi Packages](https://www.pulumi.com/docs/gu
 ## Creating a Pulumi Terraform Bridge Provider
 
 The following instructions cover:
+
 - providers maintained by Pulumi (denoted with a "Pulumi Official" checkmark on the Pulumi registry)
 - providers published and maintained by the Pulumi community, referred to as "third-party" providers
 
@@ -52,17 +52,17 @@ From the templated repository:
     ```
 
    This will do the following:
-   - rename folders in `provider/cmd` to `pulumi-resource-foo` and `pulumi-tfgen-foo`
-   - replace dependencies in `provider/go.mod` to reflect your repository name
-   - find and replace all instances of the boilerplate `foo` with the `NAME` of your provider.
+   * rename folders in `provider/cmd` to `pulumi-resource-foo` and `pulumi-tfgen-foo`
+   * replace dependencies in `provider/go.mod` to reflect your repository name
+   * find and replace all instances of the boilerplate `stackpath` with the `NAME` of your provider.
 
    Note for third-party providers:
-   - Make sure to set the correct GitHub organization/username in all files referencing your provider as a dependency:
-     - `examples/go.mod`
-     - `provider/resources.go`
-     - `sdk/go.mod`
-     - `provider/cmd/pulumi-resource-foo/main.go`
-     - `provider/cmd/pulumi-tfgen-foo/main.go`
+   * Make sure to set the correct GitHub organization/username in all files referencing your provider as a dependency:
+     * `examples/go.mod`
+     * `provider/resources.go`
+     * `sdk/go.mod`
+     * `provider/cmd/pulumi-resource-foo/main.go`
+     * `provider/cmd/pulumi-tfgen-foo/main.go`
 
 2. Modify `README-PROVIDER.md` to include the following (we'll rename it to `README.md` toward the end of this guide):
     * Any desired build status badges.
@@ -134,9 +134,11 @@ The following instructions all pertain to `provider/resources.go`, in the sectio
 
 1. **Add CSharpName (if necessary):** Dotnet does not allow for fields named the same as the enclosing type, which sometimes results in errors during the dotnet SDK build.
     If you see something like
+
     ```text
     error CS0542: 'ApiKey': member names cannot be the same as their enclosing type [/Users/guin/go/src/github.com/pulumi/pulumi-artifactory/sdk/dotnet/Pulumi.Artifactory.csproj]
     ```
+
     you'll want to give your Resource a CSharpName, which can have any value that makes sense:
 
     ```go

@@ -49,6 +49,14 @@ _utilities.register(
  },
  {
   "pkg": "stackpath",
+  "mod": "compute/networkSubnet",
+  "fqn": "pulumi_stackpath.compute",
+  "classes": {
+   "stackpath:compute/networkSubnet:NetworkSubnet": "NetworkSubnet"
+  }
+ },
+ {
+  "pkg": "stackpath",
   "mod": "compute/workload",
   "fqn": "pulumi_stackpath.compute",
   "classes": {

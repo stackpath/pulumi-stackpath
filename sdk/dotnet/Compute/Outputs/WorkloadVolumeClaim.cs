@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Outputs
+namespace Stackpath.Stackpath.Compute.Outputs
 {
 
     [OutputType]
@@ -16,6 +17,7 @@ namespace Pulumi.Stackpath.Compute.Outputs
         public readonly string Name;
         public readonly Outputs.WorkloadVolumeClaimResources Resources;
         public readonly string? Slug;
+        public readonly string? StorageClass;
 
         [OutputConstructor]
         private WorkloadVolumeClaim(
@@ -23,11 +25,14 @@ namespace Pulumi.Stackpath.Compute.Outputs
 
             Outputs.WorkloadVolumeClaimResources resources,
 
-            string? slug)
+            string? slug,
+
+            string? storageClass)
         {
             Name = name;
             Resources = resources;
             Slug = slug;
+            StorageClass = storageClass;
         }
     }
 }

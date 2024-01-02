@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath/internal"
 )
 
 // The provider type for the stackpath package. By default, resources use package-wide configuration
@@ -31,6 +32,22 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
+	if args.AccessToken != nil {
+		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringPtrInput)
+	}
+	if args.ClientId != nil {
+		args.ClientId = pulumi.ToSecret(args.ClientId).(pulumi.StringPtrInput)
+	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessToken",
+		"clientId",
+		"clientSecret",
+	})
+	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:stackpath", name, args, &resource, opts...)
 	if err != nil {

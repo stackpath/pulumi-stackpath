@@ -1,5 +1,5 @@
 {
-    "name": "@pulumi/stackpath",
+    "name": "@stackpath/pulumi-stackpath",
     "version": "${VERSION}",
     "description": "A Pulumi package for creating and managing stackpath cloud resources.",
     "keywords": [
@@ -11,8 +11,7 @@
     "repository": "https://github.com/stackpath/pulumi-stackpath",
     "license": "Apache-2.0",
     "scripts": {
-        "build": "tsc",
-        "install": "node scripts/install-pulumi-plugin.js resource stackpath ${VERSION}"
+        "build": "tsc"
     },
     "dependencies": {
         "@pulumi/pulumi": "^3.0.0"
@@ -24,6 +23,7 @@
     },
     "pulumi": {
         "resource": true,
-        "name": "stackpath"
+        "name": "stackpath",
+        "server": "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}"
     }
 }

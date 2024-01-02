@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Inputs
+namespace Stackpath.Stackpath.Compute.Inputs
 {
 
     public sealed class WorkloadVolumeClaimArgs : global::Pulumi.ResourceArgs
@@ -20,6 +21,9 @@ namespace Pulumi.Stackpath.Compute.Inputs
 
         [Input("slug")]
         public Input<string>? Slug { get; set; }
+
+        [Input("storageClass")]
+        public Input<string>? StorageClass { get; set; }
 
         public WorkloadVolumeClaimArgs()
         {

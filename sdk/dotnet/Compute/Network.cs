@@ -6,14 +6,21 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute
+namespace Stackpath.Stackpath.Compute
 {
     [StackpathResourceType("stackpath:compute/network:Network")]
     public partial class Network : global::Pulumi.CustomResource
     {
         [Output("annotations")]
         public Output<ImmutableDictionary<string, string>?> Annotations { get; private set; } = null!;
+
+        [Output("ipFamilies")]
+        public Output<ImmutableArray<string>> IpFamilies { get; private set; } = null!;
+
+        [Output("ipv6Subnet")]
+        public Output<string?> Ipv6Subnet { get; private set; } = null!;
 
         [Output("labels")]
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
@@ -56,6 +63,7 @@ namespace Pulumi.Stackpath.Compute
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -86,6 +94,17 @@ namespace Pulumi.Stackpath.Compute
             get => _annotations ?? (_annotations = new InputMap<string>());
             set => _annotations = value;
         }
+
+        [Input("ipFamilies")]
+        private InputList<string>? _ipFamilies;
+        public InputList<string> IpFamilies
+        {
+            get => _ipFamilies ?? (_ipFamilies = new InputList<string>());
+            set => _ipFamilies = value;
+        }
+
+        [Input("ipv6Subnet")]
+        public Input<string>? Ipv6Subnet { get; set; }
 
         [Input("labels")]
         private InputMap<string>? _labels;
@@ -119,6 +138,17 @@ namespace Pulumi.Stackpath.Compute
             get => _annotations ?? (_annotations = new InputMap<string>());
             set => _annotations = value;
         }
+
+        [Input("ipFamilies")]
+        private InputList<string>? _ipFamilies;
+        public InputList<string> IpFamilies
+        {
+            get => _ipFamilies ?? (_ipFamilies = new InputList<string>());
+            set => _ipFamilies = value;
+        }
+
+        [Input("ipv6Subnet")]
+        public Input<string>? Ipv6Subnet { get; set; }
 
         [Input("labels")]
         private InputMap<string>? _labels;

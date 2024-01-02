@@ -6,17 +6,36 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Inputs
+namespace Stackpath.Stackpath.Compute.Inputs
 {
 
     public sealed class WorkloadImagePullCredentialDockerRegistryArgs : global::Pulumi.ResourceArgs
     {
         [Input("email")]
-        public Input<string>? Email { get; set; }
+        private Input<string>? _email;
+        public Input<string>? Email
+        {
+            get => _email;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _email = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        private Input<string>? _password;
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("server")]
         public Input<string>? Server { get; set; }

@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Inputs
+namespace Stackpath.Stackpath.Compute.Inputs
 {
 
     public sealed class WorkloadInstanceGetArgs : global::Pulumi.ResourceArgs
@@ -23,8 +24,14 @@ namespace Pulumi.Stackpath.Compute.Inputs
         [Input("externalIpAddress")]
         public Input<string>? ExternalIpAddress { get; set; }
 
+        [Input("externalIpv6Address")]
+        public Input<string>? ExternalIpv6Address { get; set; }
+
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
+
+        [Input("ipv6Address")]
+        public Input<string>? Ipv6Address { get; set; }
 
         [Input("location")]
         public Input<Inputs.WorkloadInstanceLocationGetArgs>? Location { get; set; }

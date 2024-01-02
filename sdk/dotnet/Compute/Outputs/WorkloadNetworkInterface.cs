@@ -6,24 +6,37 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Outputs
+namespace Stackpath.Stackpath.Compute.Outputs
 {
 
     [OutputType]
     public sealed class WorkloadNetworkInterface
     {
         public readonly bool? EnableOneToOneNat;
+        public readonly ImmutableArray<string> IpFamilies;
+        public readonly string? Ipv6Subnet;
         public readonly string Network;
+        public readonly string? Subnet;
 
         [OutputConstructor]
         private WorkloadNetworkInterface(
             bool? enableOneToOneNat,
 
-            string network)
+            ImmutableArray<string> ipFamilies,
+
+            string? ipv6Subnet,
+
+            string network,
+
+            string? subnet)
         {
             EnableOneToOneNat = enableOneToOneNat;
+            IpFamilies = ipFamilies;
+            Ipv6Subnet = ipv6Subnet;
             Network = network;
+            Subnet = subnet;
         }
     }
 }

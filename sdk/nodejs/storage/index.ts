@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./bucket";
+export { BucketArgs, BucketState } from "./bucket";
+export type Bucket = import("./bucket").Bucket;
+export const Bucket: typeof import("./bucket").Bucket = null as any;
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
-// Import resources to register:
-import { Bucket } from "./bucket";
 
 const _module = {
     version: utilities.getVersion(),

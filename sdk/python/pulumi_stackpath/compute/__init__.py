@@ -8,6 +8,7 @@ import typing
 from .network import *
 from .network_policy import *
 from .network_route import *
+from .network_subnet import *
 from .workload import *
 from ._inputs import *
 from . import outputs

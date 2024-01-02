@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Inputs
+namespace Stackpath.Stackpath.Compute.Inputs
 {
 
     public sealed class WorkloadContainerEnvGetArgs : global::Pulumi.ResourceArgs
@@ -16,7 +17,16 @@ namespace Pulumi.Stackpath.Compute.Inputs
         public Input<string> Key { get; set; } = null!;
 
         [Input("secretValue")]
-        public Input<string>? SecretValue { get; set; }
+        private Input<string>? _secretValue;
+        public Input<string>? SecretValue
+        {
+            get => _secretValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("value")]
         public Input<string>? Value { get; set; }

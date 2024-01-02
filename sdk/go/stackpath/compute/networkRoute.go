@@ -7,8 +7,9 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath/internal"
 )
 
 type NetworkRoute struct {
@@ -37,6 +38,7 @@ func NewNetworkRoute(ctx *pulumi.Context,
 	if args.NetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkRoute
 	err := ctx.RegisterResource("stackpath:compute/networkRoute:NetworkRoute", name, args, &resource, opts...)
 	if err != nil {
@@ -131,7 +133,7 @@ func (i *NetworkRoute) ToNetworkRouteOutputWithContext(ctx context.Context) Netw
 // NetworkRouteArrayInput is an input type that accepts NetworkRouteArray and NetworkRouteArrayOutput values.
 // You can construct a concrete instance of `NetworkRouteArrayInput` via:
 //
-//          NetworkRouteArray{ NetworkRouteArgs{...} }
+//	NetworkRouteArray{ NetworkRouteArgs{...} }
 type NetworkRouteArrayInput interface {
 	pulumi.Input
 
@@ -156,7 +158,7 @@ func (i NetworkRouteArray) ToNetworkRouteArrayOutputWithContext(ctx context.Cont
 // NetworkRouteMapInput is an input type that accepts NetworkRouteMap and NetworkRouteMapOutput values.
 // You can construct a concrete instance of `NetworkRouteMapInput` via:
 //
-//          NetworkRouteMap{ "key": NetworkRouteArgs{...} }
+//	NetworkRouteMap{ "key": NetworkRouteArgs{...} }
 type NetworkRouteMapInput interface {
 	pulumi.Input
 

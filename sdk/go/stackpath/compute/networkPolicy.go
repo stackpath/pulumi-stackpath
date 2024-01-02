@@ -7,8 +7,9 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath/internal"
 )
 
 type NetworkPolicy struct {
@@ -44,6 +45,7 @@ func NewNetworkPolicy(ctx *pulumi.Context,
 	if args.Slug == nil {
 		return nil, errors.New("invalid value for required argument 'Slug'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkPolicy
 	err := ctx.RegisterResource("stackpath:compute/networkPolicy:NetworkPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -154,7 +156,7 @@ func (i *NetworkPolicy) ToNetworkPolicyOutputWithContext(ctx context.Context) Ne
 // NetworkPolicyArrayInput is an input type that accepts NetworkPolicyArray and NetworkPolicyArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyArrayInput` via:
 //
-//          NetworkPolicyArray{ NetworkPolicyArgs{...} }
+//	NetworkPolicyArray{ NetworkPolicyArgs{...} }
 type NetworkPolicyArrayInput interface {
 	pulumi.Input
 
@@ -179,7 +181,7 @@ func (i NetworkPolicyArray) ToNetworkPolicyArrayOutputWithContext(ctx context.Co
 // NetworkPolicyMapInput is an input type that accepts NetworkPolicyMap and NetworkPolicyMapOutput values.
 // You can construct a concrete instance of `NetworkPolicyMapInput` via:
 //
-//          NetworkPolicyMap{ "key": NetworkPolicyArgs{...} }
+//	NetworkPolicyMap{ "key": NetworkPolicyArgs{...} }
 type NetworkPolicyMapInput interface {
 	pulumi.Input
 

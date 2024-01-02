@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export namespace compute {
     export interface NetworkPolicyEgress {
@@ -170,6 +171,7 @@ export namespace compute {
         ports?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadContainerPort>[]>;
         readinessProbe?: pulumi.Input<inputs.compute.WorkloadContainerReadinessProbe>;
         resources: pulumi.Input<inputs.compute.WorkloadContainerResources>;
+        securityContext?: pulumi.Input<inputs.compute.WorkloadContainerSecurityContext>;
         volumeMounts?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadContainerVolumeMount>[]>;
     }
 
@@ -232,6 +234,51 @@ export namespace compute {
         requests: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface WorkloadContainerRuntimeEnvironment {
+        dns: pulumi.Input<inputs.compute.WorkloadContainerRuntimeEnvironmentDns>;
+        securityContext?: pulumi.Input<inputs.compute.WorkloadContainerRuntimeEnvironmentSecurityContext>;
+        shareProcessNamespace?: pulumi.Input<boolean>;
+        terminationGracePeriodSeconds?: pulumi.Input<number>;
+    }
+
+    export interface WorkloadContainerRuntimeEnvironmentDns {
+        hostAliases?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadContainerRuntimeEnvironmentDnsHostAlias>[]>;
+        resolverConfigs?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadContainerRuntimeEnvironmentDnsResolverConfig>[]>;
+    }
+
+    export interface WorkloadContainerRuntimeEnvironmentDnsHostAlias {
+        address: pulumi.Input<string>;
+        hostnames: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkloadContainerRuntimeEnvironmentDnsResolverConfig {
+        nameservers?: pulumi.Input<pulumi.Input<string>[]>;
+        options?: pulumi.Input<{[key: string]: any}>;
+        searches?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkloadContainerRuntimeEnvironmentSecurityContext {
+        runAsGroup?: pulumi.Input<string>;
+        runAsNonRoot?: pulumi.Input<boolean>;
+        runAsUser?: pulumi.Input<string>;
+        supplementalGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        sysctl?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface WorkloadContainerSecurityContext {
+        allowPrivilegeEscalation?: pulumi.Input<boolean>;
+        capabilities?: pulumi.Input<inputs.compute.WorkloadContainerSecurityContextCapabilities>;
+        readOnlyRootFilesystem?: pulumi.Input<boolean>;
+        runAsGroup?: pulumi.Input<string>;
+        runAsNonRoot?: pulumi.Input<boolean>;
+        runAsUser?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadContainerSecurityContextCapabilities {
+        adds?: pulumi.Input<pulumi.Input<string>[]>;
+        drops?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface WorkloadContainerVolumeMount {
         mountPath: pulumi.Input<string>;
         slug: pulumi.Input<string>;
@@ -251,7 +298,9 @@ export namespace compute {
     export interface WorkloadInstance {
         containers?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceContainer>[]>;
         externalIpAddress?: pulumi.Input<string>;
+        externalIpv6Address?: pulumi.Input<string>;
         ipAddress?: pulumi.Input<string>;
+        ipv6Address?: pulumi.Input<string>;
         location?: pulumi.Input<inputs.compute.WorkloadInstanceLocation>;
         message?: pulumi.Input<string>;
         metadata?: pulumi.Input<inputs.compute.WorkloadInstanceMetadata>;
@@ -271,6 +320,7 @@ export namespace compute {
         ports?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceContainerPort>[]>;
         readinessProbe?: pulumi.Input<inputs.compute.WorkloadInstanceContainerReadinessProbe>;
         resources: pulumi.Input<inputs.compute.WorkloadInstanceContainerResources>;
+        securityContext?: pulumi.Input<inputs.compute.WorkloadInstanceContainerSecurityContext>;
         volumeMounts?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceContainerVolumeMount>[]>;
     }
 
@@ -333,6 +383,20 @@ export namespace compute {
         requests: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface WorkloadInstanceContainerSecurityContext {
+        allowPrivilegeEscalation?: pulumi.Input<boolean>;
+        capabilities?: pulumi.Input<inputs.compute.WorkloadInstanceContainerSecurityContextCapabilities>;
+        readOnlyRootFilesystem?: pulumi.Input<boolean>;
+        runAsGroup?: pulumi.Input<string>;
+        runAsNonRoot?: pulumi.Input<boolean>;
+        runAsUser?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInstanceContainerSecurityContextCapabilities {
+        adds?: pulumi.Input<pulumi.Input<string>[]>;
+        drops?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface WorkloadInstanceContainerVolumeMount {
         mountPath: pulumi.Input<string>;
         slug: pulumi.Input<string>;
@@ -363,6 +427,9 @@ export namespace compute {
         gateway: pulumi.Input<string>;
         ipAddress: pulumi.Input<string>;
         ipAddressAliases?: pulumi.Input<pulumi.Input<string>[]>;
+        ipv6Address: pulumi.Input<string>;
+        ipv6AddressAliases?: pulumi.Input<pulumi.Input<string>[]>;
+        ipv6Gateway: pulumi.Input<string>;
         network: pulumi.Input<string>;
     }
 
@@ -437,7 +504,10 @@ export namespace compute {
 
     export interface WorkloadNetworkInterface {
         enableOneToOneNat?: pulumi.Input<boolean>;
+        ipFamilies?: pulumi.Input<pulumi.Input<string>[]>;
+        ipv6Subnet?: pulumi.Input<string>;
         network: pulumi.Input<string>;
+        subnet?: pulumi.Input<string>;
     }
 
     export interface WorkloadTarget {
@@ -529,6 +599,26 @@ export namespace compute {
         requests: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface WorkloadVirtualMachineRuntimeEnvironment {
+        dns: pulumi.Input<inputs.compute.WorkloadVirtualMachineRuntimeEnvironmentDns>;
+    }
+
+    export interface WorkloadVirtualMachineRuntimeEnvironmentDns {
+        hostAliases?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias>[]>;
+        resolverConfigs?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig>[]>;
+    }
+
+    export interface WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias {
+        address: pulumi.Input<string>;
+        hostnames: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig {
+        nameservers?: pulumi.Input<pulumi.Input<string>[]>;
+        options?: pulumi.Input<{[key: string]: any}>;
+        searches?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface WorkloadVirtualMachineVolumeMount {
         mountPath: pulumi.Input<string>;
         slug: pulumi.Input<string>;
@@ -538,10 +628,10 @@ export namespace compute {
         name: pulumi.Input<string>;
         resources: pulumi.Input<inputs.compute.WorkloadVolumeClaimResources>;
         slug?: pulumi.Input<string>;
+        storageClass?: pulumi.Input<string>;
     }
 
     export interface WorkloadVolumeClaimResources {
         requests: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
-
 }

@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Outputs
+namespace Stackpath.Stackpath.Compute.Outputs
 {
 
     [OutputType]
@@ -15,7 +16,9 @@ namespace Pulumi.Stackpath.Compute.Outputs
     {
         public readonly ImmutableArray<Outputs.WorkloadInstanceContainer> Containers;
         public readonly string? ExternalIpAddress;
+        public readonly string? ExternalIpv6Address;
         public readonly string? IpAddress;
+        public readonly string? Ipv6Address;
         public readonly Outputs.WorkloadInstanceLocation? Location;
         public readonly string? Message;
         public readonly Outputs.WorkloadInstanceMetadata? Metadata;
@@ -31,7 +34,11 @@ namespace Pulumi.Stackpath.Compute.Outputs
 
             string? externalIpAddress,
 
+            string? externalIpv6Address,
+
             string? ipAddress,
+
+            string? ipv6Address,
 
             Outputs.WorkloadInstanceLocation? location,
 
@@ -51,7 +58,9 @@ namespace Pulumi.Stackpath.Compute.Outputs
         {
             Containers = containers;
             ExternalIpAddress = externalIpAddress;
+            ExternalIpv6Address = externalIpv6Address;
             IpAddress = ipAddress;
+            Ipv6Address = ipv6Address;
             Location = location;
             Message = message;
             Metadata = metadata;

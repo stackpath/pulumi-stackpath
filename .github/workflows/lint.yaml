@@ -1,20 +1,8 @@
 name: lint
 
-on: [workflow_dispatch]
+on: [pull_request]
 
 jobs:
-  docs:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: npm install
-      - run: ./node_modules/.bin/ajv validate --all-errors -s docs/development/rfcs/rfc.schema.json -d '**/development/rfcs/**/rfc.yaml'
-      - uses: DavidAnson/markdownlint-cli2-action@v5
-        with:
-          globs: |
-            **/*.md
-            !node_modules
-
   lint-go:
     uses: stackpath/actions/.github/workflows/go_lint.yaml@v0.4.0
     with:

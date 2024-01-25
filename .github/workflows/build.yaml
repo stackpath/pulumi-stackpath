@@ -18,8 +18,8 @@ jobs:
      - name: Import GPG key
        id: import_gpg
        uses: paultyng/ghaction-import-gpg@v2.1.0
-       env:
-         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+       # env:
+         # GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
      - name: Install pulumictl
        uses: jaxxstorm/action-install-gh-release@v1.5.0
        with:
@@ -30,7 +30,7 @@ jobs:
          args: -p 3 release --rm-dist
          version: latest
        env:
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+          # GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      strategy:
        fail-fast: true

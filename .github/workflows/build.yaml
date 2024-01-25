@@ -31,12 +31,14 @@ jobs:
          version: latest
        # env:
           # GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      strategy:
        fail-fast: true
        matrix:
          goversion:
          - 1.21.x
+     env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
   publish_sdk:
     name: Publish SDKs

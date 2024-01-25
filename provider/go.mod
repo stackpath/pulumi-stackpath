@@ -4,12 +4,9 @@ go 1.21
 
 replace github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230912190043-e6d96b3b8f7e
 
-replace github.com/stackpath/terraform-provider-stackpath => ../../terraform-provider-stackpath
-
 require (
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.69.0
 	github.com/pulumi/pulumi/sdk/v3 v3.98.0
-	github.com/stackpath/terraform-provider-stackpath v0.0.0-00010101000000-000000000000
 )
 
 require (
@@ -212,6 +209,7 @@ require (
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/cobra v1.7.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/stackpath/terraform-provider-stackpath/v2 v2.0.1-0.20240125165700-670b3874583e // indirect
 	github.com/stretchr/testify v1.8.4 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect

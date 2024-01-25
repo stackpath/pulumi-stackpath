@@ -2193,6 +2193,7 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "rootSubnet",
                 "slug"
             ],
@@ -2365,6 +2366,7 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "policyTypes",
                 "priority",
                 "slug"
@@ -2519,6 +2521,7 @@
             },
             "requiredInputs": [
                 "destinationPrefixes",
+                "name",
                 "networkId"
             ],
             "stateInputs": {
@@ -2632,6 +2635,7 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "networkId",
                 "prefix"
             ],
@@ -2816,6 +2820,7 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "networkInterfaces",
                 "slug",
                 "targets"

@@ -29,9 +29,9 @@ jobs:
        with:
          args: -p 3 release --rm-dist
          version: latest
-       env:
+       # env:
           # GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      strategy:
        fail-fast: true
        matrix:
@@ -54,6 +54,6 @@ jobs:
           - 18.x
           - 20.x
           - 21.x
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # env:
+      # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

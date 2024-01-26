@@ -15,11 +15,6 @@ jobs:
        uses: actions/setup-go@v2
        with:
          go-version: ${{matrix.goversion}}
-     - name: Import GPG key
-       id: import_gpg
-       uses: paultyng/ghaction-import-gpg@v2.1.0
-       env:
-         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
      - name: Install pulumictl
        uses: jaxxstorm/action-install-gh-release@v1.5.0
        with:
@@ -29,8 +24,6 @@ jobs:
        with:
          args: -p 3 release --rm-dist
          version: latest
-       env:
-          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
      strategy:
        fail-fast: true
        matrix:

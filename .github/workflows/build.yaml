@@ -46,9 +46,10 @@ jobs:
         language:
           - nodejs
         nodeversion:
-          - 18.x
-          - 20.x
+          - latest
           - 21.x
+          - 20.x
+          - 18.x
     # env:
       # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -50,6 +50,6 @@ jobs:
           - 21.x
           - 20.x
           - 18.x
-    # env:
-      # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPMJS_API_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

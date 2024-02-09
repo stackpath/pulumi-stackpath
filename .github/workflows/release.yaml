@@ -44,39 +44,8 @@ jobs:
     permissions: write-all
     needs: publish_binary
     steps:
-     - name: Checkout Repo
-       uses: actions/checkout@v4
-       with:
-         fetch-depth: 0
-         fetch-tags: true
-     - name: Install pulumictl
-       uses: jaxxstorm/action-install-gh-release@v1
-       with:
-         repo: pulumi/pulumictl
-     - name: Install Pulumi CLI
-       uses: pulumi/action-install-pulumi-cli@v2
-     - name: Setup Node
-       uses: actions/setup-node@v4
-       with:
-         node-version: ${{matrix.nodeversion}}
-         registry-url: ${{env.NPM_REGISTRY_URL}}
-     - name: Build SDK
-       run: make build_${{ matrix.language }}
-     - name: Check worktree clean
-       run: |
-         git update-index -q --refresh
-         if ! git diff-files --quiet; then
-             >&2 echo "error: working tree is not clean, aborting!"
-             git status
-             git diff
-             exit 1
-         fi
-     - if: ${{ matrix.language == 'nodejs' && env.PUBLISH_NPM == 'true' }}
-       uses: JS-DevTools/npm-publish@v3
-       with:
-         access: "public"
-         token: ${{ env.NPM_TOKEN }}
-         package: ${{github.workspace}}/sdk/nodejs/bin/package.json
+    - name: Publish SDKs
+      uses: pulumi/pulumi-package-publisher@v0.0.6
     strategy:
       fail-fast: true
       matrix:

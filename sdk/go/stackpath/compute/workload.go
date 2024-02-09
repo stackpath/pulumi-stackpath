@@ -38,6 +38,9 @@ func NewWorkload(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.NetworkInterfaces == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInterfaces'")
 	}
@@ -114,7 +117,7 @@ type workloadArgs struct {
 	ImagePullCredentials             []WorkloadImagePullCredential             `pulumi:"imagePullCredentials"`
 	Instances                        []WorkloadInstance                        `pulumi:"instances"`
 	Labels                           map[string]interface{}                    `pulumi:"labels"`
-	Name                             *string                                   `pulumi:"name"`
+	Name                             string                                    `pulumi:"name"`
 	NetworkInterfaces                []WorkloadNetworkInterface                `pulumi:"networkInterfaces"`
 	Slug                             string                                    `pulumi:"slug"`
 	Targets                          []WorkloadTarget                          `pulumi:"targets"`
@@ -131,7 +134,7 @@ type WorkloadArgs struct {
 	ImagePullCredentials             WorkloadImagePullCredentialArrayInput
 	Instances                        WorkloadInstanceArrayInput
 	Labels                           pulumi.MapInput
-	Name                             pulumi.StringPtrInput
+	Name                             pulumi.StringInput
 	NetworkInterfaces                WorkloadNetworkInterfaceArrayInput
 	Slug                             pulumi.StringInput
 	Targets                          WorkloadTargetArrayInput

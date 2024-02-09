@@ -31,6 +31,9 @@ func NewNetworkSubnet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.NetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkId'")
 	}
@@ -86,7 +89,7 @@ func (NetworkSubnetState) ElementType() reflect.Type {
 type networkSubnetArgs struct {
 	Annotations map[string]string `pulumi:"annotations"`
 	Labels      map[string]string `pulumi:"labels"`
-	Name        *string           `pulumi:"name"`
+	Name        string            `pulumi:"name"`
 	NetworkId   string            `pulumi:"networkId"`
 	Prefix      string            `pulumi:"prefix"`
 	Slug        *string           `pulumi:"slug"`
@@ -96,7 +99,7 @@ type networkSubnetArgs struct {
 type NetworkSubnetArgs struct {
 	Annotations pulumi.StringMapInput
 	Labels      pulumi.StringMapInput
-	Name        pulumi.StringPtrInput
+	Name        pulumi.StringInput
 	NetworkId   pulumi.StringInput
 	Prefix      pulumi.StringInput
 	Slug        pulumi.StringPtrInput

@@ -78,6 +78,9 @@ export class Workload extends pulumi.CustomResource {
             resourceInputs["volumeClaims"] = state ? state.volumeClaims : undefined;
         } else {
             const args = argsOrState as WorkloadArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.networkInterfaces === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaces'");
             }
@@ -137,7 +140,7 @@ export interface WorkloadArgs {
     imagePullCredentials?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadImagePullCredential>[]>;
     instances?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstance>[]>;
     labels?: pulumi.Input<{[key: string]: any}>;
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     networkInterfaces: pulumi.Input<pulumi.Input<inputs.compute.WorkloadNetworkInterface>[]>;
     slug: pulumi.Input<string>;
     targets: pulumi.Input<pulumi.Input<inputs.compute.WorkloadTarget>[]>;

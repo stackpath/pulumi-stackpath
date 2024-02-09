@@ -16,6 +16,7 @@ __all__ = ['NetworkPolicyArgs', 'NetworkPolicy']
 @pulumi.input_type
 class NetworkPolicyArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  policy_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  priority: pulumi.Input[int],
                  slug: pulumi.Input[str],
@@ -25,11 +26,11 @@ class NetworkPolicyArgs:
                  ingresses: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyIngressArgs']]]] = None,
                  instance_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyInstanceSelectorArgs']]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  network_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPolicyNetworkSelectorArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkPolicy resource.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "policy_types", policy_types)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "slug", slug)
@@ -45,10 +46,17 @@ class NetworkPolicyArgs:
             pulumi.set(__self__, "instance_selectors", instance_selectors)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if network_selectors is not None:
             pulumi.set(__self__, "network_selectors", network_selectors)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="policyTypes")
@@ -130,15 +138,6 @@ class NetworkPolicyArgs:
     @labels.setter
     def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="networkSelectors")
@@ -373,6 +372,8 @@ class NetworkPolicy(pulumi.CustomResource):
             __props__.__dict__["ingresses"] = ingresses
             __props__.__dict__["instance_selectors"] = instance_selectors
             __props__.__dict__["labels"] = labels
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["network_selectors"] = network_selectors
             if policy_types is None and not opts.urn:

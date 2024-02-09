@@ -139,8 +139,8 @@ namespace Stackpath.Stackpath.Compute
             set => _labels = value;
         }
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("networkSelectors")]
         private InputList<Inputs.NetworkPolicyNetworkSelectorArgs>? _networkSelectors;

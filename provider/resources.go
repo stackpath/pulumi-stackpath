@@ -25,7 +25,7 @@ import (
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 
 	// Replace this provider with the provider you are bridging.
-	stackpath "github.com/stackpath/terraform-provider-stackpath/stackpath"
+	stackpath "github.com/stackpath/terraform-provider-stackpath/v2/stackpath"
 
 	"github.com/stackpath/pulumi-stackpath/provider/pkg/version"
 )

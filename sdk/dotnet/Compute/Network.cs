@@ -114,8 +114,8 @@ namespace Stackpath.Stackpath.Compute
             set => _labels = value;
         }
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("rootSubnet", required: true)]
         public Input<string> RootSubnet { get; set; } = null!;

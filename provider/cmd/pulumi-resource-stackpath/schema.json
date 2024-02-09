@@ -11,6 +11,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`stackpath` Terraform Provider](https://github.com/stackpath/terraform-provider-stackpath).",
     "repository": "https://github.com/stackpath/pulumi-stackpath",
+    "logoUrl": "https://raw.githubusercontent.com/stackpath/pulumi-stackpath/main/assets/logo.svg",
     "pluginDownloadURL": "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}",
     "publisher": "StackPath",
     "meta": {
@@ -2193,6 +2194,7 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "rootSubnet",
                 "slug"
             ],
@@ -2365,6 +2367,7 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "policyTypes",
                 "priority",
                 "slug"
@@ -2519,6 +2522,7 @@
             },
             "requiredInputs": [
                 "destinationPrefixes",
+                "name",
                 "networkId"
             ],
             "stateInputs": {
@@ -2632,6 +2636,7 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "networkId",
                 "prefix"
             ],
@@ -2816,6 +2821,7 @@
                 }
             },
             "requiredInputs": [
+                "name",
                 "networkInterfaces",
                 "slug",
                 "targets"

@@ -74,6 +74,9 @@ export class NetworkPolicy extends pulumi.CustomResource {
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NetworkPolicyArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.policyTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyTypes'");
             }
@@ -129,7 +132,7 @@ export interface NetworkPolicyArgs {
     ingresses?: pulumi.Input<pulumi.Input<inputs.compute.NetworkPolicyIngress>[]>;
     instanceSelectors?: pulumi.Input<pulumi.Input<inputs.compute.NetworkPolicyInstanceSelector>[]>;
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     networkSelectors?: pulumi.Input<pulumi.Input<inputs.compute.NetworkPolicyNetworkSelector>[]>;
     policyTypes: pulumi.Input<pulumi.Input<string>[]>;
     priority: pulumi.Input<number>;

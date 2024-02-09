@@ -14,25 +14,33 @@ __all__ = ['NetworkSubnetArgs', 'NetworkSubnet']
 @pulumi.input_type
 class NetworkSubnetArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  network_id: pulumi.Input[str],
                  prefix: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  slug: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NetworkSubnet resource.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "network_id", network_id)
         pulumi.set(__self__, "prefix", prefix)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if slug is not None:
             pulumi.set(__self__, "slug", slug)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="networkId")
@@ -69,15 +77,6 @@ class NetworkSubnetArgs:
     @labels.setter
     def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -238,6 +237,8 @@ class NetworkSubnet(pulumi.CustomResource):
 
             __props__.__dict__["annotations"] = annotations
             __props__.__dict__["labels"] = labels
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_id'")

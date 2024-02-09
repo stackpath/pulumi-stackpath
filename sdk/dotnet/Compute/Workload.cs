@@ -145,8 +145,8 @@ namespace Stackpath.Stackpath.Compute
             set => _labels = value;
         }
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("networkInterfaces", required: true)]
         private InputList<Inputs.WorkloadNetworkInterfaceArgs>? _networkInterfaces;

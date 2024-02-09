@@ -36,6 +36,9 @@ func NewNetworkPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.PolicyTypes == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyTypes'")
 	}
@@ -108,7 +111,7 @@ type networkPolicyArgs struct {
 	Ingresses         []NetworkPolicyIngress          `pulumi:"ingresses"`
 	InstanceSelectors []NetworkPolicyInstanceSelector `pulumi:"instanceSelectors"`
 	Labels            map[string]string               `pulumi:"labels"`
-	Name              *string                         `pulumi:"name"`
+	Name              string                          `pulumi:"name"`
 	NetworkSelectors  []NetworkPolicyNetworkSelector  `pulumi:"networkSelectors"`
 	PolicyTypes       []string                        `pulumi:"policyTypes"`
 	Priority          int                             `pulumi:"priority"`
@@ -123,7 +126,7 @@ type NetworkPolicyArgs struct {
 	Ingresses         NetworkPolicyIngressArrayInput
 	InstanceSelectors NetworkPolicyInstanceSelectorArrayInput
 	Labels            pulumi.StringMapInput
-	Name              pulumi.StringPtrInput
+	Name              pulumi.StringInput
 	NetworkSelectors  NetworkPolicyNetworkSelectorArrayInput
 	PolicyTypes       pulumi.StringArrayInput
 	Priority          pulumi.IntInput

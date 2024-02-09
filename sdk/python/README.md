@@ -23,13 +23,13 @@ We showcase a Pulumi-owned provider based on an upstream provider named `terrafo
 
 Ensure the following tools are installed and present in your `$PATH`:
 
-* [`pulumictl`](https://github.com/pulumi/pulumictl#installation)
-* [Go 1.17](https://golang.org/dl/) or 1.latest
-* [NodeJS](https://nodejs.org/en/) 14.x.  We recommend using [nvm](https://github.com/nvm-sh/nvm) to manage NodeJS installations.
-* [Yarn](https://yarnpkg.com/)
-* [TypeScript](https://www.typescriptlang.org/)
-* [Python](https://www.python.org/downloads/) (called as `python3`).  For recent versions of MacOS, the system-installed version is fine.
-* [.NET](https://dotnet.microsoft.com/download)
+- [`pulumictl`](https://github.com/pulumi/pulumictl#installation)
+- [Go 1.17](https://golang.org/dl/) or 1.latest
+- [NodeJS](https://nodejs.org/en/) 14.x.  We recommend using [nvm](https://github.com/nvm-sh/nvm) to manage NodeJS installations.
+- [Yarn](https://yarnpkg.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Python](https://www.python.org/downloads/) (called as `python3`).  For recent versions of MacOS, the system-installed version is fine.
+- [.NET](https://dotnet.microsoft.com/download)
 
 ### Creating and Initializing the Repository
 
@@ -37,10 +37,10 @@ Pulumi offers this repository as a [GitHub template repository](https://docs.git
 
 1. Click "Use this template".
 1. Set the following options:
-    * Owner: pulumi (third-party: your GitHub organization/username)
-    * Repository name: pulumi-foo (third-party: preface your repo name with "pulumi" as standard practice)
-    * Description: Pulumi provider for Foo
-    * Repository type: Public
+    - Owner: pulumi (third-party: your GitHub organization/username)
+    - Repository name: pulumi-foo (third-party: preface your repo name with "pulumi" as standard practice)
+    - Description: Pulumi provider for Foo
+    - Repository type: Public
 1. Clone the generated repository.
 
 From the templated repository:
@@ -52,36 +52,36 @@ From the templated repository:
     ```
 
    This will do the following:
-   * rename folders in `provider/cmd` to `pulumi-resource-foo` and `pulumi-tfgen-foo`
-   * replace dependencies in `provider/go.mod` to reflect your repository name
-   * find and replace all instances of the boilerplate `stackpath` with the `NAME` of your provider.
+   - rename folders in `provider/cmd` to `pulumi-resource-foo` and `pulumi-tfgen-foo`
+   - replace dependencies in `provider/go.mod` to reflect your repository name
+   - find and replace all instances of the boilerplate `stackpath` with the `NAME` of your provider.
 
    Note for third-party providers:
-   * Make sure to set the correct GitHub organization/username in all files referencing your provider as a dependency:
-     * `examples/go.mod`
-     * `provider/resources.go`
-     * `sdk/go.mod`
-     * `provider/cmd/pulumi-resource-foo/main.go`
-     * `provider/cmd/pulumi-tfgen-foo/main.go`
+   - Make sure to set the correct GitHub organization/username in all files referencing your provider as a dependency:
+     - `examples/go.mod`
+     - `provider/resources.go`
+     - `sdk/go.mod`
+     - `provider/cmd/pulumi-resource-foo/main.go`
+     - `provider/cmd/pulumi-tfgen-foo/main.go`
 
 2. Modify `README-PROVIDER.md` to include the following (we'll rename it to `README.md` toward the end of this guide):
-    * Any desired build status badges.
-    * An introductory paragraph describing the type of resources the provider manages, e.g. "The Foo provider for Pulumi manages resources for [Foo](http://example.com/).
-    * In the "Installing" section, correct package names for the various SDK libraries in the languages Pulumi supports.
-    * In the "Configuration" section, any configurable options for the provider.  These may include, but are not limited to, environment variables or options that can be set via [`pulumi config set`](https://www.pulumi.com/docs/reference/cli/pulumi_config_set/).
-    * In the "Reference" section, provide a link to the to-be-published documentation.
-    * Feel free to refer to [the Pulumi AWS provider README](https://github.com/pulumi/pulumi-aws) as an example.
+    - Any desired build status badges.
+    - An introductory paragraph describing the type of resources the provider manages, e.g. "The Foo provider for Pulumi manages resources for [Foo](http://example.com/).
+    - In the "Installing" section, correct package names for the various SDK libraries in the languages Pulumi supports.
+    - In the "Configuration" section, any configurable options for the provider.  These may include, but are not limited to, environment variables or options that can be set via [`pulumi config set`](https://www.pulumi.com/docs/reference/cli/pulumi_config_set/).
+    - In the "Reference" section, provide a link to the to-be-published documentation.
+    - Feel free to refer to [the Pulumi AWS provider README](https://github.com/pulumi/pulumi-aws) as an example.
 
 ### Composing the Provider Code - Prerequisites
 
 Pulumi provider repositories have the following general structure:
 
-* `examples/` contains sample code which may optionally be included as integration tests to be run as part of a CI/CD pipeline.
-* `provider/` contains the Go code used to create the provider as well as generate the SDKs in the various languages that Pulumi supports.
-  * `provider/cmd/pulumi-tfgen-foo` generates the Pulumi resource schema (`schema.json`), based on the Terraform provider's resources.
-  * `provider/cmd/pulumi-resource-foo` generates the SDKs in all supported languages from the schema, placing them in the `sdk/` folder.
-  * `provider/pkg/resources.go` is the location where we will define the Terraform-to-Pulumi mappings for resources.
-* `sdk/` contains the generated SDK code for each of the language platforms that Pulumi supports, with each supported platform in a separate subfolder.
+- `examples/` contains sample code which may optionally be included as integration tests to be run as part of a CI/CD pipeline.
+- `provider/` contains the Go code used to create the provider as well as generate the SDKs in the various languages that Pulumi supports.
+  - `provider/cmd/pulumi-tfgen-foo` generates the Pulumi resource schema (`schema.json`), based on the Terraform provider's resources.
+  - `provider/cmd/pulumi-resource-foo` generates the SDKs in all supported languages from the schema, placing them in the `sdk/` folder.
+  - `provider/pkg/resources.go` is the location where we will define the Terraform-to-Pulumi mappings for resources.
+- `sdk/` contains the generated SDK code for each of the language platforms that Pulumi supports, with each supported platform in a separate subfolder.
 
 1. In `provider/go.mod`, add a reference to the upstream Terraform provider in the `require` section, e.g.
 
@@ -225,9 +225,9 @@ The `make tfgen` target will take the file `schema.json` and serialize it to a b
 In this section, we will create a Pulumi program in TypeScript that utilizes the provider we created to ensure everything is working properly.
 
 1. Create an account with the provider's service and generate any necessary credentials, e.g. API keys.
-    * Email: bot@pulumi.com
-    * Password: (Create a random password in 1Password with the  maximum length and complexity allowed by the provider.)
-    * Ensure all secrets (passwords, generated API keys) are stored in Pulumi's 1Password vault.
+    - Email: bot@pulumi.com
+    - Password: (Create a random password in 1Password with the  maximum length and complexity allowed by the provider.)
+    - Ensure all secrets (passwords, generated API keys) are stored in Pulumi's 1Password vault.
 
 1. Copy the `pulumi-resource-foo` binary generated by `make provider` and place it in your `$PATH` (`$GOPATH/bin` is a convenient choice), e.g.:
 

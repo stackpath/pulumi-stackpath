@@ -66,6 +66,9 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["virtualNetworkIdentifier"] = state ? state.virtualNetworkIdentifier : undefined;
         } else {
             const args = argsOrState as NetworkArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.rootSubnet === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rootSubnet'");
             }
@@ -110,7 +113,7 @@ export interface NetworkArgs {
     ipFamilies?: pulumi.Input<pulumi.Input<string>[]>;
     ipv6Subnet?: pulumi.Input<string>;
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     rootSubnet: pulumi.Input<string>;
     slug: pulumi.Input<string>;
 }

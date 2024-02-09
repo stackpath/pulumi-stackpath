@@ -33,6 +33,9 @@ func NewNetwork(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.RootSubnet == nil {
 		return nil, errors.New("invalid value for required argument 'RootSubnet'")
 	}
@@ -94,7 +97,7 @@ type networkArgs struct {
 	IpFamilies  []string          `pulumi:"ipFamilies"`
 	Ipv6Subnet  *string           `pulumi:"ipv6Subnet"`
 	Labels      map[string]string `pulumi:"labels"`
-	Name        *string           `pulumi:"name"`
+	Name        string            `pulumi:"name"`
 	RootSubnet  string            `pulumi:"rootSubnet"`
 	Slug        string            `pulumi:"slug"`
 }
@@ -105,7 +108,7 @@ type NetworkArgs struct {
 	IpFamilies  pulumi.StringArrayInput
 	Ipv6Subnet  pulumi.StringPtrInput
 	Labels      pulumi.StringMapInput
-	Name        pulumi.StringPtrInput
+	Name        pulumi.StringInput
 	RootSubnet  pulumi.StringInput
 	Slug        pulumi.StringInput
 }

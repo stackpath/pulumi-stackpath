@@ -35,6 +35,9 @@ func NewNetworkRoute(ctx *pulumi.Context,
 	if args.DestinationPrefixes == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationPrefixes'")
 	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.NetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkId'")
 	}
@@ -91,7 +94,7 @@ type networkRouteArgs struct {
 	DestinationPrefixes []string                      `pulumi:"destinationPrefixes"`
 	GatewaySelectors    []NetworkRouteGatewaySelector `pulumi:"gatewaySelectors"`
 	Labels              map[string]string             `pulumi:"labels"`
-	Name                *string                       `pulumi:"name"`
+	Name                string                        `pulumi:"name"`
 	NetworkId           string                        `pulumi:"networkId"`
 	Slug                *string                       `pulumi:"slug"`
 }
@@ -102,7 +105,7 @@ type NetworkRouteArgs struct {
 	DestinationPrefixes pulumi.StringArrayInput
 	GatewaySelectors    NetworkRouteGatewaySelectorArrayInput
 	Labels              pulumi.StringMapInput
-	Name                pulumi.StringPtrInput
+	Name                pulumi.StringInput
 	NetworkId           pulumi.StringInput
 	Slug                pulumi.StringPtrInput
 }

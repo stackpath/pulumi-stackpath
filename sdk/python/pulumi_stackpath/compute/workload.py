@@ -16,6 +16,7 @@ __all__ = ['WorkloadArgs', 'Workload']
 @pulumi.input_type
 class WorkloadArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  network_interfaces: pulumi.Input[Sequence[pulumi.Input['WorkloadNetworkInterfaceArgs']]],
                  slug: pulumi.Input[str],
                  targets: pulumi.Input[Sequence[pulumi.Input['WorkloadTargetArgs']]],
@@ -25,13 +26,13 @@ class WorkloadArgs:
                  image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadImagePullCredentialArgs']]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceArgs']]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  virtual_machine: Optional[pulumi.Input['WorkloadVirtualMachineArgs']] = None,
                  virtual_machine_runtime_environment: Optional[pulumi.Input['WorkloadVirtualMachineRuntimeEnvironmentArgs']] = None,
                  volume_claims: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadVolumeClaimArgs']]]] = None):
         """
         The set of arguments for constructing a Workload resource.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "network_interfaces", network_interfaces)
         pulumi.set(__self__, "slug", slug)
         pulumi.set(__self__, "targets", targets)
@@ -47,14 +48,21 @@ class WorkloadArgs:
             pulumi.set(__self__, "instances", instances)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if virtual_machine is not None:
             pulumi.set(__self__, "virtual_machine", virtual_machine)
         if virtual_machine_runtime_environment is not None:
             pulumi.set(__self__, "virtual_machine_runtime_environment", virtual_machine_runtime_environment)
         if volume_claims is not None:
             pulumi.set(__self__, "volume_claims", volume_claims)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -136,15 +144,6 @@ class WorkloadArgs:
     @labels.setter
     def labels(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "labels", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="virtualMachine")
@@ -425,6 +424,8 @@ class Workload(pulumi.CustomResource):
             __props__.__dict__["image_pull_credentials"] = image_pull_credentials
             __props__.__dict__["instances"] = instances
             __props__.__dict__["labels"] = labels
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if network_interfaces is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interfaces'")

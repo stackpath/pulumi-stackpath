@@ -61,6 +61,8 @@ jobs:
     - name: Build SDK
       run: make build_${{ matrix.language }}
     - name: Check worktree clean
+      # workdir not clean means there are inconsistencies between
+      # current, and previously generated auto-generated artifacts
       run: |
         git update-index -q --refresh
         if ! git diff-files --quiet; then

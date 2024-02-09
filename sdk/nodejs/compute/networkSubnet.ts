@@ -62,6 +62,9 @@ export class NetworkSubnet extends pulumi.CustomResource {
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NetworkSubnetArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.networkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkId'");
             }
@@ -100,7 +103,7 @@ export interface NetworkSubnetState {
 export interface NetworkSubnetArgs {
     annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     networkId: pulumi.Input<string>;
     prefix: pulumi.Input<string>;
     slug?: pulumi.Input<string>;

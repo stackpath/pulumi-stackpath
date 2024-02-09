@@ -53,7 +53,7 @@ namespace Stackpath.Stackpath
         {
             var dst = src ?? new global::Pulumi.InvokeOptions{};
             dst.Version = src?.Version ?? Version;
-            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}";
+            dst.PluginDownloadURL = src?.PluginDownloadURL ?? "github://api.github.com/stackpath/pulumi-stackpath";
             return dst;
         }
 

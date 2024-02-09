@@ -48,7 +48,7 @@ namespace Stackpath.Stackpath.Storage
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}",
+                PluginDownloadURL = "github://api.github.com/stackpath/pulumi-stackpath",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

@@ -1,0 +1,3900 @@
+{
+    "name": "stackpath",
+    "description": "A Pulumi package for creating and managing stackpath cloud resources.",
+    "keywords": [
+        "pulumi",
+        "stackpath",
+        "category/cloud"
+    ],
+    "homepage": "https://www.stackpath.com",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`stackpath` Terraform Provider](https://github.com/stackpath/terraform-provider-stackpath).",
+    "repository": "https://github.com/stackpath/pulumi-stackpath",
+    "publisher": "StackPath",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "compatibility": "tfbridge20",
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "3.*"
+            }
+        },
+        "go": {
+            "generateExtraInputTypes": true,
+            "generateResourceContainerTypes": true,
+            "importBasePath": "github.com/stackpath/pulumi-stackpath/sdk/go/stackpath"
+        },
+        "nodejs": {
+            "compatibility": "tfbridge20",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "disableUnionOutputTypes": true,
+            "packageDescription": "A Pulumi package for creating and managing stackpath cloud resources.",
+            "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/stackpath/terraform-provider-stackpath)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-stackpath` repo](https://github.com/stackpath/pulumi-stackpath/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-stackpath` repo](https://github.com/stackpath/terraform-provider-stackpath/issues).",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "compatibility": "tfbridge20",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/stackpath/terraform-provider-stackpath)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-stackpath` repo](https://github.com/stackpath/pulumi-stackpath/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-stackpath` repo](https://github.com/stackpath/terraform-provider-stackpath/issues).",
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            }
+        }
+    },
+    "config": {
+        "variables": {
+            "accessToken": {
+                "type": "string"
+            },
+            "baseUrl": {
+                "type": "string"
+            },
+            "clientId": {
+                "type": "string"
+            },
+            "clientSecret": {
+                "type": "string"
+            },
+            "stackId": {
+                "type": "string"
+            }
+        }
+    },
+    "types": {
+        "stackpath:compute/NetworkPolicyEgress:NetworkPolicyEgress": {
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocol:NetworkPolicyEgressProtocol",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "to": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressTo:NetworkPolicyEgressTo",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "action"
+            ]
+        },
+        "stackpath:compute/NetworkPolicyEgressProtocol:NetworkPolicyEgressProtocol": {
+            "properties": {
+                "ah": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolAh:NetworkPolicyEgressProtocolAh",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "esp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolEsp:NetworkPolicyEgressProtocolEsp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "gre": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolGre:NetworkPolicyEgressProtocolGre",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "icmp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolIcmp:NetworkPolicyEgressProtocolIcmp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolTcp:NetworkPolicyEgressProtocolTcp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpUdp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolTcpUdp:NetworkPolicyEgressProtocolTcpUdp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "udp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyEgressProtocolUdp:NetworkPolicyEgressProtocolUdp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyEgressProtocolAh:NetworkPolicyEgressProtocolAh": {
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyEgressProtocolEsp:NetworkPolicyEgressProtocolEsp": {
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyEgressProtocolGre:NetworkPolicyEgressProtocolGre": {
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyEgressProtocolIcmp:NetworkPolicyEgressProtocolIcmp": {
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyEgressProtocolTcp:NetworkPolicyEgressProtocolTcp": {
+            "properties": {
+                "destinationPorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourcePorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyEgressProtocolTcpUdp:NetworkPolicyEgressProtocolTcpUdp": {
+            "properties": {
+                "destinationPorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourcePorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyEgressProtocolUdp:NetworkPolicyEgressProtocolUdp": {
+            "properties": {
+                "destinationPorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourcePorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyEgressTo:NetworkPolicyEgressTo": {
+            "properties": {
+                "instanceSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyEgressToInstanceSelector:NetworkPolicyEgressToInstanceSelector"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipBlocks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyEgressToIpBlock:NetworkPolicyEgressToIpBlock"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networkSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyEgressToNetworkSelector:NetworkPolicyEgressToNetworkSelector"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyEgressToInstanceSelector:NetworkPolicyEgressToInstanceSelector": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "operator",
+                "values"
+            ]
+        },
+        "stackpath:compute/NetworkPolicyEgressToIpBlock:NetworkPolicyEgressToIpBlock": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "excepts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "cidr"
+            ]
+        },
+        "stackpath:compute/NetworkPolicyEgressToNetworkSelector:NetworkPolicyEgressToNetworkSelector": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "operator",
+                "values"
+            ]
+        },
+        "stackpath:compute/NetworkPolicyIngress:NetworkPolicyIngress": {
+            "properties": {
+                "action": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "from": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressFrom:NetworkPolicyIngressFrom",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocol:NetworkPolicyIngressProtocol",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "action"
+            ]
+        },
+        "stackpath:compute/NetworkPolicyIngressFrom:NetworkPolicyIngressFrom": {
+            "properties": {
+                "instanceSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyIngressFromInstanceSelector:NetworkPolicyIngressFromInstanceSelector"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipBlocks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyIngressFromIpBlock:NetworkPolicyIngressFromIpBlock"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networkSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyIngressFromNetworkSelector:NetworkPolicyIngressFromNetworkSelector"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyIngressFromInstanceSelector:NetworkPolicyIngressFromInstanceSelector": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "operator",
+                "values"
+            ]
+        },
+        "stackpath:compute/NetworkPolicyIngressFromIpBlock:NetworkPolicyIngressFromIpBlock": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "excepts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "cidr"
+            ]
+        },
+        "stackpath:compute/NetworkPolicyIngressFromNetworkSelector:NetworkPolicyIngressFromNetworkSelector": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "operator",
+                "values"
+            ]
+        },
+        "stackpath:compute/NetworkPolicyIngressProtocol:NetworkPolicyIngressProtocol": {
+            "properties": {
+                "ah": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolAh:NetworkPolicyIngressProtocolAh",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "esp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolEsp:NetworkPolicyIngressProtocolEsp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "gre": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolGre:NetworkPolicyIngressProtocolGre",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "icmp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolIcmp:NetworkPolicyIngressProtocolIcmp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolTcp:NetworkPolicyIngressProtocolTcp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpUdp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolTcpUdp:NetworkPolicyIngressProtocolTcpUdp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "udp": {
+                    "$ref": "#/types/stackpath:compute/NetworkPolicyIngressProtocolUdp:NetworkPolicyIngressProtocolUdp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyIngressProtocolAh:NetworkPolicyIngressProtocolAh": {
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyIngressProtocolEsp:NetworkPolicyIngressProtocolEsp": {
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyIngressProtocolGre:NetworkPolicyIngressProtocolGre": {
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyIngressProtocolIcmp:NetworkPolicyIngressProtocolIcmp": {
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyIngressProtocolTcp:NetworkPolicyIngressProtocolTcp": {
+            "properties": {
+                "destinationPorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourcePorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyIngressProtocolTcpUdp:NetworkPolicyIngressProtocolTcpUdp": {
+            "properties": {
+                "destinationPorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourcePorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyIngressProtocolUdp:NetworkPolicyIngressProtocolUdp": {
+            "properties": {
+                "destinationPorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourcePorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/NetworkPolicyInstanceSelector:NetworkPolicyInstanceSelector": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "operator",
+                "values"
+            ]
+        },
+        "stackpath:compute/NetworkPolicyNetworkSelector:NetworkPolicyNetworkSelector": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "operator",
+                "values"
+            ]
+        },
+        "stackpath:compute/NetworkRouteGatewaySelector:NetworkRouteGatewaySelector": {
+            "properties": {
+                "interfaceSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkRouteGatewaySelectorInterfaceSelector:NetworkRouteGatewaySelectorInterfaceSelector"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "interfaceSelectors"
+            ]
+        },
+        "stackpath:compute/NetworkRouteGatewaySelectorInterfaceSelector:NetworkRouteGatewaySelectorInterfaceSelector": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "operator",
+                "values"
+            ]
+        },
+        "stackpath:compute/WorkloadContainer:WorkloadContainer": {
+            "properties": {
+                "commands": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "envs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadContainerEnv:WorkloadContainerEnv"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "image": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "livenessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerLivenessProbe:WorkloadContainerLivenessProbe",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadContainerPort:WorkloadContainerPort"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "readinessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerReadinessProbe:WorkloadContainerReadinessProbe",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resources": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerResources:WorkloadContainerResources",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "volumeMounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadContainerVolumeMount:WorkloadContainerVolumeMount"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "image",
+                "name",
+                "resources"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerEnv:WorkloadContainerEnv": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secretValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerLivenessProbe:WorkloadContainerLivenessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerLivenessProbeHttpGet:WorkloadContainerLivenessProbeHttpGet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialDelaySeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "periodSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "successThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerLivenessProbeTcpSocket:WorkloadContainerLivenessProbeTcpSocket",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerLivenessProbeHttpGet:WorkloadContainerLivenessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerLivenessProbeTcpSocket:WorkloadContainerLivenessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerPort:WorkloadContainerPort": {
+            "properties": {
+                "enableImplicitNetworkPolicy": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerReadinessProbe:WorkloadContainerReadinessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerReadinessProbeHttpGet:WorkloadContainerReadinessProbeHttpGet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialDelaySeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "periodSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "successThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerReadinessProbeTcpSocket:WorkloadContainerReadinessProbeTcpSocket",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerReadinessProbeHttpGet:WorkloadContainerReadinessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerReadinessProbeTcpSocket:WorkloadContainerReadinessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerResources:WorkloadContainerResources": {
+            "properties": {
+                "requests": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "requests"
+            ]
+        },
+        "stackpath:compute/WorkloadContainerVolumeMount:WorkloadContainerVolumeMount": {
+            "properties": {
+                "mountPath": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "slug": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "mountPath",
+                "slug"
+            ]
+        },
+        "stackpath:compute/WorkloadImagePullCredential:WorkloadImagePullCredential": {
+            "properties": {
+                "dockerRegistry": {
+                    "$ref": "#/types/stackpath:compute/WorkloadImagePullCredentialDockerRegistry:WorkloadImagePullCredentialDockerRegistry",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "dockerRegistry"
+            ]
+        },
+        "stackpath:compute/WorkloadImagePullCredentialDockerRegistry:WorkloadImagePullCredentialDockerRegistry": {
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "password": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "server": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ]
+        },
+        "stackpath:compute/WorkloadInstance:WorkloadInstance": {
+            "properties": {
+                "containers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceContainer:WorkloadInstanceContainer"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "externalIpAddress": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "location": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceLocation:WorkloadInstanceLocation",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metadata": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceMetadata:WorkloadInstanceMetadata",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networkInterfaces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceNetworkInterface:WorkloadInstanceNetworkInterface"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "phase": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "reason": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "virtualMachine": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachine:WorkloadInstanceVirtualMachine",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainer:WorkloadInstanceContainer": {
+            "properties": {
+                "commands": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "envs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerEnv:WorkloadInstanceContainerEnv"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "image": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "livenessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerLivenessProbe:WorkloadInstanceContainerLivenessProbe",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerPort:WorkloadInstanceContainerPort"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "readinessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerReadinessProbe:WorkloadInstanceContainerReadinessProbe",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resources": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerResources:WorkloadInstanceContainerResources",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "volumeMounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerVolumeMount:WorkloadInstanceContainerVolumeMount"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "image",
+                "name",
+                "resources"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerEnv:WorkloadInstanceContainerEnv": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secretValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerLivenessProbe:WorkloadInstanceContainerLivenessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerLivenessProbeHttpGet:WorkloadInstanceContainerLivenessProbeHttpGet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialDelaySeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "periodSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "successThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerLivenessProbeTcpSocket:WorkloadInstanceContainerLivenessProbeTcpSocket",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerLivenessProbeHttpGet:WorkloadInstanceContainerLivenessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerLivenessProbeTcpSocket:WorkloadInstanceContainerLivenessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerPort:WorkloadInstanceContainerPort": {
+            "properties": {
+                "enableImplicitNetworkPolicy": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerReadinessProbe:WorkloadInstanceContainerReadinessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerReadinessProbeHttpGet:WorkloadInstanceContainerReadinessProbeHttpGet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialDelaySeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "periodSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "successThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerReadinessProbeTcpSocket:WorkloadInstanceContainerReadinessProbeTcpSocket",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerReadinessProbeHttpGet:WorkloadInstanceContainerReadinessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerReadinessProbeTcpSocket:WorkloadInstanceContainerReadinessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerResources:WorkloadInstanceContainerResources": {
+            "properties": {
+                "requests": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "requests"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerVolumeMount:WorkloadInstanceContainerVolumeMount": {
+            "properties": {
+                "mountPath": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "slug": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "mountPath",
+                "slug"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceLocation:WorkloadInstanceLocation": {
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cityCode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "continent": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "continentCode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "country": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "countryCode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "latitude": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "longitude": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "regionCode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subdivision": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subdivisionCode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInstanceMetadata:WorkloadInstanceMetadata": {
+            "properties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInstanceNetworkInterface:WorkloadInstanceNetworkInterface": {
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipAddressAliases": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "network": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "gateway",
+                "ipAddress",
+                "network"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachine:WorkloadInstanceVirtualMachine": {
+            "properties": {
+                "image": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "livenessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbe:WorkloadInstanceVirtualMachineLivenessProbe",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachinePort:WorkloadInstanceVirtualMachinePort"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "readinessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbe:WorkloadInstanceVirtualMachineReadinessProbe",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resources": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineResources:WorkloadInstanceVirtualMachineResources",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "userData": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "volumeMounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineVolumeMount:WorkloadInstanceVirtualMachineVolumeMount"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "image",
+                "name",
+                "resources"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbe:WorkloadInstanceVirtualMachineLivenessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeHttpGet:WorkloadInstanceVirtualMachineLivenessProbeHttpGet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialDelaySeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "periodSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "successThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeTcpSocket:WorkloadInstanceVirtualMachineLivenessProbeTcpSocket",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeHttpGet:WorkloadInstanceVirtualMachineLivenessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeTcpSocket:WorkloadInstanceVirtualMachineLivenessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachinePort:WorkloadInstanceVirtualMachinePort": {
+            "properties": {
+                "enableImplicitNetworkPolicy": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbe:WorkloadInstanceVirtualMachineReadinessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeHttpGet:WorkloadInstanceVirtualMachineReadinessProbeHttpGet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialDelaySeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "periodSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "successThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeTcpSocket:WorkloadInstanceVirtualMachineReadinessProbeTcpSocket",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeHttpGet:WorkloadInstanceVirtualMachineReadinessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeTcpSocket:WorkloadInstanceVirtualMachineReadinessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachineResources:WorkloadInstanceVirtualMachineResources": {
+            "properties": {
+                "requests": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "requests"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceVirtualMachineVolumeMount:WorkloadInstanceVirtualMachineVolumeMount": {
+            "properties": {
+                "mountPath": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "slug": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "mountPath",
+                "slug"
+            ]
+        },
+        "stackpath:compute/WorkloadNetworkInterface:WorkloadNetworkInterface": {
+            "properties": {
+                "enableOneToOneNat": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "network": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "network"
+            ]
+        },
+        "stackpath:compute/WorkloadTarget:WorkloadTarget": {
+            "properties": {
+                "deploymentScope": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "maxReplicas": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "minReplicas": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scaleSettings": {
+                    "$ref": "#/types/stackpath:compute/WorkloadTargetScaleSettings:WorkloadTargetScaleSettings",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "selectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadTargetSelector:WorkloadTargetSelector"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "minReplicas",
+                "name",
+                "selectors"
+            ]
+        },
+        "stackpath:compute/WorkloadTargetScaleSettings:WorkloadTargetScaleSettings": {
+            "properties": {
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadTargetScaleSettingsMetric:WorkloadTargetScaleSettingsMetric"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "metrics"
+            ]
+        },
+        "stackpath:compute/WorkloadTargetScaleSettingsMetric:WorkloadTargetScaleSettingsMetric": {
+            "properties": {
+                "averageUtilization": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "averageValue": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metric": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "metric"
+            ]
+        },
+        "stackpath:compute/WorkloadTargetSelector:WorkloadTargetSelector": {
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "operator": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "key",
+                "operator",
+                "values"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachine:WorkloadVirtualMachine": {
+            "properties": {
+                "image": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "livenessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineLivenessProbe:WorkloadVirtualMachineLivenessProbe",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadVirtualMachinePort:WorkloadVirtualMachinePort"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "readinessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineReadinessProbe:WorkloadVirtualMachineReadinessProbe",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resources": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineResources:WorkloadVirtualMachineResources",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "userData": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "volumeMounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineVolumeMount:WorkloadVirtualMachineVolumeMount"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "image",
+                "name",
+                "resources"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineLivenessProbe:WorkloadVirtualMachineLivenessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineLivenessProbeHttpGet:WorkloadVirtualMachineLivenessProbeHttpGet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialDelaySeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "periodSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "successThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineLivenessProbeTcpSocket:WorkloadVirtualMachineLivenessProbeTcpSocket",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineLivenessProbeHttpGet:WorkloadVirtualMachineLivenessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineLivenessProbeTcpSocket:WorkloadVirtualMachineLivenessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachinePort:WorkloadVirtualMachinePort": {
+            "properties": {
+                "enableImplicitNetworkPolicy": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineReadinessProbe:WorkloadVirtualMachineReadinessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineReadinessProbeHttpGet:WorkloadVirtualMachineReadinessProbeHttpGet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialDelaySeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "periodSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "successThreshold": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachineReadinessProbeTcpSocket:WorkloadVirtualMachineReadinessProbeTcpSocket",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeoutSeconds": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineReadinessProbeHttpGet:WorkloadVirtualMachineReadinessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineReadinessProbeTcpSocket:WorkloadVirtualMachineReadinessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineResources:WorkloadVirtualMachineResources": {
+            "properties": {
+                "requests": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "requests"
+            ]
+        },
+        "stackpath:compute/WorkloadVirtualMachineVolumeMount:WorkloadVirtualMachineVolumeMount": {
+            "properties": {
+                "mountPath": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "slug": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "mountPath",
+                "slug"
+            ]
+        },
+        "stackpath:compute/WorkloadVolumeClaim:WorkloadVolumeClaim": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resources": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVolumeClaimResources:WorkloadVolumeClaimResources",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "slug": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "resources"
+            ]
+        },
+        "stackpath:compute/WorkloadVolumeClaimResources:WorkloadVolumeClaimResources": {
+            "properties": {
+                "requests": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "requests"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the stackpath package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "accessToken": {
+                "type": "string"
+            },
+            "baseUrl": {
+                "type": "string"
+            },
+            "clientId": {
+                "type": "string"
+            },
+            "clientSecret": {
+                "type": "string"
+            },
+            "stackId": {
+                "type": "string"
+            }
+        },
+        "inputProperties": {
+            "accessToken": {
+                "type": "string"
+            },
+            "baseUrl": {
+                "type": "string"
+            },
+            "clientId": {
+                "type": "string"
+            },
+            "clientSecret": {
+                "type": "string"
+            },
+            "stackId": {
+                "type": "string"
+            }
+        }
+    },
+    "resources": {
+        "stackpath:compute/network:Network": {
+            "properties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "rootSubnet": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "virtualNetworkIdentifier": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "rootSubnet",
+                "slug",
+                "version",
+                "virtualNetworkIdentifier"
+            ],
+            "inputProperties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "rootSubnet": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "rootSubnet",
+                "slug"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Network resources.\n",
+                "properties": {
+                    "annotations": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "rootSubnet": {
+                        "type": "string"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "version": {
+                        "type": "string"
+                    },
+                    "virtualNetworkIdentifier": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "stackpath:compute/networkPolicy:NetworkPolicy": {
+            "properties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "egresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyEgress:NetworkPolicyEgress"
+                    }
+                },
+                "ingresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyIngress:NetworkPolicyIngress"
+                    }
+                },
+                "instanceSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyInstanceSelector:NetworkPolicyInstanceSelector"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyNetworkSelector:NetworkPolicyNetworkSelector"
+                    }
+                },
+                "policyTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "policyTypes",
+                "priority",
+                "slug",
+                "version"
+            ],
+            "inputProperties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "egresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyEgress:NetworkPolicyEgress"
+                    }
+                },
+                "ingresses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyIngress:NetworkPolicyIngress"
+                    }
+                },
+                "instanceSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyInstanceSelector:NetworkPolicyInstanceSelector"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkSelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkPolicyNetworkSelector:NetworkPolicyNetworkSelector"
+                    }
+                },
+                "policyTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "priority": {
+                    "type": "integer"
+                },
+                "slug": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "policyTypes",
+                "priority",
+                "slug"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkPolicy resources.\n",
+                "properties": {
+                    "annotations": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "egresses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/NetworkPolicyEgress:NetworkPolicyEgress"
+                        }
+                    },
+                    "ingresses": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/NetworkPolicyIngress:NetworkPolicyIngress"
+                        }
+                    },
+                    "instanceSelectors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/NetworkPolicyInstanceSelector:NetworkPolicyInstanceSelector"
+                        }
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "networkSelectors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/NetworkPolicyNetworkSelector:NetworkPolicyNetworkSelector"
+                        }
+                    },
+                    "policyTypes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "priority": {
+                        "type": "integer"
+                    },
+                    "slug": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "version": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "stackpath:compute/networkRoute:NetworkRoute": {
+            "properties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "destinationPrefixes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "gatewaySelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkRouteGatewaySelector:NetworkRouteGatewaySelector"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "destinationPrefixes",
+                "name",
+                "networkId",
+                "slug",
+                "version"
+            ],
+            "inputProperties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "destinationPrefixes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "gatewaySelectors": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/NetworkRouteGatewaySelector:NetworkRouteGatewaySelector"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkId": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "slug": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "destinationPrefixes",
+                "networkId"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkRoute resources.\n",
+                "properties": {
+                    "annotations": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "destinationPrefixes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "gatewaySelectors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/NetworkRouteGatewaySelector:NetworkRouteGatewaySelector"
+                        }
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "networkId": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "slug": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "version": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "stackpath:compute/workload:Workload": {
+            "properties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "containers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadContainer:WorkloadContainer"
+                    }
+                },
+                "imagePullCredentials": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadImagePullCredential:WorkloadImagePullCredential"
+                    }
+                },
+                "instances": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstance:WorkloadInstance"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkInterfaces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadNetworkInterface:WorkloadNetworkInterface"
+                    }
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadTarget:WorkloadTarget"
+                    }
+                },
+                "virtualMachine": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachine:WorkloadVirtualMachine"
+                },
+                "volumeClaims": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadVolumeClaim:WorkloadVolumeClaim"
+                    }
+                }
+            },
+            "required": [
+                "annotations",
+                "instances",
+                "name",
+                "networkInterfaces",
+                "slug",
+                "targets"
+            ],
+            "inputProperties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "containers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadContainer:WorkloadContainer"
+                    }
+                },
+                "imagePullCredentials": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadImagePullCredential:WorkloadImagePullCredential"
+                    }
+                },
+                "instances": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstance:WorkloadInstance"
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "networkInterfaces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadNetworkInterface:WorkloadNetworkInterface"
+                    }
+                },
+                "slug": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadTarget:WorkloadTarget"
+                    }
+                },
+                "virtualMachine": {
+                    "$ref": "#/types/stackpath:compute/WorkloadVirtualMachine:WorkloadVirtualMachine"
+                },
+                "volumeClaims": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadVolumeClaim:WorkloadVolumeClaim"
+                    }
+                }
+            },
+            "requiredInputs": [
+                "networkInterfaces",
+                "slug",
+                "targets"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Workload resources.\n",
+                "properties": {
+                    "annotations": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "containers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/WorkloadContainer:WorkloadContainer"
+                        }
+                    },
+                    "imagePullCredentials": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/WorkloadImagePullCredential:WorkloadImagePullCredential"
+                        }
+                    },
+                    "instances": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/WorkloadInstance:WorkloadInstance"
+                        }
+                    },
+                    "labels": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "networkInterfaces": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/WorkloadNetworkInterface:WorkloadNetworkInterface"
+                        }
+                    },
+                    "slug": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "targets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/WorkloadTarget:WorkloadTarget"
+                        }
+                    },
+                    "virtualMachine": {
+                        "$ref": "#/types/stackpath:compute/WorkloadVirtualMachine:WorkloadVirtualMachine"
+                    },
+                    "volumeClaims": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/WorkloadVolumeClaim:WorkloadVolumeClaim"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "stackpath:storage/bucket:Bucket": {
+            "properties": {
+                "endpointUrl": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "visibility": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "endpointUrl",
+                "label",
+                "region"
+            ],
+            "inputProperties": {
+                "label": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "region": {
+                    "type": "string",
+                    "willReplaceOnChanges": true
+                },
+                "visibility": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "label",
+                "region"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Bucket resources.\n",
+                "properties": {
+                    "endpointUrl": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "region": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "visibility": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

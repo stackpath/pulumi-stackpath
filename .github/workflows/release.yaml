@@ -2,6 +2,7 @@ on:
   push:
     tags:
       - 'v*'
+
 jobs:
   publish_binary:
      name: publish          
@@ -35,10 +36,10 @@ jobs:
      env:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-
   publish_sdk:
     name: Publish SDKs
     runs-on: ubuntu-latest
+    permissions: write-all
     needs: publish_binary
     steps:
     - name: Publish SDKs
@@ -54,5 +55,7 @@ jobs:
           - 20.x   # LTS release
           - 18.x   # Previous LTS release
     env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPMJS_API_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPMJS_API_TOKEN }}
+      NODE_AUTH_TOKEN: ${{ secrets.NPMJS_API_TOKEN }}
+      PUBLISH_NPM: true

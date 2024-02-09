@@ -5,16 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./network";
-export * from "./networkPolicy";
-export * from "./networkRoute";
-export * from "./workload";
+export { NetworkArgs, NetworkState } from "./network";
+export type Network = import("./network").Network;
+export const Network: typeof import("./network").Network = null as any;
+utilities.lazyLoad(exports, ["Network"], () => require("./network"));
 
-// Import resources to register:
-import { Network } from "./network";
-import { NetworkPolicy } from "./networkPolicy";
-import { NetworkRoute } from "./networkRoute";
-import { Workload } from "./workload";
+export { NetworkPolicyArgs, NetworkPolicyState } from "./networkPolicy";
+export type NetworkPolicy = import("./networkPolicy").NetworkPolicy;
+export const NetworkPolicy: typeof import("./networkPolicy").NetworkPolicy = null as any;
+utilities.lazyLoad(exports, ["NetworkPolicy"], () => require("./networkPolicy"));
+
+export { NetworkRouteArgs, NetworkRouteState } from "./networkRoute";
+export type NetworkRoute = import("./networkRoute").NetworkRoute;
+export const NetworkRoute: typeof import("./networkRoute").NetworkRoute = null as any;
+utilities.lazyLoad(exports, ["NetworkRoute"], () => require("./networkRoute"));
+
+export { NetworkSubnetArgs, NetworkSubnetState } from "./networkSubnet";
+export type NetworkSubnet = import("./networkSubnet").NetworkSubnet;
+export const NetworkSubnet: typeof import("./networkSubnet").NetworkSubnet = null as any;
+utilities.lazyLoad(exports, ["NetworkSubnet"], () => require("./networkSubnet"));
+
+export { WorkloadArgs, WorkloadState } from "./workload";
+export type Workload = import("./workload").Workload;
+export const Workload: typeof import("./workload").Workload = null as any;
+utilities.lazyLoad(exports, ["Workload"], () => require("./workload"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -26,6 +41,8 @@ const _module = {
                 return new NetworkPolicy(name, <any>undefined, { urn })
             case "stackpath:compute/networkRoute:NetworkRoute":
                 return new NetworkRoute(name, <any>undefined, { urn })
+            case "stackpath:compute/networkSubnet:NetworkSubnet":
+                return new NetworkSubnet(name, <any>undefined, { urn })
             case "stackpath:compute/workload:Workload":
                 return new Workload(name, <any>undefined, { urn })
             default:
@@ -36,4 +53,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("stackpath", "compute/network", _module)
 pulumi.runtime.registerResourceModule("stackpath", "compute/networkPolicy", _module)
 pulumi.runtime.registerResourceModule("stackpath", "compute/networkRoute", _module)
+pulumi.runtime.registerResourceModule("stackpath", "compute/networkSubnet", _module)
 pulumi.runtime.registerResourceModule("stackpath", "compute/workload", _module)

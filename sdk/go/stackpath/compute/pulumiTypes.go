@@ -8,7 +8,10 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath/internal"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type NetworkPolicyEgress struct {
 	Action      string                       `pulumi:"action"`
@@ -20,7 +23,7 @@ type NetworkPolicyEgress struct {
 // NetworkPolicyEgressInput is an input type that accepts NetworkPolicyEgressArgs and NetworkPolicyEgressOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressInput` via:
 //
-//          NetworkPolicyEgressArgs{...}
+//	NetworkPolicyEgressArgs{...}
 type NetworkPolicyEgressInput interface {
 	pulumi.Input
 
@@ -50,7 +53,7 @@ func (i NetworkPolicyEgressArgs) ToNetworkPolicyEgressOutputWithContext(ctx cont
 // NetworkPolicyEgressArrayInput is an input type that accepts NetworkPolicyEgressArray and NetworkPolicyEgressArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressArrayInput` via:
 //
-//          NetworkPolicyEgressArray{ NetworkPolicyEgressArgs{...} }
+//	NetworkPolicyEgressArray{ NetworkPolicyEgressArgs{...} }
 type NetworkPolicyEgressArrayInput interface {
 	pulumi.Input
 
@@ -135,7 +138,7 @@ type NetworkPolicyEgressProtocol struct {
 // NetworkPolicyEgressProtocolInput is an input type that accepts NetworkPolicyEgressProtocolArgs and NetworkPolicyEgressProtocolOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolInput` via:
 //
-//          NetworkPolicyEgressProtocolArgs{...}
+//	NetworkPolicyEgressProtocolArgs{...}
 type NetworkPolicyEgressProtocolInput interface {
 	pulumi.Input
 
@@ -176,11 +179,11 @@ func (i NetworkPolicyEgressProtocolArgs) ToNetworkPolicyEgressProtocolPtrOutputW
 // NetworkPolicyEgressProtocolPtrInput is an input type that accepts NetworkPolicyEgressProtocolArgs, NetworkPolicyEgressProtocolPtr and NetworkPolicyEgressProtocolPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolPtrInput` via:
 //
-//          NetworkPolicyEgressProtocolArgs{...}
+//	        NetworkPolicyEgressProtocolArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyEgressProtocolPtrInput interface {
 	pulumi.Input
 
@@ -351,7 +354,7 @@ type NetworkPolicyEgressProtocolAh struct {
 // NetworkPolicyEgressProtocolAhInput is an input type that accepts NetworkPolicyEgressProtocolAhArgs and NetworkPolicyEgressProtocolAhOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolAhInput` via:
 //
-//          NetworkPolicyEgressProtocolAhArgs{...}
+//	NetworkPolicyEgressProtocolAhArgs{...}
 type NetworkPolicyEgressProtocolAhInput interface {
 	pulumi.Input
 
@@ -385,11 +388,11 @@ func (i NetworkPolicyEgressProtocolAhArgs) ToNetworkPolicyEgressProtocolAhPtrOut
 // NetworkPolicyEgressProtocolAhPtrInput is an input type that accepts NetworkPolicyEgressProtocolAhArgs, NetworkPolicyEgressProtocolAhPtr and NetworkPolicyEgressProtocolAhPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolAhPtrInput` via:
 //
-//          NetworkPolicyEgressProtocolAhArgs{...}
+//	        NetworkPolicyEgressProtocolAhArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyEgressProtocolAhPtrInput interface {
 	pulumi.Input
 
@@ -469,7 +472,7 @@ type NetworkPolicyEgressProtocolEsp struct {
 // NetworkPolicyEgressProtocolEspInput is an input type that accepts NetworkPolicyEgressProtocolEspArgs and NetworkPolicyEgressProtocolEspOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolEspInput` via:
 //
-//          NetworkPolicyEgressProtocolEspArgs{...}
+//	NetworkPolicyEgressProtocolEspArgs{...}
 type NetworkPolicyEgressProtocolEspInput interface {
 	pulumi.Input
 
@@ -503,11 +506,11 @@ func (i NetworkPolicyEgressProtocolEspArgs) ToNetworkPolicyEgressProtocolEspPtrO
 // NetworkPolicyEgressProtocolEspPtrInput is an input type that accepts NetworkPolicyEgressProtocolEspArgs, NetworkPolicyEgressProtocolEspPtr and NetworkPolicyEgressProtocolEspPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolEspPtrInput` via:
 //
-//          NetworkPolicyEgressProtocolEspArgs{...}
+//	        NetworkPolicyEgressProtocolEspArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyEgressProtocolEspPtrInput interface {
 	pulumi.Input
 
@@ -587,7 +590,7 @@ type NetworkPolicyEgressProtocolGre struct {
 // NetworkPolicyEgressProtocolGreInput is an input type that accepts NetworkPolicyEgressProtocolGreArgs and NetworkPolicyEgressProtocolGreOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolGreInput` via:
 //
-//          NetworkPolicyEgressProtocolGreArgs{...}
+//	NetworkPolicyEgressProtocolGreArgs{...}
 type NetworkPolicyEgressProtocolGreInput interface {
 	pulumi.Input
 
@@ -621,11 +624,11 @@ func (i NetworkPolicyEgressProtocolGreArgs) ToNetworkPolicyEgressProtocolGrePtrO
 // NetworkPolicyEgressProtocolGrePtrInput is an input type that accepts NetworkPolicyEgressProtocolGreArgs, NetworkPolicyEgressProtocolGrePtr and NetworkPolicyEgressProtocolGrePtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolGrePtrInput` via:
 //
-//          NetworkPolicyEgressProtocolGreArgs{...}
+//	        NetworkPolicyEgressProtocolGreArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyEgressProtocolGrePtrInput interface {
 	pulumi.Input
 
@@ -705,7 +708,7 @@ type NetworkPolicyEgressProtocolIcmp struct {
 // NetworkPolicyEgressProtocolIcmpInput is an input type that accepts NetworkPolicyEgressProtocolIcmpArgs and NetworkPolicyEgressProtocolIcmpOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolIcmpInput` via:
 //
-//          NetworkPolicyEgressProtocolIcmpArgs{...}
+//	NetworkPolicyEgressProtocolIcmpArgs{...}
 type NetworkPolicyEgressProtocolIcmpInput interface {
 	pulumi.Input
 
@@ -739,11 +742,11 @@ func (i NetworkPolicyEgressProtocolIcmpArgs) ToNetworkPolicyEgressProtocolIcmpPt
 // NetworkPolicyEgressProtocolIcmpPtrInput is an input type that accepts NetworkPolicyEgressProtocolIcmpArgs, NetworkPolicyEgressProtocolIcmpPtr and NetworkPolicyEgressProtocolIcmpPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolIcmpPtrInput` via:
 //
-//          NetworkPolicyEgressProtocolIcmpArgs{...}
+//	        NetworkPolicyEgressProtocolIcmpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyEgressProtocolIcmpPtrInput interface {
 	pulumi.Input
 
@@ -825,7 +828,7 @@ type NetworkPolicyEgressProtocolTcp struct {
 // NetworkPolicyEgressProtocolTcpInput is an input type that accepts NetworkPolicyEgressProtocolTcpArgs and NetworkPolicyEgressProtocolTcpOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolTcpInput` via:
 //
-//          NetworkPolicyEgressProtocolTcpArgs{...}
+//	NetworkPolicyEgressProtocolTcpArgs{...}
 type NetworkPolicyEgressProtocolTcpInput interface {
 	pulumi.Input
 
@@ -861,11 +864,11 @@ func (i NetworkPolicyEgressProtocolTcpArgs) ToNetworkPolicyEgressProtocolTcpPtrO
 // NetworkPolicyEgressProtocolTcpPtrInput is an input type that accepts NetworkPolicyEgressProtocolTcpArgs, NetworkPolicyEgressProtocolTcpPtr and NetworkPolicyEgressProtocolTcpPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolTcpPtrInput` via:
 //
-//          NetworkPolicyEgressProtocolTcpArgs{...}
+//	        NetworkPolicyEgressProtocolTcpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyEgressProtocolTcpPtrInput interface {
 	pulumi.Input
 
@@ -973,7 +976,7 @@ type NetworkPolicyEgressProtocolTcpUdp struct {
 // NetworkPolicyEgressProtocolTcpUdpInput is an input type that accepts NetworkPolicyEgressProtocolTcpUdpArgs and NetworkPolicyEgressProtocolTcpUdpOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolTcpUdpInput` via:
 //
-//          NetworkPolicyEgressProtocolTcpUdpArgs{...}
+//	NetworkPolicyEgressProtocolTcpUdpArgs{...}
 type NetworkPolicyEgressProtocolTcpUdpInput interface {
 	pulumi.Input
 
@@ -1009,11 +1012,11 @@ func (i NetworkPolicyEgressProtocolTcpUdpArgs) ToNetworkPolicyEgressProtocolTcpU
 // NetworkPolicyEgressProtocolTcpUdpPtrInput is an input type that accepts NetworkPolicyEgressProtocolTcpUdpArgs, NetworkPolicyEgressProtocolTcpUdpPtr and NetworkPolicyEgressProtocolTcpUdpPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolTcpUdpPtrInput` via:
 //
-//          NetworkPolicyEgressProtocolTcpUdpArgs{...}
+//	        NetworkPolicyEgressProtocolTcpUdpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyEgressProtocolTcpUdpPtrInput interface {
 	pulumi.Input
 
@@ -1121,7 +1124,7 @@ type NetworkPolicyEgressProtocolUdp struct {
 // NetworkPolicyEgressProtocolUdpInput is an input type that accepts NetworkPolicyEgressProtocolUdpArgs and NetworkPolicyEgressProtocolUdpOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolUdpInput` via:
 //
-//          NetworkPolicyEgressProtocolUdpArgs{...}
+//	NetworkPolicyEgressProtocolUdpArgs{...}
 type NetworkPolicyEgressProtocolUdpInput interface {
 	pulumi.Input
 
@@ -1157,11 +1160,11 @@ func (i NetworkPolicyEgressProtocolUdpArgs) ToNetworkPolicyEgressProtocolUdpPtrO
 // NetworkPolicyEgressProtocolUdpPtrInput is an input type that accepts NetworkPolicyEgressProtocolUdpArgs, NetworkPolicyEgressProtocolUdpPtr and NetworkPolicyEgressProtocolUdpPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressProtocolUdpPtrInput` via:
 //
-//          NetworkPolicyEgressProtocolUdpArgs{...}
+//	        NetworkPolicyEgressProtocolUdpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyEgressProtocolUdpPtrInput interface {
 	pulumi.Input
 
@@ -1270,7 +1273,7 @@ type NetworkPolicyEgressTo struct {
 // NetworkPolicyEgressToInput is an input type that accepts NetworkPolicyEgressToArgs and NetworkPolicyEgressToOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressToInput` via:
 //
-//          NetworkPolicyEgressToArgs{...}
+//	NetworkPolicyEgressToArgs{...}
 type NetworkPolicyEgressToInput interface {
 	pulumi.Input
 
@@ -1307,11 +1310,11 @@ func (i NetworkPolicyEgressToArgs) ToNetworkPolicyEgressToPtrOutputWithContext(c
 // NetworkPolicyEgressToPtrInput is an input type that accepts NetworkPolicyEgressToArgs, NetworkPolicyEgressToPtr and NetworkPolicyEgressToPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressToPtrInput` via:
 //
-//          NetworkPolicyEgressToArgs{...}
+//	        NetworkPolicyEgressToArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyEgressToPtrInput interface {
 	pulumi.Input
 
@@ -1433,7 +1436,7 @@ type NetworkPolicyEgressToInstanceSelector struct {
 // NetworkPolicyEgressToInstanceSelectorInput is an input type that accepts NetworkPolicyEgressToInstanceSelectorArgs and NetworkPolicyEgressToInstanceSelectorOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressToInstanceSelectorInput` via:
 //
-//          NetworkPolicyEgressToInstanceSelectorArgs{...}
+//	NetworkPolicyEgressToInstanceSelectorArgs{...}
 type NetworkPolicyEgressToInstanceSelectorInput interface {
 	pulumi.Input
 
@@ -1462,7 +1465,7 @@ func (i NetworkPolicyEgressToInstanceSelectorArgs) ToNetworkPolicyEgressToInstan
 // NetworkPolicyEgressToInstanceSelectorArrayInput is an input type that accepts NetworkPolicyEgressToInstanceSelectorArray and NetworkPolicyEgressToInstanceSelectorArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressToInstanceSelectorArrayInput` via:
 //
-//          NetworkPolicyEgressToInstanceSelectorArray{ NetworkPolicyEgressToInstanceSelectorArgs{...} }
+//	NetworkPolicyEgressToInstanceSelectorArray{ NetworkPolicyEgressToInstanceSelectorArgs{...} }
 type NetworkPolicyEgressToInstanceSelectorArrayInput interface {
 	pulumi.Input
 
@@ -1538,7 +1541,7 @@ type NetworkPolicyEgressToIpBlock struct {
 // NetworkPolicyEgressToIpBlockInput is an input type that accepts NetworkPolicyEgressToIpBlockArgs and NetworkPolicyEgressToIpBlockOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressToIpBlockInput` via:
 //
-//          NetworkPolicyEgressToIpBlockArgs{...}
+//	NetworkPolicyEgressToIpBlockArgs{...}
 type NetworkPolicyEgressToIpBlockInput interface {
 	pulumi.Input
 
@@ -1566,7 +1569,7 @@ func (i NetworkPolicyEgressToIpBlockArgs) ToNetworkPolicyEgressToIpBlockOutputWi
 // NetworkPolicyEgressToIpBlockArrayInput is an input type that accepts NetworkPolicyEgressToIpBlockArray and NetworkPolicyEgressToIpBlockArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressToIpBlockArrayInput` via:
 //
-//          NetworkPolicyEgressToIpBlockArray{ NetworkPolicyEgressToIpBlockArgs{...} }
+//	NetworkPolicyEgressToIpBlockArray{ NetworkPolicyEgressToIpBlockArgs{...} }
 type NetworkPolicyEgressToIpBlockArrayInput interface {
 	pulumi.Input
 
@@ -1639,7 +1642,7 @@ type NetworkPolicyEgressToNetworkSelector struct {
 // NetworkPolicyEgressToNetworkSelectorInput is an input type that accepts NetworkPolicyEgressToNetworkSelectorArgs and NetworkPolicyEgressToNetworkSelectorOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressToNetworkSelectorInput` via:
 //
-//          NetworkPolicyEgressToNetworkSelectorArgs{...}
+//	NetworkPolicyEgressToNetworkSelectorArgs{...}
 type NetworkPolicyEgressToNetworkSelectorInput interface {
 	pulumi.Input
 
@@ -1668,7 +1671,7 @@ func (i NetworkPolicyEgressToNetworkSelectorArgs) ToNetworkPolicyEgressToNetwork
 // NetworkPolicyEgressToNetworkSelectorArrayInput is an input type that accepts NetworkPolicyEgressToNetworkSelectorArray and NetworkPolicyEgressToNetworkSelectorArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyEgressToNetworkSelectorArrayInput` via:
 //
-//          NetworkPolicyEgressToNetworkSelectorArray{ NetworkPolicyEgressToNetworkSelectorArgs{...} }
+//	NetworkPolicyEgressToNetworkSelectorArray{ NetworkPolicyEgressToNetworkSelectorArgs{...} }
 type NetworkPolicyEgressToNetworkSelectorArrayInput interface {
 	pulumi.Input
 
@@ -1746,7 +1749,7 @@ type NetworkPolicyIngress struct {
 // NetworkPolicyIngressInput is an input type that accepts NetworkPolicyIngressArgs and NetworkPolicyIngressOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressInput` via:
 //
-//          NetworkPolicyIngressArgs{...}
+//	NetworkPolicyIngressArgs{...}
 type NetworkPolicyIngressInput interface {
 	pulumi.Input
 
@@ -1776,7 +1779,7 @@ func (i NetworkPolicyIngressArgs) ToNetworkPolicyIngressOutputWithContext(ctx co
 // NetworkPolicyIngressArrayInput is an input type that accepts NetworkPolicyIngressArray and NetworkPolicyIngressArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressArrayInput` via:
 //
-//          NetworkPolicyIngressArray{ NetworkPolicyIngressArgs{...} }
+//	NetworkPolicyIngressArray{ NetworkPolicyIngressArgs{...} }
 type NetworkPolicyIngressArrayInput interface {
 	pulumi.Input
 
@@ -1857,7 +1860,7 @@ type NetworkPolicyIngressFrom struct {
 // NetworkPolicyIngressFromInput is an input type that accepts NetworkPolicyIngressFromArgs and NetworkPolicyIngressFromOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressFromInput` via:
 //
-//          NetworkPolicyIngressFromArgs{...}
+//	NetworkPolicyIngressFromArgs{...}
 type NetworkPolicyIngressFromInput interface {
 	pulumi.Input
 
@@ -1894,11 +1897,11 @@ func (i NetworkPolicyIngressFromArgs) ToNetworkPolicyIngressFromPtrOutputWithCon
 // NetworkPolicyIngressFromPtrInput is an input type that accepts NetworkPolicyIngressFromArgs, NetworkPolicyIngressFromPtr and NetworkPolicyIngressFromPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressFromPtrInput` via:
 //
-//          NetworkPolicyIngressFromArgs{...}
+//	        NetworkPolicyIngressFromArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyIngressFromPtrInput interface {
 	pulumi.Input
 
@@ -2022,7 +2025,7 @@ type NetworkPolicyIngressFromInstanceSelector struct {
 // NetworkPolicyIngressFromInstanceSelectorInput is an input type that accepts NetworkPolicyIngressFromInstanceSelectorArgs and NetworkPolicyIngressFromInstanceSelectorOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressFromInstanceSelectorInput` via:
 //
-//          NetworkPolicyIngressFromInstanceSelectorArgs{...}
+//	NetworkPolicyIngressFromInstanceSelectorArgs{...}
 type NetworkPolicyIngressFromInstanceSelectorInput interface {
 	pulumi.Input
 
@@ -2051,7 +2054,7 @@ func (i NetworkPolicyIngressFromInstanceSelectorArgs) ToNetworkPolicyIngressFrom
 // NetworkPolicyIngressFromInstanceSelectorArrayInput is an input type that accepts NetworkPolicyIngressFromInstanceSelectorArray and NetworkPolicyIngressFromInstanceSelectorArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressFromInstanceSelectorArrayInput` via:
 //
-//          NetworkPolicyIngressFromInstanceSelectorArray{ NetworkPolicyIngressFromInstanceSelectorArgs{...} }
+//	NetworkPolicyIngressFromInstanceSelectorArray{ NetworkPolicyIngressFromInstanceSelectorArgs{...} }
 type NetworkPolicyIngressFromInstanceSelectorArrayInput interface {
 	pulumi.Input
 
@@ -2127,7 +2130,7 @@ type NetworkPolicyIngressFromIpBlock struct {
 // NetworkPolicyIngressFromIpBlockInput is an input type that accepts NetworkPolicyIngressFromIpBlockArgs and NetworkPolicyIngressFromIpBlockOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressFromIpBlockInput` via:
 //
-//          NetworkPolicyIngressFromIpBlockArgs{...}
+//	NetworkPolicyIngressFromIpBlockArgs{...}
 type NetworkPolicyIngressFromIpBlockInput interface {
 	pulumi.Input
 
@@ -2155,7 +2158,7 @@ func (i NetworkPolicyIngressFromIpBlockArgs) ToNetworkPolicyIngressFromIpBlockOu
 // NetworkPolicyIngressFromIpBlockArrayInput is an input type that accepts NetworkPolicyIngressFromIpBlockArray and NetworkPolicyIngressFromIpBlockArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressFromIpBlockArrayInput` via:
 //
-//          NetworkPolicyIngressFromIpBlockArray{ NetworkPolicyIngressFromIpBlockArgs{...} }
+//	NetworkPolicyIngressFromIpBlockArray{ NetworkPolicyIngressFromIpBlockArgs{...} }
 type NetworkPolicyIngressFromIpBlockArrayInput interface {
 	pulumi.Input
 
@@ -2228,7 +2231,7 @@ type NetworkPolicyIngressFromNetworkSelector struct {
 // NetworkPolicyIngressFromNetworkSelectorInput is an input type that accepts NetworkPolicyIngressFromNetworkSelectorArgs and NetworkPolicyIngressFromNetworkSelectorOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressFromNetworkSelectorInput` via:
 //
-//          NetworkPolicyIngressFromNetworkSelectorArgs{...}
+//	NetworkPolicyIngressFromNetworkSelectorArgs{...}
 type NetworkPolicyIngressFromNetworkSelectorInput interface {
 	pulumi.Input
 
@@ -2257,7 +2260,7 @@ func (i NetworkPolicyIngressFromNetworkSelectorArgs) ToNetworkPolicyIngressFromN
 // NetworkPolicyIngressFromNetworkSelectorArrayInput is an input type that accepts NetworkPolicyIngressFromNetworkSelectorArray and NetworkPolicyIngressFromNetworkSelectorArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressFromNetworkSelectorArrayInput` via:
 //
-//          NetworkPolicyIngressFromNetworkSelectorArray{ NetworkPolicyIngressFromNetworkSelectorArgs{...} }
+//	NetworkPolicyIngressFromNetworkSelectorArray{ NetworkPolicyIngressFromNetworkSelectorArgs{...} }
 type NetworkPolicyIngressFromNetworkSelectorArrayInput interface {
 	pulumi.Input
 
@@ -2338,7 +2341,7 @@ type NetworkPolicyIngressProtocol struct {
 // NetworkPolicyIngressProtocolInput is an input type that accepts NetworkPolicyIngressProtocolArgs and NetworkPolicyIngressProtocolOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolInput` via:
 //
-//          NetworkPolicyIngressProtocolArgs{...}
+//	NetworkPolicyIngressProtocolArgs{...}
 type NetworkPolicyIngressProtocolInput interface {
 	pulumi.Input
 
@@ -2379,11 +2382,11 @@ func (i NetworkPolicyIngressProtocolArgs) ToNetworkPolicyIngressProtocolPtrOutpu
 // NetworkPolicyIngressProtocolPtrInput is an input type that accepts NetworkPolicyIngressProtocolArgs, NetworkPolicyIngressProtocolPtr and NetworkPolicyIngressProtocolPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolPtrInput` via:
 //
-//          NetworkPolicyIngressProtocolArgs{...}
+//	        NetworkPolicyIngressProtocolArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyIngressProtocolPtrInput interface {
 	pulumi.Input
 
@@ -2554,7 +2557,7 @@ type NetworkPolicyIngressProtocolAh struct {
 // NetworkPolicyIngressProtocolAhInput is an input type that accepts NetworkPolicyIngressProtocolAhArgs and NetworkPolicyIngressProtocolAhOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolAhInput` via:
 //
-//          NetworkPolicyIngressProtocolAhArgs{...}
+//	NetworkPolicyIngressProtocolAhArgs{...}
 type NetworkPolicyIngressProtocolAhInput interface {
 	pulumi.Input
 
@@ -2588,11 +2591,11 @@ func (i NetworkPolicyIngressProtocolAhArgs) ToNetworkPolicyIngressProtocolAhPtrO
 // NetworkPolicyIngressProtocolAhPtrInput is an input type that accepts NetworkPolicyIngressProtocolAhArgs, NetworkPolicyIngressProtocolAhPtr and NetworkPolicyIngressProtocolAhPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolAhPtrInput` via:
 //
-//          NetworkPolicyIngressProtocolAhArgs{...}
+//	        NetworkPolicyIngressProtocolAhArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyIngressProtocolAhPtrInput interface {
 	pulumi.Input
 
@@ -2672,7 +2675,7 @@ type NetworkPolicyIngressProtocolEsp struct {
 // NetworkPolicyIngressProtocolEspInput is an input type that accepts NetworkPolicyIngressProtocolEspArgs and NetworkPolicyIngressProtocolEspOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolEspInput` via:
 //
-//          NetworkPolicyIngressProtocolEspArgs{...}
+//	NetworkPolicyIngressProtocolEspArgs{...}
 type NetworkPolicyIngressProtocolEspInput interface {
 	pulumi.Input
 
@@ -2706,11 +2709,11 @@ func (i NetworkPolicyIngressProtocolEspArgs) ToNetworkPolicyIngressProtocolEspPt
 // NetworkPolicyIngressProtocolEspPtrInput is an input type that accepts NetworkPolicyIngressProtocolEspArgs, NetworkPolicyIngressProtocolEspPtr and NetworkPolicyIngressProtocolEspPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolEspPtrInput` via:
 //
-//          NetworkPolicyIngressProtocolEspArgs{...}
+//	        NetworkPolicyIngressProtocolEspArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyIngressProtocolEspPtrInput interface {
 	pulumi.Input
 
@@ -2790,7 +2793,7 @@ type NetworkPolicyIngressProtocolGre struct {
 // NetworkPolicyIngressProtocolGreInput is an input type that accepts NetworkPolicyIngressProtocolGreArgs and NetworkPolicyIngressProtocolGreOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolGreInput` via:
 //
-//          NetworkPolicyIngressProtocolGreArgs{...}
+//	NetworkPolicyIngressProtocolGreArgs{...}
 type NetworkPolicyIngressProtocolGreInput interface {
 	pulumi.Input
 
@@ -2824,11 +2827,11 @@ func (i NetworkPolicyIngressProtocolGreArgs) ToNetworkPolicyIngressProtocolGrePt
 // NetworkPolicyIngressProtocolGrePtrInput is an input type that accepts NetworkPolicyIngressProtocolGreArgs, NetworkPolicyIngressProtocolGrePtr and NetworkPolicyIngressProtocolGrePtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolGrePtrInput` via:
 //
-//          NetworkPolicyIngressProtocolGreArgs{...}
+//	        NetworkPolicyIngressProtocolGreArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyIngressProtocolGrePtrInput interface {
 	pulumi.Input
 
@@ -2908,7 +2911,7 @@ type NetworkPolicyIngressProtocolIcmp struct {
 // NetworkPolicyIngressProtocolIcmpInput is an input type that accepts NetworkPolicyIngressProtocolIcmpArgs and NetworkPolicyIngressProtocolIcmpOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolIcmpInput` via:
 //
-//          NetworkPolicyIngressProtocolIcmpArgs{...}
+//	NetworkPolicyIngressProtocolIcmpArgs{...}
 type NetworkPolicyIngressProtocolIcmpInput interface {
 	pulumi.Input
 
@@ -2942,11 +2945,11 @@ func (i NetworkPolicyIngressProtocolIcmpArgs) ToNetworkPolicyIngressProtocolIcmp
 // NetworkPolicyIngressProtocolIcmpPtrInput is an input type that accepts NetworkPolicyIngressProtocolIcmpArgs, NetworkPolicyIngressProtocolIcmpPtr and NetworkPolicyIngressProtocolIcmpPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolIcmpPtrInput` via:
 //
-//          NetworkPolicyIngressProtocolIcmpArgs{...}
+//	        NetworkPolicyIngressProtocolIcmpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyIngressProtocolIcmpPtrInput interface {
 	pulumi.Input
 
@@ -3028,7 +3031,7 @@ type NetworkPolicyIngressProtocolTcp struct {
 // NetworkPolicyIngressProtocolTcpInput is an input type that accepts NetworkPolicyIngressProtocolTcpArgs and NetworkPolicyIngressProtocolTcpOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolTcpInput` via:
 //
-//          NetworkPolicyIngressProtocolTcpArgs{...}
+//	NetworkPolicyIngressProtocolTcpArgs{...}
 type NetworkPolicyIngressProtocolTcpInput interface {
 	pulumi.Input
 
@@ -3064,11 +3067,11 @@ func (i NetworkPolicyIngressProtocolTcpArgs) ToNetworkPolicyIngressProtocolTcpPt
 // NetworkPolicyIngressProtocolTcpPtrInput is an input type that accepts NetworkPolicyIngressProtocolTcpArgs, NetworkPolicyIngressProtocolTcpPtr and NetworkPolicyIngressProtocolTcpPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolTcpPtrInput` via:
 //
-//          NetworkPolicyIngressProtocolTcpArgs{...}
+//	        NetworkPolicyIngressProtocolTcpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyIngressProtocolTcpPtrInput interface {
 	pulumi.Input
 
@@ -3176,7 +3179,7 @@ type NetworkPolicyIngressProtocolTcpUdp struct {
 // NetworkPolicyIngressProtocolTcpUdpInput is an input type that accepts NetworkPolicyIngressProtocolTcpUdpArgs and NetworkPolicyIngressProtocolTcpUdpOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolTcpUdpInput` via:
 //
-//          NetworkPolicyIngressProtocolTcpUdpArgs{...}
+//	NetworkPolicyIngressProtocolTcpUdpArgs{...}
 type NetworkPolicyIngressProtocolTcpUdpInput interface {
 	pulumi.Input
 
@@ -3212,11 +3215,11 @@ func (i NetworkPolicyIngressProtocolTcpUdpArgs) ToNetworkPolicyIngressProtocolTc
 // NetworkPolicyIngressProtocolTcpUdpPtrInput is an input type that accepts NetworkPolicyIngressProtocolTcpUdpArgs, NetworkPolicyIngressProtocolTcpUdpPtr and NetworkPolicyIngressProtocolTcpUdpPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolTcpUdpPtrInput` via:
 //
-//          NetworkPolicyIngressProtocolTcpUdpArgs{...}
+//	        NetworkPolicyIngressProtocolTcpUdpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyIngressProtocolTcpUdpPtrInput interface {
 	pulumi.Input
 
@@ -3324,7 +3327,7 @@ type NetworkPolicyIngressProtocolUdp struct {
 // NetworkPolicyIngressProtocolUdpInput is an input type that accepts NetworkPolicyIngressProtocolUdpArgs and NetworkPolicyIngressProtocolUdpOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolUdpInput` via:
 //
-//          NetworkPolicyIngressProtocolUdpArgs{...}
+//	NetworkPolicyIngressProtocolUdpArgs{...}
 type NetworkPolicyIngressProtocolUdpInput interface {
 	pulumi.Input
 
@@ -3360,11 +3363,11 @@ func (i NetworkPolicyIngressProtocolUdpArgs) ToNetworkPolicyIngressProtocolUdpPt
 // NetworkPolicyIngressProtocolUdpPtrInput is an input type that accepts NetworkPolicyIngressProtocolUdpArgs, NetworkPolicyIngressProtocolUdpPtr and NetworkPolicyIngressProtocolUdpPtrOutput values.
 // You can construct a concrete instance of `NetworkPolicyIngressProtocolUdpPtrInput` via:
 //
-//          NetworkPolicyIngressProtocolUdpArgs{...}
+//	        NetworkPolicyIngressProtocolUdpArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkPolicyIngressProtocolUdpPtrInput interface {
 	pulumi.Input
 
@@ -3473,7 +3476,7 @@ type NetworkPolicyInstanceSelector struct {
 // NetworkPolicyInstanceSelectorInput is an input type that accepts NetworkPolicyInstanceSelectorArgs and NetworkPolicyInstanceSelectorOutput values.
 // You can construct a concrete instance of `NetworkPolicyInstanceSelectorInput` via:
 //
-//          NetworkPolicyInstanceSelectorArgs{...}
+//	NetworkPolicyInstanceSelectorArgs{...}
 type NetworkPolicyInstanceSelectorInput interface {
 	pulumi.Input
 
@@ -3502,7 +3505,7 @@ func (i NetworkPolicyInstanceSelectorArgs) ToNetworkPolicyInstanceSelectorOutput
 // NetworkPolicyInstanceSelectorArrayInput is an input type that accepts NetworkPolicyInstanceSelectorArray and NetworkPolicyInstanceSelectorArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyInstanceSelectorArrayInput` via:
 //
-//          NetworkPolicyInstanceSelectorArray{ NetworkPolicyInstanceSelectorArgs{...} }
+//	NetworkPolicyInstanceSelectorArray{ NetworkPolicyInstanceSelectorArgs{...} }
 type NetworkPolicyInstanceSelectorArrayInput interface {
 	pulumi.Input
 
@@ -3579,7 +3582,7 @@ type NetworkPolicyNetworkSelector struct {
 // NetworkPolicyNetworkSelectorInput is an input type that accepts NetworkPolicyNetworkSelectorArgs and NetworkPolicyNetworkSelectorOutput values.
 // You can construct a concrete instance of `NetworkPolicyNetworkSelectorInput` via:
 //
-//          NetworkPolicyNetworkSelectorArgs{...}
+//	NetworkPolicyNetworkSelectorArgs{...}
 type NetworkPolicyNetworkSelectorInput interface {
 	pulumi.Input
 
@@ -3608,7 +3611,7 @@ func (i NetworkPolicyNetworkSelectorArgs) ToNetworkPolicyNetworkSelectorOutputWi
 // NetworkPolicyNetworkSelectorArrayInput is an input type that accepts NetworkPolicyNetworkSelectorArray and NetworkPolicyNetworkSelectorArrayOutput values.
 // You can construct a concrete instance of `NetworkPolicyNetworkSelectorArrayInput` via:
 //
-//          NetworkPolicyNetworkSelectorArray{ NetworkPolicyNetworkSelectorArgs{...} }
+//	NetworkPolicyNetworkSelectorArray{ NetworkPolicyNetworkSelectorArgs{...} }
 type NetworkPolicyNetworkSelectorArrayInput interface {
 	pulumi.Input
 
@@ -3683,7 +3686,7 @@ type NetworkRouteGatewaySelector struct {
 // NetworkRouteGatewaySelectorInput is an input type that accepts NetworkRouteGatewaySelectorArgs and NetworkRouteGatewaySelectorOutput values.
 // You can construct a concrete instance of `NetworkRouteGatewaySelectorInput` via:
 //
-//          NetworkRouteGatewaySelectorArgs{...}
+//	NetworkRouteGatewaySelectorArgs{...}
 type NetworkRouteGatewaySelectorInput interface {
 	pulumi.Input
 
@@ -3710,7 +3713,7 @@ func (i NetworkRouteGatewaySelectorArgs) ToNetworkRouteGatewaySelectorOutputWith
 // NetworkRouteGatewaySelectorArrayInput is an input type that accepts NetworkRouteGatewaySelectorArray and NetworkRouteGatewaySelectorArrayOutput values.
 // You can construct a concrete instance of `NetworkRouteGatewaySelectorArrayInput` via:
 //
-//          NetworkRouteGatewaySelectorArray{ NetworkRouteGatewaySelectorArgs{...} }
+//	NetworkRouteGatewaySelectorArray{ NetworkRouteGatewaySelectorArgs{...} }
 type NetworkRouteGatewaySelectorArrayInput interface {
 	pulumi.Input
 
@@ -3781,7 +3784,7 @@ type NetworkRouteGatewaySelectorInterfaceSelector struct {
 // NetworkRouteGatewaySelectorInterfaceSelectorInput is an input type that accepts NetworkRouteGatewaySelectorInterfaceSelectorArgs and NetworkRouteGatewaySelectorInterfaceSelectorOutput values.
 // You can construct a concrete instance of `NetworkRouteGatewaySelectorInterfaceSelectorInput` via:
 //
-//          NetworkRouteGatewaySelectorInterfaceSelectorArgs{...}
+//	NetworkRouteGatewaySelectorInterfaceSelectorArgs{...}
 type NetworkRouteGatewaySelectorInterfaceSelectorInput interface {
 	pulumi.Input
 
@@ -3810,7 +3813,7 @@ func (i NetworkRouteGatewaySelectorInterfaceSelectorArgs) ToNetworkRouteGatewayS
 // NetworkRouteGatewaySelectorInterfaceSelectorArrayInput is an input type that accepts NetworkRouteGatewaySelectorInterfaceSelectorArray and NetworkRouteGatewaySelectorInterfaceSelectorArrayOutput values.
 // You can construct a concrete instance of `NetworkRouteGatewaySelectorInterfaceSelectorArrayInput` via:
 //
-//          NetworkRouteGatewaySelectorInterfaceSelectorArray{ NetworkRouteGatewaySelectorInterfaceSelectorArgs{...} }
+//	NetworkRouteGatewaySelectorInterfaceSelectorArray{ NetworkRouteGatewaySelectorInterfaceSelectorArgs{...} }
 type NetworkRouteGatewaySelectorInterfaceSelectorArrayInput interface {
 	pulumi.Input
 
@@ -3879,21 +3882,22 @@ func (o NetworkRouteGatewaySelectorInterfaceSelectorArrayOutput) Index(i pulumi.
 }
 
 type WorkloadContainer struct {
-	Commands       []string                         `pulumi:"commands"`
-	Envs           []WorkloadContainerEnv           `pulumi:"envs"`
-	Image          string                           `pulumi:"image"`
-	LivenessProbe  *WorkloadContainerLivenessProbe  `pulumi:"livenessProbe"`
-	Name           string                           `pulumi:"name"`
-	Ports          []WorkloadContainerPort          `pulumi:"ports"`
-	ReadinessProbe *WorkloadContainerReadinessProbe `pulumi:"readinessProbe"`
-	Resources      WorkloadContainerResources       `pulumi:"resources"`
-	VolumeMounts   []WorkloadContainerVolumeMount   `pulumi:"volumeMounts"`
+	Commands        []string                          `pulumi:"commands"`
+	Envs            []WorkloadContainerEnv            `pulumi:"envs"`
+	Image           string                            `pulumi:"image"`
+	LivenessProbe   *WorkloadContainerLivenessProbe   `pulumi:"livenessProbe"`
+	Name            string                            `pulumi:"name"`
+	Ports           []WorkloadContainerPort           `pulumi:"ports"`
+	ReadinessProbe  *WorkloadContainerReadinessProbe  `pulumi:"readinessProbe"`
+	Resources       WorkloadContainerResources        `pulumi:"resources"`
+	SecurityContext *WorkloadContainerSecurityContext `pulumi:"securityContext"`
+	VolumeMounts    []WorkloadContainerVolumeMount    `pulumi:"volumeMounts"`
 }
 
 // WorkloadContainerInput is an input type that accepts WorkloadContainerArgs and WorkloadContainerOutput values.
 // You can construct a concrete instance of `WorkloadContainerInput` via:
 //
-//          WorkloadContainerArgs{...}
+//	WorkloadContainerArgs{...}
 type WorkloadContainerInput interface {
 	pulumi.Input
 
@@ -3902,15 +3906,16 @@ type WorkloadContainerInput interface {
 }
 
 type WorkloadContainerArgs struct {
-	Commands       pulumi.StringArrayInput                 `pulumi:"commands"`
-	Envs           WorkloadContainerEnvArrayInput          `pulumi:"envs"`
-	Image          pulumi.StringInput                      `pulumi:"image"`
-	LivenessProbe  WorkloadContainerLivenessProbePtrInput  `pulumi:"livenessProbe"`
-	Name           pulumi.StringInput                      `pulumi:"name"`
-	Ports          WorkloadContainerPortArrayInput         `pulumi:"ports"`
-	ReadinessProbe WorkloadContainerReadinessProbePtrInput `pulumi:"readinessProbe"`
-	Resources      WorkloadContainerResourcesInput         `pulumi:"resources"`
-	VolumeMounts   WorkloadContainerVolumeMountArrayInput  `pulumi:"volumeMounts"`
+	Commands        pulumi.StringArrayInput                  `pulumi:"commands"`
+	Envs            WorkloadContainerEnvArrayInput           `pulumi:"envs"`
+	Image           pulumi.StringInput                       `pulumi:"image"`
+	LivenessProbe   WorkloadContainerLivenessProbePtrInput   `pulumi:"livenessProbe"`
+	Name            pulumi.StringInput                       `pulumi:"name"`
+	Ports           WorkloadContainerPortArrayInput          `pulumi:"ports"`
+	ReadinessProbe  WorkloadContainerReadinessProbePtrInput  `pulumi:"readinessProbe"`
+	Resources       WorkloadContainerResourcesInput          `pulumi:"resources"`
+	SecurityContext WorkloadContainerSecurityContextPtrInput `pulumi:"securityContext"`
+	VolumeMounts    WorkloadContainerVolumeMountArrayInput   `pulumi:"volumeMounts"`
 }
 
 func (WorkloadContainerArgs) ElementType() reflect.Type {
@@ -3928,7 +3933,7 @@ func (i WorkloadContainerArgs) ToWorkloadContainerOutputWithContext(ctx context.
 // WorkloadContainerArrayInput is an input type that accepts WorkloadContainerArray and WorkloadContainerArrayOutput values.
 // You can construct a concrete instance of `WorkloadContainerArrayInput` via:
 //
-//          WorkloadContainerArray{ WorkloadContainerArgs{...} }
+//	WorkloadContainerArray{ WorkloadContainerArgs{...} }
 type WorkloadContainerArrayInput interface {
 	pulumi.Input
 
@@ -3996,6 +4001,10 @@ func (o WorkloadContainerOutput) Resources() WorkloadContainerResourcesOutput {
 	return o.ApplyT(func(v WorkloadContainer) WorkloadContainerResources { return v.Resources }).(WorkloadContainerResourcesOutput)
 }
 
+func (o WorkloadContainerOutput) SecurityContext() WorkloadContainerSecurityContextPtrOutput {
+	return o.ApplyT(func(v WorkloadContainer) *WorkloadContainerSecurityContext { return v.SecurityContext }).(WorkloadContainerSecurityContextPtrOutput)
+}
+
 func (o WorkloadContainerOutput) VolumeMounts() WorkloadContainerVolumeMountArrayOutput {
 	return o.ApplyT(func(v WorkloadContainer) []WorkloadContainerVolumeMount { return v.VolumeMounts }).(WorkloadContainerVolumeMountArrayOutput)
 }
@@ -4029,7 +4038,7 @@ type WorkloadContainerEnv struct {
 // WorkloadContainerEnvInput is an input type that accepts WorkloadContainerEnvArgs and WorkloadContainerEnvOutput values.
 // You can construct a concrete instance of `WorkloadContainerEnvInput` via:
 //
-//          WorkloadContainerEnvArgs{...}
+//	WorkloadContainerEnvArgs{...}
 type WorkloadContainerEnvInput interface {
 	pulumi.Input
 
@@ -4058,7 +4067,7 @@ func (i WorkloadContainerEnvArgs) ToWorkloadContainerEnvOutputWithContext(ctx co
 // WorkloadContainerEnvArrayInput is an input type that accepts WorkloadContainerEnvArray and WorkloadContainerEnvArrayOutput values.
 // You can construct a concrete instance of `WorkloadContainerEnvArrayInput` via:
 //
-//          WorkloadContainerEnvArray{ WorkloadContainerEnvArgs{...} }
+//	WorkloadContainerEnvArray{ WorkloadContainerEnvArgs{...} }
 type WorkloadContainerEnvArrayInput interface {
 	pulumi.Input
 
@@ -4139,7 +4148,7 @@ type WorkloadContainerLivenessProbe struct {
 // WorkloadContainerLivenessProbeInput is an input type that accepts WorkloadContainerLivenessProbeArgs and WorkloadContainerLivenessProbeOutput values.
 // You can construct a concrete instance of `WorkloadContainerLivenessProbeInput` via:
 //
-//          WorkloadContainerLivenessProbeArgs{...}
+//	WorkloadContainerLivenessProbeArgs{...}
 type WorkloadContainerLivenessProbeInput interface {
 	pulumi.Input
 
@@ -4180,11 +4189,11 @@ func (i WorkloadContainerLivenessProbeArgs) ToWorkloadContainerLivenessProbePtrO
 // WorkloadContainerLivenessProbePtrInput is an input type that accepts WorkloadContainerLivenessProbeArgs, WorkloadContainerLivenessProbePtr and WorkloadContainerLivenessProbePtrOutput values.
 // You can construct a concrete instance of `WorkloadContainerLivenessProbePtrInput` via:
 //
-//          WorkloadContainerLivenessProbeArgs{...}
+//	        WorkloadContainerLivenessProbeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadContainerLivenessProbePtrInput interface {
 	pulumi.Input
 
@@ -4359,7 +4368,7 @@ type WorkloadContainerLivenessProbeHttpGet struct {
 // WorkloadContainerLivenessProbeHttpGetInput is an input type that accepts WorkloadContainerLivenessProbeHttpGetArgs and WorkloadContainerLivenessProbeHttpGetOutput values.
 // You can construct a concrete instance of `WorkloadContainerLivenessProbeHttpGetInput` via:
 //
-//          WorkloadContainerLivenessProbeHttpGetArgs{...}
+//	WorkloadContainerLivenessProbeHttpGetArgs{...}
 type WorkloadContainerLivenessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -4397,11 +4406,11 @@ func (i WorkloadContainerLivenessProbeHttpGetArgs) ToWorkloadContainerLivenessPr
 // WorkloadContainerLivenessProbeHttpGetPtrInput is an input type that accepts WorkloadContainerLivenessProbeHttpGetArgs, WorkloadContainerLivenessProbeHttpGetPtr and WorkloadContainerLivenessProbeHttpGetPtrOutput values.
 // You can construct a concrete instance of `WorkloadContainerLivenessProbeHttpGetPtrInput` via:
 //
-//          WorkloadContainerLivenessProbeHttpGetArgs{...}
+//	        WorkloadContainerLivenessProbeHttpGetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadContainerLivenessProbeHttpGetPtrInput interface {
 	pulumi.Input
 
@@ -4534,7 +4543,7 @@ type WorkloadContainerLivenessProbeTcpSocket struct {
 // WorkloadContainerLivenessProbeTcpSocketInput is an input type that accepts WorkloadContainerLivenessProbeTcpSocketArgs and WorkloadContainerLivenessProbeTcpSocketOutput values.
 // You can construct a concrete instance of `WorkloadContainerLivenessProbeTcpSocketInput` via:
 //
-//          WorkloadContainerLivenessProbeTcpSocketArgs{...}
+//	WorkloadContainerLivenessProbeTcpSocketArgs{...}
 type WorkloadContainerLivenessProbeTcpSocketInput interface {
 	pulumi.Input
 
@@ -4569,11 +4578,11 @@ func (i WorkloadContainerLivenessProbeTcpSocketArgs) ToWorkloadContainerLiveness
 // WorkloadContainerLivenessProbeTcpSocketPtrInput is an input type that accepts WorkloadContainerLivenessProbeTcpSocketArgs, WorkloadContainerLivenessProbeTcpSocketPtr and WorkloadContainerLivenessProbeTcpSocketPtrOutput values.
 // You can construct a concrete instance of `WorkloadContainerLivenessProbeTcpSocketPtrInput` via:
 //
-//          WorkloadContainerLivenessProbeTcpSocketArgs{...}
+//	        WorkloadContainerLivenessProbeTcpSocketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadContainerLivenessProbeTcpSocketPtrInput interface {
 	pulumi.Input
 
@@ -4670,7 +4679,7 @@ type WorkloadContainerPort struct {
 // WorkloadContainerPortInput is an input type that accepts WorkloadContainerPortArgs and WorkloadContainerPortOutput values.
 // You can construct a concrete instance of `WorkloadContainerPortInput` via:
 //
-//          WorkloadContainerPortArgs{...}
+//	WorkloadContainerPortArgs{...}
 type WorkloadContainerPortInput interface {
 	pulumi.Input
 
@@ -4700,7 +4709,7 @@ func (i WorkloadContainerPortArgs) ToWorkloadContainerPortOutputWithContext(ctx 
 // WorkloadContainerPortArrayInput is an input type that accepts WorkloadContainerPortArray and WorkloadContainerPortArrayOutput values.
 // You can construct a concrete instance of `WorkloadContainerPortArrayInput` via:
 //
-//          WorkloadContainerPortArray{ WorkloadContainerPortArgs{...} }
+//	WorkloadContainerPortArray{ WorkloadContainerPortArgs{...} }
 type WorkloadContainerPortArrayInput interface {
 	pulumi.Input
 
@@ -4785,7 +4794,7 @@ type WorkloadContainerReadinessProbe struct {
 // WorkloadContainerReadinessProbeInput is an input type that accepts WorkloadContainerReadinessProbeArgs and WorkloadContainerReadinessProbeOutput values.
 // You can construct a concrete instance of `WorkloadContainerReadinessProbeInput` via:
 //
-//          WorkloadContainerReadinessProbeArgs{...}
+//	WorkloadContainerReadinessProbeArgs{...}
 type WorkloadContainerReadinessProbeInput interface {
 	pulumi.Input
 
@@ -4826,11 +4835,11 @@ func (i WorkloadContainerReadinessProbeArgs) ToWorkloadContainerReadinessProbePt
 // WorkloadContainerReadinessProbePtrInput is an input type that accepts WorkloadContainerReadinessProbeArgs, WorkloadContainerReadinessProbePtr and WorkloadContainerReadinessProbePtrOutput values.
 // You can construct a concrete instance of `WorkloadContainerReadinessProbePtrInput` via:
 //
-//          WorkloadContainerReadinessProbeArgs{...}
+//	        WorkloadContainerReadinessProbeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadContainerReadinessProbePtrInput interface {
 	pulumi.Input
 
@@ -5005,7 +5014,7 @@ type WorkloadContainerReadinessProbeHttpGet struct {
 // WorkloadContainerReadinessProbeHttpGetInput is an input type that accepts WorkloadContainerReadinessProbeHttpGetArgs and WorkloadContainerReadinessProbeHttpGetOutput values.
 // You can construct a concrete instance of `WorkloadContainerReadinessProbeHttpGetInput` via:
 //
-//          WorkloadContainerReadinessProbeHttpGetArgs{...}
+//	WorkloadContainerReadinessProbeHttpGetArgs{...}
 type WorkloadContainerReadinessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -5043,11 +5052,11 @@ func (i WorkloadContainerReadinessProbeHttpGetArgs) ToWorkloadContainerReadiness
 // WorkloadContainerReadinessProbeHttpGetPtrInput is an input type that accepts WorkloadContainerReadinessProbeHttpGetArgs, WorkloadContainerReadinessProbeHttpGetPtr and WorkloadContainerReadinessProbeHttpGetPtrOutput values.
 // You can construct a concrete instance of `WorkloadContainerReadinessProbeHttpGetPtrInput` via:
 //
-//          WorkloadContainerReadinessProbeHttpGetArgs{...}
+//	        WorkloadContainerReadinessProbeHttpGetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadContainerReadinessProbeHttpGetPtrInput interface {
 	pulumi.Input
 
@@ -5180,7 +5189,7 @@ type WorkloadContainerReadinessProbeTcpSocket struct {
 // WorkloadContainerReadinessProbeTcpSocketInput is an input type that accepts WorkloadContainerReadinessProbeTcpSocketArgs and WorkloadContainerReadinessProbeTcpSocketOutput values.
 // You can construct a concrete instance of `WorkloadContainerReadinessProbeTcpSocketInput` via:
 //
-//          WorkloadContainerReadinessProbeTcpSocketArgs{...}
+//	WorkloadContainerReadinessProbeTcpSocketArgs{...}
 type WorkloadContainerReadinessProbeTcpSocketInput interface {
 	pulumi.Input
 
@@ -5215,11 +5224,11 @@ func (i WorkloadContainerReadinessProbeTcpSocketArgs) ToWorkloadContainerReadine
 // WorkloadContainerReadinessProbeTcpSocketPtrInput is an input type that accepts WorkloadContainerReadinessProbeTcpSocketArgs, WorkloadContainerReadinessProbeTcpSocketPtr and WorkloadContainerReadinessProbeTcpSocketPtrOutput values.
 // You can construct a concrete instance of `WorkloadContainerReadinessProbeTcpSocketPtrInput` via:
 //
-//          WorkloadContainerReadinessProbeTcpSocketArgs{...}
+//	        WorkloadContainerReadinessProbeTcpSocketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadContainerReadinessProbeTcpSocketPtrInput interface {
 	pulumi.Input
 
@@ -5313,7 +5322,7 @@ type WorkloadContainerResources struct {
 // WorkloadContainerResourcesInput is an input type that accepts WorkloadContainerResourcesArgs and WorkloadContainerResourcesOutput values.
 // You can construct a concrete instance of `WorkloadContainerResourcesInput` via:
 //
-//          WorkloadContainerResourcesArgs{...}
+//	WorkloadContainerResourcesArgs{...}
 type WorkloadContainerResourcesInput interface {
 	pulumi.Input
 
@@ -5355,6 +5364,1095 @@ func (o WorkloadContainerResourcesOutput) Requests() pulumi.StringMapOutput {
 	return o.ApplyT(func(v WorkloadContainerResources) map[string]string { return v.Requests }).(pulumi.StringMapOutput)
 }
 
+type WorkloadContainerRuntimeEnvironment struct {
+	Dns                           WorkloadContainerRuntimeEnvironmentDns              `pulumi:"dns"`
+	SecurityContext               *WorkloadContainerRuntimeEnvironmentSecurityContext `pulumi:"securityContext"`
+	ShareProcessNamespace         *bool                                               `pulumi:"shareProcessNamespace"`
+	TerminationGracePeriodSeconds *int                                                `pulumi:"terminationGracePeriodSeconds"`
+}
+
+// WorkloadContainerRuntimeEnvironmentInput is an input type that accepts WorkloadContainerRuntimeEnvironmentArgs and WorkloadContainerRuntimeEnvironmentOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentInput` via:
+//
+//	WorkloadContainerRuntimeEnvironmentArgs{...}
+type WorkloadContainerRuntimeEnvironmentInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentOutput() WorkloadContainerRuntimeEnvironmentOutput
+	ToWorkloadContainerRuntimeEnvironmentOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentOutput
+}
+
+type WorkloadContainerRuntimeEnvironmentArgs struct {
+	Dns                           WorkloadContainerRuntimeEnvironmentDnsInput                `pulumi:"dns"`
+	SecurityContext               WorkloadContainerRuntimeEnvironmentSecurityContextPtrInput `pulumi:"securityContext"`
+	ShareProcessNamespace         pulumi.BoolPtrInput                                        `pulumi:"shareProcessNamespace"`
+	TerminationGracePeriodSeconds pulumi.IntPtrInput                                         `pulumi:"terminationGracePeriodSeconds"`
+}
+
+func (WorkloadContainerRuntimeEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironment)(nil)).Elem()
+}
+
+func (i WorkloadContainerRuntimeEnvironmentArgs) ToWorkloadContainerRuntimeEnvironmentOutput() WorkloadContainerRuntimeEnvironmentOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentArgs) ToWorkloadContainerRuntimeEnvironmentOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentOutput)
+}
+
+func (i WorkloadContainerRuntimeEnvironmentArgs) ToWorkloadContainerRuntimeEnvironmentPtrOutput() WorkloadContainerRuntimeEnvironmentPtrOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentArgs) ToWorkloadContainerRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentOutput).ToWorkloadContainerRuntimeEnvironmentPtrOutputWithContext(ctx)
+}
+
+// WorkloadContainerRuntimeEnvironmentPtrInput is an input type that accepts WorkloadContainerRuntimeEnvironmentArgs, WorkloadContainerRuntimeEnvironmentPtr and WorkloadContainerRuntimeEnvironmentPtrOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentPtrInput` via:
+//
+//	        WorkloadContainerRuntimeEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadContainerRuntimeEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentPtrOutput() WorkloadContainerRuntimeEnvironmentPtrOutput
+	ToWorkloadContainerRuntimeEnvironmentPtrOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentPtrOutput
+}
+
+type workloadContainerRuntimeEnvironmentPtrType WorkloadContainerRuntimeEnvironmentArgs
+
+func WorkloadContainerRuntimeEnvironmentPtr(v *WorkloadContainerRuntimeEnvironmentArgs) WorkloadContainerRuntimeEnvironmentPtrInput {
+	return (*workloadContainerRuntimeEnvironmentPtrType)(v)
+}
+
+func (*workloadContainerRuntimeEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerRuntimeEnvironment)(nil)).Elem()
+}
+
+func (i *workloadContainerRuntimeEnvironmentPtrType) ToWorkloadContainerRuntimeEnvironmentPtrOutput() WorkloadContainerRuntimeEnvironmentPtrOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadContainerRuntimeEnvironmentPtrType) ToWorkloadContainerRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentPtrOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironment)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentOutput) ToWorkloadContainerRuntimeEnvironmentOutput() WorkloadContainerRuntimeEnvironmentOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentOutput) ToWorkloadContainerRuntimeEnvironmentOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentOutput) ToWorkloadContainerRuntimeEnvironmentPtrOutput() WorkloadContainerRuntimeEnvironmentPtrOutput {
+	return o.ToWorkloadContainerRuntimeEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadContainerRuntimeEnvironmentOutput) ToWorkloadContainerRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadContainerRuntimeEnvironment) *WorkloadContainerRuntimeEnvironment {
+		return &v
+	}).(WorkloadContainerRuntimeEnvironmentPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentOutput) Dns() WorkloadContainerRuntimeEnvironmentDnsOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironment) WorkloadContainerRuntimeEnvironmentDns { return v.Dns }).(WorkloadContainerRuntimeEnvironmentDnsOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentOutput) SecurityContext() WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironment) *WorkloadContainerRuntimeEnvironmentSecurityContext {
+		return v.SecurityContext
+	}).(WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironment) *bool { return v.ShareProcessNamespace }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironment) *int { return v.TerminationGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerRuntimeEnvironment)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentPtrOutput) ToWorkloadContainerRuntimeEnvironmentPtrOutput() WorkloadContainerRuntimeEnvironmentPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentPtrOutput) ToWorkloadContainerRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentPtrOutput) Elem() WorkloadContainerRuntimeEnvironmentOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironment) WorkloadContainerRuntimeEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadContainerRuntimeEnvironment
+		return ret
+	}).(WorkloadContainerRuntimeEnvironmentOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentPtrOutput) Dns() WorkloadContainerRuntimeEnvironmentDnsPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironment) *WorkloadContainerRuntimeEnvironmentDns {
+		if v == nil {
+			return nil
+		}
+		return &v.Dns
+	}).(WorkloadContainerRuntimeEnvironmentDnsPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentPtrOutput) SecurityContext() WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironment) *WorkloadContainerRuntimeEnvironmentSecurityContext {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityContext
+	}).(WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentPtrOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironment) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShareProcessNamespace
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentPtrOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironment) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationGracePeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentDns struct {
+	HostAliases     []WorkloadContainerRuntimeEnvironmentDnsHostAlias      `pulumi:"hostAliases"`
+	ResolverConfigs []WorkloadContainerRuntimeEnvironmentDnsResolverConfig `pulumi:"resolverConfigs"`
+}
+
+// WorkloadContainerRuntimeEnvironmentDnsInput is an input type that accepts WorkloadContainerRuntimeEnvironmentDnsArgs and WorkloadContainerRuntimeEnvironmentDnsOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentDnsInput` via:
+//
+//	WorkloadContainerRuntimeEnvironmentDnsArgs{...}
+type WorkloadContainerRuntimeEnvironmentDnsInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentDnsOutput() WorkloadContainerRuntimeEnvironmentDnsOutput
+	ToWorkloadContainerRuntimeEnvironmentDnsOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentDnsOutput
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsArgs struct {
+	HostAliases     WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayInput      `pulumi:"hostAliases"`
+	ResolverConfigs WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayInput `pulumi:"resolverConfigs"`
+}
+
+func (WorkloadContainerRuntimeEnvironmentDnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDns)(nil)).Elem()
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsArgs) ToWorkloadContainerRuntimeEnvironmentDnsOutput() WorkloadContainerRuntimeEnvironmentDnsOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentDnsOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsArgs) ToWorkloadContainerRuntimeEnvironmentDnsOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentDnsOutput)
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsArgs) ToWorkloadContainerRuntimeEnvironmentDnsPtrOutput() WorkloadContainerRuntimeEnvironmentDnsPtrOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentDnsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsArgs) ToWorkloadContainerRuntimeEnvironmentDnsPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentDnsOutput).ToWorkloadContainerRuntimeEnvironmentDnsPtrOutputWithContext(ctx)
+}
+
+// WorkloadContainerRuntimeEnvironmentDnsPtrInput is an input type that accepts WorkloadContainerRuntimeEnvironmentDnsArgs, WorkloadContainerRuntimeEnvironmentDnsPtr and WorkloadContainerRuntimeEnvironmentDnsPtrOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentDnsPtrInput` via:
+//
+//	        WorkloadContainerRuntimeEnvironmentDnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadContainerRuntimeEnvironmentDnsPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentDnsPtrOutput() WorkloadContainerRuntimeEnvironmentDnsPtrOutput
+	ToWorkloadContainerRuntimeEnvironmentDnsPtrOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentDnsPtrOutput
+}
+
+type workloadContainerRuntimeEnvironmentDnsPtrType WorkloadContainerRuntimeEnvironmentDnsArgs
+
+func WorkloadContainerRuntimeEnvironmentDnsPtr(v *WorkloadContainerRuntimeEnvironmentDnsArgs) WorkloadContainerRuntimeEnvironmentDnsPtrInput {
+	return (*workloadContainerRuntimeEnvironmentDnsPtrType)(v)
+}
+
+func (*workloadContainerRuntimeEnvironmentDnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerRuntimeEnvironmentDns)(nil)).Elem()
+}
+
+func (i *workloadContainerRuntimeEnvironmentDnsPtrType) ToWorkloadContainerRuntimeEnvironmentDnsPtrOutput() WorkloadContainerRuntimeEnvironmentDnsPtrOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentDnsPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadContainerRuntimeEnvironmentDnsPtrType) ToWorkloadContainerRuntimeEnvironmentDnsPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentDnsPtrOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentDnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDns)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsOutput) ToWorkloadContainerRuntimeEnvironmentDnsOutput() WorkloadContainerRuntimeEnvironmentDnsOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsOutput) ToWorkloadContainerRuntimeEnvironmentDnsOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsOutput) ToWorkloadContainerRuntimeEnvironmentDnsPtrOutput() WorkloadContainerRuntimeEnvironmentDnsPtrOutput {
+	return o.ToWorkloadContainerRuntimeEnvironmentDnsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsOutput) ToWorkloadContainerRuntimeEnvironmentDnsPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadContainerRuntimeEnvironmentDns) *WorkloadContainerRuntimeEnvironmentDns {
+		return &v
+	}).(WorkloadContainerRuntimeEnvironmentDnsPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsOutput) HostAliases() WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentDns) []WorkloadContainerRuntimeEnvironmentDnsHostAlias {
+		return v.HostAliases
+	}).(WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsOutput) ResolverConfigs() WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentDns) []WorkloadContainerRuntimeEnvironmentDnsResolverConfig {
+		return v.ResolverConfigs
+	}).(WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentDnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerRuntimeEnvironmentDns)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsPtrOutput) ToWorkloadContainerRuntimeEnvironmentDnsPtrOutput() WorkloadContainerRuntimeEnvironmentDnsPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsPtrOutput) ToWorkloadContainerRuntimeEnvironmentDnsPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsPtrOutput) Elem() WorkloadContainerRuntimeEnvironmentDnsOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironmentDns) WorkloadContainerRuntimeEnvironmentDns {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadContainerRuntimeEnvironmentDns
+		return ret
+	}).(WorkloadContainerRuntimeEnvironmentDnsOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsPtrOutput) HostAliases() WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironmentDns) []WorkloadContainerRuntimeEnvironmentDnsHostAlias {
+		if v == nil {
+			return nil
+		}
+		return v.HostAliases
+	}).(WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsPtrOutput) ResolverConfigs() WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironmentDns) []WorkloadContainerRuntimeEnvironmentDnsResolverConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ResolverConfigs
+	}).(WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsHostAlias struct {
+	Address   string   `pulumi:"address"`
+	Hostnames []string `pulumi:"hostnames"`
+}
+
+// WorkloadContainerRuntimeEnvironmentDnsHostAliasInput is an input type that accepts WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs and WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentDnsHostAliasInput` via:
+//
+//	WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs{...}
+type WorkloadContainerRuntimeEnvironmentDnsHostAliasInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentDnsHostAliasOutput() WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput
+	ToWorkloadContainerRuntimeEnvironmentDnsHostAliasOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs struct {
+	Address   pulumi.StringInput      `pulumi:"address"`
+	Hostnames pulumi.StringArrayInput `pulumi:"hostnames"`
+}
+
+func (WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsHostAlias)(nil)).Elem()
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs) ToWorkloadContainerRuntimeEnvironmentDnsHostAliasOutput() WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentDnsHostAliasOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs) ToWorkloadContainerRuntimeEnvironmentDnsHostAliasOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput)
+}
+
+// WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayInput is an input type that accepts WorkloadContainerRuntimeEnvironmentDnsHostAliasArray and WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayInput` via:
+//
+//	WorkloadContainerRuntimeEnvironmentDnsHostAliasArray{ WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs{...} }
+type WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput() WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput
+	ToWorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsHostAliasArray []WorkloadContainerRuntimeEnvironmentDnsHostAliasInput
+
+func (WorkloadContainerRuntimeEnvironmentDnsHostAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadContainerRuntimeEnvironmentDnsHostAlias)(nil)).Elem()
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsHostAliasArray) ToWorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput() WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsHostAliasArray) ToWorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsHostAlias)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput) ToWorkloadContainerRuntimeEnvironmentDnsHostAliasOutput() WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput) ToWorkloadContainerRuntimeEnvironmentDnsHostAliasOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentDnsHostAlias) string { return v.Address }).(pulumi.StringOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput) Hostnames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentDnsHostAlias) []string { return v.Hostnames }).(pulumi.StringArrayOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadContainerRuntimeEnvironmentDnsHostAlias)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput) ToWorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput() WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput) ToWorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput) Index(i pulumi.IntInput) WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadContainerRuntimeEnvironmentDnsHostAlias {
+		return vs[0].([]WorkloadContainerRuntimeEnvironmentDnsHostAlias)[vs[1].(int)]
+	}).(WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsResolverConfig struct {
+	Nameservers []string               `pulumi:"nameservers"`
+	Options     map[string]interface{} `pulumi:"options"`
+	Searches    []string               `pulumi:"searches"`
+}
+
+// WorkloadContainerRuntimeEnvironmentDnsResolverConfigInput is an input type that accepts WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs and WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentDnsResolverConfigInput` via:
+//
+//	WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs{...}
+type WorkloadContainerRuntimeEnvironmentDnsResolverConfigInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput() WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput
+	ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs struct {
+	Nameservers pulumi.StringArrayInput `pulumi:"nameservers"`
+	Options     pulumi.MapInput         `pulumi:"options"`
+	Searches    pulumi.StringArrayInput `pulumi:"searches"`
+}
+
+func (WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsResolverConfig)(nil)).Elem()
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs) ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput() WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs) ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput)
+}
+
+// WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayInput is an input type that accepts WorkloadContainerRuntimeEnvironmentDnsResolverConfigArray and WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayInput` via:
+//
+//	WorkloadContainerRuntimeEnvironmentDnsResolverConfigArray{ WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs{...} }
+type WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput() WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput
+	ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsResolverConfigArray []WorkloadContainerRuntimeEnvironmentDnsResolverConfigInput
+
+func (WorkloadContainerRuntimeEnvironmentDnsResolverConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadContainerRuntimeEnvironmentDnsResolverConfig)(nil)).Elem()
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsResolverConfigArray) ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput() WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentDnsResolverConfigArray) ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsResolverConfig)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput) ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput() WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput) ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput) Nameservers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentDnsResolverConfig) []string { return v.Nameservers }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput) Options() pulumi.MapOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentDnsResolverConfig) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput) Searches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentDnsResolverConfig) []string { return v.Searches }).(pulumi.StringArrayOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadContainerRuntimeEnvironmentDnsResolverConfig)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput) ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput() WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput) ToWorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput) Index(i pulumi.IntInput) WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadContainerRuntimeEnvironmentDnsResolverConfig {
+		return vs[0].([]WorkloadContainerRuntimeEnvironmentDnsResolverConfig)[vs[1].(int)]
+	}).(WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentSecurityContext struct {
+	RunAsGroup         *string           `pulumi:"runAsGroup"`
+	RunAsNonRoot       *bool             `pulumi:"runAsNonRoot"`
+	RunAsUser          *string           `pulumi:"runAsUser"`
+	SupplementalGroups []string          `pulumi:"supplementalGroups"`
+	Sysctl             map[string]string `pulumi:"sysctl"`
+}
+
+// WorkloadContainerRuntimeEnvironmentSecurityContextInput is an input type that accepts WorkloadContainerRuntimeEnvironmentSecurityContextArgs and WorkloadContainerRuntimeEnvironmentSecurityContextOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentSecurityContextInput` via:
+//
+//	WorkloadContainerRuntimeEnvironmentSecurityContextArgs{...}
+type WorkloadContainerRuntimeEnvironmentSecurityContextInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentSecurityContextOutput() WorkloadContainerRuntimeEnvironmentSecurityContextOutput
+	ToWorkloadContainerRuntimeEnvironmentSecurityContextOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentSecurityContextOutput
+}
+
+type WorkloadContainerRuntimeEnvironmentSecurityContextArgs struct {
+	RunAsGroup         pulumi.StringPtrInput   `pulumi:"runAsGroup"`
+	RunAsNonRoot       pulumi.BoolPtrInput     `pulumi:"runAsNonRoot"`
+	RunAsUser          pulumi.StringPtrInput   `pulumi:"runAsUser"`
+	SupplementalGroups pulumi.StringArrayInput `pulumi:"supplementalGroups"`
+	Sysctl             pulumi.StringMapInput   `pulumi:"sysctl"`
+}
+
+func (WorkloadContainerRuntimeEnvironmentSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentSecurityContext)(nil)).Elem()
+}
+
+func (i WorkloadContainerRuntimeEnvironmentSecurityContextArgs) ToWorkloadContainerRuntimeEnvironmentSecurityContextOutput() WorkloadContainerRuntimeEnvironmentSecurityContextOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentSecurityContextOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentSecurityContextArgs) ToWorkloadContainerRuntimeEnvironmentSecurityContextOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentSecurityContextOutput)
+}
+
+func (i WorkloadContainerRuntimeEnvironmentSecurityContextArgs) ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput() WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerRuntimeEnvironmentSecurityContextArgs) ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentSecurityContextOutput).ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutputWithContext(ctx)
+}
+
+// WorkloadContainerRuntimeEnvironmentSecurityContextPtrInput is an input type that accepts WorkloadContainerRuntimeEnvironmentSecurityContextArgs, WorkloadContainerRuntimeEnvironmentSecurityContextPtr and WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput values.
+// You can construct a concrete instance of `WorkloadContainerRuntimeEnvironmentSecurityContextPtrInput` via:
+//
+//	        WorkloadContainerRuntimeEnvironmentSecurityContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadContainerRuntimeEnvironmentSecurityContextPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput() WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput
+	ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutputWithContext(context.Context) WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput
+}
+
+type workloadContainerRuntimeEnvironmentSecurityContextPtrType WorkloadContainerRuntimeEnvironmentSecurityContextArgs
+
+func WorkloadContainerRuntimeEnvironmentSecurityContextPtr(v *WorkloadContainerRuntimeEnvironmentSecurityContextArgs) WorkloadContainerRuntimeEnvironmentSecurityContextPtrInput {
+	return (*workloadContainerRuntimeEnvironmentSecurityContextPtrType)(v)
+}
+
+func (*workloadContainerRuntimeEnvironmentSecurityContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerRuntimeEnvironmentSecurityContext)(nil)).Elem()
+}
+
+func (i *workloadContainerRuntimeEnvironmentSecurityContextPtrType) ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput() WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return i.ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadContainerRuntimeEnvironmentSecurityContextPtrType) ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextOutput) ToWorkloadContainerRuntimeEnvironmentSecurityContextOutput() WorkloadContainerRuntimeEnvironmentSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextOutput) ToWorkloadContainerRuntimeEnvironmentSecurityContextOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextOutput) ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput() WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return o.ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextOutput) ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadContainerRuntimeEnvironmentSecurityContext) *WorkloadContainerRuntimeEnvironmentSecurityContext {
+		return &v
+	}).(WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentSecurityContext) *string { return v.RunAsGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentSecurityContext) *bool { return v.RunAsNonRoot }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentSecurityContext) *string { return v.RunAsUser }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextOutput) SupplementalGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentSecurityContext) []string { return v.SupplementalGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextOutput) Sysctl() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkloadContainerRuntimeEnvironmentSecurityContext) map[string]string { return v.Sysctl }).(pulumi.StringMapOutput)
+}
+
+type WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerRuntimeEnvironmentSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput) ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput() WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput) ToWorkloadContainerRuntimeEnvironmentSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput) Elem() WorkloadContainerRuntimeEnvironmentSecurityContextOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironmentSecurityContext) WorkloadContainerRuntimeEnvironmentSecurityContext {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadContainerRuntimeEnvironmentSecurityContext
+		return ret
+	}).(WorkloadContainerRuntimeEnvironmentSecurityContextOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironmentSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironmentSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsNonRoot
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironmentSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsUser
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput) SupplementalGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironmentSecurityContext) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupplementalGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput) Sysctl() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkloadContainerRuntimeEnvironmentSecurityContext) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Sysctl
+	}).(pulumi.StringMapOutput)
+}
+
+type WorkloadContainerSecurityContext struct {
+	AllowPrivilegeEscalation *bool                                         `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             *WorkloadContainerSecurityContextCapabilities `pulumi:"capabilities"`
+	ReadOnlyRootFilesystem   *bool                                         `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               *string                                       `pulumi:"runAsGroup"`
+	RunAsNonRoot             *bool                                         `pulumi:"runAsNonRoot"`
+	RunAsUser                *string                                       `pulumi:"runAsUser"`
+}
+
+// WorkloadContainerSecurityContextInput is an input type that accepts WorkloadContainerSecurityContextArgs and WorkloadContainerSecurityContextOutput values.
+// You can construct a concrete instance of `WorkloadContainerSecurityContextInput` via:
+//
+//	WorkloadContainerSecurityContextArgs{...}
+type WorkloadContainerSecurityContextInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerSecurityContextOutput() WorkloadContainerSecurityContextOutput
+	ToWorkloadContainerSecurityContextOutputWithContext(context.Context) WorkloadContainerSecurityContextOutput
+}
+
+type WorkloadContainerSecurityContextArgs struct {
+	AllowPrivilegeEscalation pulumi.BoolPtrInput                                  `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             WorkloadContainerSecurityContextCapabilitiesPtrInput `pulumi:"capabilities"`
+	ReadOnlyRootFilesystem   pulumi.BoolPtrInput                                  `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               pulumi.StringPtrInput                                `pulumi:"runAsGroup"`
+	RunAsNonRoot             pulumi.BoolPtrInput                                  `pulumi:"runAsNonRoot"`
+	RunAsUser                pulumi.StringPtrInput                                `pulumi:"runAsUser"`
+}
+
+func (WorkloadContainerSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerSecurityContext)(nil)).Elem()
+}
+
+func (i WorkloadContainerSecurityContextArgs) ToWorkloadContainerSecurityContextOutput() WorkloadContainerSecurityContextOutput {
+	return i.ToWorkloadContainerSecurityContextOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerSecurityContextArgs) ToWorkloadContainerSecurityContextOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerSecurityContextOutput)
+}
+
+func (i WorkloadContainerSecurityContextArgs) ToWorkloadContainerSecurityContextPtrOutput() WorkloadContainerSecurityContextPtrOutput {
+	return i.ToWorkloadContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerSecurityContextArgs) ToWorkloadContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerSecurityContextOutput).ToWorkloadContainerSecurityContextPtrOutputWithContext(ctx)
+}
+
+// WorkloadContainerSecurityContextPtrInput is an input type that accepts WorkloadContainerSecurityContextArgs, WorkloadContainerSecurityContextPtr and WorkloadContainerSecurityContextPtrOutput values.
+// You can construct a concrete instance of `WorkloadContainerSecurityContextPtrInput` via:
+//
+//	        WorkloadContainerSecurityContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadContainerSecurityContextPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerSecurityContextPtrOutput() WorkloadContainerSecurityContextPtrOutput
+	ToWorkloadContainerSecurityContextPtrOutputWithContext(context.Context) WorkloadContainerSecurityContextPtrOutput
+}
+
+type workloadContainerSecurityContextPtrType WorkloadContainerSecurityContextArgs
+
+func WorkloadContainerSecurityContextPtr(v *WorkloadContainerSecurityContextArgs) WorkloadContainerSecurityContextPtrInput {
+	return (*workloadContainerSecurityContextPtrType)(v)
+}
+
+func (*workloadContainerSecurityContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerSecurityContext)(nil)).Elem()
+}
+
+func (i *workloadContainerSecurityContextPtrType) ToWorkloadContainerSecurityContextPtrOutput() WorkloadContainerSecurityContextPtrOutput {
+	return i.ToWorkloadContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadContainerSecurityContextPtrType) ToWorkloadContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerSecurityContextPtrOutput)
+}
+
+type WorkloadContainerSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadContainerSecurityContextOutput) ToWorkloadContainerSecurityContextOutput() WorkloadContainerSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadContainerSecurityContextOutput) ToWorkloadContainerSecurityContextOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadContainerSecurityContextOutput) ToWorkloadContainerSecurityContextPtrOutput() WorkloadContainerSecurityContextPtrOutput {
+	return o.ToWorkloadContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadContainerSecurityContextOutput) ToWorkloadContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadContainerSecurityContext) *WorkloadContainerSecurityContext {
+		return &v
+	}).(WorkloadContainerSecurityContextPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerSecurityContext) *bool { return v.AllowPrivilegeEscalation }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextOutput) Capabilities() WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerSecurityContext) *WorkloadContainerSecurityContextCapabilities {
+		return v.Capabilities
+	}).(WorkloadContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerSecurityContext) *bool { return v.ReadOnlyRootFilesystem }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerSecurityContext) *string { return v.RunAsGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerSecurityContext) *bool { return v.RunAsNonRoot }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerSecurityContext) *string { return v.RunAsUser }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadContainerSecurityContextPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerSecurityContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadContainerSecurityContextPtrOutput) ToWorkloadContainerSecurityContextPtrOutput() WorkloadContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerSecurityContextPtrOutput) ToWorkloadContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerSecurityContextPtrOutput) Elem() WorkloadContainerSecurityContextOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContext) WorkloadContainerSecurityContext {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadContainerSecurityContext
+		return ret
+	}).(WorkloadContainerSecurityContextOutput)
+}
+
+func (o WorkloadContainerSecurityContextPtrOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextPtrOutput) Capabilities() WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContext) *WorkloadContainerSecurityContextCapabilities {
+		if v == nil {
+			return nil
+		}
+		return v.Capabilities
+	}).(WorkloadContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextPtrOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnlyRootFilesystem
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextPtrOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsNonRoot
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextPtrOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsUser
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadContainerSecurityContextCapabilities struct {
+	Adds  []string `pulumi:"adds"`
+	Drops []string `pulumi:"drops"`
+}
+
+// WorkloadContainerSecurityContextCapabilitiesInput is an input type that accepts WorkloadContainerSecurityContextCapabilitiesArgs and WorkloadContainerSecurityContextCapabilitiesOutput values.
+// You can construct a concrete instance of `WorkloadContainerSecurityContextCapabilitiesInput` via:
+//
+//	WorkloadContainerSecurityContextCapabilitiesArgs{...}
+type WorkloadContainerSecurityContextCapabilitiesInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerSecurityContextCapabilitiesOutput() WorkloadContainerSecurityContextCapabilitiesOutput
+	ToWorkloadContainerSecurityContextCapabilitiesOutputWithContext(context.Context) WorkloadContainerSecurityContextCapabilitiesOutput
+}
+
+type WorkloadContainerSecurityContextCapabilitiesArgs struct {
+	Adds  pulumi.StringArrayInput `pulumi:"adds"`
+	Drops pulumi.StringArrayInput `pulumi:"drops"`
+}
+
+func (WorkloadContainerSecurityContextCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (i WorkloadContainerSecurityContextCapabilitiesArgs) ToWorkloadContainerSecurityContextCapabilitiesOutput() WorkloadContainerSecurityContextCapabilitiesOutput {
+	return i.ToWorkloadContainerSecurityContextCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerSecurityContextCapabilitiesArgs) ToWorkloadContainerSecurityContextCapabilitiesOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerSecurityContextCapabilitiesOutput)
+}
+
+func (i WorkloadContainerSecurityContextCapabilitiesArgs) ToWorkloadContainerSecurityContextCapabilitiesPtrOutput() WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return i.ToWorkloadContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerSecurityContextCapabilitiesArgs) ToWorkloadContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerSecurityContextCapabilitiesOutput).ToWorkloadContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// WorkloadContainerSecurityContextCapabilitiesPtrInput is an input type that accepts WorkloadContainerSecurityContextCapabilitiesArgs, WorkloadContainerSecurityContextCapabilitiesPtr and WorkloadContainerSecurityContextCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `WorkloadContainerSecurityContextCapabilitiesPtrInput` via:
+//
+//	        WorkloadContainerSecurityContextCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadContainerSecurityContextCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerSecurityContextCapabilitiesPtrOutput() WorkloadContainerSecurityContextCapabilitiesPtrOutput
+	ToWorkloadContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Context) WorkloadContainerSecurityContextCapabilitiesPtrOutput
+}
+
+type workloadContainerSecurityContextCapabilitiesPtrType WorkloadContainerSecurityContextCapabilitiesArgs
+
+func WorkloadContainerSecurityContextCapabilitiesPtr(v *WorkloadContainerSecurityContextCapabilitiesArgs) WorkloadContainerSecurityContextCapabilitiesPtrInput {
+	return (*workloadContainerSecurityContextCapabilitiesPtrType)(v)
+}
+
+func (*workloadContainerSecurityContextCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (i *workloadContainerSecurityContextCapabilitiesPtrType) ToWorkloadContainerSecurityContextCapabilitiesPtrOutput() WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return i.ToWorkloadContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadContainerSecurityContextCapabilitiesPtrType) ToWorkloadContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+type WorkloadContainerSecurityContextCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerSecurityContextCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesOutput) ToWorkloadContainerSecurityContextCapabilitiesOutput() WorkloadContainerSecurityContextCapabilitiesOutput {
+	return o
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesOutput) ToWorkloadContainerSecurityContextCapabilitiesOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextCapabilitiesOutput {
+	return o
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesOutput) ToWorkloadContainerSecurityContextCapabilitiesPtrOutput() WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ToWorkloadContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesOutput) ToWorkloadContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadContainerSecurityContextCapabilities) *WorkloadContainerSecurityContextCapabilities {
+		return &v
+	}).(WorkloadContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesOutput) Adds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadContainerSecurityContextCapabilities) []string { return v.Adds }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesOutput) Drops() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadContainerSecurityContextCapabilities) []string { return v.Drops }).(pulumi.StringArrayOutput)
+}
+
+type WorkloadContainerSecurityContextCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerSecurityContextCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesPtrOutput) ToWorkloadContainerSecurityContextCapabilitiesPtrOutput() WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesPtrOutput) ToWorkloadContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadContainerSecurityContextCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesPtrOutput) Elem() WorkloadContainerSecurityContextCapabilitiesOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContextCapabilities) WorkloadContainerSecurityContextCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadContainerSecurityContextCapabilities
+		return ret
+	}).(WorkloadContainerSecurityContextCapabilitiesOutput)
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesPtrOutput) Adds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContextCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Adds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadContainerSecurityContextCapabilitiesPtrOutput) Drops() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadContainerSecurityContextCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Drops
+	}).(pulumi.StringArrayOutput)
+}
+
 type WorkloadContainerVolumeMount struct {
 	MountPath string `pulumi:"mountPath"`
 	Slug      string `pulumi:"slug"`
@@ -5363,7 +6461,7 @@ type WorkloadContainerVolumeMount struct {
 // WorkloadContainerVolumeMountInput is an input type that accepts WorkloadContainerVolumeMountArgs and WorkloadContainerVolumeMountOutput values.
 // You can construct a concrete instance of `WorkloadContainerVolumeMountInput` via:
 //
-//          WorkloadContainerVolumeMountArgs{...}
+//	WorkloadContainerVolumeMountArgs{...}
 type WorkloadContainerVolumeMountInput interface {
 	pulumi.Input
 
@@ -5391,7 +6489,7 @@ func (i WorkloadContainerVolumeMountArgs) ToWorkloadContainerVolumeMountOutputWi
 // WorkloadContainerVolumeMountArrayInput is an input type that accepts WorkloadContainerVolumeMountArray and WorkloadContainerVolumeMountArrayOutput values.
 // You can construct a concrete instance of `WorkloadContainerVolumeMountArrayInput` via:
 //
-//          WorkloadContainerVolumeMountArray{ WorkloadContainerVolumeMountArgs{...} }
+//	WorkloadContainerVolumeMountArray{ WorkloadContainerVolumeMountArgs{...} }
 type WorkloadContainerVolumeMountArrayInput interface {
 	pulumi.Input
 
@@ -5462,7 +6560,7 @@ type WorkloadImagePullCredential struct {
 // WorkloadImagePullCredentialInput is an input type that accepts WorkloadImagePullCredentialArgs and WorkloadImagePullCredentialOutput values.
 // You can construct a concrete instance of `WorkloadImagePullCredentialInput` via:
 //
-//          WorkloadImagePullCredentialArgs{...}
+//	WorkloadImagePullCredentialArgs{...}
 type WorkloadImagePullCredentialInput interface {
 	pulumi.Input
 
@@ -5489,7 +6587,7 @@ func (i WorkloadImagePullCredentialArgs) ToWorkloadImagePullCredentialOutputWith
 // WorkloadImagePullCredentialArrayInput is an input type that accepts WorkloadImagePullCredentialArray and WorkloadImagePullCredentialArrayOutput values.
 // You can construct a concrete instance of `WorkloadImagePullCredentialArrayInput` via:
 //
-//          WorkloadImagePullCredentialArray{ WorkloadImagePullCredentialArgs{...} }
+//	WorkloadImagePullCredentialArray{ WorkloadImagePullCredentialArgs{...} }
 type WorkloadImagePullCredentialArrayInput interface {
 	pulumi.Input
 
@@ -5559,7 +6657,7 @@ type WorkloadImagePullCredentialDockerRegistry struct {
 // WorkloadImagePullCredentialDockerRegistryInput is an input type that accepts WorkloadImagePullCredentialDockerRegistryArgs and WorkloadImagePullCredentialDockerRegistryOutput values.
 // You can construct a concrete instance of `WorkloadImagePullCredentialDockerRegistryInput` via:
 //
-//          WorkloadImagePullCredentialDockerRegistryArgs{...}
+//	WorkloadImagePullCredentialDockerRegistryArgs{...}
 type WorkloadImagePullCredentialDockerRegistryInput interface {
 	pulumi.Input
 
@@ -5617,23 +6715,25 @@ func (o WorkloadImagePullCredentialDockerRegistryOutput) Username() pulumi.Strin
 }
 
 type WorkloadInstance struct {
-	Containers        []WorkloadInstanceContainer        `pulumi:"containers"`
-	ExternalIpAddress *string                            `pulumi:"externalIpAddress"`
-	IpAddress         *string                            `pulumi:"ipAddress"`
-	Location          *WorkloadInstanceLocation          `pulumi:"location"`
-	Message           *string                            `pulumi:"message"`
-	Metadata          *WorkloadInstanceMetadata          `pulumi:"metadata"`
-	Name              string                             `pulumi:"name"`
-	NetworkInterfaces []WorkloadInstanceNetworkInterface `pulumi:"networkInterfaces"`
-	Phase             *string                            `pulumi:"phase"`
-	Reason            *string                            `pulumi:"reason"`
-	VirtualMachine    *WorkloadInstanceVirtualMachine    `pulumi:"virtualMachine"`
+	Containers          []WorkloadInstanceContainer        `pulumi:"containers"`
+	ExternalIpAddress   *string                            `pulumi:"externalIpAddress"`
+	ExternalIpv6Address *string                            `pulumi:"externalIpv6Address"`
+	IpAddress           *string                            `pulumi:"ipAddress"`
+	Ipv6Address         *string                            `pulumi:"ipv6Address"`
+	Location            *WorkloadInstanceLocation          `pulumi:"location"`
+	Message             *string                            `pulumi:"message"`
+	Metadata            *WorkloadInstanceMetadata          `pulumi:"metadata"`
+	Name                string                             `pulumi:"name"`
+	NetworkInterfaces   []WorkloadInstanceNetworkInterface `pulumi:"networkInterfaces"`
+	Phase               *string                            `pulumi:"phase"`
+	Reason              *string                            `pulumi:"reason"`
+	VirtualMachine      *WorkloadInstanceVirtualMachine    `pulumi:"virtualMachine"`
 }
 
 // WorkloadInstanceInput is an input type that accepts WorkloadInstanceArgs and WorkloadInstanceOutput values.
 // You can construct a concrete instance of `WorkloadInstanceInput` via:
 //
-//          WorkloadInstanceArgs{...}
+//	WorkloadInstanceArgs{...}
 type WorkloadInstanceInput interface {
 	pulumi.Input
 
@@ -5642,17 +6742,19 @@ type WorkloadInstanceInput interface {
 }
 
 type WorkloadInstanceArgs struct {
-	Containers        WorkloadInstanceContainerArrayInput        `pulumi:"containers"`
-	ExternalIpAddress pulumi.StringPtrInput                      `pulumi:"externalIpAddress"`
-	IpAddress         pulumi.StringPtrInput                      `pulumi:"ipAddress"`
-	Location          WorkloadInstanceLocationPtrInput           `pulumi:"location"`
-	Message           pulumi.StringPtrInput                      `pulumi:"message"`
-	Metadata          WorkloadInstanceMetadataPtrInput           `pulumi:"metadata"`
-	Name              pulumi.StringInput                         `pulumi:"name"`
-	NetworkInterfaces WorkloadInstanceNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	Phase             pulumi.StringPtrInput                      `pulumi:"phase"`
-	Reason            pulumi.StringPtrInput                      `pulumi:"reason"`
-	VirtualMachine    WorkloadInstanceVirtualMachinePtrInput     `pulumi:"virtualMachine"`
+	Containers          WorkloadInstanceContainerArrayInput        `pulumi:"containers"`
+	ExternalIpAddress   pulumi.StringPtrInput                      `pulumi:"externalIpAddress"`
+	ExternalIpv6Address pulumi.StringPtrInput                      `pulumi:"externalIpv6Address"`
+	IpAddress           pulumi.StringPtrInput                      `pulumi:"ipAddress"`
+	Ipv6Address         pulumi.StringPtrInput                      `pulumi:"ipv6Address"`
+	Location            WorkloadInstanceLocationPtrInput           `pulumi:"location"`
+	Message             pulumi.StringPtrInput                      `pulumi:"message"`
+	Metadata            WorkloadInstanceMetadataPtrInput           `pulumi:"metadata"`
+	Name                pulumi.StringInput                         `pulumi:"name"`
+	NetworkInterfaces   WorkloadInstanceNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	Phase               pulumi.StringPtrInput                      `pulumi:"phase"`
+	Reason              pulumi.StringPtrInput                      `pulumi:"reason"`
+	VirtualMachine      WorkloadInstanceVirtualMachinePtrInput     `pulumi:"virtualMachine"`
 }
 
 func (WorkloadInstanceArgs) ElementType() reflect.Type {
@@ -5670,7 +6772,7 @@ func (i WorkloadInstanceArgs) ToWorkloadInstanceOutputWithContext(ctx context.Co
 // WorkloadInstanceArrayInput is an input type that accepts WorkloadInstanceArray and WorkloadInstanceArrayOutput values.
 // You can construct a concrete instance of `WorkloadInstanceArrayInput` via:
 //
-//          WorkloadInstanceArray{ WorkloadInstanceArgs{...} }
+//	WorkloadInstanceArray{ WorkloadInstanceArgs{...} }
 type WorkloadInstanceArrayInput interface {
 	pulumi.Input
 
@@ -5714,8 +6816,16 @@ func (o WorkloadInstanceOutput) ExternalIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadInstance) *string { return v.ExternalIpAddress }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkloadInstanceOutput) ExternalIpv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstance) *string { return v.ExternalIpv6Address }).(pulumi.StringPtrOutput)
+}
+
 func (o WorkloadInstanceOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadInstance) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceOutput) Ipv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstance) *string { return v.Ipv6Address }).(pulumi.StringPtrOutput)
 }
 
 func (o WorkloadInstanceOutput) Location() WorkloadInstanceLocationPtrOutput {
@@ -5771,21 +6881,22 @@ func (o WorkloadInstanceArrayOutput) Index(i pulumi.IntInput) WorkloadInstanceOu
 }
 
 type WorkloadInstanceContainer struct {
-	Commands       []string                                 `pulumi:"commands"`
-	Envs           []WorkloadInstanceContainerEnv           `pulumi:"envs"`
-	Image          string                                   `pulumi:"image"`
-	LivenessProbe  *WorkloadInstanceContainerLivenessProbe  `pulumi:"livenessProbe"`
-	Name           string                                   `pulumi:"name"`
-	Ports          []WorkloadInstanceContainerPort          `pulumi:"ports"`
-	ReadinessProbe *WorkloadInstanceContainerReadinessProbe `pulumi:"readinessProbe"`
-	Resources      WorkloadInstanceContainerResources       `pulumi:"resources"`
-	VolumeMounts   []WorkloadInstanceContainerVolumeMount   `pulumi:"volumeMounts"`
+	Commands        []string                                  `pulumi:"commands"`
+	Envs            []WorkloadInstanceContainerEnv            `pulumi:"envs"`
+	Image           string                                    `pulumi:"image"`
+	LivenessProbe   *WorkloadInstanceContainerLivenessProbe   `pulumi:"livenessProbe"`
+	Name            string                                    `pulumi:"name"`
+	Ports           []WorkloadInstanceContainerPort           `pulumi:"ports"`
+	ReadinessProbe  *WorkloadInstanceContainerReadinessProbe  `pulumi:"readinessProbe"`
+	Resources       WorkloadInstanceContainerResources        `pulumi:"resources"`
+	SecurityContext *WorkloadInstanceContainerSecurityContext `pulumi:"securityContext"`
+	VolumeMounts    []WorkloadInstanceContainerVolumeMount    `pulumi:"volumeMounts"`
 }
 
 // WorkloadInstanceContainerInput is an input type that accepts WorkloadInstanceContainerArgs and WorkloadInstanceContainerOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerInput` via:
 //
-//          WorkloadInstanceContainerArgs{...}
+//	WorkloadInstanceContainerArgs{...}
 type WorkloadInstanceContainerInput interface {
 	pulumi.Input
 
@@ -5794,15 +6905,16 @@ type WorkloadInstanceContainerInput interface {
 }
 
 type WorkloadInstanceContainerArgs struct {
-	Commands       pulumi.StringArrayInput                         `pulumi:"commands"`
-	Envs           WorkloadInstanceContainerEnvArrayInput          `pulumi:"envs"`
-	Image          pulumi.StringInput                              `pulumi:"image"`
-	LivenessProbe  WorkloadInstanceContainerLivenessProbePtrInput  `pulumi:"livenessProbe"`
-	Name           pulumi.StringInput                              `pulumi:"name"`
-	Ports          WorkloadInstanceContainerPortArrayInput         `pulumi:"ports"`
-	ReadinessProbe WorkloadInstanceContainerReadinessProbePtrInput `pulumi:"readinessProbe"`
-	Resources      WorkloadInstanceContainerResourcesInput         `pulumi:"resources"`
-	VolumeMounts   WorkloadInstanceContainerVolumeMountArrayInput  `pulumi:"volumeMounts"`
+	Commands        pulumi.StringArrayInput                          `pulumi:"commands"`
+	Envs            WorkloadInstanceContainerEnvArrayInput           `pulumi:"envs"`
+	Image           pulumi.StringInput                               `pulumi:"image"`
+	LivenessProbe   WorkloadInstanceContainerLivenessProbePtrInput   `pulumi:"livenessProbe"`
+	Name            pulumi.StringInput                               `pulumi:"name"`
+	Ports           WorkloadInstanceContainerPortArrayInput          `pulumi:"ports"`
+	ReadinessProbe  WorkloadInstanceContainerReadinessProbePtrInput  `pulumi:"readinessProbe"`
+	Resources       WorkloadInstanceContainerResourcesInput          `pulumi:"resources"`
+	SecurityContext WorkloadInstanceContainerSecurityContextPtrInput `pulumi:"securityContext"`
+	VolumeMounts    WorkloadInstanceContainerVolumeMountArrayInput   `pulumi:"volumeMounts"`
 }
 
 func (WorkloadInstanceContainerArgs) ElementType() reflect.Type {
@@ -5820,7 +6932,7 @@ func (i WorkloadInstanceContainerArgs) ToWorkloadInstanceContainerOutputWithCont
 // WorkloadInstanceContainerArrayInput is an input type that accepts WorkloadInstanceContainerArray and WorkloadInstanceContainerArrayOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerArrayInput` via:
 //
-//          WorkloadInstanceContainerArray{ WorkloadInstanceContainerArgs{...} }
+//	WorkloadInstanceContainerArray{ WorkloadInstanceContainerArgs{...} }
 type WorkloadInstanceContainerArrayInput interface {
 	pulumi.Input
 
@@ -5888,6 +7000,10 @@ func (o WorkloadInstanceContainerOutput) Resources() WorkloadInstanceContainerRe
 	return o.ApplyT(func(v WorkloadInstanceContainer) WorkloadInstanceContainerResources { return v.Resources }).(WorkloadInstanceContainerResourcesOutput)
 }
 
+func (o WorkloadInstanceContainerOutput) SecurityContext() WorkloadInstanceContainerSecurityContextPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainer) *WorkloadInstanceContainerSecurityContext { return v.SecurityContext }).(WorkloadInstanceContainerSecurityContextPtrOutput)
+}
+
 func (o WorkloadInstanceContainerOutput) VolumeMounts() WorkloadInstanceContainerVolumeMountArrayOutput {
 	return o.ApplyT(func(v WorkloadInstanceContainer) []WorkloadInstanceContainerVolumeMount { return v.VolumeMounts }).(WorkloadInstanceContainerVolumeMountArrayOutput)
 }
@@ -5921,7 +7037,7 @@ type WorkloadInstanceContainerEnv struct {
 // WorkloadInstanceContainerEnvInput is an input type that accepts WorkloadInstanceContainerEnvArgs and WorkloadInstanceContainerEnvOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerEnvInput` via:
 //
-//          WorkloadInstanceContainerEnvArgs{...}
+//	WorkloadInstanceContainerEnvArgs{...}
 type WorkloadInstanceContainerEnvInput interface {
 	pulumi.Input
 
@@ -5950,7 +7066,7 @@ func (i WorkloadInstanceContainerEnvArgs) ToWorkloadInstanceContainerEnvOutputWi
 // WorkloadInstanceContainerEnvArrayInput is an input type that accepts WorkloadInstanceContainerEnvArray and WorkloadInstanceContainerEnvArrayOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerEnvArrayInput` via:
 //
-//          WorkloadInstanceContainerEnvArray{ WorkloadInstanceContainerEnvArgs{...} }
+//	WorkloadInstanceContainerEnvArray{ WorkloadInstanceContainerEnvArgs{...} }
 type WorkloadInstanceContainerEnvArrayInput interface {
 	pulumi.Input
 
@@ -6031,7 +7147,7 @@ type WorkloadInstanceContainerLivenessProbe struct {
 // WorkloadInstanceContainerLivenessProbeInput is an input type that accepts WorkloadInstanceContainerLivenessProbeArgs and WorkloadInstanceContainerLivenessProbeOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerLivenessProbeInput` via:
 //
-//          WorkloadInstanceContainerLivenessProbeArgs{...}
+//	WorkloadInstanceContainerLivenessProbeArgs{...}
 type WorkloadInstanceContainerLivenessProbeInput interface {
 	pulumi.Input
 
@@ -6072,11 +7188,11 @@ func (i WorkloadInstanceContainerLivenessProbeArgs) ToWorkloadInstanceContainerL
 // WorkloadInstanceContainerLivenessProbePtrInput is an input type that accepts WorkloadInstanceContainerLivenessProbeArgs, WorkloadInstanceContainerLivenessProbePtr and WorkloadInstanceContainerLivenessProbePtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerLivenessProbePtrInput` via:
 //
-//          WorkloadInstanceContainerLivenessProbeArgs{...}
+//	        WorkloadInstanceContainerLivenessProbeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceContainerLivenessProbePtrInput interface {
 	pulumi.Input
 
@@ -6255,7 +7371,7 @@ type WorkloadInstanceContainerLivenessProbeHttpGet struct {
 // WorkloadInstanceContainerLivenessProbeHttpGetInput is an input type that accepts WorkloadInstanceContainerLivenessProbeHttpGetArgs and WorkloadInstanceContainerLivenessProbeHttpGetOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerLivenessProbeHttpGetInput` via:
 //
-//          WorkloadInstanceContainerLivenessProbeHttpGetArgs{...}
+//	WorkloadInstanceContainerLivenessProbeHttpGetArgs{...}
 type WorkloadInstanceContainerLivenessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -6293,11 +7409,11 @@ func (i WorkloadInstanceContainerLivenessProbeHttpGetArgs) ToWorkloadInstanceCon
 // WorkloadInstanceContainerLivenessProbeHttpGetPtrInput is an input type that accepts WorkloadInstanceContainerLivenessProbeHttpGetArgs, WorkloadInstanceContainerLivenessProbeHttpGetPtr and WorkloadInstanceContainerLivenessProbeHttpGetPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerLivenessProbeHttpGetPtrInput` via:
 //
-//          WorkloadInstanceContainerLivenessProbeHttpGetArgs{...}
+//	        WorkloadInstanceContainerLivenessProbeHttpGetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceContainerLivenessProbeHttpGetPtrInput interface {
 	pulumi.Input
 
@@ -6430,7 +7546,7 @@ type WorkloadInstanceContainerLivenessProbeTcpSocket struct {
 // WorkloadInstanceContainerLivenessProbeTcpSocketInput is an input type that accepts WorkloadInstanceContainerLivenessProbeTcpSocketArgs and WorkloadInstanceContainerLivenessProbeTcpSocketOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerLivenessProbeTcpSocketInput` via:
 //
-//          WorkloadInstanceContainerLivenessProbeTcpSocketArgs{...}
+//	WorkloadInstanceContainerLivenessProbeTcpSocketArgs{...}
 type WorkloadInstanceContainerLivenessProbeTcpSocketInput interface {
 	pulumi.Input
 
@@ -6465,11 +7581,11 @@ func (i WorkloadInstanceContainerLivenessProbeTcpSocketArgs) ToWorkloadInstanceC
 // WorkloadInstanceContainerLivenessProbeTcpSocketPtrInput is an input type that accepts WorkloadInstanceContainerLivenessProbeTcpSocketArgs, WorkloadInstanceContainerLivenessProbeTcpSocketPtr and WorkloadInstanceContainerLivenessProbeTcpSocketPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerLivenessProbeTcpSocketPtrInput` via:
 //
-//          WorkloadInstanceContainerLivenessProbeTcpSocketArgs{...}
+//	        WorkloadInstanceContainerLivenessProbeTcpSocketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceContainerLivenessProbeTcpSocketPtrInput interface {
 	pulumi.Input
 
@@ -6566,7 +7682,7 @@ type WorkloadInstanceContainerPort struct {
 // WorkloadInstanceContainerPortInput is an input type that accepts WorkloadInstanceContainerPortArgs and WorkloadInstanceContainerPortOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerPortInput` via:
 //
-//          WorkloadInstanceContainerPortArgs{...}
+//	WorkloadInstanceContainerPortArgs{...}
 type WorkloadInstanceContainerPortInput interface {
 	pulumi.Input
 
@@ -6596,7 +7712,7 @@ func (i WorkloadInstanceContainerPortArgs) ToWorkloadInstanceContainerPortOutput
 // WorkloadInstanceContainerPortArrayInput is an input type that accepts WorkloadInstanceContainerPortArray and WorkloadInstanceContainerPortArrayOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerPortArrayInput` via:
 //
-//          WorkloadInstanceContainerPortArray{ WorkloadInstanceContainerPortArgs{...} }
+//	WorkloadInstanceContainerPortArray{ WorkloadInstanceContainerPortArgs{...} }
 type WorkloadInstanceContainerPortArrayInput interface {
 	pulumi.Input
 
@@ -6681,7 +7797,7 @@ type WorkloadInstanceContainerReadinessProbe struct {
 // WorkloadInstanceContainerReadinessProbeInput is an input type that accepts WorkloadInstanceContainerReadinessProbeArgs and WorkloadInstanceContainerReadinessProbeOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerReadinessProbeInput` via:
 //
-//          WorkloadInstanceContainerReadinessProbeArgs{...}
+//	WorkloadInstanceContainerReadinessProbeArgs{...}
 type WorkloadInstanceContainerReadinessProbeInput interface {
 	pulumi.Input
 
@@ -6722,11 +7838,11 @@ func (i WorkloadInstanceContainerReadinessProbeArgs) ToWorkloadInstanceContainer
 // WorkloadInstanceContainerReadinessProbePtrInput is an input type that accepts WorkloadInstanceContainerReadinessProbeArgs, WorkloadInstanceContainerReadinessProbePtr and WorkloadInstanceContainerReadinessProbePtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerReadinessProbePtrInput` via:
 //
-//          WorkloadInstanceContainerReadinessProbeArgs{...}
+//	        WorkloadInstanceContainerReadinessProbeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceContainerReadinessProbePtrInput interface {
 	pulumi.Input
 
@@ -6905,7 +8021,7 @@ type WorkloadInstanceContainerReadinessProbeHttpGet struct {
 // WorkloadInstanceContainerReadinessProbeHttpGetInput is an input type that accepts WorkloadInstanceContainerReadinessProbeHttpGetArgs and WorkloadInstanceContainerReadinessProbeHttpGetOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerReadinessProbeHttpGetInput` via:
 //
-//          WorkloadInstanceContainerReadinessProbeHttpGetArgs{...}
+//	WorkloadInstanceContainerReadinessProbeHttpGetArgs{...}
 type WorkloadInstanceContainerReadinessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -6943,11 +8059,11 @@ func (i WorkloadInstanceContainerReadinessProbeHttpGetArgs) ToWorkloadInstanceCo
 // WorkloadInstanceContainerReadinessProbeHttpGetPtrInput is an input type that accepts WorkloadInstanceContainerReadinessProbeHttpGetArgs, WorkloadInstanceContainerReadinessProbeHttpGetPtr and WorkloadInstanceContainerReadinessProbeHttpGetPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerReadinessProbeHttpGetPtrInput` via:
 //
-//          WorkloadInstanceContainerReadinessProbeHttpGetArgs{...}
+//	        WorkloadInstanceContainerReadinessProbeHttpGetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceContainerReadinessProbeHttpGetPtrInput interface {
 	pulumi.Input
 
@@ -7080,7 +8196,7 @@ type WorkloadInstanceContainerReadinessProbeTcpSocket struct {
 // WorkloadInstanceContainerReadinessProbeTcpSocketInput is an input type that accepts WorkloadInstanceContainerReadinessProbeTcpSocketArgs and WorkloadInstanceContainerReadinessProbeTcpSocketOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerReadinessProbeTcpSocketInput` via:
 //
-//          WorkloadInstanceContainerReadinessProbeTcpSocketArgs{...}
+//	WorkloadInstanceContainerReadinessProbeTcpSocketArgs{...}
 type WorkloadInstanceContainerReadinessProbeTcpSocketInput interface {
 	pulumi.Input
 
@@ -7115,11 +8231,11 @@ func (i WorkloadInstanceContainerReadinessProbeTcpSocketArgs) ToWorkloadInstance
 // WorkloadInstanceContainerReadinessProbeTcpSocketPtrInput is an input type that accepts WorkloadInstanceContainerReadinessProbeTcpSocketArgs, WorkloadInstanceContainerReadinessProbeTcpSocketPtr and WorkloadInstanceContainerReadinessProbeTcpSocketPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerReadinessProbeTcpSocketPtrInput` via:
 //
-//          WorkloadInstanceContainerReadinessProbeTcpSocketArgs{...}
+//	        WorkloadInstanceContainerReadinessProbeTcpSocketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceContainerReadinessProbeTcpSocketPtrInput interface {
 	pulumi.Input
 
@@ -7213,7 +8329,7 @@ type WorkloadInstanceContainerResources struct {
 // WorkloadInstanceContainerResourcesInput is an input type that accepts WorkloadInstanceContainerResourcesArgs and WorkloadInstanceContainerResourcesOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerResourcesInput` via:
 //
-//          WorkloadInstanceContainerResourcesArgs{...}
+//	WorkloadInstanceContainerResourcesArgs{...}
 type WorkloadInstanceContainerResourcesInput interface {
 	pulumi.Input
 
@@ -7255,6 +8371,364 @@ func (o WorkloadInstanceContainerResourcesOutput) Requests() pulumi.StringMapOut
 	return o.ApplyT(func(v WorkloadInstanceContainerResources) map[string]string { return v.Requests }).(pulumi.StringMapOutput)
 }
 
+type WorkloadInstanceContainerSecurityContext struct {
+	AllowPrivilegeEscalation *bool                                                 `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             *WorkloadInstanceContainerSecurityContextCapabilities `pulumi:"capabilities"`
+	ReadOnlyRootFilesystem   *bool                                                 `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               *string                                               `pulumi:"runAsGroup"`
+	RunAsNonRoot             *bool                                                 `pulumi:"runAsNonRoot"`
+	RunAsUser                *string                                               `pulumi:"runAsUser"`
+}
+
+// WorkloadInstanceContainerSecurityContextInput is an input type that accepts WorkloadInstanceContainerSecurityContextArgs and WorkloadInstanceContainerSecurityContextOutput values.
+// You can construct a concrete instance of `WorkloadInstanceContainerSecurityContextInput` via:
+//
+//	WorkloadInstanceContainerSecurityContextArgs{...}
+type WorkloadInstanceContainerSecurityContextInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceContainerSecurityContextOutput() WorkloadInstanceContainerSecurityContextOutput
+	ToWorkloadInstanceContainerSecurityContextOutputWithContext(context.Context) WorkloadInstanceContainerSecurityContextOutput
+}
+
+type WorkloadInstanceContainerSecurityContextArgs struct {
+	AllowPrivilegeEscalation pulumi.BoolPtrInput                                          `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             WorkloadInstanceContainerSecurityContextCapabilitiesPtrInput `pulumi:"capabilities"`
+	ReadOnlyRootFilesystem   pulumi.BoolPtrInput                                          `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               pulumi.StringPtrInput                                        `pulumi:"runAsGroup"`
+	RunAsNonRoot             pulumi.BoolPtrInput                                          `pulumi:"runAsNonRoot"`
+	RunAsUser                pulumi.StringPtrInput                                        `pulumi:"runAsUser"`
+}
+
+func (WorkloadInstanceContainerSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceContainerSecurityContext)(nil)).Elem()
+}
+
+func (i WorkloadInstanceContainerSecurityContextArgs) ToWorkloadInstanceContainerSecurityContextOutput() WorkloadInstanceContainerSecurityContextOutput {
+	return i.ToWorkloadInstanceContainerSecurityContextOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceContainerSecurityContextArgs) ToWorkloadInstanceContainerSecurityContextOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerSecurityContextOutput)
+}
+
+func (i WorkloadInstanceContainerSecurityContextArgs) ToWorkloadInstanceContainerSecurityContextPtrOutput() WorkloadInstanceContainerSecurityContextPtrOutput {
+	return i.ToWorkloadInstanceContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceContainerSecurityContextArgs) ToWorkloadInstanceContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerSecurityContextOutput).ToWorkloadInstanceContainerSecurityContextPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceContainerSecurityContextPtrInput is an input type that accepts WorkloadInstanceContainerSecurityContextArgs, WorkloadInstanceContainerSecurityContextPtr and WorkloadInstanceContainerSecurityContextPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceContainerSecurityContextPtrInput` via:
+//
+//	        WorkloadInstanceContainerSecurityContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceContainerSecurityContextPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceContainerSecurityContextPtrOutput() WorkloadInstanceContainerSecurityContextPtrOutput
+	ToWorkloadInstanceContainerSecurityContextPtrOutputWithContext(context.Context) WorkloadInstanceContainerSecurityContextPtrOutput
+}
+
+type workloadInstanceContainerSecurityContextPtrType WorkloadInstanceContainerSecurityContextArgs
+
+func WorkloadInstanceContainerSecurityContextPtr(v *WorkloadInstanceContainerSecurityContextArgs) WorkloadInstanceContainerSecurityContextPtrInput {
+	return (*workloadInstanceContainerSecurityContextPtrType)(v)
+}
+
+func (*workloadInstanceContainerSecurityContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceContainerSecurityContext)(nil)).Elem()
+}
+
+func (i *workloadInstanceContainerSecurityContextPtrType) ToWorkloadInstanceContainerSecurityContextPtrOutput() WorkloadInstanceContainerSecurityContextPtrOutput {
+	return i.ToWorkloadInstanceContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceContainerSecurityContextPtrType) ToWorkloadInstanceContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerSecurityContextPtrOutput)
+}
+
+type WorkloadInstanceContainerSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceContainerSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceContainerSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) ToWorkloadInstanceContainerSecurityContextOutput() WorkloadInstanceContainerSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) ToWorkloadInstanceContainerSecurityContextOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) ToWorkloadInstanceContainerSecurityContextPtrOutput() WorkloadInstanceContainerSecurityContextPtrOutput {
+	return o.ToWorkloadInstanceContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) ToWorkloadInstanceContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceContainerSecurityContext) *WorkloadInstanceContainerSecurityContext {
+		return &v
+	}).(WorkloadInstanceContainerSecurityContextPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerSecurityContext) *bool { return v.AllowPrivilegeEscalation }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) Capabilities() WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerSecurityContext) *WorkloadInstanceContainerSecurityContextCapabilities {
+		return v.Capabilities
+	}).(WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerSecurityContext) *bool { return v.ReadOnlyRootFilesystem }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerSecurityContext) *string { return v.RunAsGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerSecurityContext) *bool { return v.RunAsNonRoot }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerSecurityContext) *string { return v.RunAsUser }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceContainerSecurityContextPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceContainerSecurityContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceContainerSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadInstanceContainerSecurityContextPtrOutput) ToWorkloadInstanceContainerSecurityContextPtrOutput() WorkloadInstanceContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerSecurityContextPtrOutput) ToWorkloadInstanceContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerSecurityContextPtrOutput) Elem() WorkloadInstanceContainerSecurityContextOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContext) WorkloadInstanceContainerSecurityContext {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceContainerSecurityContext
+		return ret
+	}).(WorkloadInstanceContainerSecurityContextOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextPtrOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextPtrOutput) Capabilities() WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContext) *WorkloadInstanceContainerSecurityContextCapabilities {
+		if v == nil {
+			return nil
+		}
+		return v.Capabilities
+	}).(WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextPtrOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnlyRootFilesystem
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextPtrOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsNonRoot
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextPtrOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsUser
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceContainerSecurityContextCapabilities struct {
+	Adds  []string `pulumi:"adds"`
+	Drops []string `pulumi:"drops"`
+}
+
+// WorkloadInstanceContainerSecurityContextCapabilitiesInput is an input type that accepts WorkloadInstanceContainerSecurityContextCapabilitiesArgs and WorkloadInstanceContainerSecurityContextCapabilitiesOutput values.
+// You can construct a concrete instance of `WorkloadInstanceContainerSecurityContextCapabilitiesInput` via:
+//
+//	WorkloadInstanceContainerSecurityContextCapabilitiesArgs{...}
+type WorkloadInstanceContainerSecurityContextCapabilitiesInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceContainerSecurityContextCapabilitiesOutput() WorkloadInstanceContainerSecurityContextCapabilitiesOutput
+	ToWorkloadInstanceContainerSecurityContextCapabilitiesOutputWithContext(context.Context) WorkloadInstanceContainerSecurityContextCapabilitiesOutput
+}
+
+type WorkloadInstanceContainerSecurityContextCapabilitiesArgs struct {
+	Adds  pulumi.StringArrayInput `pulumi:"adds"`
+	Drops pulumi.StringArrayInput `pulumi:"drops"`
+}
+
+func (WorkloadInstanceContainerSecurityContextCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (i WorkloadInstanceContainerSecurityContextCapabilitiesArgs) ToWorkloadInstanceContainerSecurityContextCapabilitiesOutput() WorkloadInstanceContainerSecurityContextCapabilitiesOutput {
+	return i.ToWorkloadInstanceContainerSecurityContextCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceContainerSecurityContextCapabilitiesArgs) ToWorkloadInstanceContainerSecurityContextCapabilitiesOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerSecurityContextCapabilitiesOutput)
+}
+
+func (i WorkloadInstanceContainerSecurityContextCapabilitiesArgs) ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return i.ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceContainerSecurityContextCapabilitiesArgs) ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerSecurityContextCapabilitiesOutput).ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceContainerSecurityContextCapabilitiesPtrInput is an input type that accepts WorkloadInstanceContainerSecurityContextCapabilitiesArgs, WorkloadInstanceContainerSecurityContextCapabilitiesPtr and WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceContainerSecurityContextCapabilitiesPtrInput` via:
+//
+//	        WorkloadInstanceContainerSecurityContextCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceContainerSecurityContextCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput
+	ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Context) WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput
+}
+
+type workloadInstanceContainerSecurityContextCapabilitiesPtrType WorkloadInstanceContainerSecurityContextCapabilitiesArgs
+
+func WorkloadInstanceContainerSecurityContextCapabilitiesPtr(v *WorkloadInstanceContainerSecurityContextCapabilitiesArgs) WorkloadInstanceContainerSecurityContextCapabilitiesPtrInput {
+	return (*workloadInstanceContainerSecurityContextCapabilitiesPtrType)(v)
+}
+
+func (*workloadInstanceContainerSecurityContextCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (i *workloadInstanceContainerSecurityContextCapabilitiesPtrType) ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return i.ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceContainerSecurityContextCapabilitiesPtrType) ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+type WorkloadInstanceContainerSecurityContextCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceContainerSecurityContextCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesOutput) ToWorkloadInstanceContainerSecurityContextCapabilitiesOutput() WorkloadInstanceContainerSecurityContextCapabilitiesOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesOutput) ToWorkloadInstanceContainerSecurityContextCapabilitiesOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextCapabilitiesOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesOutput) ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesOutput) ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceContainerSecurityContextCapabilities) *WorkloadInstanceContainerSecurityContextCapabilities {
+		return &v
+	}).(WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesOutput) Adds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerSecurityContextCapabilities) []string { return v.Adds }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesOutput) Drops() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerSecurityContextCapabilities) []string { return v.Drops }).(pulumi.StringArrayOutput)
+}
+
+type WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput) ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput) ToWorkloadInstanceContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput) Elem() WorkloadInstanceContainerSecurityContextCapabilitiesOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContextCapabilities) WorkloadInstanceContainerSecurityContextCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceContainerSecurityContextCapabilities
+		return ret
+	}).(WorkloadInstanceContainerSecurityContextCapabilitiesOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput) Adds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContextCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Adds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput) Drops() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerSecurityContextCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Drops
+	}).(pulumi.StringArrayOutput)
+}
+
 type WorkloadInstanceContainerVolumeMount struct {
 	MountPath string `pulumi:"mountPath"`
 	Slug      string `pulumi:"slug"`
@@ -7263,7 +8737,7 @@ type WorkloadInstanceContainerVolumeMount struct {
 // WorkloadInstanceContainerVolumeMountInput is an input type that accepts WorkloadInstanceContainerVolumeMountArgs and WorkloadInstanceContainerVolumeMountOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerVolumeMountInput` via:
 //
-//          WorkloadInstanceContainerVolumeMountArgs{...}
+//	WorkloadInstanceContainerVolumeMountArgs{...}
 type WorkloadInstanceContainerVolumeMountInput interface {
 	pulumi.Input
 
@@ -7291,7 +8765,7 @@ func (i WorkloadInstanceContainerVolumeMountArgs) ToWorkloadInstanceContainerVol
 // WorkloadInstanceContainerVolumeMountArrayInput is an input type that accepts WorkloadInstanceContainerVolumeMountArray and WorkloadInstanceContainerVolumeMountArrayOutput values.
 // You can construct a concrete instance of `WorkloadInstanceContainerVolumeMountArrayInput` via:
 //
-//          WorkloadInstanceContainerVolumeMountArray{ WorkloadInstanceContainerVolumeMountArgs{...} }
+//	WorkloadInstanceContainerVolumeMountArray{ WorkloadInstanceContainerVolumeMountArgs{...} }
 type WorkloadInstanceContainerVolumeMountArrayInput interface {
 	pulumi.Input
 
@@ -7374,7 +8848,7 @@ type WorkloadInstanceLocation struct {
 // WorkloadInstanceLocationInput is an input type that accepts WorkloadInstanceLocationArgs and WorkloadInstanceLocationOutput values.
 // You can construct a concrete instance of `WorkloadInstanceLocationInput` via:
 //
-//          WorkloadInstanceLocationArgs{...}
+//	WorkloadInstanceLocationArgs{...}
 type WorkloadInstanceLocationInput interface {
 	pulumi.Input
 
@@ -7421,11 +8895,11 @@ func (i WorkloadInstanceLocationArgs) ToWorkloadInstanceLocationPtrOutputWithCon
 // WorkloadInstanceLocationPtrInput is an input type that accepts WorkloadInstanceLocationArgs, WorkloadInstanceLocationPtr and WorkloadInstanceLocationPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceLocationPtrInput` via:
 //
-//          WorkloadInstanceLocationArgs{...}
+//	        WorkloadInstanceLocationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceLocationPtrInput interface {
 	pulumi.Input
 
@@ -7676,7 +9150,7 @@ type WorkloadInstanceMetadata struct {
 // WorkloadInstanceMetadataInput is an input type that accepts WorkloadInstanceMetadataArgs and WorkloadInstanceMetadataOutput values.
 // You can construct a concrete instance of `WorkloadInstanceMetadataInput` via:
 //
-//          WorkloadInstanceMetadataArgs{...}
+//	WorkloadInstanceMetadataArgs{...}
 type WorkloadInstanceMetadataInput interface {
 	pulumi.Input
 
@@ -7712,11 +9186,11 @@ func (i WorkloadInstanceMetadataArgs) ToWorkloadInstanceMetadataPtrOutputWithCon
 // WorkloadInstanceMetadataPtrInput is an input type that accepts WorkloadInstanceMetadataArgs, WorkloadInstanceMetadataPtr and WorkloadInstanceMetadataPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceMetadataPtrInput` via:
 //
-//          WorkloadInstanceMetadataArgs{...}
+//	        WorkloadInstanceMetadataArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceMetadataPtrInput interface {
 	pulumi.Input
 
@@ -7817,16 +9291,19 @@ func (o WorkloadInstanceMetadataPtrOutput) Labels() pulumi.MapOutput {
 }
 
 type WorkloadInstanceNetworkInterface struct {
-	Gateway          string   `pulumi:"gateway"`
-	IpAddress        string   `pulumi:"ipAddress"`
-	IpAddressAliases []string `pulumi:"ipAddressAliases"`
-	Network          string   `pulumi:"network"`
+	Gateway            string   `pulumi:"gateway"`
+	IpAddress          string   `pulumi:"ipAddress"`
+	IpAddressAliases   []string `pulumi:"ipAddressAliases"`
+	Ipv6Address        string   `pulumi:"ipv6Address"`
+	Ipv6AddressAliases []string `pulumi:"ipv6AddressAliases"`
+	Ipv6Gateway        string   `pulumi:"ipv6Gateway"`
+	Network            string   `pulumi:"network"`
 }
 
 // WorkloadInstanceNetworkInterfaceInput is an input type that accepts WorkloadInstanceNetworkInterfaceArgs and WorkloadInstanceNetworkInterfaceOutput values.
 // You can construct a concrete instance of `WorkloadInstanceNetworkInterfaceInput` via:
 //
-//          WorkloadInstanceNetworkInterfaceArgs{...}
+//	WorkloadInstanceNetworkInterfaceArgs{...}
 type WorkloadInstanceNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -7835,10 +9312,13 @@ type WorkloadInstanceNetworkInterfaceInput interface {
 }
 
 type WorkloadInstanceNetworkInterfaceArgs struct {
-	Gateway          pulumi.StringInput      `pulumi:"gateway"`
-	IpAddress        pulumi.StringInput      `pulumi:"ipAddress"`
-	IpAddressAliases pulumi.StringArrayInput `pulumi:"ipAddressAliases"`
-	Network          pulumi.StringInput      `pulumi:"network"`
+	Gateway            pulumi.StringInput      `pulumi:"gateway"`
+	IpAddress          pulumi.StringInput      `pulumi:"ipAddress"`
+	IpAddressAliases   pulumi.StringArrayInput `pulumi:"ipAddressAliases"`
+	Ipv6Address        pulumi.StringInput      `pulumi:"ipv6Address"`
+	Ipv6AddressAliases pulumi.StringArrayInput `pulumi:"ipv6AddressAliases"`
+	Ipv6Gateway        pulumi.StringInput      `pulumi:"ipv6Gateway"`
+	Network            pulumi.StringInput      `pulumi:"network"`
 }
 
 func (WorkloadInstanceNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -7856,7 +9336,7 @@ func (i WorkloadInstanceNetworkInterfaceArgs) ToWorkloadInstanceNetworkInterface
 // WorkloadInstanceNetworkInterfaceArrayInput is an input type that accepts WorkloadInstanceNetworkInterfaceArray and WorkloadInstanceNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `WorkloadInstanceNetworkInterfaceArrayInput` via:
 //
-//          WorkloadInstanceNetworkInterfaceArray{ WorkloadInstanceNetworkInterfaceArgs{...} }
+//	WorkloadInstanceNetworkInterfaceArray{ WorkloadInstanceNetworkInterfaceArgs{...} }
 type WorkloadInstanceNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -7904,6 +9384,18 @@ func (o WorkloadInstanceNetworkInterfaceOutput) IpAddressAliases() pulumi.String
 	return o.ApplyT(func(v WorkloadInstanceNetworkInterface) []string { return v.IpAddressAliases }).(pulumi.StringArrayOutput)
 }
 
+func (o WorkloadInstanceNetworkInterfaceOutput) Ipv6Address() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInstanceNetworkInterface) string { return v.Ipv6Address }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInstanceNetworkInterfaceOutput) Ipv6AddressAliases() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceNetworkInterface) []string { return v.Ipv6AddressAliases }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadInstanceNetworkInterfaceOutput) Ipv6Gateway() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInstanceNetworkInterface) string { return v.Ipv6Gateway }).(pulumi.StringOutput)
+}
+
 func (o WorkloadInstanceNetworkInterfaceOutput) Network() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkloadInstanceNetworkInterface) string { return v.Network }).(pulumi.StringOutput)
 }
@@ -7942,7 +9434,7 @@ type WorkloadInstanceVirtualMachine struct {
 // WorkloadInstanceVirtualMachineInput is an input type that accepts WorkloadInstanceVirtualMachineArgs and WorkloadInstanceVirtualMachineOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineInput` via:
 //
-//          WorkloadInstanceVirtualMachineArgs{...}
+//	WorkloadInstanceVirtualMachineArgs{...}
 type WorkloadInstanceVirtualMachineInput interface {
 	pulumi.Input
 
@@ -7984,11 +9476,11 @@ func (i WorkloadInstanceVirtualMachineArgs) ToWorkloadInstanceVirtualMachinePtrO
 // WorkloadInstanceVirtualMachinePtrInput is an input type that accepts WorkloadInstanceVirtualMachineArgs, WorkloadInstanceVirtualMachinePtr and WorkloadInstanceVirtualMachinePtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachinePtrInput` via:
 //
-//          WorkloadInstanceVirtualMachineArgs{...}
+//	        WorkloadInstanceVirtualMachineArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceVirtualMachinePtrInput interface {
 	pulumi.Input
 
@@ -8185,7 +9677,7 @@ type WorkloadInstanceVirtualMachineLivenessProbe struct {
 // WorkloadInstanceVirtualMachineLivenessProbeInput is an input type that accepts WorkloadInstanceVirtualMachineLivenessProbeArgs and WorkloadInstanceVirtualMachineLivenessProbeOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineLivenessProbeInput` via:
 //
-//          WorkloadInstanceVirtualMachineLivenessProbeArgs{...}
+//	WorkloadInstanceVirtualMachineLivenessProbeArgs{...}
 type WorkloadInstanceVirtualMachineLivenessProbeInput interface {
 	pulumi.Input
 
@@ -8226,11 +9718,11 @@ func (i WorkloadInstanceVirtualMachineLivenessProbeArgs) ToWorkloadInstanceVirtu
 // WorkloadInstanceVirtualMachineLivenessProbePtrInput is an input type that accepts WorkloadInstanceVirtualMachineLivenessProbeArgs, WorkloadInstanceVirtualMachineLivenessProbePtr and WorkloadInstanceVirtualMachineLivenessProbePtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineLivenessProbePtrInput` via:
 //
-//          WorkloadInstanceVirtualMachineLivenessProbeArgs{...}
+//	        WorkloadInstanceVirtualMachineLivenessProbeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceVirtualMachineLivenessProbePtrInput interface {
 	pulumi.Input
 
@@ -8409,7 +9901,7 @@ type WorkloadInstanceVirtualMachineLivenessProbeHttpGet struct {
 // WorkloadInstanceVirtualMachineLivenessProbeHttpGetInput is an input type that accepts WorkloadInstanceVirtualMachineLivenessProbeHttpGetArgs and WorkloadInstanceVirtualMachineLivenessProbeHttpGetOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineLivenessProbeHttpGetInput` via:
 //
-//          WorkloadInstanceVirtualMachineLivenessProbeHttpGetArgs{...}
+//	WorkloadInstanceVirtualMachineLivenessProbeHttpGetArgs{...}
 type WorkloadInstanceVirtualMachineLivenessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -8447,11 +9939,11 @@ func (i WorkloadInstanceVirtualMachineLivenessProbeHttpGetArgs) ToWorkloadInstan
 // WorkloadInstanceVirtualMachineLivenessProbeHttpGetPtrInput is an input type that accepts WorkloadInstanceVirtualMachineLivenessProbeHttpGetArgs, WorkloadInstanceVirtualMachineLivenessProbeHttpGetPtr and WorkloadInstanceVirtualMachineLivenessProbeHttpGetPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineLivenessProbeHttpGetPtrInput` via:
 //
-//          WorkloadInstanceVirtualMachineLivenessProbeHttpGetArgs{...}
+//	        WorkloadInstanceVirtualMachineLivenessProbeHttpGetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceVirtualMachineLivenessProbeHttpGetPtrInput interface {
 	pulumi.Input
 
@@ -8584,7 +10076,7 @@ type WorkloadInstanceVirtualMachineLivenessProbeTcpSocket struct {
 // WorkloadInstanceVirtualMachineLivenessProbeTcpSocketInput is an input type that accepts WorkloadInstanceVirtualMachineLivenessProbeTcpSocketArgs and WorkloadInstanceVirtualMachineLivenessProbeTcpSocketOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineLivenessProbeTcpSocketInput` via:
 //
-//          WorkloadInstanceVirtualMachineLivenessProbeTcpSocketArgs{...}
+//	WorkloadInstanceVirtualMachineLivenessProbeTcpSocketArgs{...}
 type WorkloadInstanceVirtualMachineLivenessProbeTcpSocketInput interface {
 	pulumi.Input
 
@@ -8619,11 +10111,11 @@ func (i WorkloadInstanceVirtualMachineLivenessProbeTcpSocketArgs) ToWorkloadInst
 // WorkloadInstanceVirtualMachineLivenessProbeTcpSocketPtrInput is an input type that accepts WorkloadInstanceVirtualMachineLivenessProbeTcpSocketArgs, WorkloadInstanceVirtualMachineLivenessProbeTcpSocketPtr and WorkloadInstanceVirtualMachineLivenessProbeTcpSocketPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineLivenessProbeTcpSocketPtrInput` via:
 //
-//          WorkloadInstanceVirtualMachineLivenessProbeTcpSocketArgs{...}
+//	        WorkloadInstanceVirtualMachineLivenessProbeTcpSocketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceVirtualMachineLivenessProbeTcpSocketPtrInput interface {
 	pulumi.Input
 
@@ -8720,7 +10212,7 @@ type WorkloadInstanceVirtualMachinePort struct {
 // WorkloadInstanceVirtualMachinePortInput is an input type that accepts WorkloadInstanceVirtualMachinePortArgs and WorkloadInstanceVirtualMachinePortOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachinePortInput` via:
 //
-//          WorkloadInstanceVirtualMachinePortArgs{...}
+//	WorkloadInstanceVirtualMachinePortArgs{...}
 type WorkloadInstanceVirtualMachinePortInput interface {
 	pulumi.Input
 
@@ -8750,7 +10242,7 @@ func (i WorkloadInstanceVirtualMachinePortArgs) ToWorkloadInstanceVirtualMachine
 // WorkloadInstanceVirtualMachinePortArrayInput is an input type that accepts WorkloadInstanceVirtualMachinePortArray and WorkloadInstanceVirtualMachinePortArrayOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachinePortArrayInput` via:
 //
-//          WorkloadInstanceVirtualMachinePortArray{ WorkloadInstanceVirtualMachinePortArgs{...} }
+//	WorkloadInstanceVirtualMachinePortArray{ WorkloadInstanceVirtualMachinePortArgs{...} }
 type WorkloadInstanceVirtualMachinePortArrayInput interface {
 	pulumi.Input
 
@@ -8835,7 +10327,7 @@ type WorkloadInstanceVirtualMachineReadinessProbe struct {
 // WorkloadInstanceVirtualMachineReadinessProbeInput is an input type that accepts WorkloadInstanceVirtualMachineReadinessProbeArgs and WorkloadInstanceVirtualMachineReadinessProbeOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineReadinessProbeInput` via:
 //
-//          WorkloadInstanceVirtualMachineReadinessProbeArgs{...}
+//	WorkloadInstanceVirtualMachineReadinessProbeArgs{...}
 type WorkloadInstanceVirtualMachineReadinessProbeInput interface {
 	pulumi.Input
 
@@ -8876,11 +10368,11 @@ func (i WorkloadInstanceVirtualMachineReadinessProbeArgs) ToWorkloadInstanceVirt
 // WorkloadInstanceVirtualMachineReadinessProbePtrInput is an input type that accepts WorkloadInstanceVirtualMachineReadinessProbeArgs, WorkloadInstanceVirtualMachineReadinessProbePtr and WorkloadInstanceVirtualMachineReadinessProbePtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineReadinessProbePtrInput` via:
 //
-//          WorkloadInstanceVirtualMachineReadinessProbeArgs{...}
+//	        WorkloadInstanceVirtualMachineReadinessProbeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceVirtualMachineReadinessProbePtrInput interface {
 	pulumi.Input
 
@@ -9059,7 +10551,7 @@ type WorkloadInstanceVirtualMachineReadinessProbeHttpGet struct {
 // WorkloadInstanceVirtualMachineReadinessProbeHttpGetInput is an input type that accepts WorkloadInstanceVirtualMachineReadinessProbeHttpGetArgs and WorkloadInstanceVirtualMachineReadinessProbeHttpGetOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineReadinessProbeHttpGetInput` via:
 //
-//          WorkloadInstanceVirtualMachineReadinessProbeHttpGetArgs{...}
+//	WorkloadInstanceVirtualMachineReadinessProbeHttpGetArgs{...}
 type WorkloadInstanceVirtualMachineReadinessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -9097,11 +10589,11 @@ func (i WorkloadInstanceVirtualMachineReadinessProbeHttpGetArgs) ToWorkloadInsta
 // WorkloadInstanceVirtualMachineReadinessProbeHttpGetPtrInput is an input type that accepts WorkloadInstanceVirtualMachineReadinessProbeHttpGetArgs, WorkloadInstanceVirtualMachineReadinessProbeHttpGetPtr and WorkloadInstanceVirtualMachineReadinessProbeHttpGetPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineReadinessProbeHttpGetPtrInput` via:
 //
-//          WorkloadInstanceVirtualMachineReadinessProbeHttpGetArgs{...}
+//	        WorkloadInstanceVirtualMachineReadinessProbeHttpGetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceVirtualMachineReadinessProbeHttpGetPtrInput interface {
 	pulumi.Input
 
@@ -9234,7 +10726,7 @@ type WorkloadInstanceVirtualMachineReadinessProbeTcpSocket struct {
 // WorkloadInstanceVirtualMachineReadinessProbeTcpSocketInput is an input type that accepts WorkloadInstanceVirtualMachineReadinessProbeTcpSocketArgs and WorkloadInstanceVirtualMachineReadinessProbeTcpSocketOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineReadinessProbeTcpSocketInput` via:
 //
-//          WorkloadInstanceVirtualMachineReadinessProbeTcpSocketArgs{...}
+//	WorkloadInstanceVirtualMachineReadinessProbeTcpSocketArgs{...}
 type WorkloadInstanceVirtualMachineReadinessProbeTcpSocketInput interface {
 	pulumi.Input
 
@@ -9269,11 +10761,11 @@ func (i WorkloadInstanceVirtualMachineReadinessProbeTcpSocketArgs) ToWorkloadIns
 // WorkloadInstanceVirtualMachineReadinessProbeTcpSocketPtrInput is an input type that accepts WorkloadInstanceVirtualMachineReadinessProbeTcpSocketArgs, WorkloadInstanceVirtualMachineReadinessProbeTcpSocketPtr and WorkloadInstanceVirtualMachineReadinessProbeTcpSocketPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineReadinessProbeTcpSocketPtrInput` via:
 //
-//          WorkloadInstanceVirtualMachineReadinessProbeTcpSocketArgs{...}
+//	        WorkloadInstanceVirtualMachineReadinessProbeTcpSocketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceVirtualMachineReadinessProbeTcpSocketPtrInput interface {
 	pulumi.Input
 
@@ -9367,7 +10859,7 @@ type WorkloadInstanceVirtualMachineResources struct {
 // WorkloadInstanceVirtualMachineResourcesInput is an input type that accepts WorkloadInstanceVirtualMachineResourcesArgs and WorkloadInstanceVirtualMachineResourcesOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineResourcesInput` via:
 //
-//          WorkloadInstanceVirtualMachineResourcesArgs{...}
+//	WorkloadInstanceVirtualMachineResourcesArgs{...}
 type WorkloadInstanceVirtualMachineResourcesInput interface {
 	pulumi.Input
 
@@ -9402,11 +10894,11 @@ func (i WorkloadInstanceVirtualMachineResourcesArgs) ToWorkloadInstanceVirtualMa
 // WorkloadInstanceVirtualMachineResourcesPtrInput is an input type that accepts WorkloadInstanceVirtualMachineResourcesArgs, WorkloadInstanceVirtualMachineResourcesPtr and WorkloadInstanceVirtualMachineResourcesPtrOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineResourcesPtrInput` via:
 //
-//          WorkloadInstanceVirtualMachineResourcesArgs{...}
+//	        WorkloadInstanceVirtualMachineResourcesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadInstanceVirtualMachineResourcesPtrInput interface {
 	pulumi.Input
 
@@ -9501,7 +10993,7 @@ type WorkloadInstanceVirtualMachineVolumeMount struct {
 // WorkloadInstanceVirtualMachineVolumeMountInput is an input type that accepts WorkloadInstanceVirtualMachineVolumeMountArgs and WorkloadInstanceVirtualMachineVolumeMountOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineVolumeMountInput` via:
 //
-//          WorkloadInstanceVirtualMachineVolumeMountArgs{...}
+//	WorkloadInstanceVirtualMachineVolumeMountArgs{...}
 type WorkloadInstanceVirtualMachineVolumeMountInput interface {
 	pulumi.Input
 
@@ -9529,7 +11021,7 @@ func (i WorkloadInstanceVirtualMachineVolumeMountArgs) ToWorkloadInstanceVirtual
 // WorkloadInstanceVirtualMachineVolumeMountArrayInput is an input type that accepts WorkloadInstanceVirtualMachineVolumeMountArray and WorkloadInstanceVirtualMachineVolumeMountArrayOutput values.
 // You can construct a concrete instance of `WorkloadInstanceVirtualMachineVolumeMountArrayInput` via:
 //
-//          WorkloadInstanceVirtualMachineVolumeMountArray{ WorkloadInstanceVirtualMachineVolumeMountArgs{...} }
+//	WorkloadInstanceVirtualMachineVolumeMountArray{ WorkloadInstanceVirtualMachineVolumeMountArgs{...} }
 type WorkloadInstanceVirtualMachineVolumeMountArrayInput interface {
 	pulumi.Input
 
@@ -9594,14 +11086,17 @@ func (o WorkloadInstanceVirtualMachineVolumeMountArrayOutput) Index(i pulumi.Int
 }
 
 type WorkloadNetworkInterface struct {
-	EnableOneToOneNat *bool  `pulumi:"enableOneToOneNat"`
-	Network           string `pulumi:"network"`
+	EnableOneToOneNat *bool    `pulumi:"enableOneToOneNat"`
+	IpFamilies        []string `pulumi:"ipFamilies"`
+	Ipv6Subnet        *string  `pulumi:"ipv6Subnet"`
+	Network           string   `pulumi:"network"`
+	Subnet            *string  `pulumi:"subnet"`
 }
 
 // WorkloadNetworkInterfaceInput is an input type that accepts WorkloadNetworkInterfaceArgs and WorkloadNetworkInterfaceOutput values.
 // You can construct a concrete instance of `WorkloadNetworkInterfaceInput` via:
 //
-//          WorkloadNetworkInterfaceArgs{...}
+//	WorkloadNetworkInterfaceArgs{...}
 type WorkloadNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -9610,8 +11105,11 @@ type WorkloadNetworkInterfaceInput interface {
 }
 
 type WorkloadNetworkInterfaceArgs struct {
-	EnableOneToOneNat pulumi.BoolPtrInput `pulumi:"enableOneToOneNat"`
-	Network           pulumi.StringInput  `pulumi:"network"`
+	EnableOneToOneNat pulumi.BoolPtrInput     `pulumi:"enableOneToOneNat"`
+	IpFamilies        pulumi.StringArrayInput `pulumi:"ipFamilies"`
+	Ipv6Subnet        pulumi.StringPtrInput   `pulumi:"ipv6Subnet"`
+	Network           pulumi.StringInput      `pulumi:"network"`
+	Subnet            pulumi.StringPtrInput   `pulumi:"subnet"`
 }
 
 func (WorkloadNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -9629,7 +11127,7 @@ func (i WorkloadNetworkInterfaceArgs) ToWorkloadNetworkInterfaceOutputWithContex
 // WorkloadNetworkInterfaceArrayInput is an input type that accepts WorkloadNetworkInterfaceArray and WorkloadNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `WorkloadNetworkInterfaceArrayInput` via:
 //
-//          WorkloadNetworkInterfaceArray{ WorkloadNetworkInterfaceArgs{...} }
+//	WorkloadNetworkInterfaceArray{ WorkloadNetworkInterfaceArgs{...} }
 type WorkloadNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -9669,8 +11167,20 @@ func (o WorkloadNetworkInterfaceOutput) EnableOneToOneNat() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v WorkloadNetworkInterface) *bool { return v.EnableOneToOneNat }).(pulumi.BoolPtrOutput)
 }
 
+func (o WorkloadNetworkInterfaceOutput) IpFamilies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadNetworkInterface) []string { return v.IpFamilies }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadNetworkInterfaceOutput) Ipv6Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadNetworkInterface) *string { return v.Ipv6Subnet }).(pulumi.StringPtrOutput)
+}
+
 func (o WorkloadNetworkInterfaceOutput) Network() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkloadNetworkInterface) string { return v.Network }).(pulumi.StringOutput)
+}
+
+func (o WorkloadNetworkInterfaceOutput) Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadNetworkInterface) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
 
 type WorkloadNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
@@ -9705,7 +11215,7 @@ type WorkloadTarget struct {
 // WorkloadTargetInput is an input type that accepts WorkloadTargetArgs and WorkloadTargetOutput values.
 // You can construct a concrete instance of `WorkloadTargetInput` via:
 //
-//          WorkloadTargetArgs{...}
+//	WorkloadTargetArgs{...}
 type WorkloadTargetInput interface {
 	pulumi.Input
 
@@ -9737,7 +11247,7 @@ func (i WorkloadTargetArgs) ToWorkloadTargetOutputWithContext(ctx context.Contex
 // WorkloadTargetArrayInput is an input type that accepts WorkloadTargetArray and WorkloadTargetArrayOutput values.
 // You can construct a concrete instance of `WorkloadTargetArrayInput` via:
 //
-//          WorkloadTargetArray{ WorkloadTargetArgs{...} }
+//	WorkloadTargetArray{ WorkloadTargetArgs{...} }
 type WorkloadTargetArrayInput interface {
 	pulumi.Input
 
@@ -9824,7 +11334,7 @@ type WorkloadTargetScaleSettings struct {
 // WorkloadTargetScaleSettingsInput is an input type that accepts WorkloadTargetScaleSettingsArgs and WorkloadTargetScaleSettingsOutput values.
 // You can construct a concrete instance of `WorkloadTargetScaleSettingsInput` via:
 //
-//          WorkloadTargetScaleSettingsArgs{...}
+//	WorkloadTargetScaleSettingsArgs{...}
 type WorkloadTargetScaleSettingsInput interface {
 	pulumi.Input
 
@@ -9859,11 +11369,11 @@ func (i WorkloadTargetScaleSettingsArgs) ToWorkloadTargetScaleSettingsPtrOutputW
 // WorkloadTargetScaleSettingsPtrInput is an input type that accepts WorkloadTargetScaleSettingsArgs, WorkloadTargetScaleSettingsPtr and WorkloadTargetScaleSettingsPtrOutput values.
 // You can construct a concrete instance of `WorkloadTargetScaleSettingsPtrInput` via:
 //
-//          WorkloadTargetScaleSettingsArgs{...}
+//	        WorkloadTargetScaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadTargetScaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -9959,7 +11469,7 @@ type WorkloadTargetScaleSettingsMetric struct {
 // WorkloadTargetScaleSettingsMetricInput is an input type that accepts WorkloadTargetScaleSettingsMetricArgs and WorkloadTargetScaleSettingsMetricOutput values.
 // You can construct a concrete instance of `WorkloadTargetScaleSettingsMetricInput` via:
 //
-//          WorkloadTargetScaleSettingsMetricArgs{...}
+//	WorkloadTargetScaleSettingsMetricArgs{...}
 type WorkloadTargetScaleSettingsMetricInput interface {
 	pulumi.Input
 
@@ -9988,7 +11498,7 @@ func (i WorkloadTargetScaleSettingsMetricArgs) ToWorkloadTargetScaleSettingsMetr
 // WorkloadTargetScaleSettingsMetricArrayInput is an input type that accepts WorkloadTargetScaleSettingsMetricArray and WorkloadTargetScaleSettingsMetricArrayOutput values.
 // You can construct a concrete instance of `WorkloadTargetScaleSettingsMetricArrayInput` via:
 //
-//          WorkloadTargetScaleSettingsMetricArray{ WorkloadTargetScaleSettingsMetricArgs{...} }
+//	WorkloadTargetScaleSettingsMetricArray{ WorkloadTargetScaleSettingsMetricArgs{...} }
 type WorkloadTargetScaleSettingsMetricArrayInput interface {
 	pulumi.Input
 
@@ -10065,7 +11575,7 @@ type WorkloadTargetSelector struct {
 // WorkloadTargetSelectorInput is an input type that accepts WorkloadTargetSelectorArgs and WorkloadTargetSelectorOutput values.
 // You can construct a concrete instance of `WorkloadTargetSelectorInput` via:
 //
-//          WorkloadTargetSelectorArgs{...}
+//	WorkloadTargetSelectorArgs{...}
 type WorkloadTargetSelectorInput interface {
 	pulumi.Input
 
@@ -10094,7 +11604,7 @@ func (i WorkloadTargetSelectorArgs) ToWorkloadTargetSelectorOutputWithContext(ct
 // WorkloadTargetSelectorArrayInput is an input type that accepts WorkloadTargetSelectorArray and WorkloadTargetSelectorArrayOutput values.
 // You can construct a concrete instance of `WorkloadTargetSelectorArrayInput` via:
 //
-//          WorkloadTargetSelectorArray{ WorkloadTargetSelectorArgs{...} }
+//	WorkloadTargetSelectorArray{ WorkloadTargetSelectorArgs{...} }
 type WorkloadTargetSelectorArrayInput interface {
 	pulumi.Input
 
@@ -10176,7 +11686,7 @@ type WorkloadVirtualMachine struct {
 // WorkloadVirtualMachineInput is an input type that accepts WorkloadVirtualMachineArgs and WorkloadVirtualMachineOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineInput` via:
 //
-//          WorkloadVirtualMachineArgs{...}
+//	WorkloadVirtualMachineArgs{...}
 type WorkloadVirtualMachineInput interface {
 	pulumi.Input
 
@@ -10218,11 +11728,11 @@ func (i WorkloadVirtualMachineArgs) ToWorkloadVirtualMachinePtrOutputWithContext
 // WorkloadVirtualMachinePtrInput is an input type that accepts WorkloadVirtualMachineArgs, WorkloadVirtualMachinePtr and WorkloadVirtualMachinePtrOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachinePtrInput` via:
 //
-//          WorkloadVirtualMachineArgs{...}
+//	        WorkloadVirtualMachineArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadVirtualMachinePtrInput interface {
 	pulumi.Input
 
@@ -10413,7 +11923,7 @@ type WorkloadVirtualMachineLivenessProbe struct {
 // WorkloadVirtualMachineLivenessProbeInput is an input type that accepts WorkloadVirtualMachineLivenessProbeArgs and WorkloadVirtualMachineLivenessProbeOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineLivenessProbeInput` via:
 //
-//          WorkloadVirtualMachineLivenessProbeArgs{...}
+//	WorkloadVirtualMachineLivenessProbeArgs{...}
 type WorkloadVirtualMachineLivenessProbeInput interface {
 	pulumi.Input
 
@@ -10454,11 +11964,11 @@ func (i WorkloadVirtualMachineLivenessProbeArgs) ToWorkloadVirtualMachineLivenes
 // WorkloadVirtualMachineLivenessProbePtrInput is an input type that accepts WorkloadVirtualMachineLivenessProbeArgs, WorkloadVirtualMachineLivenessProbePtr and WorkloadVirtualMachineLivenessProbePtrOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineLivenessProbePtrInput` via:
 //
-//          WorkloadVirtualMachineLivenessProbeArgs{...}
+//	        WorkloadVirtualMachineLivenessProbeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadVirtualMachineLivenessProbePtrInput interface {
 	pulumi.Input
 
@@ -10637,7 +12147,7 @@ type WorkloadVirtualMachineLivenessProbeHttpGet struct {
 // WorkloadVirtualMachineLivenessProbeHttpGetInput is an input type that accepts WorkloadVirtualMachineLivenessProbeHttpGetArgs and WorkloadVirtualMachineLivenessProbeHttpGetOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineLivenessProbeHttpGetInput` via:
 //
-//          WorkloadVirtualMachineLivenessProbeHttpGetArgs{...}
+//	WorkloadVirtualMachineLivenessProbeHttpGetArgs{...}
 type WorkloadVirtualMachineLivenessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -10675,11 +12185,11 @@ func (i WorkloadVirtualMachineLivenessProbeHttpGetArgs) ToWorkloadVirtualMachine
 // WorkloadVirtualMachineLivenessProbeHttpGetPtrInput is an input type that accepts WorkloadVirtualMachineLivenessProbeHttpGetArgs, WorkloadVirtualMachineLivenessProbeHttpGetPtr and WorkloadVirtualMachineLivenessProbeHttpGetPtrOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineLivenessProbeHttpGetPtrInput` via:
 //
-//          WorkloadVirtualMachineLivenessProbeHttpGetArgs{...}
+//	        WorkloadVirtualMachineLivenessProbeHttpGetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadVirtualMachineLivenessProbeHttpGetPtrInput interface {
 	pulumi.Input
 
@@ -10812,7 +12322,7 @@ type WorkloadVirtualMachineLivenessProbeTcpSocket struct {
 // WorkloadVirtualMachineLivenessProbeTcpSocketInput is an input type that accepts WorkloadVirtualMachineLivenessProbeTcpSocketArgs and WorkloadVirtualMachineLivenessProbeTcpSocketOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineLivenessProbeTcpSocketInput` via:
 //
-//          WorkloadVirtualMachineLivenessProbeTcpSocketArgs{...}
+//	WorkloadVirtualMachineLivenessProbeTcpSocketArgs{...}
 type WorkloadVirtualMachineLivenessProbeTcpSocketInput interface {
 	pulumi.Input
 
@@ -10847,11 +12357,11 @@ func (i WorkloadVirtualMachineLivenessProbeTcpSocketArgs) ToWorkloadVirtualMachi
 // WorkloadVirtualMachineLivenessProbeTcpSocketPtrInput is an input type that accepts WorkloadVirtualMachineLivenessProbeTcpSocketArgs, WorkloadVirtualMachineLivenessProbeTcpSocketPtr and WorkloadVirtualMachineLivenessProbeTcpSocketPtrOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineLivenessProbeTcpSocketPtrInput` via:
 //
-//          WorkloadVirtualMachineLivenessProbeTcpSocketArgs{...}
+//	        WorkloadVirtualMachineLivenessProbeTcpSocketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadVirtualMachineLivenessProbeTcpSocketPtrInput interface {
 	pulumi.Input
 
@@ -10948,7 +12458,7 @@ type WorkloadVirtualMachinePort struct {
 // WorkloadVirtualMachinePortInput is an input type that accepts WorkloadVirtualMachinePortArgs and WorkloadVirtualMachinePortOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachinePortInput` via:
 //
-//          WorkloadVirtualMachinePortArgs{...}
+//	WorkloadVirtualMachinePortArgs{...}
 type WorkloadVirtualMachinePortInput interface {
 	pulumi.Input
 
@@ -10978,7 +12488,7 @@ func (i WorkloadVirtualMachinePortArgs) ToWorkloadVirtualMachinePortOutputWithCo
 // WorkloadVirtualMachinePortArrayInput is an input type that accepts WorkloadVirtualMachinePortArray and WorkloadVirtualMachinePortArrayOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachinePortArrayInput` via:
 //
-//          WorkloadVirtualMachinePortArray{ WorkloadVirtualMachinePortArgs{...} }
+//	WorkloadVirtualMachinePortArray{ WorkloadVirtualMachinePortArgs{...} }
 type WorkloadVirtualMachinePortArrayInput interface {
 	pulumi.Input
 
@@ -11063,7 +12573,7 @@ type WorkloadVirtualMachineReadinessProbe struct {
 // WorkloadVirtualMachineReadinessProbeInput is an input type that accepts WorkloadVirtualMachineReadinessProbeArgs and WorkloadVirtualMachineReadinessProbeOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineReadinessProbeInput` via:
 //
-//          WorkloadVirtualMachineReadinessProbeArgs{...}
+//	WorkloadVirtualMachineReadinessProbeArgs{...}
 type WorkloadVirtualMachineReadinessProbeInput interface {
 	pulumi.Input
 
@@ -11104,11 +12614,11 @@ func (i WorkloadVirtualMachineReadinessProbeArgs) ToWorkloadVirtualMachineReadin
 // WorkloadVirtualMachineReadinessProbePtrInput is an input type that accepts WorkloadVirtualMachineReadinessProbeArgs, WorkloadVirtualMachineReadinessProbePtr and WorkloadVirtualMachineReadinessProbePtrOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineReadinessProbePtrInput` via:
 //
-//          WorkloadVirtualMachineReadinessProbeArgs{...}
+//	        WorkloadVirtualMachineReadinessProbeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadVirtualMachineReadinessProbePtrInput interface {
 	pulumi.Input
 
@@ -11287,7 +12797,7 @@ type WorkloadVirtualMachineReadinessProbeHttpGet struct {
 // WorkloadVirtualMachineReadinessProbeHttpGetInput is an input type that accepts WorkloadVirtualMachineReadinessProbeHttpGetArgs and WorkloadVirtualMachineReadinessProbeHttpGetOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineReadinessProbeHttpGetInput` via:
 //
-//          WorkloadVirtualMachineReadinessProbeHttpGetArgs{...}
+//	WorkloadVirtualMachineReadinessProbeHttpGetArgs{...}
 type WorkloadVirtualMachineReadinessProbeHttpGetInput interface {
 	pulumi.Input
 
@@ -11325,11 +12835,11 @@ func (i WorkloadVirtualMachineReadinessProbeHttpGetArgs) ToWorkloadVirtualMachin
 // WorkloadVirtualMachineReadinessProbeHttpGetPtrInput is an input type that accepts WorkloadVirtualMachineReadinessProbeHttpGetArgs, WorkloadVirtualMachineReadinessProbeHttpGetPtr and WorkloadVirtualMachineReadinessProbeHttpGetPtrOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineReadinessProbeHttpGetPtrInput` via:
 //
-//          WorkloadVirtualMachineReadinessProbeHttpGetArgs{...}
+//	        WorkloadVirtualMachineReadinessProbeHttpGetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadVirtualMachineReadinessProbeHttpGetPtrInput interface {
 	pulumi.Input
 
@@ -11462,7 +12972,7 @@ type WorkloadVirtualMachineReadinessProbeTcpSocket struct {
 // WorkloadVirtualMachineReadinessProbeTcpSocketInput is an input type that accepts WorkloadVirtualMachineReadinessProbeTcpSocketArgs and WorkloadVirtualMachineReadinessProbeTcpSocketOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineReadinessProbeTcpSocketInput` via:
 //
-//          WorkloadVirtualMachineReadinessProbeTcpSocketArgs{...}
+//	WorkloadVirtualMachineReadinessProbeTcpSocketArgs{...}
 type WorkloadVirtualMachineReadinessProbeTcpSocketInput interface {
 	pulumi.Input
 
@@ -11497,11 +13007,11 @@ func (i WorkloadVirtualMachineReadinessProbeTcpSocketArgs) ToWorkloadVirtualMach
 // WorkloadVirtualMachineReadinessProbeTcpSocketPtrInput is an input type that accepts WorkloadVirtualMachineReadinessProbeTcpSocketArgs, WorkloadVirtualMachineReadinessProbeTcpSocketPtr and WorkloadVirtualMachineReadinessProbeTcpSocketPtrOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineReadinessProbeTcpSocketPtrInput` via:
 //
-//          WorkloadVirtualMachineReadinessProbeTcpSocketArgs{...}
+//	        WorkloadVirtualMachineReadinessProbeTcpSocketArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadVirtualMachineReadinessProbeTcpSocketPtrInput interface {
 	pulumi.Input
 
@@ -11595,7 +13105,7 @@ type WorkloadVirtualMachineResources struct {
 // WorkloadVirtualMachineResourcesInput is an input type that accepts WorkloadVirtualMachineResourcesArgs and WorkloadVirtualMachineResourcesOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineResourcesInput` via:
 //
-//          WorkloadVirtualMachineResourcesArgs{...}
+//	WorkloadVirtualMachineResourcesArgs{...}
 type WorkloadVirtualMachineResourcesInput interface {
 	pulumi.Input
 
@@ -11630,11 +13140,11 @@ func (i WorkloadVirtualMachineResourcesArgs) ToWorkloadVirtualMachineResourcesPt
 // WorkloadVirtualMachineResourcesPtrInput is an input type that accepts WorkloadVirtualMachineResourcesArgs, WorkloadVirtualMachineResourcesPtr and WorkloadVirtualMachineResourcesPtrOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineResourcesPtrInput` via:
 //
-//          WorkloadVirtualMachineResourcesArgs{...}
+//	        WorkloadVirtualMachineResourcesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkloadVirtualMachineResourcesPtrInput interface {
 	pulumi.Input
 
@@ -11721,6 +13231,501 @@ func (o WorkloadVirtualMachineResourcesPtrOutput) Requests() pulumi.StringMapOut
 	}).(pulumi.StringMapOutput)
 }
 
+type WorkloadVirtualMachineRuntimeEnvironment struct {
+	Dns WorkloadVirtualMachineRuntimeEnvironmentDns `pulumi:"dns"`
+}
+
+// WorkloadVirtualMachineRuntimeEnvironmentInput is an input type that accepts WorkloadVirtualMachineRuntimeEnvironmentArgs and WorkloadVirtualMachineRuntimeEnvironmentOutput values.
+// You can construct a concrete instance of `WorkloadVirtualMachineRuntimeEnvironmentInput` via:
+//
+//	WorkloadVirtualMachineRuntimeEnvironmentArgs{...}
+type WorkloadVirtualMachineRuntimeEnvironmentInput interface {
+	pulumi.Input
+
+	ToWorkloadVirtualMachineRuntimeEnvironmentOutput() WorkloadVirtualMachineRuntimeEnvironmentOutput
+	ToWorkloadVirtualMachineRuntimeEnvironmentOutputWithContext(context.Context) WorkloadVirtualMachineRuntimeEnvironmentOutput
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentArgs struct {
+	Dns WorkloadVirtualMachineRuntimeEnvironmentDnsInput `pulumi:"dns"`
+}
+
+func (WorkloadVirtualMachineRuntimeEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironment)(nil)).Elem()
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentArgs) ToWorkloadVirtualMachineRuntimeEnvironmentOutput() WorkloadVirtualMachineRuntimeEnvironmentOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentOutputWithContext(context.Background())
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentArgs) ToWorkloadVirtualMachineRuntimeEnvironmentOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentOutput)
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentArgs) ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentArgs) ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentOutput).ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutputWithContext(ctx)
+}
+
+// WorkloadVirtualMachineRuntimeEnvironmentPtrInput is an input type that accepts WorkloadVirtualMachineRuntimeEnvironmentArgs, WorkloadVirtualMachineRuntimeEnvironmentPtr and WorkloadVirtualMachineRuntimeEnvironmentPtrOutput values.
+// You can construct a concrete instance of `WorkloadVirtualMachineRuntimeEnvironmentPtrInput` via:
+//
+//	        WorkloadVirtualMachineRuntimeEnvironmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadVirtualMachineRuntimeEnvironmentPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentPtrOutput
+	ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutputWithContext(context.Context) WorkloadVirtualMachineRuntimeEnvironmentPtrOutput
+}
+
+type workloadVirtualMachineRuntimeEnvironmentPtrType WorkloadVirtualMachineRuntimeEnvironmentArgs
+
+func WorkloadVirtualMachineRuntimeEnvironmentPtr(v *WorkloadVirtualMachineRuntimeEnvironmentArgs) WorkloadVirtualMachineRuntimeEnvironmentPtrInput {
+	return (*workloadVirtualMachineRuntimeEnvironmentPtrType)(v)
+}
+
+func (*workloadVirtualMachineRuntimeEnvironmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadVirtualMachineRuntimeEnvironment)(nil)).Elem()
+}
+
+func (i *workloadVirtualMachineRuntimeEnvironmentPtrType) ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadVirtualMachineRuntimeEnvironmentPtrType) ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentPtrOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (WorkloadVirtualMachineRuntimeEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironment)(nil)).Elem()
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentOutput) ToWorkloadVirtualMachineRuntimeEnvironmentOutput() WorkloadVirtualMachineRuntimeEnvironmentOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentOutput) ToWorkloadVirtualMachineRuntimeEnvironmentOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentOutput) ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+	return o.ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentOutput) ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadVirtualMachineRuntimeEnvironment) *WorkloadVirtualMachineRuntimeEnvironment {
+		return &v
+	}).(WorkloadVirtualMachineRuntimeEnvironmentPtrOutput)
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentOutput) Dns() WorkloadVirtualMachineRuntimeEnvironmentDnsOutput {
+	return o.ApplyT(func(v WorkloadVirtualMachineRuntimeEnvironment) WorkloadVirtualMachineRuntimeEnvironmentDns {
+		return v.Dns
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadVirtualMachineRuntimeEnvironmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadVirtualMachineRuntimeEnvironment)(nil)).Elem()
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentPtrOutput) ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentPtrOutput) ToWorkloadVirtualMachineRuntimeEnvironmentPtrOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentPtrOutput) Elem() WorkloadVirtualMachineRuntimeEnvironmentOutput {
+	return o.ApplyT(func(v *WorkloadVirtualMachineRuntimeEnvironment) WorkloadVirtualMachineRuntimeEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadVirtualMachineRuntimeEnvironment
+		return ret
+	}).(WorkloadVirtualMachineRuntimeEnvironmentOutput)
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentPtrOutput) Dns() WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput {
+	return o.ApplyT(func(v *WorkloadVirtualMachineRuntimeEnvironment) *WorkloadVirtualMachineRuntimeEnvironmentDns {
+		if v == nil {
+			return nil
+		}
+		return &v.Dns
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDns struct {
+	HostAliases     []WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias      `pulumi:"hostAliases"`
+	ResolverConfigs []WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig `pulumi:"resolverConfigs"`
+}
+
+// WorkloadVirtualMachineRuntimeEnvironmentDnsInput is an input type that accepts WorkloadVirtualMachineRuntimeEnvironmentDnsArgs and WorkloadVirtualMachineRuntimeEnvironmentDnsOutput values.
+// You can construct a concrete instance of `WorkloadVirtualMachineRuntimeEnvironmentDnsInput` via:
+//
+//	WorkloadVirtualMachineRuntimeEnvironmentDnsArgs{...}
+type WorkloadVirtualMachineRuntimeEnvironmentDnsInput interface {
+	pulumi.Input
+
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsOutput
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsOutputWithContext(context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsOutput
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsArgs struct {
+	HostAliases     WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayInput      `pulumi:"hostAliases"`
+	ResolverConfigs WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayInput `pulumi:"resolverConfigs"`
+}
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDns)(nil)).Elem()
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsArgs) ToWorkloadVirtualMachineRuntimeEnvironmentDnsOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentDnsOutputWithContext(context.Background())
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsArgs) ToWorkloadVirtualMachineRuntimeEnvironmentDnsOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentDnsOutput)
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsArgs) ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsArgs) ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentDnsOutput).ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutputWithContext(ctx)
+}
+
+// WorkloadVirtualMachineRuntimeEnvironmentDnsPtrInput is an input type that accepts WorkloadVirtualMachineRuntimeEnvironmentDnsArgs, WorkloadVirtualMachineRuntimeEnvironmentDnsPtr and WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput values.
+// You can construct a concrete instance of `WorkloadVirtualMachineRuntimeEnvironmentDnsPtrInput` via:
+//
+//	        WorkloadVirtualMachineRuntimeEnvironmentDnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadVirtualMachineRuntimeEnvironmentDnsPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutputWithContext(context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput
+}
+
+type workloadVirtualMachineRuntimeEnvironmentDnsPtrType WorkloadVirtualMachineRuntimeEnvironmentDnsArgs
+
+func WorkloadVirtualMachineRuntimeEnvironmentDnsPtr(v *WorkloadVirtualMachineRuntimeEnvironmentDnsArgs) WorkloadVirtualMachineRuntimeEnvironmentDnsPtrInput {
+	return (*workloadVirtualMachineRuntimeEnvironmentDnsPtrType)(v)
+}
+
+func (*workloadVirtualMachineRuntimeEnvironmentDnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadVirtualMachineRuntimeEnvironmentDns)(nil)).Elem()
+}
+
+func (i *workloadVirtualMachineRuntimeEnvironmentDnsPtrType) ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadVirtualMachineRuntimeEnvironmentDnsPtrType) ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsOutput struct{ *pulumi.OutputState }
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDns)(nil)).Elem()
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput {
+	return o.ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadVirtualMachineRuntimeEnvironmentDns) *WorkloadVirtualMachineRuntimeEnvironmentDns {
+		return &v
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput)
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsOutput) HostAliases() WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return o.ApplyT(func(v WorkloadVirtualMachineRuntimeEnvironmentDns) []WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias {
+		return v.HostAliases
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput)
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsOutput) ResolverConfigs() WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return o.ApplyT(func(v WorkloadVirtualMachineRuntimeEnvironmentDns) []WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig {
+		return v.ResolverConfigs
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadVirtualMachineRuntimeEnvironmentDns)(nil)).Elem()
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput) Elem() WorkloadVirtualMachineRuntimeEnvironmentDnsOutput {
+	return o.ApplyT(func(v *WorkloadVirtualMachineRuntimeEnvironmentDns) WorkloadVirtualMachineRuntimeEnvironmentDns {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadVirtualMachineRuntimeEnvironmentDns
+		return ret
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsOutput)
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput) HostAliases() WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return o.ApplyT(func(v *WorkloadVirtualMachineRuntimeEnvironmentDns) []WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias {
+		if v == nil {
+			return nil
+		}
+		return v.HostAliases
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput)
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput) ResolverConfigs() WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return o.ApplyT(func(v *WorkloadVirtualMachineRuntimeEnvironmentDns) []WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ResolverConfigs
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias struct {
+	Address   string   `pulumi:"address"`
+	Hostnames []string `pulumi:"hostnames"`
+}
+
+// WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasInput is an input type that accepts WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs and WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput values.
+// You can construct a concrete instance of `WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasInput` via:
+//
+//	WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs{...}
+type WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasInput interface {
+	pulumi.Input
+
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutputWithContext(context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs struct {
+	Address   pulumi.StringInput      `pulumi:"address"`
+	Hostnames pulumi.StringArrayInput `pulumi:"hostnames"`
+}
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias)(nil)).Elem()
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs) ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutputWithContext(context.Background())
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs) ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput)
+}
+
+// WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayInput is an input type that accepts WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArray and WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput values.
+// You can construct a concrete instance of `WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayInput` via:
+//
+//	WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArray{ WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs{...} }
+type WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutputWithContext(context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArray []WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasInput
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias)(nil)).Elem()
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArray) ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArray) ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput struct{ *pulumi.OutputState }
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias)(nil)).Elem()
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias) string { return v.Address }).(pulumi.StringOutput)
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput) Hostnames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias) []string { return v.Hostnames }).(pulumi.StringArrayOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias)(nil)).Elem()
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput) Index(i pulumi.IntInput) WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias {
+		return vs[0].([]WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias)[vs[1].(int)]
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig struct {
+	Nameservers []string               `pulumi:"nameservers"`
+	Options     map[string]interface{} `pulumi:"options"`
+	Searches    []string               `pulumi:"searches"`
+}
+
+// WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigInput is an input type that accepts WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs and WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput values.
+// You can construct a concrete instance of `WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigInput` via:
+//
+//	WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs{...}
+type WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigInput interface {
+	pulumi.Input
+
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutputWithContext(context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs struct {
+	Nameservers pulumi.StringArrayInput `pulumi:"nameservers"`
+	Options     pulumi.MapInput         `pulumi:"options"`
+	Searches    pulumi.StringArrayInput `pulumi:"searches"`
+}
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig)(nil)).Elem()
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs) ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutputWithContext(context.Background())
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs) ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput)
+}
+
+// WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayInput is an input type that accepts WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArray and WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput values.
+// You can construct a concrete instance of `WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayInput` via:
+//
+//	WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArray{ WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs{...} }
+type WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput
+	ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutputWithContext(context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArray []WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigInput
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig)(nil)).Elem()
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArray) ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return i.ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArray) ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput struct{ *pulumi.OutputState }
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig)(nil)).Elem()
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput) Nameservers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig) []string { return v.Nameservers }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput) Options() pulumi.MapOutput {
+	return o.ApplyT(func(v WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig) map[string]interface{} {
+		return v.Options
+	}).(pulumi.MapOutput)
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput) Searches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig) []string { return v.Searches }).(pulumi.StringArrayOutput)
+}
+
+type WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig)(nil)).Elem()
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput() WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput) ToWorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutputWithContext(ctx context.Context) WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput {
+	return o
+}
+
+func (o WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput) Index(i pulumi.IntInput) WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig {
+		return vs[0].([]WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig)[vs[1].(int)]
+	}).(WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput)
+}
+
 type WorkloadVirtualMachineVolumeMount struct {
 	MountPath string `pulumi:"mountPath"`
 	Slug      string `pulumi:"slug"`
@@ -11729,7 +13734,7 @@ type WorkloadVirtualMachineVolumeMount struct {
 // WorkloadVirtualMachineVolumeMountInput is an input type that accepts WorkloadVirtualMachineVolumeMountArgs and WorkloadVirtualMachineVolumeMountOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineVolumeMountInput` via:
 //
-//          WorkloadVirtualMachineVolumeMountArgs{...}
+//	WorkloadVirtualMachineVolumeMountArgs{...}
 type WorkloadVirtualMachineVolumeMountInput interface {
 	pulumi.Input
 
@@ -11757,7 +13762,7 @@ func (i WorkloadVirtualMachineVolumeMountArgs) ToWorkloadVirtualMachineVolumeMou
 // WorkloadVirtualMachineVolumeMountArrayInput is an input type that accepts WorkloadVirtualMachineVolumeMountArray and WorkloadVirtualMachineVolumeMountArrayOutput values.
 // You can construct a concrete instance of `WorkloadVirtualMachineVolumeMountArrayInput` via:
 //
-//          WorkloadVirtualMachineVolumeMountArray{ WorkloadVirtualMachineVolumeMountArgs{...} }
+//	WorkloadVirtualMachineVolumeMountArray{ WorkloadVirtualMachineVolumeMountArgs{...} }
 type WorkloadVirtualMachineVolumeMountArrayInput interface {
 	pulumi.Input
 
@@ -11822,15 +13827,16 @@ func (o WorkloadVirtualMachineVolumeMountArrayOutput) Index(i pulumi.IntInput) W
 }
 
 type WorkloadVolumeClaim struct {
-	Name      string                       `pulumi:"name"`
-	Resources WorkloadVolumeClaimResources `pulumi:"resources"`
-	Slug      *string                      `pulumi:"slug"`
+	Name         string                       `pulumi:"name"`
+	Resources    WorkloadVolumeClaimResources `pulumi:"resources"`
+	Slug         *string                      `pulumi:"slug"`
+	StorageClass *string                      `pulumi:"storageClass"`
 }
 
 // WorkloadVolumeClaimInput is an input type that accepts WorkloadVolumeClaimArgs and WorkloadVolumeClaimOutput values.
 // You can construct a concrete instance of `WorkloadVolumeClaimInput` via:
 //
-//          WorkloadVolumeClaimArgs{...}
+//	WorkloadVolumeClaimArgs{...}
 type WorkloadVolumeClaimInput interface {
 	pulumi.Input
 
@@ -11839,9 +13845,10 @@ type WorkloadVolumeClaimInput interface {
 }
 
 type WorkloadVolumeClaimArgs struct {
-	Name      pulumi.StringInput                `pulumi:"name"`
-	Resources WorkloadVolumeClaimResourcesInput `pulumi:"resources"`
-	Slug      pulumi.StringPtrInput             `pulumi:"slug"`
+	Name         pulumi.StringInput                `pulumi:"name"`
+	Resources    WorkloadVolumeClaimResourcesInput `pulumi:"resources"`
+	Slug         pulumi.StringPtrInput             `pulumi:"slug"`
+	StorageClass pulumi.StringPtrInput             `pulumi:"storageClass"`
 }
 
 func (WorkloadVolumeClaimArgs) ElementType() reflect.Type {
@@ -11859,7 +13866,7 @@ func (i WorkloadVolumeClaimArgs) ToWorkloadVolumeClaimOutputWithContext(ctx cont
 // WorkloadVolumeClaimArrayInput is an input type that accepts WorkloadVolumeClaimArray and WorkloadVolumeClaimArrayOutput values.
 // You can construct a concrete instance of `WorkloadVolumeClaimArrayInput` via:
 //
-//          WorkloadVolumeClaimArray{ WorkloadVolumeClaimArgs{...} }
+//	WorkloadVolumeClaimArray{ WorkloadVolumeClaimArgs{...} }
 type WorkloadVolumeClaimArrayInput interface {
 	pulumi.Input
 
@@ -11907,6 +13914,10 @@ func (o WorkloadVolumeClaimOutput) Slug() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadVolumeClaim) *string { return v.Slug }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkloadVolumeClaimOutput) StorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadVolumeClaim) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
+}
+
 type WorkloadVolumeClaimArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkloadVolumeClaimArrayOutput) ElementType() reflect.Type {
@@ -11934,7 +13945,7 @@ type WorkloadVolumeClaimResources struct {
 // WorkloadVolumeClaimResourcesInput is an input type that accepts WorkloadVolumeClaimResourcesArgs and WorkloadVolumeClaimResourcesOutput values.
 // You can construct a concrete instance of `WorkloadVolumeClaimResourcesInput` via:
 //
-//          WorkloadVolumeClaimResourcesArgs{...}
+//	WorkloadVolumeClaimResourcesArgs{...}
 type WorkloadVolumeClaimResourcesInput interface {
 	pulumi.Input
 
@@ -12056,6 +14067,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerReadinessProbeTcpSocketInput)(nil)).Elem(), WorkloadContainerReadinessProbeTcpSocketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerReadinessProbeTcpSocketPtrInput)(nil)).Elem(), WorkloadContainerReadinessProbeTcpSocketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerResourcesInput)(nil)).Elem(), WorkloadContainerResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentPtrInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentDnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsPtrInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentDnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsHostAliasInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentDnsHostAliasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentDnsHostAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsResolverConfigInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentDnsResolverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentDnsResolverConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentSecurityContextInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerRuntimeEnvironmentSecurityContextPtrInput)(nil)).Elem(), WorkloadContainerRuntimeEnvironmentSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerSecurityContextInput)(nil)).Elem(), WorkloadContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerSecurityContextPtrInput)(nil)).Elem(), WorkloadContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerSecurityContextCapabilitiesInput)(nil)).Elem(), WorkloadContainerSecurityContextCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerSecurityContextCapabilitiesPtrInput)(nil)).Elem(), WorkloadContainerSecurityContextCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerVolumeMountInput)(nil)).Elem(), WorkloadContainerVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerVolumeMountArrayInput)(nil)).Elem(), WorkloadContainerVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadImagePullCredentialInput)(nil)).Elem(), WorkloadImagePullCredentialArgs{})
@@ -12082,6 +14107,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerReadinessProbeTcpSocketInput)(nil)).Elem(), WorkloadInstanceContainerReadinessProbeTcpSocketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerReadinessProbeTcpSocketPtrInput)(nil)).Elem(), WorkloadInstanceContainerReadinessProbeTcpSocketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerResourcesInput)(nil)).Elem(), WorkloadInstanceContainerResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerSecurityContextInput)(nil)).Elem(), WorkloadInstanceContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerSecurityContextPtrInput)(nil)).Elem(), WorkloadInstanceContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerSecurityContextCapabilitiesInput)(nil)).Elem(), WorkloadInstanceContainerSecurityContextCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerSecurityContextCapabilitiesPtrInput)(nil)).Elem(), WorkloadInstanceContainerSecurityContextCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerVolumeMountInput)(nil)).Elem(), WorkloadInstanceContainerVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerVolumeMountArrayInput)(nil)).Elem(), WorkloadInstanceContainerVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceLocationInput)(nil)).Elem(), WorkloadInstanceLocationArgs{})
@@ -12138,6 +14167,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineReadinessProbeTcpSocketPtrInput)(nil)).Elem(), WorkloadVirtualMachineReadinessProbeTcpSocketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineResourcesInput)(nil)).Elem(), WorkloadVirtualMachineResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineResourcesPtrInput)(nil)).Elem(), WorkloadVirtualMachineResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentInput)(nil)).Elem(), WorkloadVirtualMachineRuntimeEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentPtrInput)(nil)).Elem(), WorkloadVirtualMachineRuntimeEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsInput)(nil)).Elem(), WorkloadVirtualMachineRuntimeEnvironmentDnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsPtrInput)(nil)).Elem(), WorkloadVirtualMachineRuntimeEnvironmentDnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasInput)(nil)).Elem(), WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayInput)(nil)).Elem(), WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigInput)(nil)).Elem(), WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayInput)(nil)).Elem(), WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineVolumeMountInput)(nil)).Elem(), WorkloadVirtualMachineVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVirtualMachineVolumeMountArrayInput)(nil)).Elem(), WorkloadVirtualMachineVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadVolumeClaimInput)(nil)).Elem(), WorkloadVolumeClaimArgs{})
@@ -12222,6 +14259,20 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadContainerReadinessProbeTcpSocketOutput{})
 	pulumi.RegisterOutputType(WorkloadContainerReadinessProbeTcpSocketPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadContainerResourcesOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentDnsOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentDnsPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentDnsHostAliasOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentDnsHostAliasArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentDnsResolverConfigOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentDnsResolverConfigArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentSecurityContextOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerRuntimeEnvironmentSecurityContextPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerSecurityContextOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerSecurityContextPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerSecurityContextCapabilitiesOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerSecurityContextCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadContainerVolumeMountOutput{})
 	pulumi.RegisterOutputType(WorkloadContainerVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadImagePullCredentialOutput{})
@@ -12248,6 +14299,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadInstanceContainerReadinessProbeTcpSocketOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerReadinessProbeTcpSocketPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerResourcesOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceContainerSecurityContextOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceContainerSecurityContextPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceContainerSecurityContextCapabilitiesOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerVolumeMountOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceLocationOutput{})
@@ -12304,6 +14359,14 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadVirtualMachineReadinessProbeTcpSocketPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadVirtualMachineResourcesOutput{})
 	pulumi.RegisterOutputType(WorkloadVirtualMachineResourcesPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadVirtualMachineRuntimeEnvironmentOutput{})
+	pulumi.RegisterOutputType(WorkloadVirtualMachineRuntimeEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadVirtualMachineRuntimeEnvironmentDnsOutput{})
+	pulumi.RegisterOutputType(WorkloadVirtualMachineRuntimeEnvironmentDnsPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasOutput{})
+	pulumi.RegisterOutputType(WorkloadVirtualMachineRuntimeEnvironmentDnsHostAliasArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigOutput{})
+	pulumi.RegisterOutputType(WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfigArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadVirtualMachineVolumeMountOutput{})
 	pulumi.RegisterOutputType(WorkloadVirtualMachineVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadVolumeClaimOutput{})

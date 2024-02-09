@@ -6,14 +6,18 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute
+namespace Stackpath.Stackpath.Compute
 {
     [StackpathResourceType("stackpath:compute/workload:Workload")]
     public partial class Workload : global::Pulumi.CustomResource
     {
         [Output("annotations")]
         public Output<ImmutableDictionary<string, string>> Annotations { get; private set; } = null!;
+
+        [Output("containerRuntimeEnvironment")]
+        public Output<Outputs.WorkloadContainerRuntimeEnvironment?> ContainerRuntimeEnvironment { get; private set; } = null!;
 
         [Output("containers")]
         public Output<ImmutableArray<Outputs.WorkloadContainer>> Containers { get; private set; } = null!;
@@ -39,8 +43,14 @@ namespace Pulumi.Stackpath.Compute
         [Output("targets")]
         public Output<ImmutableArray<Outputs.WorkloadTarget>> Targets { get; private set; } = null!;
 
+        [Output("version")]
+        public Output<string> Version { get; private set; } = null!;
+
         [Output("virtualMachine")]
         public Output<Outputs.WorkloadVirtualMachine?> VirtualMachine { get; private set; } = null!;
+
+        [Output("virtualMachineRuntimeEnvironment")]
+        public Output<Outputs.WorkloadVirtualMachineRuntimeEnvironment?> VirtualMachineRuntimeEnvironment { get; private set; } = null!;
 
         [Output("volumeClaims")]
         public Output<ImmutableArray<Outputs.WorkloadVolumeClaim>> VolumeClaims { get; private set; } = null!;
@@ -68,6 +78,7 @@ namespace Pulumi.Stackpath.Compute
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -98,6 +109,9 @@ namespace Pulumi.Stackpath.Compute
             get => _annotations ?? (_annotations = new InputMap<string>());
             set => _annotations = value;
         }
+
+        [Input("containerRuntimeEnvironment")]
+        public Input<Inputs.WorkloadContainerRuntimeEnvironmentArgs>? ContainerRuntimeEnvironment { get; set; }
 
         [Input("containers")]
         private InputList<Inputs.WorkloadContainerArgs>? _containers;
@@ -131,8 +145,8 @@ namespace Pulumi.Stackpath.Compute
             set => _labels = value;
         }
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("networkInterfaces", required: true)]
         private InputList<Inputs.WorkloadNetworkInterfaceArgs>? _networkInterfaces;
@@ -155,6 +169,9 @@ namespace Pulumi.Stackpath.Compute
 
         [Input("virtualMachine")]
         public Input<Inputs.WorkloadVirtualMachineArgs>? VirtualMachine { get; set; }
+
+        [Input("virtualMachineRuntimeEnvironment")]
+        public Input<Inputs.WorkloadVirtualMachineRuntimeEnvironmentArgs>? VirtualMachineRuntimeEnvironment { get; set; }
 
         [Input("volumeClaims")]
         private InputList<Inputs.WorkloadVolumeClaimArgs>? _volumeClaims;
@@ -179,6 +196,9 @@ namespace Pulumi.Stackpath.Compute
             get => _annotations ?? (_annotations = new InputMap<string>());
             set => _annotations = value;
         }
+
+        [Input("containerRuntimeEnvironment")]
+        public Input<Inputs.WorkloadContainerRuntimeEnvironmentGetArgs>? ContainerRuntimeEnvironment { get; set; }
 
         [Input("containers")]
         private InputList<Inputs.WorkloadContainerGetArgs>? _containers;
@@ -234,8 +254,14 @@ namespace Pulumi.Stackpath.Compute
             set => _targets = value;
         }
 
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         [Input("virtualMachine")]
         public Input<Inputs.WorkloadVirtualMachineGetArgs>? VirtualMachine { get; set; }
+
+        [Input("virtualMachineRuntimeEnvironment")]
+        public Input<Inputs.WorkloadVirtualMachineRuntimeEnvironmentGetArgs>? VirtualMachineRuntimeEnvironment { get; set; }
 
         [Input("volumeClaims")]
         private InputList<Inputs.WorkloadVolumeClaimGetArgs>? _volumeClaims;

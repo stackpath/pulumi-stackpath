@@ -8,7 +8,7 @@ import (
 
 	"github.com/blang/semver"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath"
+	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath/internal"
 )
 
 type module struct {
@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkPolicy{}
 	case "stackpath:compute/networkRoute:NetworkRoute":
 		r = &NetworkRoute{}
+	case "stackpath:compute/networkSubnet:NetworkSubnet":
+		r = &NetworkSubnet{}
 	case "stackpath:compute/workload:Workload":
 		r = &Workload{}
 	default:
@@ -38,7 +40,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := stackpath.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"stackpath",
 		"compute/networkRoute",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"stackpath",
+		"compute/networkSubnet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

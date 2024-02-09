@@ -7,20 +7,23 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath/internal"
 )
 
 type Network struct {
 	pulumi.CustomResourceState
 
-	Annotations              pulumi.StringMapOutput `pulumi:"annotations"`
-	Labels                   pulumi.StringMapOutput `pulumi:"labels"`
-	Name                     pulumi.StringOutput    `pulumi:"name"`
-	RootSubnet               pulumi.StringOutput    `pulumi:"rootSubnet"`
-	Slug                     pulumi.StringOutput    `pulumi:"slug"`
-	Version                  pulumi.StringOutput    `pulumi:"version"`
-	VirtualNetworkIdentifier pulumi.IntOutput       `pulumi:"virtualNetworkIdentifier"`
+	Annotations              pulumi.StringMapOutput   `pulumi:"annotations"`
+	IpFamilies               pulumi.StringArrayOutput `pulumi:"ipFamilies"`
+	Ipv6Subnet               pulumi.StringPtrOutput   `pulumi:"ipv6Subnet"`
+	Labels                   pulumi.StringMapOutput   `pulumi:"labels"`
+	Name                     pulumi.StringOutput      `pulumi:"name"`
+	RootSubnet               pulumi.StringOutput      `pulumi:"rootSubnet"`
+	Slug                     pulumi.StringOutput      `pulumi:"slug"`
+	Version                  pulumi.StringOutput      `pulumi:"version"`
+	VirtualNetworkIdentifier pulumi.IntOutput         `pulumi:"virtualNetworkIdentifier"`
 }
 
 // NewNetwork registers a new resource with the given unique name, arguments, and options.
@@ -30,12 +33,16 @@ func NewNetwork(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.RootSubnet == nil {
 		return nil, errors.New("invalid value for required argument 'RootSubnet'")
 	}
 	if args.Slug == nil {
 		return nil, errors.New("invalid value for required argument 'Slug'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Network
 	err := ctx.RegisterResource("stackpath:compute/network:Network", name, args, &resource, opts...)
 	if err != nil {
@@ -59,6 +66,8 @@ func GetNetwork(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Network resources.
 type networkState struct {
 	Annotations              map[string]string `pulumi:"annotations"`
+	IpFamilies               []string          `pulumi:"ipFamilies"`
+	Ipv6Subnet               *string           `pulumi:"ipv6Subnet"`
 	Labels                   map[string]string `pulumi:"labels"`
 	Name                     *string           `pulumi:"name"`
 	RootSubnet               *string           `pulumi:"rootSubnet"`
@@ -69,6 +78,8 @@ type networkState struct {
 
 type NetworkState struct {
 	Annotations              pulumi.StringMapInput
+	IpFamilies               pulumi.StringArrayInput
+	Ipv6Subnet               pulumi.StringPtrInput
 	Labels                   pulumi.StringMapInput
 	Name                     pulumi.StringPtrInput
 	RootSubnet               pulumi.StringPtrInput
@@ -83,8 +94,10 @@ func (NetworkState) ElementType() reflect.Type {
 
 type networkArgs struct {
 	Annotations map[string]string `pulumi:"annotations"`
+	IpFamilies  []string          `pulumi:"ipFamilies"`
+	Ipv6Subnet  *string           `pulumi:"ipv6Subnet"`
 	Labels      map[string]string `pulumi:"labels"`
-	Name        *string           `pulumi:"name"`
+	Name        string            `pulumi:"name"`
 	RootSubnet  string            `pulumi:"rootSubnet"`
 	Slug        string            `pulumi:"slug"`
 }
@@ -92,8 +105,10 @@ type networkArgs struct {
 // The set of arguments for constructing a Network resource.
 type NetworkArgs struct {
 	Annotations pulumi.StringMapInput
+	IpFamilies  pulumi.StringArrayInput
+	Ipv6Subnet  pulumi.StringPtrInput
 	Labels      pulumi.StringMapInput
-	Name        pulumi.StringPtrInput
+	Name        pulumi.StringInput
 	RootSubnet  pulumi.StringInput
 	Slug        pulumi.StringInput
 }
@@ -124,7 +139,7 @@ func (i *Network) ToNetworkOutputWithContext(ctx context.Context) NetworkOutput 
 // NetworkArrayInput is an input type that accepts NetworkArray and NetworkArrayOutput values.
 // You can construct a concrete instance of `NetworkArrayInput` via:
 //
-//          NetworkArray{ NetworkArgs{...} }
+//	NetworkArray{ NetworkArgs{...} }
 type NetworkArrayInput interface {
 	pulumi.Input
 
@@ -149,7 +164,7 @@ func (i NetworkArray) ToNetworkArrayOutputWithContext(ctx context.Context) Netwo
 // NetworkMapInput is an input type that accepts NetworkMap and NetworkMapOutput values.
 // You can construct a concrete instance of `NetworkMapInput` via:
 //
-//          NetworkMap{ "key": NetworkArgs{...} }
+//	NetworkMap{ "key": NetworkArgs{...} }
 type NetworkMapInput interface {
 	pulumi.Input
 
@@ -187,6 +202,14 @@ func (o NetworkOutput) ToNetworkOutputWithContext(ctx context.Context) NetworkOu
 
 func (o NetworkOutput) Annotations() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringMapOutput { return v.Annotations }).(pulumi.StringMapOutput)
+}
+
+func (o NetworkOutput) IpFamilies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringArrayOutput { return v.IpFamilies }).(pulumi.StringArrayOutput)
+}
+
+func (o NetworkOutput) Ipv6Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.Ipv6Subnet }).(pulumi.StringPtrOutput)
 }
 
 func (o NetworkOutput) Labels() pulumi.StringMapOutput {

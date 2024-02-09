@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute
+namespace Stackpath.Stackpath.Compute
 {
     [StackpathResourceType("stackpath:compute/networkRoute:NetworkRoute")]
     public partial class NetworkRoute : global::Pulumi.CustomResource
@@ -59,6 +60,7 @@ namespace Pulumi.Stackpath.Compute
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                PluginDownloadURL = "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}",
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -114,8 +116,8 @@ namespace Pulumi.Stackpath.Compute
             set => _labels = value;
         }
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("networkId", required: true)]
         public Input<string> NetworkId { get; set; } = null!;

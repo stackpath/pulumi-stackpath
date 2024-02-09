@@ -17,6 +17,7 @@
         "compute/network.ts",
         "compute/networkPolicy.ts",
         "compute/networkRoute.ts",
+        "compute/networkSubnet.ts",
         "compute/workload.ts",
         "config/index.ts",
         "config/vars.ts",

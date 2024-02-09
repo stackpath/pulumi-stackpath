@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export namespace compute {
     export interface NetworkPolicyEgress {
@@ -170,6 +171,7 @@ export namespace compute {
         ports?: outputs.compute.WorkloadContainerPort[];
         readinessProbe?: outputs.compute.WorkloadContainerReadinessProbe;
         resources: outputs.compute.WorkloadContainerResources;
+        securityContext?: outputs.compute.WorkloadContainerSecurityContext;
         volumeMounts?: outputs.compute.WorkloadContainerVolumeMount[];
     }
 
@@ -232,6 +234,51 @@ export namespace compute {
         requests: {[key: string]: string};
     }
 
+    export interface WorkloadContainerRuntimeEnvironment {
+        dns: outputs.compute.WorkloadContainerRuntimeEnvironmentDns;
+        securityContext?: outputs.compute.WorkloadContainerRuntimeEnvironmentSecurityContext;
+        shareProcessNamespace?: boolean;
+        terminationGracePeriodSeconds?: number;
+    }
+
+    export interface WorkloadContainerRuntimeEnvironmentDns {
+        hostAliases?: outputs.compute.WorkloadContainerRuntimeEnvironmentDnsHostAlias[];
+        resolverConfigs?: outputs.compute.WorkloadContainerRuntimeEnvironmentDnsResolverConfig[];
+    }
+
+    export interface WorkloadContainerRuntimeEnvironmentDnsHostAlias {
+        address: string;
+        hostnames: string[];
+    }
+
+    export interface WorkloadContainerRuntimeEnvironmentDnsResolverConfig {
+        nameservers?: string[];
+        options?: {[key: string]: any};
+        searches?: string[];
+    }
+
+    export interface WorkloadContainerRuntimeEnvironmentSecurityContext {
+        runAsGroup?: string;
+        runAsNonRoot?: boolean;
+        runAsUser?: string;
+        supplementalGroups?: string[];
+        sysctl?: {[key: string]: string};
+    }
+
+    export interface WorkloadContainerSecurityContext {
+        allowPrivilegeEscalation?: boolean;
+        capabilities?: outputs.compute.WorkloadContainerSecurityContextCapabilities;
+        readOnlyRootFilesystem?: boolean;
+        runAsGroup?: string;
+        runAsNonRoot?: boolean;
+        runAsUser?: string;
+    }
+
+    export interface WorkloadContainerSecurityContextCapabilities {
+        adds?: string[];
+        drops?: string[];
+    }
+
     export interface WorkloadContainerVolumeMount {
         mountPath: string;
         slug: string;
@@ -251,7 +298,9 @@ export namespace compute {
     export interface WorkloadInstance {
         containers?: outputs.compute.WorkloadInstanceContainer[];
         externalIpAddress?: string;
+        externalIpv6Address?: string;
         ipAddress?: string;
+        ipv6Address?: string;
         location?: outputs.compute.WorkloadInstanceLocation;
         message?: string;
         metadata?: outputs.compute.WorkloadInstanceMetadata;
@@ -271,6 +320,7 @@ export namespace compute {
         ports?: outputs.compute.WorkloadInstanceContainerPort[];
         readinessProbe?: outputs.compute.WorkloadInstanceContainerReadinessProbe;
         resources: outputs.compute.WorkloadInstanceContainerResources;
+        securityContext?: outputs.compute.WorkloadInstanceContainerSecurityContext;
         volumeMounts?: outputs.compute.WorkloadInstanceContainerVolumeMount[];
     }
 
@@ -333,6 +383,20 @@ export namespace compute {
         requests: {[key: string]: string};
     }
 
+    export interface WorkloadInstanceContainerSecurityContext {
+        allowPrivilegeEscalation?: boolean;
+        capabilities?: outputs.compute.WorkloadInstanceContainerSecurityContextCapabilities;
+        readOnlyRootFilesystem?: boolean;
+        runAsGroup?: string;
+        runAsNonRoot?: boolean;
+        runAsUser?: string;
+    }
+
+    export interface WorkloadInstanceContainerSecurityContextCapabilities {
+        adds?: string[];
+        drops?: string[];
+    }
+
     export interface WorkloadInstanceContainerVolumeMount {
         mountPath: string;
         slug: string;
@@ -363,6 +427,9 @@ export namespace compute {
         gateway: string;
         ipAddress: string;
         ipAddressAliases?: string[];
+        ipv6Address: string;
+        ipv6AddressAliases?: string[];
+        ipv6Gateway: string;
         network: string;
     }
 
@@ -437,7 +504,10 @@ export namespace compute {
 
     export interface WorkloadNetworkInterface {
         enableOneToOneNat?: boolean;
+        ipFamilies: string[];
+        ipv6Subnet?: string;
         network: string;
+        subnet?: string;
     }
 
     export interface WorkloadTarget {
@@ -529,6 +599,26 @@ export namespace compute {
         requests: {[key: string]: string};
     }
 
+    export interface WorkloadVirtualMachineRuntimeEnvironment {
+        dns: outputs.compute.WorkloadVirtualMachineRuntimeEnvironmentDns;
+    }
+
+    export interface WorkloadVirtualMachineRuntimeEnvironmentDns {
+        hostAliases?: outputs.compute.WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias[];
+        resolverConfigs?: outputs.compute.WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig[];
+    }
+
+    export interface WorkloadVirtualMachineRuntimeEnvironmentDnsHostAlias {
+        address: string;
+        hostnames: string[];
+    }
+
+    export interface WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig {
+        nameservers?: string[];
+        options?: {[key: string]: any};
+        searches?: string[];
+    }
+
     export interface WorkloadVirtualMachineVolumeMount {
         mountPath: string;
         slug: string;
@@ -538,6 +628,7 @@ export namespace compute {
         name: string;
         resources: outputs.compute.WorkloadVolumeClaimResources;
         slug?: string;
+        storageClass?: string;
     }
 
     export interface WorkloadVolumeClaimResources {

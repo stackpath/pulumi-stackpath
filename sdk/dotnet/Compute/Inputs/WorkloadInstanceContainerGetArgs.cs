@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Inputs
+namespace Stackpath.Stackpath.Compute.Inputs
 {
 
     public sealed class WorkloadInstanceContainerGetArgs : global::Pulumi.ResourceArgs
@@ -50,6 +51,9 @@ namespace Pulumi.Stackpath.Compute.Inputs
 
         [Input("resources", required: true)]
         public Input<Inputs.WorkloadInstanceContainerResourcesGetArgs> Resources { get; set; } = null!;
+
+        [Input("securityContext")]
+        public Input<Inputs.WorkloadInstanceContainerSecurityContextGetArgs>? SecurityContext { get; set; }
 
         [Input("volumeMounts")]
         private InputList<Inputs.WorkloadInstanceContainerVolumeMountGetArgs>? _volumeMounts;

@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Outputs
+namespace Stackpath.Stackpath.Compute.Outputs
 {
 
     [OutputType]
@@ -21,6 +22,7 @@ namespace Pulumi.Stackpath.Compute.Outputs
         public readonly ImmutableArray<Outputs.WorkloadContainerPort> Ports;
         public readonly Outputs.WorkloadContainerReadinessProbe? ReadinessProbe;
         public readonly Outputs.WorkloadContainerResources Resources;
+        public readonly Outputs.WorkloadContainerSecurityContext? SecurityContext;
         public readonly ImmutableArray<Outputs.WorkloadContainerVolumeMount> VolumeMounts;
 
         [OutputConstructor]
@@ -41,6 +43,8 @@ namespace Pulumi.Stackpath.Compute.Outputs
 
             Outputs.WorkloadContainerResources resources,
 
+            Outputs.WorkloadContainerSecurityContext? securityContext,
+
             ImmutableArray<Outputs.WorkloadContainerVolumeMount> volumeMounts)
         {
             Commands = commands;
@@ -51,6 +55,7 @@ namespace Pulumi.Stackpath.Compute.Outputs
             Ports = ports;
             ReadinessProbe = readinessProbe;
             Resources = resources;
+            SecurityContext = securityContext;
             VolumeMounts = volumeMounts;
         }
     }

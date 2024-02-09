@@ -140,11 +140,13 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["access_token"] = access_token
+            __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             __props__.__dict__["base_url"] = base_url
-            __props__.__dict__["client_id"] = client_id
-            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["client_id"] = None if client_id is None else pulumi.Output.secret(client_id)
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["stack_id"] = stack_id
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "clientId", "clientSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'stackpath',
             resource_name,

@@ -7,8 +7,9 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath/internal"
 )
 
 type Bucket struct {
@@ -33,6 +34,7 @@ func NewBucket(ctx *pulumi.Context,
 	if args.Region == nil {
 		return nil, errors.New("invalid value for required argument 'Region'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bucket
 	err := ctx.RegisterResource("stackpath:storage/bucket:Bucket", name, args, &resource, opts...)
 	if err != nil {
@@ -111,7 +113,7 @@ func (i *Bucket) ToBucketOutputWithContext(ctx context.Context) BucketOutput {
 // BucketArrayInput is an input type that accepts BucketArray and BucketArrayOutput values.
 // You can construct a concrete instance of `BucketArrayInput` via:
 //
-//          BucketArray{ BucketArgs{...} }
+//	BucketArray{ BucketArgs{...} }
 type BucketArrayInput interface {
 	pulumi.Input
 
@@ -136,7 +138,7 @@ func (i BucketArray) ToBucketArrayOutputWithContext(ctx context.Context) BucketA
 // BucketMapInput is an input type that accepts BucketMap and BucketMapOutput values.
 // You can construct a concrete instance of `BucketMapInput` via:
 //
-//          BucketMap{ "key": BucketArgs{...} }
+//	BucketMap{ "key": BucketArgs{...} }
 type BucketMapInput interface {
 	pulumi.Input
 

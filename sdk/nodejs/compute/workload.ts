@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 export class Workload extends pulumi.CustomResource {
@@ -34,6 +35,7 @@ export class Workload extends pulumi.CustomResource {
     }
 
     public readonly annotations!: pulumi.Output<{[key: string]: string}>;
+    public readonly containerRuntimeEnvironment!: pulumi.Output<outputs.compute.WorkloadContainerRuntimeEnvironment | undefined>;
     public readonly containers!: pulumi.Output<outputs.compute.WorkloadContainer[] | undefined>;
     public readonly imagePullCredentials!: pulumi.Output<outputs.compute.WorkloadImagePullCredential[] | undefined>;
     public readonly instances!: pulumi.Output<outputs.compute.WorkloadInstance[]>;
@@ -42,7 +44,9 @@ export class Workload extends pulumi.CustomResource {
     public readonly networkInterfaces!: pulumi.Output<outputs.compute.WorkloadNetworkInterface[]>;
     public readonly slug!: pulumi.Output<string>;
     public readonly targets!: pulumi.Output<outputs.compute.WorkloadTarget[]>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
     public readonly virtualMachine!: pulumi.Output<outputs.compute.WorkloadVirtualMachine | undefined>;
+    public readonly virtualMachineRuntimeEnvironment!: pulumi.Output<outputs.compute.WorkloadVirtualMachineRuntimeEnvironment | undefined>;
     public readonly volumeClaims!: pulumi.Output<outputs.compute.WorkloadVolumeClaim[] | undefined>;
 
     /**
@@ -59,6 +63,7 @@ export class Workload extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WorkloadState | undefined;
             resourceInputs["annotations"] = state ? state.annotations : undefined;
+            resourceInputs["containerRuntimeEnvironment"] = state ? state.containerRuntimeEnvironment : undefined;
             resourceInputs["containers"] = state ? state.containers : undefined;
             resourceInputs["imagePullCredentials"] = state ? state.imagePullCredentials : undefined;
             resourceInputs["instances"] = state ? state.instances : undefined;
@@ -67,10 +72,15 @@ export class Workload extends pulumi.CustomResource {
             resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
             resourceInputs["slug"] = state ? state.slug : undefined;
             resourceInputs["targets"] = state ? state.targets : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["virtualMachine"] = state ? state.virtualMachine : undefined;
+            resourceInputs["virtualMachineRuntimeEnvironment"] = state ? state.virtualMachineRuntimeEnvironment : undefined;
             resourceInputs["volumeClaims"] = state ? state.volumeClaims : undefined;
         } else {
             const args = argsOrState as WorkloadArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.networkInterfaces === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaces'");
             }
@@ -81,6 +91,7 @@ export class Workload extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targets'");
             }
             resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["containerRuntimeEnvironment"] = args ? args.containerRuntimeEnvironment : undefined;
             resourceInputs["containers"] = args ? args.containers : undefined;
             resourceInputs["imagePullCredentials"] = args ? args.imagePullCredentials : undefined;
             resourceInputs["instances"] = args ? args.instances : undefined;
@@ -90,7 +101,9 @@ export class Workload extends pulumi.CustomResource {
             resourceInputs["slug"] = args ? args.slug : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["virtualMachine"] = args ? args.virtualMachine : undefined;
+            resourceInputs["virtualMachineRuntimeEnvironment"] = args ? args.virtualMachineRuntimeEnvironment : undefined;
             resourceInputs["volumeClaims"] = args ? args.volumeClaims : undefined;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workload.__pulumiType, name, resourceInputs, opts);
@@ -102,6 +115,7 @@ export class Workload extends pulumi.CustomResource {
  */
 export interface WorkloadState {
     annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    containerRuntimeEnvironment?: pulumi.Input<inputs.compute.WorkloadContainerRuntimeEnvironment>;
     containers?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadContainer>[]>;
     imagePullCredentials?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadImagePullCredential>[]>;
     instances?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstance>[]>;
@@ -110,7 +124,9 @@ export interface WorkloadState {
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadNetworkInterface>[]>;
     slug?: pulumi.Input<string>;
     targets?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadTarget>[]>;
+    version?: pulumi.Input<string>;
     virtualMachine?: pulumi.Input<inputs.compute.WorkloadVirtualMachine>;
+    virtualMachineRuntimeEnvironment?: pulumi.Input<inputs.compute.WorkloadVirtualMachineRuntimeEnvironment>;
     volumeClaims?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadVolumeClaim>[]>;
 }
 
@@ -119,14 +135,16 @@ export interface WorkloadState {
  */
 export interface WorkloadArgs {
     annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    containerRuntimeEnvironment?: pulumi.Input<inputs.compute.WorkloadContainerRuntimeEnvironment>;
     containers?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadContainer>[]>;
     imagePullCredentials?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadImagePullCredential>[]>;
     instances?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstance>[]>;
     labels?: pulumi.Input<{[key: string]: any}>;
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     networkInterfaces: pulumi.Input<pulumi.Input<inputs.compute.WorkloadNetworkInterface>[]>;
     slug: pulumi.Input<string>;
     targets: pulumi.Input<pulumi.Input<inputs.compute.WorkloadTarget>[]>;
     virtualMachine?: pulumi.Input<inputs.compute.WorkloadVirtualMachine>;
+    virtualMachineRuntimeEnvironment?: pulumi.Input<inputs.compute.WorkloadVirtualMachineRuntimeEnvironment>;
     volumeClaims?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadVolumeClaim>[]>;
 }

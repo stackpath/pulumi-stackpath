@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Inputs
+namespace Stackpath.Stackpath.Compute.Inputs
 {
 
     public sealed class WorkloadInstanceNetworkInterfaceArgs : global::Pulumi.ResourceArgs
@@ -25,6 +26,20 @@ namespace Pulumi.Stackpath.Compute.Inputs
             get => _ipAddressAliases ?? (_ipAddressAliases = new InputList<string>());
             set => _ipAddressAliases = value;
         }
+
+        [Input("ipv6Address", required: true)]
+        public Input<string> Ipv6Address { get; set; } = null!;
+
+        [Input("ipv6AddressAliases")]
+        private InputList<string>? _ipv6AddressAliases;
+        public InputList<string> Ipv6AddressAliases
+        {
+            get => _ipv6AddressAliases ?? (_ipv6AddressAliases = new InputList<string>());
+            set => _ipv6AddressAliases = value;
+        }
+
+        [Input("ipv6Gateway", required: true)]
+        public Input<string> Ipv6Gateway { get; set; } = null!;
 
         [Input("network", required: true)]
         public Input<string> Network { get; set; } = null!;

@@ -6,7 +6,10 @@ package config
 import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath/internal"
 )
+
+var _ = internal.GetEnvOrDefault
 
 func GetAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "stackpath:accessToken")

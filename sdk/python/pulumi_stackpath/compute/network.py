@@ -14,22 +14,36 @@ __all__ = ['NetworkArgs', 'Network']
 @pulumi.input_type
 class NetworkArgs:
     def __init__(__self__, *,
+                 name: pulumi.Input[str],
                  root_subnet: pulumi.Input[str],
                  slug: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 ip_families: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_subnet: Optional[pulumi.Input[str]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Network resource.
         """
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "root_subnet", root_subnet)
         pulumi.set(__self__, "slug", slug)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if ip_families is not None:
+            pulumi.set(__self__, "ip_families", ip_families)
+        if ipv6_subnet is not None:
+            pulumi.set(__self__, "ipv6_subnet", ipv6_subnet)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="rootSubnet")
@@ -59,6 +73,24 @@ class NetworkArgs:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="ipFamilies")
+    def ip_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "ip_families")
+
+    @ip_families.setter
+    def ip_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_families", value)
+
+    @property
+    @pulumi.getter(name="ipv6Subnet")
+    def ipv6_subnet(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_subnet")
+
+    @ipv6_subnet.setter
+    def ipv6_subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_subnet", value)
+
+    @property
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "labels")
@@ -67,20 +99,13 @@ class NetworkArgs:
     def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
 
 @pulumi.input_type
 class _NetworkState:
     def __init__(__self__, *,
                  annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ip_families: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_subnet: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_subnet: Optional[pulumi.Input[str]] = None,
@@ -92,6 +117,10 @@ class _NetworkState:
         """
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if ip_families is not None:
+            pulumi.set(__self__, "ip_families", ip_families)
+        if ipv6_subnet is not None:
+            pulumi.set(__self__, "ipv6_subnet", ipv6_subnet)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if name is not None:
@@ -113,6 +142,24 @@ class _NetworkState:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="ipFamilies")
+    def ip_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "ip_families")
+
+    @ip_families.setter
+    def ip_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_families", value)
+
+    @property
+    @pulumi.getter(name="ipv6Subnet")
+    def ipv6_subnet(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_subnet")
+
+    @ipv6_subnet.setter
+    def ipv6_subnet(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_subnet", value)
 
     @property
     @pulumi.getter
@@ -175,6 +222,8 @@ class Network(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ip_families: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_subnet: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_subnet: Optional[pulumi.Input[str]] = None,
@@ -209,6 +258,8 @@ class Network(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ip_families: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_subnet: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_subnet: Optional[pulumi.Input[str]] = None,
@@ -223,7 +274,11 @@ class Network(pulumi.CustomResource):
             __props__ = NetworkArgs.__new__(NetworkArgs)
 
             __props__.__dict__["annotations"] = annotations
+            __props__.__dict__["ip_families"] = ip_families
+            __props__.__dict__["ipv6_subnet"] = ipv6_subnet
             __props__.__dict__["labels"] = labels
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if root_subnet is None and not opts.urn:
                 raise TypeError("Missing required property 'root_subnet'")
@@ -244,6 +299,8 @@ class Network(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            ip_families: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            ipv6_subnet: Optional[pulumi.Input[str]] = None,
             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             root_subnet: Optional[pulumi.Input[str]] = None,
@@ -263,6 +320,8 @@ class Network(pulumi.CustomResource):
         __props__ = _NetworkState.__new__(_NetworkState)
 
         __props__.__dict__["annotations"] = annotations
+        __props__.__dict__["ip_families"] = ip_families
+        __props__.__dict__["ipv6_subnet"] = ipv6_subnet
         __props__.__dict__["labels"] = labels
         __props__.__dict__["name"] = name
         __props__.__dict__["root_subnet"] = root_subnet
@@ -275,6 +334,16 @@ class Network(pulumi.CustomResource):
     @pulumi.getter
     def annotations(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="ipFamilies")
+    def ip_families(self) -> pulumi.Output[Sequence[str]]:
+        return pulumi.get(self, "ip_families")
+
+    @property
+    @pulumi.getter(name="ipv6Subnet")
+    def ipv6_subnet(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ipv6_subnet")
 
     @property
     @pulumi.getter

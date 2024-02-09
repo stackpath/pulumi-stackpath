@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Inputs
+namespace Stackpath.Stackpath.Compute.Inputs
 {
 
     public sealed class WorkloadNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
@@ -15,8 +16,22 @@ namespace Pulumi.Stackpath.Compute.Inputs
         [Input("enableOneToOneNat")]
         public Input<bool>? EnableOneToOneNat { get; set; }
 
+        [Input("ipFamilies")]
+        private InputList<string>? _ipFamilies;
+        public InputList<string> IpFamilies
+        {
+            get => _ipFamilies ?? (_ipFamilies = new InputList<string>());
+            set => _ipFamilies = value;
+        }
+
+        [Input("ipv6Subnet")]
+        public Input<string>? Ipv6Subnet { get; set; }
+
         [Input("network", required: true)]
         public Input<string> Network { get; set; } = null!;
+
+        [Input("subnet")]
+        public Input<string>? Subnet { get; set; }
 
         public WorkloadNetworkInterfaceGetArgs()
         {

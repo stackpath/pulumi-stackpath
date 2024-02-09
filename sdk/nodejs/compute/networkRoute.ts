@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 export class NetworkRoute extends pulumi.CustomResource {
@@ -68,6 +69,9 @@ export class NetworkRoute extends pulumi.CustomResource {
             if ((!args || args.destinationPrefixes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationPrefixes'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.networkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkId'");
             }
@@ -107,7 +111,7 @@ export interface NetworkRouteArgs {
     destinationPrefixes: pulumi.Input<pulumi.Input<string>[]>;
     gatewaySelectors?: pulumi.Input<pulumi.Input<inputs.compute.NetworkRouteGatewaySelector>[]>;
     labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     networkId: pulumi.Input<string>;
     slug?: pulumi.Input<string>;
 }

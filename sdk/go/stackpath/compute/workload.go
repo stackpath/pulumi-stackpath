@@ -7,24 +7,28 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/stackpath/pulumi-stackpath/sdk/go/stackpath/internal"
 )
 
 type Workload struct {
 	pulumi.CustomResourceState
 
-	Annotations          pulumi.StringMapOutput                 `pulumi:"annotations"`
-	Containers           WorkloadContainerArrayOutput           `pulumi:"containers"`
-	ImagePullCredentials WorkloadImagePullCredentialArrayOutput `pulumi:"imagePullCredentials"`
-	Instances            WorkloadInstanceArrayOutput            `pulumi:"instances"`
-	Labels               pulumi.MapOutput                       `pulumi:"labels"`
-	Name                 pulumi.StringOutput                    `pulumi:"name"`
-	NetworkInterfaces    WorkloadNetworkInterfaceArrayOutput    `pulumi:"networkInterfaces"`
-	Slug                 pulumi.StringOutput                    `pulumi:"slug"`
-	Targets              WorkloadTargetArrayOutput              `pulumi:"targets"`
-	VirtualMachine       WorkloadVirtualMachinePtrOutput        `pulumi:"virtualMachine"`
-	VolumeClaims         WorkloadVolumeClaimArrayOutput         `pulumi:"volumeClaims"`
+	Annotations                      pulumi.StringMapOutput                            `pulumi:"annotations"`
+	ContainerRuntimeEnvironment      WorkloadContainerRuntimeEnvironmentPtrOutput      `pulumi:"containerRuntimeEnvironment"`
+	Containers                       WorkloadContainerArrayOutput                      `pulumi:"containers"`
+	ImagePullCredentials             WorkloadImagePullCredentialArrayOutput            `pulumi:"imagePullCredentials"`
+	Instances                        WorkloadInstanceArrayOutput                       `pulumi:"instances"`
+	Labels                           pulumi.MapOutput                                  `pulumi:"labels"`
+	Name                             pulumi.StringOutput                               `pulumi:"name"`
+	NetworkInterfaces                WorkloadNetworkInterfaceArrayOutput               `pulumi:"networkInterfaces"`
+	Slug                             pulumi.StringOutput                               `pulumi:"slug"`
+	Targets                          WorkloadTargetArrayOutput                         `pulumi:"targets"`
+	Version                          pulumi.StringOutput                               `pulumi:"version"`
+	VirtualMachine                   WorkloadVirtualMachinePtrOutput                   `pulumi:"virtualMachine"`
+	VirtualMachineRuntimeEnvironment WorkloadVirtualMachineRuntimeEnvironmentPtrOutput `pulumi:"virtualMachineRuntimeEnvironment"`
+	VolumeClaims                     WorkloadVolumeClaimArrayOutput                    `pulumi:"volumeClaims"`
 }
 
 // NewWorkload registers a new resource with the given unique name, arguments, and options.
@@ -34,6 +38,9 @@ func NewWorkload(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	if args.NetworkInterfaces == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInterfaces'")
 	}
@@ -43,6 +50,7 @@ func NewWorkload(ctx *pulumi.Context,
 	if args.Targets == nil {
 		return nil, errors.New("invalid value for required argument 'Targets'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workload
 	err := ctx.RegisterResource("stackpath:compute/workload:Workload", name, args, &resource, opts...)
 	if err != nil {
@@ -65,31 +73,37 @@ func GetWorkload(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workload resources.
 type workloadState struct {
-	Annotations          map[string]string             `pulumi:"annotations"`
-	Containers           []WorkloadContainer           `pulumi:"containers"`
-	ImagePullCredentials []WorkloadImagePullCredential `pulumi:"imagePullCredentials"`
-	Instances            []WorkloadInstance            `pulumi:"instances"`
-	Labels               map[string]interface{}        `pulumi:"labels"`
-	Name                 *string                       `pulumi:"name"`
-	NetworkInterfaces    []WorkloadNetworkInterface    `pulumi:"networkInterfaces"`
-	Slug                 *string                       `pulumi:"slug"`
-	Targets              []WorkloadTarget              `pulumi:"targets"`
-	VirtualMachine       *WorkloadVirtualMachine       `pulumi:"virtualMachine"`
-	VolumeClaims         []WorkloadVolumeClaim         `pulumi:"volumeClaims"`
+	Annotations                      map[string]string                         `pulumi:"annotations"`
+	ContainerRuntimeEnvironment      *WorkloadContainerRuntimeEnvironment      `pulumi:"containerRuntimeEnvironment"`
+	Containers                       []WorkloadContainer                       `pulumi:"containers"`
+	ImagePullCredentials             []WorkloadImagePullCredential             `pulumi:"imagePullCredentials"`
+	Instances                        []WorkloadInstance                        `pulumi:"instances"`
+	Labels                           map[string]interface{}                    `pulumi:"labels"`
+	Name                             *string                                   `pulumi:"name"`
+	NetworkInterfaces                []WorkloadNetworkInterface                `pulumi:"networkInterfaces"`
+	Slug                             *string                                   `pulumi:"slug"`
+	Targets                          []WorkloadTarget                          `pulumi:"targets"`
+	Version                          *string                                   `pulumi:"version"`
+	VirtualMachine                   *WorkloadVirtualMachine                   `pulumi:"virtualMachine"`
+	VirtualMachineRuntimeEnvironment *WorkloadVirtualMachineRuntimeEnvironment `pulumi:"virtualMachineRuntimeEnvironment"`
+	VolumeClaims                     []WorkloadVolumeClaim                     `pulumi:"volumeClaims"`
 }
 
 type WorkloadState struct {
-	Annotations          pulumi.StringMapInput
-	Containers           WorkloadContainerArrayInput
-	ImagePullCredentials WorkloadImagePullCredentialArrayInput
-	Instances            WorkloadInstanceArrayInput
-	Labels               pulumi.MapInput
-	Name                 pulumi.StringPtrInput
-	NetworkInterfaces    WorkloadNetworkInterfaceArrayInput
-	Slug                 pulumi.StringPtrInput
-	Targets              WorkloadTargetArrayInput
-	VirtualMachine       WorkloadVirtualMachinePtrInput
-	VolumeClaims         WorkloadVolumeClaimArrayInput
+	Annotations                      pulumi.StringMapInput
+	ContainerRuntimeEnvironment      WorkloadContainerRuntimeEnvironmentPtrInput
+	Containers                       WorkloadContainerArrayInput
+	ImagePullCredentials             WorkloadImagePullCredentialArrayInput
+	Instances                        WorkloadInstanceArrayInput
+	Labels                           pulumi.MapInput
+	Name                             pulumi.StringPtrInput
+	NetworkInterfaces                WorkloadNetworkInterfaceArrayInput
+	Slug                             pulumi.StringPtrInput
+	Targets                          WorkloadTargetArrayInput
+	Version                          pulumi.StringPtrInput
+	VirtualMachine                   WorkloadVirtualMachinePtrInput
+	VirtualMachineRuntimeEnvironment WorkloadVirtualMachineRuntimeEnvironmentPtrInput
+	VolumeClaims                     WorkloadVolumeClaimArrayInput
 }
 
 func (WorkloadState) ElementType() reflect.Type {
@@ -97,32 +111,36 @@ func (WorkloadState) ElementType() reflect.Type {
 }
 
 type workloadArgs struct {
-	Annotations          map[string]string             `pulumi:"annotations"`
-	Containers           []WorkloadContainer           `pulumi:"containers"`
-	ImagePullCredentials []WorkloadImagePullCredential `pulumi:"imagePullCredentials"`
-	Instances            []WorkloadInstance            `pulumi:"instances"`
-	Labels               map[string]interface{}        `pulumi:"labels"`
-	Name                 *string                       `pulumi:"name"`
-	NetworkInterfaces    []WorkloadNetworkInterface    `pulumi:"networkInterfaces"`
-	Slug                 string                        `pulumi:"slug"`
-	Targets              []WorkloadTarget              `pulumi:"targets"`
-	VirtualMachine       *WorkloadVirtualMachine       `pulumi:"virtualMachine"`
-	VolumeClaims         []WorkloadVolumeClaim         `pulumi:"volumeClaims"`
+	Annotations                      map[string]string                         `pulumi:"annotations"`
+	ContainerRuntimeEnvironment      *WorkloadContainerRuntimeEnvironment      `pulumi:"containerRuntimeEnvironment"`
+	Containers                       []WorkloadContainer                       `pulumi:"containers"`
+	ImagePullCredentials             []WorkloadImagePullCredential             `pulumi:"imagePullCredentials"`
+	Instances                        []WorkloadInstance                        `pulumi:"instances"`
+	Labels                           map[string]interface{}                    `pulumi:"labels"`
+	Name                             string                                    `pulumi:"name"`
+	NetworkInterfaces                []WorkloadNetworkInterface                `pulumi:"networkInterfaces"`
+	Slug                             string                                    `pulumi:"slug"`
+	Targets                          []WorkloadTarget                          `pulumi:"targets"`
+	VirtualMachine                   *WorkloadVirtualMachine                   `pulumi:"virtualMachine"`
+	VirtualMachineRuntimeEnvironment *WorkloadVirtualMachineRuntimeEnvironment `pulumi:"virtualMachineRuntimeEnvironment"`
+	VolumeClaims                     []WorkloadVolumeClaim                     `pulumi:"volumeClaims"`
 }
 
 // The set of arguments for constructing a Workload resource.
 type WorkloadArgs struct {
-	Annotations          pulumi.StringMapInput
-	Containers           WorkloadContainerArrayInput
-	ImagePullCredentials WorkloadImagePullCredentialArrayInput
-	Instances            WorkloadInstanceArrayInput
-	Labels               pulumi.MapInput
-	Name                 pulumi.StringPtrInput
-	NetworkInterfaces    WorkloadNetworkInterfaceArrayInput
-	Slug                 pulumi.StringInput
-	Targets              WorkloadTargetArrayInput
-	VirtualMachine       WorkloadVirtualMachinePtrInput
-	VolumeClaims         WorkloadVolumeClaimArrayInput
+	Annotations                      pulumi.StringMapInput
+	ContainerRuntimeEnvironment      WorkloadContainerRuntimeEnvironmentPtrInput
+	Containers                       WorkloadContainerArrayInput
+	ImagePullCredentials             WorkloadImagePullCredentialArrayInput
+	Instances                        WorkloadInstanceArrayInput
+	Labels                           pulumi.MapInput
+	Name                             pulumi.StringInput
+	NetworkInterfaces                WorkloadNetworkInterfaceArrayInput
+	Slug                             pulumi.StringInput
+	Targets                          WorkloadTargetArrayInput
+	VirtualMachine                   WorkloadVirtualMachinePtrInput
+	VirtualMachineRuntimeEnvironment WorkloadVirtualMachineRuntimeEnvironmentPtrInput
+	VolumeClaims                     WorkloadVolumeClaimArrayInput
 }
 
 func (WorkloadArgs) ElementType() reflect.Type {
@@ -151,7 +169,7 @@ func (i *Workload) ToWorkloadOutputWithContext(ctx context.Context) WorkloadOutp
 // WorkloadArrayInput is an input type that accepts WorkloadArray and WorkloadArrayOutput values.
 // You can construct a concrete instance of `WorkloadArrayInput` via:
 //
-//          WorkloadArray{ WorkloadArgs{...} }
+//	WorkloadArray{ WorkloadArgs{...} }
 type WorkloadArrayInput interface {
 	pulumi.Input
 
@@ -176,7 +194,7 @@ func (i WorkloadArray) ToWorkloadArrayOutputWithContext(ctx context.Context) Wor
 // WorkloadMapInput is an input type that accepts WorkloadMap and WorkloadMapOutput values.
 // You can construct a concrete instance of `WorkloadMapInput` via:
 //
-//          WorkloadMap{ "key": WorkloadArgs{...} }
+//	WorkloadMap{ "key": WorkloadArgs{...} }
 type WorkloadMapInput interface {
 	pulumi.Input
 
@@ -216,6 +234,10 @@ func (o WorkloadOutput) Annotations() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workload) pulumi.StringMapOutput { return v.Annotations }).(pulumi.StringMapOutput)
 }
 
+func (o WorkloadOutput) ContainerRuntimeEnvironment() WorkloadContainerRuntimeEnvironmentPtrOutput {
+	return o.ApplyT(func(v *Workload) WorkloadContainerRuntimeEnvironmentPtrOutput { return v.ContainerRuntimeEnvironment }).(WorkloadContainerRuntimeEnvironmentPtrOutput)
+}
+
 func (o WorkloadOutput) Containers() WorkloadContainerArrayOutput {
 	return o.ApplyT(func(v *Workload) WorkloadContainerArrayOutput { return v.Containers }).(WorkloadContainerArrayOutput)
 }
@@ -248,8 +270,18 @@ func (o WorkloadOutput) Targets() WorkloadTargetArrayOutput {
 	return o.ApplyT(func(v *Workload) WorkloadTargetArrayOutput { return v.Targets }).(WorkloadTargetArrayOutput)
 }
 
+func (o WorkloadOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workload) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func (o WorkloadOutput) VirtualMachine() WorkloadVirtualMachinePtrOutput {
 	return o.ApplyT(func(v *Workload) WorkloadVirtualMachinePtrOutput { return v.VirtualMachine }).(WorkloadVirtualMachinePtrOutput)
+}
+
+func (o WorkloadOutput) VirtualMachineRuntimeEnvironment() WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+	return o.ApplyT(func(v *Workload) WorkloadVirtualMachineRuntimeEnvironmentPtrOutput {
+		return v.VirtualMachineRuntimeEnvironment
+	}).(WorkloadVirtualMachineRuntimeEnvironmentPtrOutput)
 }
 
 func (o WorkloadOutput) VolumeClaims() WorkloadVolumeClaimArrayOutput {

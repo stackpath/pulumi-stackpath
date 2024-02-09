@@ -1,0 +1,1092 @@
+{
+    "auto-aliasing": {
+        "resources": {
+            "stackpath_compute_network_policy": {
+                "current": "stackpath:compute/networkPolicy:NetworkPolicy",
+                "past": [
+                    {
+                        "name": "stackpath:index/computeNetworkPolicy:ComputeNetworkPolicy",
+                        "inCodegen": true,
+                        "majorVersion": 0
+                    }
+                ],
+                "fields": {
+                    "egress": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "protocol": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "ah": {
+                                                "maxItemsOne": true
+                                            },
+                                            "esp": {
+                                                "maxItemsOne": true
+                                            },
+                                            "gre": {
+                                                "maxItemsOne": true
+                                            },
+                                            "icmp": {
+                                                "maxItemsOne": true
+                                            },
+                                            "tcp": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "destination_ports": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "source_ports": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "tcp_udp": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "destination_ports": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "source_ports": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "udp": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "destination_ports": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "source_ports": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "to": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "instance_selector": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "ip_block": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "except": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "network_selector": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "ingress": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "from": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "instance_selector": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "ip_block": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "except": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "network_selector": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "protocol": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "ah": {
+                                                "maxItemsOne": true
+                                            },
+                                            "esp": {
+                                                "maxItemsOne": true
+                                            },
+                                            "gre": {
+                                                "maxItemsOne": true
+                                            },
+                                            "icmp": {
+                                                "maxItemsOne": true
+                                            },
+                                            "tcp": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "destination_ports": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "source_ports": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "tcp_udp": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "destination_ports": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "source_ports": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "udp": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "destination_ports": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "source_ports": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "instance_selector": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "network_selector": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "policy_types": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "stackpath_compute_vpc_network": {
+                "current": "stackpath:compute/network:Network",
+                "past": [
+                    {
+                        "name": "stackpath:index/computeVpcNetwork:ComputeVpcNetwork",
+                        "inCodegen": true,
+                        "majorVersion": 0
+                    }
+                ],
+                "fields": {
+                    "ip_families": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "stackpath_compute_vpc_network_subnet": {
+                "current": "stackpath:index/computeVpcNetworkSubnet:ComputeVpcNetworkSubnet"
+            },
+            "stackpath_compute_vpc_route": {
+                "current": "stackpath:compute/networkRoute:NetworkRoute",
+                "past": [
+                    {
+                        "name": "stackpath:index/computeVpcRoute:ComputeVpcRoute",
+                        "inCodegen": true,
+                        "majorVersion": 0
+                    }
+                ],
+                "fields": {
+                    "destination_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "gateway_selectors": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "interface_selectors": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "values": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "stackpath_compute_workload": {
+                "current": "stackpath:compute/workload:Workload",
+                "past": [
+                    {
+                        "name": "stackpath:index/computeWorkload:ComputeWorkload",
+                        "inCodegen": true,
+                        "majorVersion": 0
+                    }
+                ],
+                "fields": {
+                    "container": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "command": {
+                                    "maxItemsOne": false
+                                },
+                                "env": {
+                                    "maxItemsOne": false
+                                },
+                                "liveness_probe": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "http_get": {
+                                                "maxItemsOne": true
+                                            },
+                                            "tcp_socket": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "port": {
+                                    "maxItemsOne": false
+                                },
+                                "readiness_probe": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "http_get": {
+                                                "maxItemsOne": true
+                                            },
+                                            "tcp_socket": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "resources": {
+                                    "maxItemsOne": true
+                                },
+                                "security_context": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "capabilities": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "add": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "drop": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "volume_mount": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "container_runtime_environment": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "dns": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "host_aliases": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "hostnames": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "resolver_config": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "nameservers": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "search": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "security_context": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "supplemental_groups": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "image_pull_credentials": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "docker_registry": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "instances": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "container": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "command": {
+                                                "maxItemsOne": false
+                                            },
+                                            "env": {
+                                                "maxItemsOne": false
+                                            },
+                                            "liveness_probe": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "http_get": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "tcp_socket": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "port": {
+                                                "maxItemsOne": false
+                                            },
+                                            "readiness_probe": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "http_get": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "tcp_socket": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "resources": {
+                                                "maxItemsOne": true
+                                            },
+                                            "security_context": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "capabilities": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "add": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "drop": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "volume_mount": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "location": {
+                                    "maxItemsOne": true
+                                },
+                                "metadata": {
+                                    "maxItemsOne": true
+                                },
+                                "network_interface": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "ip_address_aliases": {
+                                                "maxItemsOne": false
+                                            },
+                                            "ipv6_address_aliases": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "virtual_machine": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "liveness_probe": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "http_get": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "tcp_socket": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "port": {
+                                                "maxItemsOne": false
+                                            },
+                                            "readiness_probe": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "http_get": {
+                                                            "maxItemsOne": true
+                                                        },
+                                                        "tcp_socket": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "resources": {
+                                                "maxItemsOne": true
+                                            },
+                                            "volume_mount": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "network_interface": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "ip_families": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "target": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "scale_settings": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "metrics": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "selector": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "values": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "virtual_machine": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "liveness_probe": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "http_get": {
+                                                "maxItemsOne": true
+                                            },
+                                            "tcp_socket": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "port": {
+                                    "maxItemsOne": false
+                                },
+                                "readiness_probe": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "http_get": {
+                                                "maxItemsOne": true
+                                            },
+                                            "tcp_socket": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "resources": {
+                                    "maxItemsOne": true
+                                },
+                                "volume_mount": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "virtual_machine_runtime_environment": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "dns": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "host_aliases": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "hostnames": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "resolver_config": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "nameservers": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "search": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "volume_claim": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "resources": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "stackpath_object_storage_bucket": {
+                "current": "stackpath:storage/bucket:Bucket",
+                "past": [
+                    {
+                        "name": "stackpath:index/objectStorageBucket:ObjectStorageBucket",
+                        "inCodegen": true,
+                        "majorVersion": 0
+                    }
+                ]
+            }
+        }
+    },
+    "auto-settings": {
+        "resources": {
+            "stackpath_compute_network_policy": {
+                "aliases": [
+                    "stackpath:index/computeNetworkPolicy:ComputeNetworkPolicy"
+                ]
+            },
+            "stackpath_compute_vpc_network": {
+                "aliases": [
+                    "stackpath:index/computeVpcNetwork:ComputeVpcNetwork"
+                ]
+            },
+            "stackpath_compute_vpc_route": {
+                "aliases": [
+                    "stackpath:index/computeVpcRoute:ComputeVpcRoute"
+                ]
+            },
+            "stackpath_compute_workload": {
+                "aliases": [
+                    "stackpath:index/computeWorkload:ComputeWorkload"
+                ]
+            },
+            "stackpath_object_storage_bucket": {
+                "aliases": [
+                    "stackpath:index/objectStorageBucket:ObjectStorageBucket"
+                ]
+            }
+        }
+    },
+    "renames": {
+        "resources": {
+            "stackpath:compute/network:Network": "stackpath_compute_vpc_network",
+            "stackpath:compute/networkPolicy:NetworkPolicy": "stackpath_compute_network_policy",
+            "stackpath:compute/networkRoute:NetworkRoute": "stackpath_compute_vpc_route",
+            "stackpath:compute/networkSubnet:NetworkSubnet": "stackpath_compute_vpc_network_subnet",
+            "stackpath:compute/workload:Workload": "stackpath_compute_workload",
+            "stackpath:storage/bucket:Bucket": "stackpath_object_storage_bucket"
+        },
+        "renamedProperties": {
+            "stackpath:compute/NetworkPolicyEgressProtocol:NetworkPolicyEgressProtocol": {
+                "tcpUdp": "tcp_udp"
+            },
+            "stackpath:compute/NetworkPolicyEgressProtocolTcp:NetworkPolicyEgressProtocolTcp": {
+                "destinationPorts": "destination_ports",
+                "sourcePorts": "source_ports"
+            },
+            "stackpath:compute/NetworkPolicyEgressProtocolTcpUdp:NetworkPolicyEgressProtocolTcpUdp": {
+                "destinationPorts": "destination_ports",
+                "sourcePorts": "source_ports"
+            },
+            "stackpath:compute/NetworkPolicyEgressProtocolUdp:NetworkPolicyEgressProtocolUdp": {
+                "destinationPorts": "destination_ports",
+                "sourcePorts": "source_ports"
+            },
+            "stackpath:compute/NetworkPolicyEgressTo:NetworkPolicyEgressTo": {
+                "instanceSelectors": "instance_selector",
+                "ipBlocks": "ip_block",
+                "networkSelectors": "network_selector"
+            },
+            "stackpath:compute/NetworkPolicyEgressToIpBlock:NetworkPolicyEgressToIpBlock": {
+                "excepts": "except"
+            },
+            "stackpath:compute/NetworkPolicyIngressFrom:NetworkPolicyIngressFrom": {
+                "instanceSelectors": "instance_selector",
+                "ipBlocks": "ip_block",
+                "networkSelectors": "network_selector"
+            },
+            "stackpath:compute/NetworkPolicyIngressFromIpBlock:NetworkPolicyIngressFromIpBlock": {
+                "excepts": "except"
+            },
+            "stackpath:compute/NetworkPolicyIngressProtocol:NetworkPolicyIngressProtocol": {
+                "tcpUdp": "tcp_udp"
+            },
+            "stackpath:compute/NetworkPolicyIngressProtocolTcp:NetworkPolicyIngressProtocolTcp": {
+                "destinationPorts": "destination_ports",
+                "sourcePorts": "source_ports"
+            },
+            "stackpath:compute/NetworkPolicyIngressProtocolTcpUdp:NetworkPolicyIngressProtocolTcpUdp": {
+                "destinationPorts": "destination_ports",
+                "sourcePorts": "source_ports"
+            },
+            "stackpath:compute/NetworkPolicyIngressProtocolUdp:NetworkPolicyIngressProtocolUdp": {
+                "destinationPorts": "destination_ports",
+                "sourcePorts": "source_ports"
+            },
+            "stackpath:compute/NetworkRouteGatewaySelector:NetworkRouteGatewaySelector": {
+                "interfaceSelectors": "interface_selectors"
+            },
+            "stackpath:compute/WorkloadContainer:WorkloadContainer": {
+                "commands": "command",
+                "envs": "env",
+                "livenessProbe": "liveness_probe",
+                "ports": "port",
+                "readinessProbe": "readiness_probe",
+                "securityContext": "security_context",
+                "volumeMounts": "volume_mount"
+            },
+            "stackpath:compute/WorkloadContainerEnv:WorkloadContainerEnv": {
+                "secretValue": "secret_value"
+            },
+            "stackpath:compute/WorkloadContainerLivenessProbe:WorkloadContainerLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "httpGet": "http_get",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "tcpSocket": "tcp_socket",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "stackpath:compute/WorkloadContainerLivenessProbeHttpGet:WorkloadContainerLivenessProbeHttpGet": {
+                "httpHeaders": "http_headers"
+            },
+            "stackpath:compute/WorkloadContainerPort:WorkloadContainerPort": {
+                "enableImplicitNetworkPolicy": "enable_implicit_network_policy"
+            },
+            "stackpath:compute/WorkloadContainerReadinessProbe:WorkloadContainerReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "httpGet": "http_get",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "tcpSocket": "tcp_socket",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "stackpath:compute/WorkloadContainerReadinessProbeHttpGet:WorkloadContainerReadinessProbeHttpGet": {
+                "httpHeaders": "http_headers"
+            },
+            "stackpath:compute/WorkloadContainerRuntimeEnvironment:WorkloadContainerRuntimeEnvironment": {
+                "securityContext": "security_context",
+                "shareProcessNamespace": "share_process_namespace",
+                "terminationGracePeriodSeconds": "termination_grace_period_seconds"
+            },
+            "stackpath:compute/WorkloadContainerRuntimeEnvironmentDns:WorkloadContainerRuntimeEnvironmentDns": {
+                "hostAliases": "host_aliases",
+                "resolverConfigs": "resolver_config"
+            },
+            "stackpath:compute/WorkloadContainerRuntimeEnvironmentDnsResolverConfig:WorkloadContainerRuntimeEnvironmentDnsResolverConfig": {
+                "searches": "search"
+            },
+            "stackpath:compute/WorkloadContainerRuntimeEnvironmentSecurityContext:WorkloadContainerRuntimeEnvironmentSecurityContext": {
+                "runAsGroup": "run_as_group",
+                "runAsNonRoot": "run_as_non_root",
+                "runAsUser": "run_as_user",
+                "supplementalGroups": "supplemental_groups"
+            },
+            "stackpath:compute/WorkloadContainerSecurityContext:WorkloadContainerSecurityContext": {
+                "allowPrivilegeEscalation": "allow_privilege_escalation",
+                "readOnlyRootFilesystem": "read_only_root_filesystem",
+                "runAsGroup": "run_as_group",
+                "runAsNonRoot": "run_as_non_root",
+                "runAsUser": "run_as_user"
+            },
+            "stackpath:compute/WorkloadContainerSecurityContextCapabilities:WorkloadContainerSecurityContextCapabilities": {
+                "adds": "add",
+                "drops": "drop"
+            },
+            "stackpath:compute/WorkloadContainerVolumeMount:WorkloadContainerVolumeMount": {
+                "mountPath": "mount_path"
+            },
+            "stackpath:compute/WorkloadImagePullCredential:WorkloadImagePullCredential": {
+                "dockerRegistry": "docker_registry"
+            },
+            "stackpath:compute/WorkloadInstance:WorkloadInstance": {
+                "containers": "container",
+                "externalIpAddress": "external_ip_address",
+                "externalIpv6Address": "external_ipv6_address",
+                "ipAddress": "ip_address",
+                "ipv6Address": "ipv6_address",
+                "networkInterfaces": "network_interface",
+                "virtualMachine": "virtual_machine"
+            },
+            "stackpath:compute/WorkloadInstanceContainer:WorkloadInstanceContainer": {
+                "commands": "command",
+                "envs": "env",
+                "livenessProbe": "liveness_probe",
+                "ports": "port",
+                "readinessProbe": "readiness_probe",
+                "securityContext": "security_context",
+                "volumeMounts": "volume_mount"
+            },
+            "stackpath:compute/WorkloadInstanceContainerEnv:WorkloadInstanceContainerEnv": {
+                "secretValue": "secret_value"
+            },
+            "stackpath:compute/WorkloadInstanceContainerLivenessProbe:WorkloadInstanceContainerLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "httpGet": "http_get",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "tcpSocket": "tcp_socket",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "stackpath:compute/WorkloadInstanceContainerLivenessProbeHttpGet:WorkloadInstanceContainerLivenessProbeHttpGet": {
+                "httpHeaders": "http_headers"
+            },
+            "stackpath:compute/WorkloadInstanceContainerPort:WorkloadInstanceContainerPort": {
+                "enableImplicitNetworkPolicy": "enable_implicit_network_policy"
+            },
+            "stackpath:compute/WorkloadInstanceContainerReadinessProbe:WorkloadInstanceContainerReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "httpGet": "http_get",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "tcpSocket": "tcp_socket",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "stackpath:compute/WorkloadInstanceContainerReadinessProbeHttpGet:WorkloadInstanceContainerReadinessProbeHttpGet": {
+                "httpHeaders": "http_headers"
+            },
+            "stackpath:compute/WorkloadInstanceContainerSecurityContext:WorkloadInstanceContainerSecurityContext": {
+                "allowPrivilegeEscalation": "allow_privilege_escalation",
+                "readOnlyRootFilesystem": "read_only_root_filesystem",
+                "runAsGroup": "run_as_group",
+                "runAsNonRoot": "run_as_non_root",
+                "runAsUser": "run_as_user"
+            },
+            "stackpath:compute/WorkloadInstanceContainerSecurityContextCapabilities:WorkloadInstanceContainerSecurityContextCapabilities": {
+                "adds": "add",
+                "drops": "drop"
+            },
+            "stackpath:compute/WorkloadInstanceContainerVolumeMount:WorkloadInstanceContainerVolumeMount": {
+                "mountPath": "mount_path"
+            },
+            "stackpath:compute/WorkloadInstanceLocation:WorkloadInstanceLocation": {
+                "cityCode": "city_code",
+                "continentCode": "continent_code",
+                "countryCode": "country_code",
+                "regionCode": "region_code",
+                "subdivisionCode": "subdivision_code"
+            },
+            "stackpath:compute/WorkloadInstanceNetworkInterface:WorkloadInstanceNetworkInterface": {
+                "ipAddress": "ip_address",
+                "ipAddressAliases": "ip_address_aliases",
+                "ipv6Address": "ipv6_address",
+                "ipv6AddressAliases": "ipv6_address_aliases",
+                "ipv6Gateway": "ipv6_gateway"
+            },
+            "stackpath:compute/WorkloadInstanceVirtualMachine:WorkloadInstanceVirtualMachine": {
+                "livenessProbe": "liveness_probe",
+                "ports": "port",
+                "readinessProbe": "readiness_probe",
+                "userData": "user_data",
+                "volumeMounts": "volume_mount"
+            },
+            "stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbe:WorkloadInstanceVirtualMachineLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "httpGet": "http_get",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "tcpSocket": "tcp_socket",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "stackpath:compute/WorkloadInstanceVirtualMachineLivenessProbeHttpGet:WorkloadInstanceVirtualMachineLivenessProbeHttpGet": {
+                "httpHeaders": "http_headers"
+            },
+            "stackpath:compute/WorkloadInstanceVirtualMachinePort:WorkloadInstanceVirtualMachinePort": {
+                "enableImplicitNetworkPolicy": "enable_implicit_network_policy"
+            },
+            "stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbe:WorkloadInstanceVirtualMachineReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "httpGet": "http_get",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "tcpSocket": "tcp_socket",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "stackpath:compute/WorkloadInstanceVirtualMachineReadinessProbeHttpGet:WorkloadInstanceVirtualMachineReadinessProbeHttpGet": {
+                "httpHeaders": "http_headers"
+            },
+            "stackpath:compute/WorkloadInstanceVirtualMachineVolumeMount:WorkloadInstanceVirtualMachineVolumeMount": {
+                "mountPath": "mount_path"
+            },
+            "stackpath:compute/WorkloadNetworkInterface:WorkloadNetworkInterface": {
+                "enableOneToOneNat": "enable_one_to_one_nat",
+                "ipFamilies": "ip_families",
+                "ipv6Subnet": "ipv6_subnet"
+            },
+            "stackpath:compute/WorkloadTarget:WorkloadTarget": {
+                "deploymentScope": "deployment_scope",
+                "maxReplicas": "max_replicas",
+                "minReplicas": "min_replicas",
+                "scaleSettings": "scale_settings",
+                "selectors": "selector"
+            },
+            "stackpath:compute/WorkloadTargetScaleSettingsMetric:WorkloadTargetScaleSettingsMetric": {
+                "averageUtilization": "average_utilization",
+                "averageValue": "average_value"
+            },
+            "stackpath:compute/WorkloadVirtualMachine:WorkloadVirtualMachine": {
+                "livenessProbe": "liveness_probe",
+                "ports": "port",
+                "readinessProbe": "readiness_probe",
+                "userData": "user_data",
+                "volumeMounts": "volume_mount"
+            },
+            "stackpath:compute/WorkloadVirtualMachineLivenessProbe:WorkloadVirtualMachineLivenessProbe": {
+                "failureThreshold": "failure_threshold",
+                "httpGet": "http_get",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "tcpSocket": "tcp_socket",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "stackpath:compute/WorkloadVirtualMachineLivenessProbeHttpGet:WorkloadVirtualMachineLivenessProbeHttpGet": {
+                "httpHeaders": "http_headers"
+            },
+            "stackpath:compute/WorkloadVirtualMachinePort:WorkloadVirtualMachinePort": {
+                "enableImplicitNetworkPolicy": "enable_implicit_network_policy"
+            },
+            "stackpath:compute/WorkloadVirtualMachineReadinessProbe:WorkloadVirtualMachineReadinessProbe": {
+                "failureThreshold": "failure_threshold",
+                "httpGet": "http_get",
+                "initialDelaySeconds": "initial_delay_seconds",
+                "periodSeconds": "period_seconds",
+                "successThreshold": "success_threshold",
+                "tcpSocket": "tcp_socket",
+                "timeoutSeconds": "timeout_seconds"
+            },
+            "stackpath:compute/WorkloadVirtualMachineReadinessProbeHttpGet:WorkloadVirtualMachineReadinessProbeHttpGet": {
+                "httpHeaders": "http_headers"
+            },
+            "stackpath:compute/WorkloadVirtualMachineRuntimeEnvironmentDns:WorkloadVirtualMachineRuntimeEnvironmentDns": {
+                "hostAliases": "host_aliases",
+                "resolverConfigs": "resolver_config"
+            },
+            "stackpath:compute/WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig:WorkloadVirtualMachineRuntimeEnvironmentDnsResolverConfig": {
+                "searches": "search"
+            },
+            "stackpath:compute/WorkloadVirtualMachineVolumeMount:WorkloadVirtualMachineVolumeMount": {
+                "mountPath": "mount_path"
+            },
+            "stackpath:compute/WorkloadVolumeClaim:WorkloadVolumeClaim": {
+                "storageClass": "storage_class"
+            },
+            "stackpath:compute/network:Network": {
+                "ipFamilies": "ip_families",
+                "ipv6Subnet": "ipv6_subnet",
+                "rootSubnet": "root_subnet",
+                "virtualNetworkIdentifier": "virtual_network_identifier"
+            },
+            "stackpath:compute/networkPolicy:NetworkPolicy": {
+                "egresses": "egress",
+                "ingresses": "ingress",
+                "instanceSelectors": "instance_selector",
+                "networkSelectors": "network_selector",
+                "policyTypes": "policy_types"
+            },
+            "stackpath:compute/networkRoute:NetworkRoute": {
+                "destinationPrefixes": "destination_prefixes",
+                "gatewaySelectors": "gateway_selectors",
+                "networkId": "network_id"
+            },
+            "stackpath:compute/networkSubnet:NetworkSubnet": {
+                "networkId": "network_id"
+            },
+            "stackpath:compute/workload:Workload": {
+                "containerRuntimeEnvironment": "container_runtime_environment",
+                "containers": "container",
+                "imagePullCredentials": "image_pull_credentials",
+                "networkInterfaces": "network_interface",
+                "targets": "target",
+                "virtualMachine": "virtual_machine",
+                "virtualMachineRuntimeEnvironment": "virtual_machine_runtime_environment",
+                "volumeClaims": "volume_claim"
+            },
+            "stackpath:index:Provider": {
+                "accessToken": "access_token",
+                "baseUrl": "base_url",
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "stackId": "stack_id"
+            },
+            "stackpath:storage/bucket:Bucket": {
+                "endpointUrl": "endpoint_url"
+            }
+        },
+        "renamedConfigProperties": {
+            "accessToken": "access_token",
+            "baseUrl": "base_url",
+            "clientId": "client_id",
+            "clientSecret": "client_secret",
+            "stackId": "stack_id"
+        }
+    }
+}

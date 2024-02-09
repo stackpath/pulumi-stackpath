@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi;
 
-namespace Pulumi.Stackpath.Compute.Outputs
+namespace Stackpath.Stackpath.Compute.Outputs
 {
 
     [OutputType]
@@ -16,6 +17,9 @@ namespace Pulumi.Stackpath.Compute.Outputs
         public readonly string Gateway;
         public readonly string IpAddress;
         public readonly ImmutableArray<string> IpAddressAliases;
+        public readonly string Ipv6Address;
+        public readonly ImmutableArray<string> Ipv6AddressAliases;
+        public readonly string Ipv6Gateway;
         public readonly string Network;
 
         [OutputConstructor]
@@ -26,11 +30,20 @@ namespace Pulumi.Stackpath.Compute.Outputs
 
             ImmutableArray<string> ipAddressAliases,
 
+            string ipv6Address,
+
+            ImmutableArray<string> ipv6AddressAliases,
+
+            string ipv6Gateway,
+
             string network)
         {
             Gateway = gateway;
             IpAddress = ipAddress;
             IpAddressAliases = ipAddressAliases;
+            Ipv6Address = ipv6Address;
+            Ipv6AddressAliases = ipv6AddressAliases;
+            Ipv6Gateway = ipv6Gateway;
             Network = network;
         }
     }

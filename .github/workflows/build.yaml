@@ -6,6 +6,8 @@ jobs:
   publish_binary:
      name: publish          
      runs-on: ubuntu-latest 
+     # Add write permissions for the GITHUB_TOKEN
+     permissions: write-all
      steps:
      - name: Checkout Repo
        uses: actions/checkout@v4

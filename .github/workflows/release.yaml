@@ -83,10 +83,7 @@ jobs:
         language:
           - nodejs
         nodeversion:
-          - latest # For future-proofing
-          - 21.x   # Latest at workflow creation
           - 20.x   # LTS release
-          - 18.x   # Previous LTS release
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPMJS_API_TOKEN }}

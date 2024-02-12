@@ -1,0 +1,5 @@
+# See https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners
+
+# By default, require any change be approved by a member of platformdev-release-approvers or development-compute-software
+# Later matches will take precedence over this setting.
+* @stackpath/platformdev-release-approvers @stackpath/development-compute-software

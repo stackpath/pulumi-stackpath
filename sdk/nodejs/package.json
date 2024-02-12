@@ -24,6 +24,6 @@
     "pulumi": {
         "resource": true,
         "name": "stackpath",
-        "server": "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}"
+        "server": "github://api.github.com/stackpath/pulumi-stackpath"
     }
 }

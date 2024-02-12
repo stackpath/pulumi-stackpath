@@ -52,7 +52,7 @@ namespace Stackpath.Stackpath
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                PluginDownloadURL = "https://github.com/stackpath/pulumi-stackpath/releases/download/v${VERSION}",
+                PluginDownloadURL = "github://api.github.com/stackpath/pulumi-stackpath",
                 AdditionalSecretOutputs =
                 {
                     "accessToken",

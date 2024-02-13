@@ -7,5 +7,5 @@ jobs:
     uses: stackpath/actions/.github/workflows/go_lint.yaml@v0.7.8
     with:
       image: deployment-docker.artifactory.stackpath.systems/golangci-linter-configs:v0.4.1
-      directory: ./provider
+      directory: provider
     secrets: inherit

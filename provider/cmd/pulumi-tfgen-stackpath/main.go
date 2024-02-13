@@ -16,6 +16,7 @@ package main
 
 import (
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
+
 	stackpath "github.com/stackpath/pulumi-stackpath/provider"
 	"github.com/stackpath/pulumi-stackpath/provider/pkg/version"
 )

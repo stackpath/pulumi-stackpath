@@ -1,27 +1,22 @@
 linters:
   enable:
     - goimports
-    - deadcode
     - errcheck
     - goconst
     - gofmt
-    - golint
     - gosec
     - gosimple
     - govet
     - stylecheck
     - unparam
     - ineffassign
-    - interfacer
     - lll
     - megacheck
     - misspell
     - nakedret
-    - structcheck
     - revive
     - unconvert
     - unused
-    - varcheck
   enable-all: false
 linters-settings:
   goimports:

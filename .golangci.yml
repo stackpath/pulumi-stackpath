@@ -23,7 +23,7 @@ linters-settings:
     # A comma-separated list of prefixes, which, if set, checks import paths
     # with the given prefixes are grouped after 3rd-party packages.
     # Default: ""
-    local-prefixes: github.com/stackpath/,bitbucket.stackpath.net/
+    local-prefixes: github.com/stackpath/
 
 run:
   skip-files:

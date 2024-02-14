@@ -1,24 +1,30 @@
 linters:
   enable:
-    - deadcode
+    - goimports
     - errcheck
     - goconst
     - gofmt
-    - golint
     - gosec
+    - gosimple
     - govet
+    - stylecheck
+    - unparam
     - ineffassign
-    - interfacer
     - lll
     - megacheck
     - misspell
     - nakedret
-    - structcheck
     - revive
     - unconvert
     - unused
-    - varcheck
   enable-all: false
+linters-settings:
+  goimports:
+    # A comma-separated list of prefixes, which, if set, checks import paths
+    # with the given prefixes are grouped after 3rd-party packages.
+    # Default: ""
+    local-prefixes: github.com/stackpath/
+
 run:
   skip-files:
     - schema.go

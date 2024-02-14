@@ -20,6 +20,7 @@ import (
 	_ "embed"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+
 	stackpath "github.com/stackpath/pulumi-stackpath/provider"
 	"github.com/stackpath/pulumi-stackpath/provider/pkg/version"
 )

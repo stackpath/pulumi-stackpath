@@ -6714,10 +6714,1960 @@ func (o WorkloadImagePullCredentialDockerRegistryOutput) Username() pulumi.Strin
 	return o.ApplyT(func(v WorkloadImagePullCredentialDockerRegistry) string { return v.Username }).(pulumi.StringOutput)
 }
 
+type WorkloadInitContainer struct {
+	Commands        []string                              `pulumi:"commands"`
+	Envs            []WorkloadInitContainerEnv            `pulumi:"envs"`
+	Image           string                                `pulumi:"image"`
+	LivenessProbe   *WorkloadInitContainerLivenessProbe   `pulumi:"livenessProbe"`
+	Name            string                                `pulumi:"name"`
+	Ports           []WorkloadInitContainerPort           `pulumi:"ports"`
+	ReadinessProbe  *WorkloadInitContainerReadinessProbe  `pulumi:"readinessProbe"`
+	Resources       WorkloadInitContainerResources        `pulumi:"resources"`
+	SecurityContext *WorkloadInitContainerSecurityContext `pulumi:"securityContext"`
+	VolumeMounts    []WorkloadInitContainerVolumeMount    `pulumi:"volumeMounts"`
+}
+
+// WorkloadInitContainerInput is an input type that accepts WorkloadInitContainerArgs and WorkloadInitContainerOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerInput` via:
+//
+//	WorkloadInitContainerArgs{...}
+type WorkloadInitContainerInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerOutput() WorkloadInitContainerOutput
+	ToWorkloadInitContainerOutputWithContext(context.Context) WorkloadInitContainerOutput
+}
+
+type WorkloadInitContainerArgs struct {
+	Commands        pulumi.StringArrayInput                      `pulumi:"commands"`
+	Envs            WorkloadInitContainerEnvArrayInput           `pulumi:"envs"`
+	Image           pulumi.StringInput                           `pulumi:"image"`
+	LivenessProbe   WorkloadInitContainerLivenessProbePtrInput   `pulumi:"livenessProbe"`
+	Name            pulumi.StringInput                           `pulumi:"name"`
+	Ports           WorkloadInitContainerPortArrayInput          `pulumi:"ports"`
+	ReadinessProbe  WorkloadInitContainerReadinessProbePtrInput  `pulumi:"readinessProbe"`
+	Resources       WorkloadInitContainerResourcesInput          `pulumi:"resources"`
+	SecurityContext WorkloadInitContainerSecurityContextPtrInput `pulumi:"securityContext"`
+	VolumeMounts    WorkloadInitContainerVolumeMountArrayInput   `pulumi:"volumeMounts"`
+}
+
+func (WorkloadInitContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainer)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerArgs) ToWorkloadInitContainerOutput() WorkloadInitContainerOutput {
+	return i.ToWorkloadInitContainerOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerArgs) ToWorkloadInitContainerOutputWithContext(ctx context.Context) WorkloadInitContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerOutput)
+}
+
+// WorkloadInitContainerArrayInput is an input type that accepts WorkloadInitContainerArray and WorkloadInitContainerArrayOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerArrayInput` via:
+//
+//	WorkloadInitContainerArray{ WorkloadInitContainerArgs{...} }
+type WorkloadInitContainerArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerArrayOutput() WorkloadInitContainerArrayOutput
+	ToWorkloadInitContainerArrayOutputWithContext(context.Context) WorkloadInitContainerArrayOutput
+}
+
+type WorkloadInitContainerArray []WorkloadInitContainerInput
+
+func (WorkloadInitContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInitContainer)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerArray) ToWorkloadInitContainerArrayOutput() WorkloadInitContainerArrayOutput {
+	return i.ToWorkloadInitContainerArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerArray) ToWorkloadInitContainerArrayOutputWithContext(ctx context.Context) WorkloadInitContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerArrayOutput)
+}
+
+type WorkloadInitContainerOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainer)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerOutput) ToWorkloadInitContainerOutput() WorkloadInitContainerOutput {
+	return o
+}
+
+func (o WorkloadInitContainerOutput) ToWorkloadInitContainerOutputWithContext(ctx context.Context) WorkloadInitContainerOutput {
+	return o
+}
+
+func (o WorkloadInitContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadInitContainerOutput) Envs() WorkloadInitContainerEnvArrayOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) []WorkloadInitContainerEnv { return v.Envs }).(WorkloadInitContainerEnvArrayOutput)
+}
+
+func (o WorkloadInitContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInitContainerOutput) LivenessProbe() WorkloadInitContainerLivenessProbePtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) *WorkloadInitContainerLivenessProbe { return v.LivenessProbe }).(WorkloadInitContainerLivenessProbePtrOutput)
+}
+
+func (o WorkloadInitContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInitContainerOutput) Ports() WorkloadInitContainerPortArrayOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) []WorkloadInitContainerPort { return v.Ports }).(WorkloadInitContainerPortArrayOutput)
+}
+
+func (o WorkloadInitContainerOutput) ReadinessProbe() WorkloadInitContainerReadinessProbePtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) *WorkloadInitContainerReadinessProbe { return v.ReadinessProbe }).(WorkloadInitContainerReadinessProbePtrOutput)
+}
+
+func (o WorkloadInitContainerOutput) Resources() WorkloadInitContainerResourcesOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) WorkloadInitContainerResources { return v.Resources }).(WorkloadInitContainerResourcesOutput)
+}
+
+func (o WorkloadInitContainerOutput) SecurityContext() WorkloadInitContainerSecurityContextPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) *WorkloadInitContainerSecurityContext { return v.SecurityContext }).(WorkloadInitContainerSecurityContextPtrOutput)
+}
+
+func (o WorkloadInitContainerOutput) VolumeMounts() WorkloadInitContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) []WorkloadInitContainerVolumeMount { return v.VolumeMounts }).(WorkloadInitContainerVolumeMountArrayOutput)
+}
+
+type WorkloadInitContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInitContainer)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerArrayOutput) ToWorkloadInitContainerArrayOutput() WorkloadInitContainerArrayOutput {
+	return o
+}
+
+func (o WorkloadInitContainerArrayOutput) ToWorkloadInitContainerArrayOutputWithContext(ctx context.Context) WorkloadInitContainerArrayOutput {
+	return o
+}
+
+func (o WorkloadInitContainerArrayOutput) Index(i pulumi.IntInput) WorkloadInitContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInitContainer {
+		return vs[0].([]WorkloadInitContainer)[vs[1].(int)]
+	}).(WorkloadInitContainerOutput)
+}
+
+type WorkloadInitContainerEnv struct {
+	Key         string  `pulumi:"key"`
+	SecretValue *string `pulumi:"secretValue"`
+	Value       *string `pulumi:"value"`
+}
+
+// WorkloadInitContainerEnvInput is an input type that accepts WorkloadInitContainerEnvArgs and WorkloadInitContainerEnvOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerEnvInput` via:
+//
+//	WorkloadInitContainerEnvArgs{...}
+type WorkloadInitContainerEnvInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerEnvOutput() WorkloadInitContainerEnvOutput
+	ToWorkloadInitContainerEnvOutputWithContext(context.Context) WorkloadInitContainerEnvOutput
+}
+
+type WorkloadInitContainerEnvArgs struct {
+	Key         pulumi.StringInput    `pulumi:"key"`
+	SecretValue pulumi.StringPtrInput `pulumi:"secretValue"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WorkloadInitContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerEnv)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerEnvArgs) ToWorkloadInitContainerEnvOutput() WorkloadInitContainerEnvOutput {
+	return i.ToWorkloadInitContainerEnvOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerEnvArgs) ToWorkloadInitContainerEnvOutputWithContext(ctx context.Context) WorkloadInitContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerEnvOutput)
+}
+
+// WorkloadInitContainerEnvArrayInput is an input type that accepts WorkloadInitContainerEnvArray and WorkloadInitContainerEnvArrayOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerEnvArrayInput` via:
+//
+//	WorkloadInitContainerEnvArray{ WorkloadInitContainerEnvArgs{...} }
+type WorkloadInitContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerEnvArrayOutput() WorkloadInitContainerEnvArrayOutput
+	ToWorkloadInitContainerEnvArrayOutputWithContext(context.Context) WorkloadInitContainerEnvArrayOutput
+}
+
+type WorkloadInitContainerEnvArray []WorkloadInitContainerEnvInput
+
+func (WorkloadInitContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInitContainerEnv)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerEnvArray) ToWorkloadInitContainerEnvArrayOutput() WorkloadInitContainerEnvArrayOutput {
+	return i.ToWorkloadInitContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerEnvArray) ToWorkloadInitContainerEnvArrayOutputWithContext(ctx context.Context) WorkloadInitContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerEnvArrayOutput)
+}
+
+type WorkloadInitContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerEnv)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerEnvOutput) ToWorkloadInitContainerEnvOutput() WorkloadInitContainerEnvOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvOutput) ToWorkloadInitContainerEnvOutputWithContext(ctx context.Context) WorkloadInitContainerEnvOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInitContainerEnv) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInitContainerEnvOutput) SecretValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerEnv) *string { return v.SecretValue }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInitContainerEnvOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInitContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInitContainerEnv)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerEnvArrayOutput) ToWorkloadInitContainerEnvArrayOutput() WorkloadInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvArrayOutput) ToWorkloadInitContainerEnvArrayOutputWithContext(ctx context.Context) WorkloadInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvArrayOutput) Index(i pulumi.IntInput) WorkloadInitContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInitContainerEnv {
+		return vs[0].([]WorkloadInitContainerEnv)[vs[1].(int)]
+	}).(WorkloadInitContainerEnvOutput)
+}
+
+type WorkloadInitContainerLivenessProbe struct {
+	FailureThreshold    int                                          `pulumi:"failureThreshold"`
+	HttpGet             *WorkloadInitContainerLivenessProbeHttpGet   `pulumi:"httpGet"`
+	InitialDelaySeconds *int                                         `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       *int                                         `pulumi:"periodSeconds"`
+	SuccessThreshold    int                                          `pulumi:"successThreshold"`
+	TcpSocket           *WorkloadInitContainerLivenessProbeTcpSocket `pulumi:"tcpSocket"`
+	TimeoutSeconds      *int                                         `pulumi:"timeoutSeconds"`
+}
+
+// WorkloadInitContainerLivenessProbeInput is an input type that accepts WorkloadInitContainerLivenessProbeArgs and WorkloadInitContainerLivenessProbeOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerLivenessProbeInput` via:
+//
+//	WorkloadInitContainerLivenessProbeArgs{...}
+type WorkloadInitContainerLivenessProbeInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerLivenessProbeOutput() WorkloadInitContainerLivenessProbeOutput
+	ToWorkloadInitContainerLivenessProbeOutputWithContext(context.Context) WorkloadInitContainerLivenessProbeOutput
+}
+
+type WorkloadInitContainerLivenessProbeArgs struct {
+	FailureThreshold    pulumi.IntInput                                     `pulumi:"failureThreshold"`
+	HttpGet             WorkloadInitContainerLivenessProbeHttpGetPtrInput   `pulumi:"httpGet"`
+	InitialDelaySeconds pulumi.IntPtrInput                                  `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       pulumi.IntPtrInput                                  `pulumi:"periodSeconds"`
+	SuccessThreshold    pulumi.IntInput                                     `pulumi:"successThreshold"`
+	TcpSocket           WorkloadInitContainerLivenessProbeTcpSocketPtrInput `pulumi:"tcpSocket"`
+	TimeoutSeconds      pulumi.IntPtrInput                                  `pulumi:"timeoutSeconds"`
+}
+
+func (WorkloadInitContainerLivenessProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerLivenessProbe)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerLivenessProbeArgs) ToWorkloadInitContainerLivenessProbeOutput() WorkloadInitContainerLivenessProbeOutput {
+	return i.ToWorkloadInitContainerLivenessProbeOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerLivenessProbeArgs) ToWorkloadInitContainerLivenessProbeOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerLivenessProbeOutput)
+}
+
+func (i WorkloadInitContainerLivenessProbeArgs) ToWorkloadInitContainerLivenessProbePtrOutput() WorkloadInitContainerLivenessProbePtrOutput {
+	return i.ToWorkloadInitContainerLivenessProbePtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerLivenessProbeArgs) ToWorkloadInitContainerLivenessProbePtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerLivenessProbeOutput).ToWorkloadInitContainerLivenessProbePtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerLivenessProbePtrInput is an input type that accepts WorkloadInitContainerLivenessProbeArgs, WorkloadInitContainerLivenessProbePtr and WorkloadInitContainerLivenessProbePtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerLivenessProbePtrInput` via:
+//
+//	        WorkloadInitContainerLivenessProbeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerLivenessProbePtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerLivenessProbePtrOutput() WorkloadInitContainerLivenessProbePtrOutput
+	ToWorkloadInitContainerLivenessProbePtrOutputWithContext(context.Context) WorkloadInitContainerLivenessProbePtrOutput
+}
+
+type workloadInitContainerLivenessProbePtrType WorkloadInitContainerLivenessProbeArgs
+
+func WorkloadInitContainerLivenessProbePtr(v *WorkloadInitContainerLivenessProbeArgs) WorkloadInitContainerLivenessProbePtrInput {
+	return (*workloadInitContainerLivenessProbePtrType)(v)
+}
+
+func (*workloadInitContainerLivenessProbePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerLivenessProbe)(nil)).Elem()
+}
+
+func (i *workloadInitContainerLivenessProbePtrType) ToWorkloadInitContainerLivenessProbePtrOutput() WorkloadInitContainerLivenessProbePtrOutput {
+	return i.ToWorkloadInitContainerLivenessProbePtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerLivenessProbePtrType) ToWorkloadInitContainerLivenessProbePtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerLivenessProbePtrOutput)
+}
+
+type WorkloadInitContainerLivenessProbeOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerLivenessProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerLivenessProbe)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) ToWorkloadInitContainerLivenessProbeOutput() WorkloadInitContainerLivenessProbeOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) ToWorkloadInitContainerLivenessProbeOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) ToWorkloadInitContainerLivenessProbePtrOutput() WorkloadInitContainerLivenessProbePtrOutput {
+	return o.ToWorkloadInitContainerLivenessProbePtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) ToWorkloadInitContainerLivenessProbePtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerLivenessProbe) *WorkloadInitContainerLivenessProbe {
+		return &v
+	}).(WorkloadInitContainerLivenessProbePtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) FailureThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) HttpGet() WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbe) *WorkloadInitContainerLivenessProbeHttpGet {
+		return v.HttpGet
+	}).(WorkloadInitContainerLivenessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) SuccessThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) TcpSocket() WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbe) *WorkloadInitContainerLivenessProbeTcpSocket {
+		return v.TcpSocket
+	}).(WorkloadInitContainerLivenessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInitContainerLivenessProbePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerLivenessProbePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerLivenessProbe)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) ToWorkloadInitContainerLivenessProbePtrOutput() WorkloadInitContainerLivenessProbePtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) ToWorkloadInitContainerLivenessProbePtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbePtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) Elem() WorkloadInitContainerLivenessProbeOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbe) WorkloadInitContainerLivenessProbe {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerLivenessProbe
+		return ret
+	}).(WorkloadInitContainerLivenessProbeOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) HttpGet() WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbe) *WorkloadInitContainerLivenessProbeHttpGet {
+		if v == nil {
+			return nil
+		}
+		return v.HttpGet
+	}).(WorkloadInitContainerLivenessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InitialDelaySeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SuccessThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) TcpSocket() WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbe) *WorkloadInitContainerLivenessProbeTcpSocket {
+		if v == nil {
+			return nil
+		}
+		return v.TcpSocket
+	}).(WorkloadInitContainerLivenessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInitContainerLivenessProbeHttpGet struct {
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	Path        *string           `pulumi:"path"`
+	Port        int               `pulumi:"port"`
+	Scheme      *string           `pulumi:"scheme"`
+}
+
+// WorkloadInitContainerLivenessProbeHttpGetInput is an input type that accepts WorkloadInitContainerLivenessProbeHttpGetArgs and WorkloadInitContainerLivenessProbeHttpGetOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerLivenessProbeHttpGetInput` via:
+//
+//	WorkloadInitContainerLivenessProbeHttpGetArgs{...}
+type WorkloadInitContainerLivenessProbeHttpGetInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerLivenessProbeHttpGetOutput() WorkloadInitContainerLivenessProbeHttpGetOutput
+	ToWorkloadInitContainerLivenessProbeHttpGetOutputWithContext(context.Context) WorkloadInitContainerLivenessProbeHttpGetOutput
+}
+
+type WorkloadInitContainerLivenessProbeHttpGetArgs struct {
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	Path        pulumi.StringPtrInput `pulumi:"path"`
+	Port        pulumi.IntInput       `pulumi:"port"`
+	Scheme      pulumi.StringPtrInput `pulumi:"scheme"`
+}
+
+func (WorkloadInitContainerLivenessProbeHttpGetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerLivenessProbeHttpGet)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerLivenessProbeHttpGetArgs) ToWorkloadInitContainerLivenessProbeHttpGetOutput() WorkloadInitContainerLivenessProbeHttpGetOutput {
+	return i.ToWorkloadInitContainerLivenessProbeHttpGetOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerLivenessProbeHttpGetArgs) ToWorkloadInitContainerLivenessProbeHttpGetOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeHttpGetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerLivenessProbeHttpGetOutput)
+}
+
+func (i WorkloadInitContainerLivenessProbeHttpGetArgs) ToWorkloadInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return i.ToWorkloadInitContainerLivenessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerLivenessProbeHttpGetArgs) ToWorkloadInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerLivenessProbeHttpGetOutput).ToWorkloadInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerLivenessProbeHttpGetPtrInput is an input type that accepts WorkloadInitContainerLivenessProbeHttpGetArgs, WorkloadInitContainerLivenessProbeHttpGetPtr and WorkloadInitContainerLivenessProbeHttpGetPtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerLivenessProbeHttpGetPtrInput` via:
+//
+//	        WorkloadInitContainerLivenessProbeHttpGetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerLivenessProbeHttpGetPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInitContainerLivenessProbeHttpGetPtrOutput
+	ToWorkloadInitContainerLivenessProbeHttpGetPtrOutputWithContext(context.Context) WorkloadInitContainerLivenessProbeHttpGetPtrOutput
+}
+
+type workloadInitContainerLivenessProbeHttpGetPtrType WorkloadInitContainerLivenessProbeHttpGetArgs
+
+func WorkloadInitContainerLivenessProbeHttpGetPtr(v *WorkloadInitContainerLivenessProbeHttpGetArgs) WorkloadInitContainerLivenessProbeHttpGetPtrInput {
+	return (*workloadInitContainerLivenessProbeHttpGetPtrType)(v)
+}
+
+func (*workloadInitContainerLivenessProbeHttpGetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerLivenessProbeHttpGet)(nil)).Elem()
+}
+
+func (i *workloadInitContainerLivenessProbeHttpGetPtrType) ToWorkloadInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return i.ToWorkloadInitContainerLivenessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerLivenessProbeHttpGetPtrType) ToWorkloadInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerLivenessProbeHttpGetPtrOutput)
+}
+
+type WorkloadInitContainerLivenessProbeHttpGetOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerLivenessProbeHttpGetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerLivenessProbeHttpGet)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetOutput) ToWorkloadInitContainerLivenessProbeHttpGetOutput() WorkloadInitContainerLivenessProbeHttpGetOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetOutput) ToWorkloadInitContainerLivenessProbeHttpGetOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeHttpGetOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetOutput) ToWorkloadInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return o.ToWorkloadInitContainerLivenessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetOutput) ToWorkloadInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerLivenessProbeHttpGet) *WorkloadInitContainerLivenessProbeHttpGet {
+		return &v
+	}).(WorkloadInitContainerLivenessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbeHttpGet) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbeHttpGet) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInitContainerLivenessProbeHttpGetPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerLivenessProbeHttpGetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerLivenessProbeHttpGet)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetPtrOutput) ToWorkloadInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetPtrOutput) ToWorkloadInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeHttpGetPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetPtrOutput) Elem() WorkloadInitContainerLivenessProbeHttpGetOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbeHttpGet) WorkloadInitContainerLivenessProbeHttpGet {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerLivenessProbeHttpGet
+		return ret
+	}).(WorkloadInitContainerLivenessProbeHttpGetOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetPtrOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbeHttpGet) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpHeaders
+	}).(pulumi.StringMapOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbeHttpGet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbeHttpGet) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeHttpGetPtrOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbeHttpGet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scheme
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInitContainerLivenessProbeTcpSocket struct {
+	Port int `pulumi:"port"`
+}
+
+// WorkloadInitContainerLivenessProbeTcpSocketInput is an input type that accepts WorkloadInitContainerLivenessProbeTcpSocketArgs and WorkloadInitContainerLivenessProbeTcpSocketOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerLivenessProbeTcpSocketInput` via:
+//
+//	WorkloadInitContainerLivenessProbeTcpSocketArgs{...}
+type WorkloadInitContainerLivenessProbeTcpSocketInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerLivenessProbeTcpSocketOutput() WorkloadInitContainerLivenessProbeTcpSocketOutput
+	ToWorkloadInitContainerLivenessProbeTcpSocketOutputWithContext(context.Context) WorkloadInitContainerLivenessProbeTcpSocketOutput
+}
+
+type WorkloadInitContainerLivenessProbeTcpSocketArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (WorkloadInitContainerLivenessProbeTcpSocketArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerLivenessProbeTcpSocket)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerLivenessProbeTcpSocketArgs) ToWorkloadInitContainerLivenessProbeTcpSocketOutput() WorkloadInitContainerLivenessProbeTcpSocketOutput {
+	return i.ToWorkloadInitContainerLivenessProbeTcpSocketOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerLivenessProbeTcpSocketArgs) ToWorkloadInitContainerLivenessProbeTcpSocketOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeTcpSocketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerLivenessProbeTcpSocketOutput)
+}
+
+func (i WorkloadInitContainerLivenessProbeTcpSocketArgs) ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return i.ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerLivenessProbeTcpSocketArgs) ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerLivenessProbeTcpSocketOutput).ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerLivenessProbeTcpSocketPtrInput is an input type that accepts WorkloadInitContainerLivenessProbeTcpSocketArgs, WorkloadInitContainerLivenessProbeTcpSocketPtr and WorkloadInitContainerLivenessProbeTcpSocketPtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerLivenessProbeTcpSocketPtrInput` via:
+//
+//	        WorkloadInitContainerLivenessProbeTcpSocketArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerLivenessProbeTcpSocketPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInitContainerLivenessProbeTcpSocketPtrOutput
+	ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutputWithContext(context.Context) WorkloadInitContainerLivenessProbeTcpSocketPtrOutput
+}
+
+type workloadInitContainerLivenessProbeTcpSocketPtrType WorkloadInitContainerLivenessProbeTcpSocketArgs
+
+func WorkloadInitContainerLivenessProbeTcpSocketPtr(v *WorkloadInitContainerLivenessProbeTcpSocketArgs) WorkloadInitContainerLivenessProbeTcpSocketPtrInput {
+	return (*workloadInitContainerLivenessProbeTcpSocketPtrType)(v)
+}
+
+func (*workloadInitContainerLivenessProbeTcpSocketPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerLivenessProbeTcpSocket)(nil)).Elem()
+}
+
+func (i *workloadInitContainerLivenessProbeTcpSocketPtrType) ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return i.ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerLivenessProbeTcpSocketPtrType) ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerLivenessProbeTcpSocketPtrOutput)
+}
+
+type WorkloadInitContainerLivenessProbeTcpSocketOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerLivenessProbeTcpSocketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerLivenessProbeTcpSocket)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerLivenessProbeTcpSocketOutput) ToWorkloadInitContainerLivenessProbeTcpSocketOutput() WorkloadInitContainerLivenessProbeTcpSocketOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeTcpSocketOutput) ToWorkloadInitContainerLivenessProbeTcpSocketOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeTcpSocketOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeTcpSocketOutput) ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o.ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerLivenessProbeTcpSocketOutput) ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerLivenessProbeTcpSocket) *WorkloadInitContainerLivenessProbeTcpSocket {
+		return &v
+	}).(WorkloadInitContainerLivenessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeTcpSocketOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInitContainerLivenessProbeTcpSocket) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type WorkloadInitContainerLivenessProbeTcpSocketPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerLivenessProbeTcpSocketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerLivenessProbeTcpSocket)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerLivenessProbeTcpSocketPtrOutput) ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeTcpSocketPtrOutput) ToWorkloadInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerLivenessProbeTcpSocketPtrOutput) Elem() WorkloadInitContainerLivenessProbeTcpSocketOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbeTcpSocket) WorkloadInitContainerLivenessProbeTcpSocket {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerLivenessProbeTcpSocket
+		return ret
+	}).(WorkloadInitContainerLivenessProbeTcpSocketOutput)
+}
+
+func (o WorkloadInitContainerLivenessProbeTcpSocketPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerLivenessProbeTcpSocket) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInitContainerPort struct {
+	EnableImplicitNetworkPolicy *bool   `pulumi:"enableImplicitNetworkPolicy"`
+	Name                        string  `pulumi:"name"`
+	Port                        int     `pulumi:"port"`
+	Protocol                    *string `pulumi:"protocol"`
+}
+
+// WorkloadInitContainerPortInput is an input type that accepts WorkloadInitContainerPortArgs and WorkloadInitContainerPortOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerPortInput` via:
+//
+//	WorkloadInitContainerPortArgs{...}
+type WorkloadInitContainerPortInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerPortOutput() WorkloadInitContainerPortOutput
+	ToWorkloadInitContainerPortOutputWithContext(context.Context) WorkloadInitContainerPortOutput
+}
+
+type WorkloadInitContainerPortArgs struct {
+	EnableImplicitNetworkPolicy pulumi.BoolPtrInput   `pulumi:"enableImplicitNetworkPolicy"`
+	Name                        pulumi.StringInput    `pulumi:"name"`
+	Port                        pulumi.IntInput       `pulumi:"port"`
+	Protocol                    pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (WorkloadInitContainerPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerPort)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerPortArgs) ToWorkloadInitContainerPortOutput() WorkloadInitContainerPortOutput {
+	return i.ToWorkloadInitContainerPortOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerPortArgs) ToWorkloadInitContainerPortOutputWithContext(ctx context.Context) WorkloadInitContainerPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerPortOutput)
+}
+
+// WorkloadInitContainerPortArrayInput is an input type that accepts WorkloadInitContainerPortArray and WorkloadInitContainerPortArrayOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerPortArrayInput` via:
+//
+//	WorkloadInitContainerPortArray{ WorkloadInitContainerPortArgs{...} }
+type WorkloadInitContainerPortArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerPortArrayOutput() WorkloadInitContainerPortArrayOutput
+	ToWorkloadInitContainerPortArrayOutputWithContext(context.Context) WorkloadInitContainerPortArrayOutput
+}
+
+type WorkloadInitContainerPortArray []WorkloadInitContainerPortInput
+
+func (WorkloadInitContainerPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInitContainerPort)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerPortArray) ToWorkloadInitContainerPortArrayOutput() WorkloadInitContainerPortArrayOutput {
+	return i.ToWorkloadInitContainerPortArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerPortArray) ToWorkloadInitContainerPortArrayOutputWithContext(ctx context.Context) WorkloadInitContainerPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerPortArrayOutput)
+}
+
+type WorkloadInitContainerPortOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerPort)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerPortOutput) ToWorkloadInitContainerPortOutput() WorkloadInitContainerPortOutput {
+	return o
+}
+
+func (o WorkloadInitContainerPortOutput) ToWorkloadInitContainerPortOutputWithContext(ctx context.Context) WorkloadInitContainerPortOutput {
+	return o
+}
+
+func (o WorkloadInitContainerPortOutput) EnableImplicitNetworkPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerPort) *bool { return v.EnableImplicitNetworkPolicy }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInitContainerPortOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInitContainerPort) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInitContainerPortOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInitContainerPort) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInitContainerPortOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInitContainerPortArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInitContainerPort)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerPortArrayOutput) ToWorkloadInitContainerPortArrayOutput() WorkloadInitContainerPortArrayOutput {
+	return o
+}
+
+func (o WorkloadInitContainerPortArrayOutput) ToWorkloadInitContainerPortArrayOutputWithContext(ctx context.Context) WorkloadInitContainerPortArrayOutput {
+	return o
+}
+
+func (o WorkloadInitContainerPortArrayOutput) Index(i pulumi.IntInput) WorkloadInitContainerPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInitContainerPort {
+		return vs[0].([]WorkloadInitContainerPort)[vs[1].(int)]
+	}).(WorkloadInitContainerPortOutput)
+}
+
+type WorkloadInitContainerReadinessProbe struct {
+	FailureThreshold    int                                           `pulumi:"failureThreshold"`
+	HttpGet             *WorkloadInitContainerReadinessProbeHttpGet   `pulumi:"httpGet"`
+	InitialDelaySeconds *int                                          `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       *int                                          `pulumi:"periodSeconds"`
+	SuccessThreshold    int                                           `pulumi:"successThreshold"`
+	TcpSocket           *WorkloadInitContainerReadinessProbeTcpSocket `pulumi:"tcpSocket"`
+	TimeoutSeconds      *int                                          `pulumi:"timeoutSeconds"`
+}
+
+// WorkloadInitContainerReadinessProbeInput is an input type that accepts WorkloadInitContainerReadinessProbeArgs and WorkloadInitContainerReadinessProbeOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerReadinessProbeInput` via:
+//
+//	WorkloadInitContainerReadinessProbeArgs{...}
+type WorkloadInitContainerReadinessProbeInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerReadinessProbeOutput() WorkloadInitContainerReadinessProbeOutput
+	ToWorkloadInitContainerReadinessProbeOutputWithContext(context.Context) WorkloadInitContainerReadinessProbeOutput
+}
+
+type WorkloadInitContainerReadinessProbeArgs struct {
+	FailureThreshold    pulumi.IntInput                                      `pulumi:"failureThreshold"`
+	HttpGet             WorkloadInitContainerReadinessProbeHttpGetPtrInput   `pulumi:"httpGet"`
+	InitialDelaySeconds pulumi.IntPtrInput                                   `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       pulumi.IntPtrInput                                   `pulumi:"periodSeconds"`
+	SuccessThreshold    pulumi.IntInput                                      `pulumi:"successThreshold"`
+	TcpSocket           WorkloadInitContainerReadinessProbeTcpSocketPtrInput `pulumi:"tcpSocket"`
+	TimeoutSeconds      pulumi.IntPtrInput                                   `pulumi:"timeoutSeconds"`
+}
+
+func (WorkloadInitContainerReadinessProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerReadinessProbe)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerReadinessProbeArgs) ToWorkloadInitContainerReadinessProbeOutput() WorkloadInitContainerReadinessProbeOutput {
+	return i.ToWorkloadInitContainerReadinessProbeOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerReadinessProbeArgs) ToWorkloadInitContainerReadinessProbeOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerReadinessProbeOutput)
+}
+
+func (i WorkloadInitContainerReadinessProbeArgs) ToWorkloadInitContainerReadinessProbePtrOutput() WorkloadInitContainerReadinessProbePtrOutput {
+	return i.ToWorkloadInitContainerReadinessProbePtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerReadinessProbeArgs) ToWorkloadInitContainerReadinessProbePtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerReadinessProbeOutput).ToWorkloadInitContainerReadinessProbePtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerReadinessProbePtrInput is an input type that accepts WorkloadInitContainerReadinessProbeArgs, WorkloadInitContainerReadinessProbePtr and WorkloadInitContainerReadinessProbePtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerReadinessProbePtrInput` via:
+//
+//	        WorkloadInitContainerReadinessProbeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerReadinessProbePtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerReadinessProbePtrOutput() WorkloadInitContainerReadinessProbePtrOutput
+	ToWorkloadInitContainerReadinessProbePtrOutputWithContext(context.Context) WorkloadInitContainerReadinessProbePtrOutput
+}
+
+type workloadInitContainerReadinessProbePtrType WorkloadInitContainerReadinessProbeArgs
+
+func WorkloadInitContainerReadinessProbePtr(v *WorkloadInitContainerReadinessProbeArgs) WorkloadInitContainerReadinessProbePtrInput {
+	return (*workloadInitContainerReadinessProbePtrType)(v)
+}
+
+func (*workloadInitContainerReadinessProbePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerReadinessProbe)(nil)).Elem()
+}
+
+func (i *workloadInitContainerReadinessProbePtrType) ToWorkloadInitContainerReadinessProbePtrOutput() WorkloadInitContainerReadinessProbePtrOutput {
+	return i.ToWorkloadInitContainerReadinessProbePtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerReadinessProbePtrType) ToWorkloadInitContainerReadinessProbePtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerReadinessProbePtrOutput)
+}
+
+type WorkloadInitContainerReadinessProbeOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerReadinessProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerReadinessProbe)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) ToWorkloadInitContainerReadinessProbeOutput() WorkloadInitContainerReadinessProbeOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) ToWorkloadInitContainerReadinessProbeOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) ToWorkloadInitContainerReadinessProbePtrOutput() WorkloadInitContainerReadinessProbePtrOutput {
+	return o.ToWorkloadInitContainerReadinessProbePtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) ToWorkloadInitContainerReadinessProbePtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerReadinessProbe) *WorkloadInitContainerReadinessProbe {
+		return &v
+	}).(WorkloadInitContainerReadinessProbePtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) FailureThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) HttpGet() WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbe) *WorkloadInitContainerReadinessProbeHttpGet {
+		return v.HttpGet
+	}).(WorkloadInitContainerReadinessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) SuccessThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) TcpSocket() WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbe) *WorkloadInitContainerReadinessProbeTcpSocket {
+		return v.TcpSocket
+	}).(WorkloadInitContainerReadinessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInitContainerReadinessProbePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerReadinessProbePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerReadinessProbe)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) ToWorkloadInitContainerReadinessProbePtrOutput() WorkloadInitContainerReadinessProbePtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) ToWorkloadInitContainerReadinessProbePtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbePtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) Elem() WorkloadInitContainerReadinessProbeOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbe) WorkloadInitContainerReadinessProbe {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerReadinessProbe
+		return ret
+	}).(WorkloadInitContainerReadinessProbeOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) HttpGet() WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbe) *WorkloadInitContainerReadinessProbeHttpGet {
+		if v == nil {
+			return nil
+		}
+		return v.HttpGet
+	}).(WorkloadInitContainerReadinessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InitialDelaySeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SuccessThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) TcpSocket() WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbe) *WorkloadInitContainerReadinessProbeTcpSocket {
+		if v == nil {
+			return nil
+		}
+		return v.TcpSocket
+	}).(WorkloadInitContainerReadinessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInitContainerReadinessProbeHttpGet struct {
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	Path        *string           `pulumi:"path"`
+	Port        int               `pulumi:"port"`
+	Scheme      *string           `pulumi:"scheme"`
+}
+
+// WorkloadInitContainerReadinessProbeHttpGetInput is an input type that accepts WorkloadInitContainerReadinessProbeHttpGetArgs and WorkloadInitContainerReadinessProbeHttpGetOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerReadinessProbeHttpGetInput` via:
+//
+//	WorkloadInitContainerReadinessProbeHttpGetArgs{...}
+type WorkloadInitContainerReadinessProbeHttpGetInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerReadinessProbeHttpGetOutput() WorkloadInitContainerReadinessProbeHttpGetOutput
+	ToWorkloadInitContainerReadinessProbeHttpGetOutputWithContext(context.Context) WorkloadInitContainerReadinessProbeHttpGetOutput
+}
+
+type WorkloadInitContainerReadinessProbeHttpGetArgs struct {
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	Path        pulumi.StringPtrInput `pulumi:"path"`
+	Port        pulumi.IntInput       `pulumi:"port"`
+	Scheme      pulumi.StringPtrInput `pulumi:"scheme"`
+}
+
+func (WorkloadInitContainerReadinessProbeHttpGetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerReadinessProbeHttpGet)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerReadinessProbeHttpGetArgs) ToWorkloadInitContainerReadinessProbeHttpGetOutput() WorkloadInitContainerReadinessProbeHttpGetOutput {
+	return i.ToWorkloadInitContainerReadinessProbeHttpGetOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerReadinessProbeHttpGetArgs) ToWorkloadInitContainerReadinessProbeHttpGetOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeHttpGetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerReadinessProbeHttpGetOutput)
+}
+
+func (i WorkloadInitContainerReadinessProbeHttpGetArgs) ToWorkloadInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return i.ToWorkloadInitContainerReadinessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerReadinessProbeHttpGetArgs) ToWorkloadInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerReadinessProbeHttpGetOutput).ToWorkloadInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerReadinessProbeHttpGetPtrInput is an input type that accepts WorkloadInitContainerReadinessProbeHttpGetArgs, WorkloadInitContainerReadinessProbeHttpGetPtr and WorkloadInitContainerReadinessProbeHttpGetPtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerReadinessProbeHttpGetPtrInput` via:
+//
+//	        WorkloadInitContainerReadinessProbeHttpGetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerReadinessProbeHttpGetPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInitContainerReadinessProbeHttpGetPtrOutput
+	ToWorkloadInitContainerReadinessProbeHttpGetPtrOutputWithContext(context.Context) WorkloadInitContainerReadinessProbeHttpGetPtrOutput
+}
+
+type workloadInitContainerReadinessProbeHttpGetPtrType WorkloadInitContainerReadinessProbeHttpGetArgs
+
+func WorkloadInitContainerReadinessProbeHttpGetPtr(v *WorkloadInitContainerReadinessProbeHttpGetArgs) WorkloadInitContainerReadinessProbeHttpGetPtrInput {
+	return (*workloadInitContainerReadinessProbeHttpGetPtrType)(v)
+}
+
+func (*workloadInitContainerReadinessProbeHttpGetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerReadinessProbeHttpGet)(nil)).Elem()
+}
+
+func (i *workloadInitContainerReadinessProbeHttpGetPtrType) ToWorkloadInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return i.ToWorkloadInitContainerReadinessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerReadinessProbeHttpGetPtrType) ToWorkloadInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerReadinessProbeHttpGetPtrOutput)
+}
+
+type WorkloadInitContainerReadinessProbeHttpGetOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerReadinessProbeHttpGetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerReadinessProbeHttpGet)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetOutput) ToWorkloadInitContainerReadinessProbeHttpGetOutput() WorkloadInitContainerReadinessProbeHttpGetOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetOutput) ToWorkloadInitContainerReadinessProbeHttpGetOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeHttpGetOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetOutput) ToWorkloadInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return o.ToWorkloadInitContainerReadinessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetOutput) ToWorkloadInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerReadinessProbeHttpGet) *WorkloadInitContainerReadinessProbeHttpGet {
+		return &v
+	}).(WorkloadInitContainerReadinessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbeHttpGet) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbeHttpGet) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInitContainerReadinessProbeHttpGetPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerReadinessProbeHttpGetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerReadinessProbeHttpGet)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetPtrOutput) ToWorkloadInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetPtrOutput) ToWorkloadInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeHttpGetPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetPtrOutput) Elem() WorkloadInitContainerReadinessProbeHttpGetOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbeHttpGet) WorkloadInitContainerReadinessProbeHttpGet {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerReadinessProbeHttpGet
+		return ret
+	}).(WorkloadInitContainerReadinessProbeHttpGetOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetPtrOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbeHttpGet) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpHeaders
+	}).(pulumi.StringMapOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbeHttpGet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbeHttpGet) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeHttpGetPtrOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbeHttpGet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scheme
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInitContainerReadinessProbeTcpSocket struct {
+	Port int `pulumi:"port"`
+}
+
+// WorkloadInitContainerReadinessProbeTcpSocketInput is an input type that accepts WorkloadInitContainerReadinessProbeTcpSocketArgs and WorkloadInitContainerReadinessProbeTcpSocketOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerReadinessProbeTcpSocketInput` via:
+//
+//	WorkloadInitContainerReadinessProbeTcpSocketArgs{...}
+type WorkloadInitContainerReadinessProbeTcpSocketInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerReadinessProbeTcpSocketOutput() WorkloadInitContainerReadinessProbeTcpSocketOutput
+	ToWorkloadInitContainerReadinessProbeTcpSocketOutputWithContext(context.Context) WorkloadInitContainerReadinessProbeTcpSocketOutput
+}
+
+type WorkloadInitContainerReadinessProbeTcpSocketArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (WorkloadInitContainerReadinessProbeTcpSocketArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerReadinessProbeTcpSocket)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerReadinessProbeTcpSocketArgs) ToWorkloadInitContainerReadinessProbeTcpSocketOutput() WorkloadInitContainerReadinessProbeTcpSocketOutput {
+	return i.ToWorkloadInitContainerReadinessProbeTcpSocketOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerReadinessProbeTcpSocketArgs) ToWorkloadInitContainerReadinessProbeTcpSocketOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeTcpSocketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerReadinessProbeTcpSocketOutput)
+}
+
+func (i WorkloadInitContainerReadinessProbeTcpSocketArgs) ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return i.ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerReadinessProbeTcpSocketArgs) ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerReadinessProbeTcpSocketOutput).ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerReadinessProbeTcpSocketPtrInput is an input type that accepts WorkloadInitContainerReadinessProbeTcpSocketArgs, WorkloadInitContainerReadinessProbeTcpSocketPtr and WorkloadInitContainerReadinessProbeTcpSocketPtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerReadinessProbeTcpSocketPtrInput` via:
+//
+//	        WorkloadInitContainerReadinessProbeTcpSocketArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerReadinessProbeTcpSocketPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInitContainerReadinessProbeTcpSocketPtrOutput
+	ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutputWithContext(context.Context) WorkloadInitContainerReadinessProbeTcpSocketPtrOutput
+}
+
+type workloadInitContainerReadinessProbeTcpSocketPtrType WorkloadInitContainerReadinessProbeTcpSocketArgs
+
+func WorkloadInitContainerReadinessProbeTcpSocketPtr(v *WorkloadInitContainerReadinessProbeTcpSocketArgs) WorkloadInitContainerReadinessProbeTcpSocketPtrInput {
+	return (*workloadInitContainerReadinessProbeTcpSocketPtrType)(v)
+}
+
+func (*workloadInitContainerReadinessProbeTcpSocketPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerReadinessProbeTcpSocket)(nil)).Elem()
+}
+
+func (i *workloadInitContainerReadinessProbeTcpSocketPtrType) ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return i.ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerReadinessProbeTcpSocketPtrType) ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerReadinessProbeTcpSocketPtrOutput)
+}
+
+type WorkloadInitContainerReadinessProbeTcpSocketOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerReadinessProbeTcpSocketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerReadinessProbeTcpSocket)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerReadinessProbeTcpSocketOutput) ToWorkloadInitContainerReadinessProbeTcpSocketOutput() WorkloadInitContainerReadinessProbeTcpSocketOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeTcpSocketOutput) ToWorkloadInitContainerReadinessProbeTcpSocketOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeTcpSocketOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeTcpSocketOutput) ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o.ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerReadinessProbeTcpSocketOutput) ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerReadinessProbeTcpSocket) *WorkloadInitContainerReadinessProbeTcpSocket {
+		return &v
+	}).(WorkloadInitContainerReadinessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeTcpSocketOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInitContainerReadinessProbeTcpSocket) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type WorkloadInitContainerReadinessProbeTcpSocketPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerReadinessProbeTcpSocketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerReadinessProbeTcpSocket)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerReadinessProbeTcpSocketPtrOutput) ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeTcpSocketPtrOutput) ToWorkloadInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerReadinessProbeTcpSocketPtrOutput) Elem() WorkloadInitContainerReadinessProbeTcpSocketOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbeTcpSocket) WorkloadInitContainerReadinessProbeTcpSocket {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerReadinessProbeTcpSocket
+		return ret
+	}).(WorkloadInitContainerReadinessProbeTcpSocketOutput)
+}
+
+func (o WorkloadInitContainerReadinessProbeTcpSocketPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerReadinessProbeTcpSocket) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInitContainerResources struct {
+	Requests map[string]string `pulumi:"requests"`
+}
+
+// WorkloadInitContainerResourcesInput is an input type that accepts WorkloadInitContainerResourcesArgs and WorkloadInitContainerResourcesOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerResourcesInput` via:
+//
+//	WorkloadInitContainerResourcesArgs{...}
+type WorkloadInitContainerResourcesInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerResourcesOutput() WorkloadInitContainerResourcesOutput
+	ToWorkloadInitContainerResourcesOutputWithContext(context.Context) WorkloadInitContainerResourcesOutput
+}
+
+type WorkloadInitContainerResourcesArgs struct {
+	Requests pulumi.StringMapInput `pulumi:"requests"`
+}
+
+func (WorkloadInitContainerResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerResources)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerResourcesArgs) ToWorkloadInitContainerResourcesOutput() WorkloadInitContainerResourcesOutput {
+	return i.ToWorkloadInitContainerResourcesOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerResourcesArgs) ToWorkloadInitContainerResourcesOutputWithContext(ctx context.Context) WorkloadInitContainerResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerResourcesOutput)
+}
+
+type WorkloadInitContainerResourcesOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerResources)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerResourcesOutput) ToWorkloadInitContainerResourcesOutput() WorkloadInitContainerResourcesOutput {
+	return o
+}
+
+func (o WorkloadInitContainerResourcesOutput) ToWorkloadInitContainerResourcesOutputWithContext(ctx context.Context) WorkloadInitContainerResourcesOutput {
+	return o
+}
+
+func (o WorkloadInitContainerResourcesOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkloadInitContainerResources) map[string]string { return v.Requests }).(pulumi.StringMapOutput)
+}
+
+type WorkloadInitContainerSecurityContext struct {
+	AllowPrivilegeEscalation *bool                                             `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             *WorkloadInitContainerSecurityContextCapabilities `pulumi:"capabilities"`
+	ReadOnlyRootFilesystem   *bool                                             `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               *string                                           `pulumi:"runAsGroup"`
+	RunAsNonRoot             *bool                                             `pulumi:"runAsNonRoot"`
+	RunAsUser                *string                                           `pulumi:"runAsUser"`
+}
+
+// WorkloadInitContainerSecurityContextInput is an input type that accepts WorkloadInitContainerSecurityContextArgs and WorkloadInitContainerSecurityContextOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerSecurityContextInput` via:
+//
+//	WorkloadInitContainerSecurityContextArgs{...}
+type WorkloadInitContainerSecurityContextInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerSecurityContextOutput() WorkloadInitContainerSecurityContextOutput
+	ToWorkloadInitContainerSecurityContextOutputWithContext(context.Context) WorkloadInitContainerSecurityContextOutput
+}
+
+type WorkloadInitContainerSecurityContextArgs struct {
+	AllowPrivilegeEscalation pulumi.BoolPtrInput                                      `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             WorkloadInitContainerSecurityContextCapabilitiesPtrInput `pulumi:"capabilities"`
+	ReadOnlyRootFilesystem   pulumi.BoolPtrInput                                      `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               pulumi.StringPtrInput                                    `pulumi:"runAsGroup"`
+	RunAsNonRoot             pulumi.BoolPtrInput                                      `pulumi:"runAsNonRoot"`
+	RunAsUser                pulumi.StringPtrInput                                    `pulumi:"runAsUser"`
+}
+
+func (WorkloadInitContainerSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerSecurityContextArgs) ToWorkloadInitContainerSecurityContextOutput() WorkloadInitContainerSecurityContextOutput {
+	return i.ToWorkloadInitContainerSecurityContextOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerSecurityContextArgs) ToWorkloadInitContainerSecurityContextOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerSecurityContextOutput)
+}
+
+func (i WorkloadInitContainerSecurityContextArgs) ToWorkloadInitContainerSecurityContextPtrOutput() WorkloadInitContainerSecurityContextPtrOutput {
+	return i.ToWorkloadInitContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerSecurityContextArgs) ToWorkloadInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerSecurityContextOutput).ToWorkloadInitContainerSecurityContextPtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerSecurityContextPtrInput is an input type that accepts WorkloadInitContainerSecurityContextArgs, WorkloadInitContainerSecurityContextPtr and WorkloadInitContainerSecurityContextPtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerSecurityContextPtrInput` via:
+//
+//	        WorkloadInitContainerSecurityContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerSecurityContextPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerSecurityContextPtrOutput() WorkloadInitContainerSecurityContextPtrOutput
+	ToWorkloadInitContainerSecurityContextPtrOutputWithContext(context.Context) WorkloadInitContainerSecurityContextPtrOutput
+}
+
+type workloadInitContainerSecurityContextPtrType WorkloadInitContainerSecurityContextArgs
+
+func WorkloadInitContainerSecurityContextPtr(v *WorkloadInitContainerSecurityContextArgs) WorkloadInitContainerSecurityContextPtrInput {
+	return (*workloadInitContainerSecurityContextPtrType)(v)
+}
+
+func (*workloadInitContainerSecurityContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (i *workloadInitContainerSecurityContextPtrType) ToWorkloadInitContainerSecurityContextPtrOutput() WorkloadInitContainerSecurityContextPtrOutput {
+	return i.ToWorkloadInitContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerSecurityContextPtrType) ToWorkloadInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerSecurityContextPtrOutput)
+}
+
+type WorkloadInitContainerSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) ToWorkloadInitContainerSecurityContextOutput() WorkloadInitContainerSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) ToWorkloadInitContainerSecurityContextOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) ToWorkloadInitContainerSecurityContextPtrOutput() WorkloadInitContainerSecurityContextPtrOutput {
+	return o.ToWorkloadInitContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) ToWorkloadInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerSecurityContext) *WorkloadInitContainerSecurityContext {
+		return &v
+	}).(WorkloadInitContainerSecurityContextPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerSecurityContext) *bool { return v.AllowPrivilegeEscalation }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) Capabilities() WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerSecurityContext) *WorkloadInitContainerSecurityContextCapabilities {
+		return v.Capabilities
+	}).(WorkloadInitContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerSecurityContext) *bool { return v.ReadOnlyRootFilesystem }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerSecurityContext) *string { return v.RunAsGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerSecurityContext) *bool { return v.RunAsNonRoot }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerSecurityContext) *string { return v.RunAsUser }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInitContainerSecurityContextPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerSecurityContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerSecurityContextPtrOutput) ToWorkloadInitContainerSecurityContextPtrOutput() WorkloadInitContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerSecurityContextPtrOutput) ToWorkloadInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerSecurityContextPtrOutput) Elem() WorkloadInitContainerSecurityContextOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContext) WorkloadInitContainerSecurityContext {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerSecurityContext
+		return ret
+	}).(WorkloadInitContainerSecurityContextOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextPtrOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextPtrOutput) Capabilities() WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContext) *WorkloadInitContainerSecurityContextCapabilities {
+		if v == nil {
+			return nil
+		}
+		return v.Capabilities
+	}).(WorkloadInitContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextPtrOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnlyRootFilesystem
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextPtrOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsNonRoot
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextPtrOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsUser
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInitContainerSecurityContextCapabilities struct {
+	Adds  []string `pulumi:"adds"`
+	Drops []string `pulumi:"drops"`
+}
+
+// WorkloadInitContainerSecurityContextCapabilitiesInput is an input type that accepts WorkloadInitContainerSecurityContextCapabilitiesArgs and WorkloadInitContainerSecurityContextCapabilitiesOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerSecurityContextCapabilitiesInput` via:
+//
+//	WorkloadInitContainerSecurityContextCapabilitiesArgs{...}
+type WorkloadInitContainerSecurityContextCapabilitiesInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerSecurityContextCapabilitiesOutput() WorkloadInitContainerSecurityContextCapabilitiesOutput
+	ToWorkloadInitContainerSecurityContextCapabilitiesOutputWithContext(context.Context) WorkloadInitContainerSecurityContextCapabilitiesOutput
+}
+
+type WorkloadInitContainerSecurityContextCapabilitiesArgs struct {
+	Adds  pulumi.StringArrayInput `pulumi:"adds"`
+	Drops pulumi.StringArrayInput `pulumi:"drops"`
+}
+
+func (WorkloadInitContainerSecurityContextCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerSecurityContextCapabilitiesArgs) ToWorkloadInitContainerSecurityContextCapabilitiesOutput() WorkloadInitContainerSecurityContextCapabilitiesOutput {
+	return i.ToWorkloadInitContainerSecurityContextCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerSecurityContextCapabilitiesArgs) ToWorkloadInitContainerSecurityContextCapabilitiesOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerSecurityContextCapabilitiesOutput)
+}
+
+func (i WorkloadInitContainerSecurityContextCapabilitiesArgs) ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return i.ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerSecurityContextCapabilitiesArgs) ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerSecurityContextCapabilitiesOutput).ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerSecurityContextCapabilitiesPtrInput is an input type that accepts WorkloadInitContainerSecurityContextCapabilitiesArgs, WorkloadInitContainerSecurityContextCapabilitiesPtr and WorkloadInitContainerSecurityContextCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerSecurityContextCapabilitiesPtrInput` via:
+//
+//	        WorkloadInitContainerSecurityContextCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerSecurityContextCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInitContainerSecurityContextCapabilitiesPtrOutput
+	ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Context) WorkloadInitContainerSecurityContextCapabilitiesPtrOutput
+}
+
+type workloadInitContainerSecurityContextCapabilitiesPtrType WorkloadInitContainerSecurityContextCapabilitiesArgs
+
+func WorkloadInitContainerSecurityContextCapabilitiesPtr(v *WorkloadInitContainerSecurityContextCapabilitiesArgs) WorkloadInitContainerSecurityContextCapabilitiesPtrInput {
+	return (*workloadInitContainerSecurityContextCapabilitiesPtrType)(v)
+}
+
+func (*workloadInitContainerSecurityContextCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (i *workloadInitContainerSecurityContextCapabilitiesPtrType) ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return i.ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerSecurityContextCapabilitiesPtrType) ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+type WorkloadInitContainerSecurityContextCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerSecurityContextCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesOutput) ToWorkloadInitContainerSecurityContextCapabilitiesOutput() WorkloadInitContainerSecurityContextCapabilitiesOutput {
+	return o
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesOutput) ToWorkloadInitContainerSecurityContextCapabilitiesOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextCapabilitiesOutput {
+	return o
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesOutput) ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesOutput) ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerSecurityContextCapabilities) *WorkloadInitContainerSecurityContextCapabilities {
+		return &v
+	}).(WorkloadInitContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesOutput) Adds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInitContainerSecurityContextCapabilities) []string { return v.Adds }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesOutput) Drops() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInitContainerSecurityContextCapabilities) []string { return v.Drops }).(pulumi.StringArrayOutput)
+}
+
+type WorkloadInitContainerSecurityContextCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerSecurityContextCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesPtrOutput) ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesPtrOutput) ToWorkloadInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesPtrOutput) Elem() WorkloadInitContainerSecurityContextCapabilitiesOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContextCapabilities) WorkloadInitContainerSecurityContextCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerSecurityContextCapabilities
+		return ret
+	}).(WorkloadInitContainerSecurityContextCapabilitiesOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesPtrOutput) Adds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContextCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Adds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadInitContainerSecurityContextCapabilitiesPtrOutput) Drops() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerSecurityContextCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Drops
+	}).(pulumi.StringArrayOutput)
+}
+
+type WorkloadInitContainerVolumeMount struct {
+	MountPath string `pulumi:"mountPath"`
+	Slug      string `pulumi:"slug"`
+}
+
+// WorkloadInitContainerVolumeMountInput is an input type that accepts WorkloadInitContainerVolumeMountArgs and WorkloadInitContainerVolumeMountOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerVolumeMountInput` via:
+//
+//	WorkloadInitContainerVolumeMountArgs{...}
+type WorkloadInitContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerVolumeMountOutput() WorkloadInitContainerVolumeMountOutput
+	ToWorkloadInitContainerVolumeMountOutputWithContext(context.Context) WorkloadInitContainerVolumeMountOutput
+}
+
+type WorkloadInitContainerVolumeMountArgs struct {
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	Slug      pulumi.StringInput `pulumi:"slug"`
+}
+
+func (WorkloadInitContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerVolumeMountArgs) ToWorkloadInitContainerVolumeMountOutput() WorkloadInitContainerVolumeMountOutput {
+	return i.ToWorkloadInitContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerVolumeMountArgs) ToWorkloadInitContainerVolumeMountOutputWithContext(ctx context.Context) WorkloadInitContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerVolumeMountOutput)
+}
+
+// WorkloadInitContainerVolumeMountArrayInput is an input type that accepts WorkloadInitContainerVolumeMountArray and WorkloadInitContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerVolumeMountArrayInput` via:
+//
+//	WorkloadInitContainerVolumeMountArray{ WorkloadInitContainerVolumeMountArgs{...} }
+type WorkloadInitContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerVolumeMountArrayOutput() WorkloadInitContainerVolumeMountArrayOutput
+	ToWorkloadInitContainerVolumeMountArrayOutputWithContext(context.Context) WorkloadInitContainerVolumeMountArrayOutput
+}
+
+type WorkloadInitContainerVolumeMountArray []WorkloadInitContainerVolumeMountInput
+
+func (WorkloadInitContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerVolumeMountArray) ToWorkloadInitContainerVolumeMountArrayOutput() WorkloadInitContainerVolumeMountArrayOutput {
+	return i.ToWorkloadInitContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerVolumeMountArray) ToWorkloadInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) WorkloadInitContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerVolumeMountArrayOutput)
+}
+
+type WorkloadInitContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerVolumeMountOutput) ToWorkloadInitContainerVolumeMountOutput() WorkloadInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o WorkloadInitContainerVolumeMountOutput) ToWorkloadInitContainerVolumeMountOutputWithContext(ctx context.Context) WorkloadInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o WorkloadInitContainerVolumeMountOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInitContainerVolumeMount) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInitContainerVolumeMountOutput) Slug() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInitContainerVolumeMount) string { return v.Slug }).(pulumi.StringOutput)
+}
+
+type WorkloadInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerVolumeMountArrayOutput) ToWorkloadInitContainerVolumeMountArrayOutput() WorkloadInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o WorkloadInitContainerVolumeMountArrayOutput) ToWorkloadInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) WorkloadInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o WorkloadInitContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) WorkloadInitContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInitContainerVolumeMount {
+		return vs[0].([]WorkloadInitContainerVolumeMount)[vs[1].(int)]
+	}).(WorkloadInitContainerVolumeMountOutput)
+}
+
 type WorkloadInstance struct {
 	Containers          []WorkloadInstanceContainer        `pulumi:"containers"`
 	ExternalIpAddress   *string                            `pulumi:"externalIpAddress"`
 	ExternalIpv6Address *string                            `pulumi:"externalIpv6Address"`
+	InitContainers      []WorkloadInstanceInitContainer    `pulumi:"initContainers"`
 	IpAddress           *string                            `pulumi:"ipAddress"`
 	Ipv6Address         *string                            `pulumi:"ipv6Address"`
 	Location            *WorkloadInstanceLocation          `pulumi:"location"`
@@ -6745,6 +8695,7 @@ type WorkloadInstanceArgs struct {
 	Containers          WorkloadInstanceContainerArrayInput        `pulumi:"containers"`
 	ExternalIpAddress   pulumi.StringPtrInput                      `pulumi:"externalIpAddress"`
 	ExternalIpv6Address pulumi.StringPtrInput                      `pulumi:"externalIpv6Address"`
+	InitContainers      WorkloadInstanceInitContainerArrayInput    `pulumi:"initContainers"`
 	IpAddress           pulumi.StringPtrInput                      `pulumi:"ipAddress"`
 	Ipv6Address         pulumi.StringPtrInput                      `pulumi:"ipv6Address"`
 	Location            WorkloadInstanceLocationPtrInput           `pulumi:"location"`
@@ -6818,6 +8769,10 @@ func (o WorkloadInstanceOutput) ExternalIpAddress() pulumi.StringPtrOutput {
 
 func (o WorkloadInstanceOutput) ExternalIpv6Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadInstance) *string { return v.ExternalIpv6Address }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceOutput) InitContainers() WorkloadInstanceInitContainerArrayOutput {
+	return o.ApplyT(func(v WorkloadInstance) []WorkloadInstanceInitContainer { return v.InitContainers }).(WorkloadInstanceInitContainerArrayOutput)
 }
 
 func (o WorkloadInstanceOutput) IpAddress() pulumi.StringPtrOutput {
@@ -8827,6 +10782,1963 @@ func (o WorkloadInstanceContainerVolumeMountArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInstanceContainerVolumeMount {
 		return vs[0].([]WorkloadInstanceContainerVolumeMount)[vs[1].(int)]
 	}).(WorkloadInstanceContainerVolumeMountOutput)
+}
+
+type WorkloadInstanceInitContainer struct {
+	Commands        []string                                      `pulumi:"commands"`
+	Envs            []WorkloadInstanceInitContainerEnv            `pulumi:"envs"`
+	Image           string                                        `pulumi:"image"`
+	LivenessProbe   *WorkloadInstanceInitContainerLivenessProbe   `pulumi:"livenessProbe"`
+	Name            string                                        `pulumi:"name"`
+	Ports           []WorkloadInstanceInitContainerPort           `pulumi:"ports"`
+	ReadinessProbe  *WorkloadInstanceInitContainerReadinessProbe  `pulumi:"readinessProbe"`
+	Resources       WorkloadInstanceInitContainerResources        `pulumi:"resources"`
+	SecurityContext *WorkloadInstanceInitContainerSecurityContext `pulumi:"securityContext"`
+	VolumeMounts    []WorkloadInstanceInitContainerVolumeMount    `pulumi:"volumeMounts"`
+}
+
+// WorkloadInstanceInitContainerInput is an input type that accepts WorkloadInstanceInitContainerArgs and WorkloadInstanceInitContainerOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerInput` via:
+//
+//	WorkloadInstanceInitContainerArgs{...}
+type WorkloadInstanceInitContainerInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerOutput() WorkloadInstanceInitContainerOutput
+	ToWorkloadInstanceInitContainerOutputWithContext(context.Context) WorkloadInstanceInitContainerOutput
+}
+
+type WorkloadInstanceInitContainerArgs struct {
+	Commands        pulumi.StringArrayInput                              `pulumi:"commands"`
+	Envs            WorkloadInstanceInitContainerEnvArrayInput           `pulumi:"envs"`
+	Image           pulumi.StringInput                                   `pulumi:"image"`
+	LivenessProbe   WorkloadInstanceInitContainerLivenessProbePtrInput   `pulumi:"livenessProbe"`
+	Name            pulumi.StringInput                                   `pulumi:"name"`
+	Ports           WorkloadInstanceInitContainerPortArrayInput          `pulumi:"ports"`
+	ReadinessProbe  WorkloadInstanceInitContainerReadinessProbePtrInput  `pulumi:"readinessProbe"`
+	Resources       WorkloadInstanceInitContainerResourcesInput          `pulumi:"resources"`
+	SecurityContext WorkloadInstanceInitContainerSecurityContextPtrInput `pulumi:"securityContext"`
+	VolumeMounts    WorkloadInstanceInitContainerVolumeMountArrayInput   `pulumi:"volumeMounts"`
+}
+
+func (WorkloadInstanceInitContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainer)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerArgs) ToWorkloadInstanceInitContainerOutput() WorkloadInstanceInitContainerOutput {
+	return i.ToWorkloadInstanceInitContainerOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerArgs) ToWorkloadInstanceInitContainerOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerOutput)
+}
+
+// WorkloadInstanceInitContainerArrayInput is an input type that accepts WorkloadInstanceInitContainerArray and WorkloadInstanceInitContainerArrayOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerArrayInput` via:
+//
+//	WorkloadInstanceInitContainerArray{ WorkloadInstanceInitContainerArgs{...} }
+type WorkloadInstanceInitContainerArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerArrayOutput() WorkloadInstanceInitContainerArrayOutput
+	ToWorkloadInstanceInitContainerArrayOutputWithContext(context.Context) WorkloadInstanceInitContainerArrayOutput
+}
+
+type WorkloadInstanceInitContainerArray []WorkloadInstanceInitContainerInput
+
+func (WorkloadInstanceInitContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInstanceInitContainer)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerArray) ToWorkloadInstanceInitContainerArrayOutput() WorkloadInstanceInitContainerArrayOutput {
+	return i.ToWorkloadInstanceInitContainerArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerArray) ToWorkloadInstanceInitContainerArrayOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerArrayOutput)
+}
+
+type WorkloadInstanceInitContainerOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainer)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerOutput) ToWorkloadInstanceInitContainerOutput() WorkloadInstanceInitContainerOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerOutput) ToWorkloadInstanceInitContainerOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadInstanceInitContainerOutput) Envs() WorkloadInstanceInitContainerEnvArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) []WorkloadInstanceInitContainerEnv { return v.Envs }).(WorkloadInstanceInitContainerEnvArrayOutput)
+}
+
+func (o WorkloadInstanceInitContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInstanceInitContainerOutput) LivenessProbe() WorkloadInstanceInitContainerLivenessProbePtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) *WorkloadInstanceInitContainerLivenessProbe {
+		return v.LivenessProbe
+	}).(WorkloadInstanceInitContainerLivenessProbePtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInstanceInitContainerOutput) Ports() WorkloadInstanceInitContainerPortArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) []WorkloadInstanceInitContainerPort { return v.Ports }).(WorkloadInstanceInitContainerPortArrayOutput)
+}
+
+func (o WorkloadInstanceInitContainerOutput) ReadinessProbe() WorkloadInstanceInitContainerReadinessProbePtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) *WorkloadInstanceInitContainerReadinessProbe {
+		return v.ReadinessProbe
+	}).(WorkloadInstanceInitContainerReadinessProbePtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerOutput) Resources() WorkloadInstanceInitContainerResourcesOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) WorkloadInstanceInitContainerResources { return v.Resources }).(WorkloadInstanceInitContainerResourcesOutput)
+}
+
+func (o WorkloadInstanceInitContainerOutput) SecurityContext() WorkloadInstanceInitContainerSecurityContextPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) *WorkloadInstanceInitContainerSecurityContext {
+		return v.SecurityContext
+	}).(WorkloadInstanceInitContainerSecurityContextPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerOutput) VolumeMounts() WorkloadInstanceInitContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) []WorkloadInstanceInitContainerVolumeMount {
+		return v.VolumeMounts
+	}).(WorkloadInstanceInitContainerVolumeMountArrayOutput)
+}
+
+type WorkloadInstanceInitContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInstanceInitContainer)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerArrayOutput) ToWorkloadInstanceInitContainerArrayOutput() WorkloadInstanceInitContainerArrayOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerArrayOutput) ToWorkloadInstanceInitContainerArrayOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerArrayOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerArrayOutput) Index(i pulumi.IntInput) WorkloadInstanceInitContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInstanceInitContainer {
+		return vs[0].([]WorkloadInstanceInitContainer)[vs[1].(int)]
+	}).(WorkloadInstanceInitContainerOutput)
+}
+
+type WorkloadInstanceInitContainerEnv struct {
+	Key         string  `pulumi:"key"`
+	SecretValue *string `pulumi:"secretValue"`
+	Value       *string `pulumi:"value"`
+}
+
+// WorkloadInstanceInitContainerEnvInput is an input type that accepts WorkloadInstanceInitContainerEnvArgs and WorkloadInstanceInitContainerEnvOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerEnvInput` via:
+//
+//	WorkloadInstanceInitContainerEnvArgs{...}
+type WorkloadInstanceInitContainerEnvInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerEnvOutput() WorkloadInstanceInitContainerEnvOutput
+	ToWorkloadInstanceInitContainerEnvOutputWithContext(context.Context) WorkloadInstanceInitContainerEnvOutput
+}
+
+type WorkloadInstanceInitContainerEnvArgs struct {
+	Key         pulumi.StringInput    `pulumi:"key"`
+	SecretValue pulumi.StringPtrInput `pulumi:"secretValue"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WorkloadInstanceInitContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerEnv)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerEnvArgs) ToWorkloadInstanceInitContainerEnvOutput() WorkloadInstanceInitContainerEnvOutput {
+	return i.ToWorkloadInstanceInitContainerEnvOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerEnvArgs) ToWorkloadInstanceInitContainerEnvOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerEnvOutput)
+}
+
+// WorkloadInstanceInitContainerEnvArrayInput is an input type that accepts WorkloadInstanceInitContainerEnvArray and WorkloadInstanceInitContainerEnvArrayOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerEnvArrayInput` via:
+//
+//	WorkloadInstanceInitContainerEnvArray{ WorkloadInstanceInitContainerEnvArgs{...} }
+type WorkloadInstanceInitContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerEnvArrayOutput() WorkloadInstanceInitContainerEnvArrayOutput
+	ToWorkloadInstanceInitContainerEnvArrayOutputWithContext(context.Context) WorkloadInstanceInitContainerEnvArrayOutput
+}
+
+type WorkloadInstanceInitContainerEnvArray []WorkloadInstanceInitContainerEnvInput
+
+func (WorkloadInstanceInitContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInstanceInitContainerEnv)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerEnvArray) ToWorkloadInstanceInitContainerEnvArrayOutput() WorkloadInstanceInitContainerEnvArrayOutput {
+	return i.ToWorkloadInstanceInitContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerEnvArray) ToWorkloadInstanceInitContainerEnvArrayOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerEnvArrayOutput)
+}
+
+type WorkloadInstanceInitContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerEnv)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerEnvOutput) ToWorkloadInstanceInitContainerEnvOutput() WorkloadInstanceInitContainerEnvOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvOutput) ToWorkloadInstanceInitContainerEnvOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerEnv) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInstanceInitContainerEnvOutput) SecretValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerEnv) *string { return v.SecretValue }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerEnvOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceInitContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInstanceInitContainerEnv)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerEnvArrayOutput) ToWorkloadInstanceInitContainerEnvArrayOutput() WorkloadInstanceInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvArrayOutput) ToWorkloadInstanceInitContainerEnvArrayOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvArrayOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvArrayOutput) Index(i pulumi.IntInput) WorkloadInstanceInitContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInstanceInitContainerEnv {
+		return vs[0].([]WorkloadInstanceInitContainerEnv)[vs[1].(int)]
+	}).(WorkloadInstanceInitContainerEnvOutput)
+}
+
+type WorkloadInstanceInitContainerLivenessProbe struct {
+	FailureThreshold    int                                                  `pulumi:"failureThreshold"`
+	HttpGet             *WorkloadInstanceInitContainerLivenessProbeHttpGet   `pulumi:"httpGet"`
+	InitialDelaySeconds *int                                                 `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       *int                                                 `pulumi:"periodSeconds"`
+	SuccessThreshold    int                                                  `pulumi:"successThreshold"`
+	TcpSocket           *WorkloadInstanceInitContainerLivenessProbeTcpSocket `pulumi:"tcpSocket"`
+	TimeoutSeconds      *int                                                 `pulumi:"timeoutSeconds"`
+}
+
+// WorkloadInstanceInitContainerLivenessProbeInput is an input type that accepts WorkloadInstanceInitContainerLivenessProbeArgs and WorkloadInstanceInitContainerLivenessProbeOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerLivenessProbeInput` via:
+//
+//	WorkloadInstanceInitContainerLivenessProbeArgs{...}
+type WorkloadInstanceInitContainerLivenessProbeInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerLivenessProbeOutput() WorkloadInstanceInitContainerLivenessProbeOutput
+	ToWorkloadInstanceInitContainerLivenessProbeOutputWithContext(context.Context) WorkloadInstanceInitContainerLivenessProbeOutput
+}
+
+type WorkloadInstanceInitContainerLivenessProbeArgs struct {
+	FailureThreshold    pulumi.IntInput                                             `pulumi:"failureThreshold"`
+	HttpGet             WorkloadInstanceInitContainerLivenessProbeHttpGetPtrInput   `pulumi:"httpGet"`
+	InitialDelaySeconds pulumi.IntPtrInput                                          `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       pulumi.IntPtrInput                                          `pulumi:"periodSeconds"`
+	SuccessThreshold    pulumi.IntInput                                             `pulumi:"successThreshold"`
+	TcpSocket           WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrInput `pulumi:"tcpSocket"`
+	TimeoutSeconds      pulumi.IntPtrInput                                          `pulumi:"timeoutSeconds"`
+}
+
+func (WorkloadInstanceInitContainerLivenessProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbe)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeArgs) ToWorkloadInstanceInitContainerLivenessProbeOutput() WorkloadInstanceInitContainerLivenessProbeOutput {
+	return i.ToWorkloadInstanceInitContainerLivenessProbeOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeArgs) ToWorkloadInstanceInitContainerLivenessProbeOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerLivenessProbeOutput)
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeArgs) ToWorkloadInstanceInitContainerLivenessProbePtrOutput() WorkloadInstanceInitContainerLivenessProbePtrOutput {
+	return i.ToWorkloadInstanceInitContainerLivenessProbePtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeArgs) ToWorkloadInstanceInitContainerLivenessProbePtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerLivenessProbeOutput).ToWorkloadInstanceInitContainerLivenessProbePtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerLivenessProbePtrInput is an input type that accepts WorkloadInstanceInitContainerLivenessProbeArgs, WorkloadInstanceInitContainerLivenessProbePtr and WorkloadInstanceInitContainerLivenessProbePtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerLivenessProbePtrInput` via:
+//
+//	        WorkloadInstanceInitContainerLivenessProbeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerLivenessProbePtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerLivenessProbePtrOutput() WorkloadInstanceInitContainerLivenessProbePtrOutput
+	ToWorkloadInstanceInitContainerLivenessProbePtrOutputWithContext(context.Context) WorkloadInstanceInitContainerLivenessProbePtrOutput
+}
+
+type workloadInstanceInitContainerLivenessProbePtrType WorkloadInstanceInitContainerLivenessProbeArgs
+
+func WorkloadInstanceInitContainerLivenessProbePtr(v *WorkloadInstanceInitContainerLivenessProbeArgs) WorkloadInstanceInitContainerLivenessProbePtrInput {
+	return (*workloadInstanceInitContainerLivenessProbePtrType)(v)
+}
+
+func (*workloadInstanceInitContainerLivenessProbePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerLivenessProbe)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerLivenessProbePtrType) ToWorkloadInstanceInitContainerLivenessProbePtrOutput() WorkloadInstanceInitContainerLivenessProbePtrOutput {
+	return i.ToWorkloadInstanceInitContainerLivenessProbePtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerLivenessProbePtrType) ToWorkloadInstanceInitContainerLivenessProbePtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerLivenessProbePtrOutput)
+}
+
+type WorkloadInstanceInitContainerLivenessProbeOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerLivenessProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbe)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) ToWorkloadInstanceInitContainerLivenessProbeOutput() WorkloadInstanceInitContainerLivenessProbeOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) ToWorkloadInstanceInitContainerLivenessProbeOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) ToWorkloadInstanceInitContainerLivenessProbePtrOutput() WorkloadInstanceInitContainerLivenessProbePtrOutput {
+	return o.ToWorkloadInstanceInitContainerLivenessProbePtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) ToWorkloadInstanceInitContainerLivenessProbePtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerLivenessProbe) *WorkloadInstanceInitContainerLivenessProbe {
+		return &v
+	}).(WorkloadInstanceInitContainerLivenessProbePtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) FailureThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) HttpGet() WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbe) *WorkloadInstanceInitContainerLivenessProbeHttpGet {
+		return v.HttpGet
+	}).(WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) SuccessThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) TcpSocket() WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbe) *WorkloadInstanceInitContainerLivenessProbeTcpSocket {
+		return v.TcpSocket
+	}).(WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInstanceInitContainerLivenessProbePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerLivenessProbePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerLivenessProbe)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) ToWorkloadInstanceInitContainerLivenessProbePtrOutput() WorkloadInstanceInitContainerLivenessProbePtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) ToWorkloadInstanceInitContainerLivenessProbePtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbePtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) Elem() WorkloadInstanceInitContainerLivenessProbeOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbe) WorkloadInstanceInitContainerLivenessProbe {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerLivenessProbe
+		return ret
+	}).(WorkloadInstanceInitContainerLivenessProbeOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) HttpGet() WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbe) *WorkloadInstanceInitContainerLivenessProbeHttpGet {
+		if v == nil {
+			return nil
+		}
+		return v.HttpGet
+	}).(WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InitialDelaySeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SuccessThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) TcpSocket() WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbe) *WorkloadInstanceInitContainerLivenessProbeTcpSocket {
+		if v == nil {
+			return nil
+		}
+		return v.TcpSocket
+	}).(WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInstanceInitContainerLivenessProbeHttpGet struct {
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	Path        *string           `pulumi:"path"`
+	Port        int               `pulumi:"port"`
+	Scheme      *string           `pulumi:"scheme"`
+}
+
+// WorkloadInstanceInitContainerLivenessProbeHttpGetInput is an input type that accepts WorkloadInstanceInitContainerLivenessProbeHttpGetArgs and WorkloadInstanceInitContainerLivenessProbeHttpGetOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerLivenessProbeHttpGetInput` via:
+//
+//	WorkloadInstanceInitContainerLivenessProbeHttpGetArgs{...}
+type WorkloadInstanceInitContainerLivenessProbeHttpGetInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerLivenessProbeHttpGetOutput() WorkloadInstanceInitContainerLivenessProbeHttpGetOutput
+	ToWorkloadInstanceInitContainerLivenessProbeHttpGetOutputWithContext(context.Context) WorkloadInstanceInitContainerLivenessProbeHttpGetOutput
+}
+
+type WorkloadInstanceInitContainerLivenessProbeHttpGetArgs struct {
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	Path        pulumi.StringPtrInput `pulumi:"path"`
+	Port        pulumi.IntInput       `pulumi:"port"`
+	Scheme      pulumi.StringPtrInput `pulumi:"scheme"`
+}
+
+func (WorkloadInstanceInitContainerLivenessProbeHttpGetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeHttpGet)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeHttpGetArgs) ToWorkloadInstanceInitContainerLivenessProbeHttpGetOutput() WorkloadInstanceInitContainerLivenessProbeHttpGetOutput {
+	return i.ToWorkloadInstanceInitContainerLivenessProbeHttpGetOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeHttpGetArgs) ToWorkloadInstanceInitContainerLivenessProbeHttpGetOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeHttpGetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerLivenessProbeHttpGetOutput)
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeHttpGetArgs) ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return i.ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeHttpGetArgs) ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerLivenessProbeHttpGetOutput).ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerLivenessProbeHttpGetPtrInput is an input type that accepts WorkloadInstanceInitContainerLivenessProbeHttpGetArgs, WorkloadInstanceInitContainerLivenessProbeHttpGetPtr and WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerLivenessProbeHttpGetPtrInput` via:
+//
+//	        WorkloadInstanceInitContainerLivenessProbeHttpGetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerLivenessProbeHttpGetPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput
+	ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutputWithContext(context.Context) WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput
+}
+
+type workloadInstanceInitContainerLivenessProbeHttpGetPtrType WorkloadInstanceInitContainerLivenessProbeHttpGetArgs
+
+func WorkloadInstanceInitContainerLivenessProbeHttpGetPtr(v *WorkloadInstanceInitContainerLivenessProbeHttpGetArgs) WorkloadInstanceInitContainerLivenessProbeHttpGetPtrInput {
+	return (*workloadInstanceInitContainerLivenessProbeHttpGetPtrType)(v)
+}
+
+func (*workloadInstanceInitContainerLivenessProbeHttpGetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerLivenessProbeHttpGet)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerLivenessProbeHttpGetPtrType) ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return i.ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerLivenessProbeHttpGetPtrType) ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput)
+}
+
+type WorkloadInstanceInitContainerLivenessProbeHttpGetOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerLivenessProbeHttpGetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeHttpGet)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetOutput) ToWorkloadInstanceInitContainerLivenessProbeHttpGetOutput() WorkloadInstanceInitContainerLivenessProbeHttpGetOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetOutput) ToWorkloadInstanceInitContainerLivenessProbeHttpGetOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeHttpGetOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetOutput) ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return o.ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetOutput) ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerLivenessProbeHttpGet) *WorkloadInstanceInitContainerLivenessProbeHttpGet {
+		return &v
+	}).(WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbeHttpGet) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbeHttpGet) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerLivenessProbeHttpGet)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput) ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput) ToWorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput) Elem() WorkloadInstanceInitContainerLivenessProbeHttpGetOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbeHttpGet) WorkloadInstanceInitContainerLivenessProbeHttpGet {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerLivenessProbeHttpGet
+		return ret
+	}).(WorkloadInstanceInitContainerLivenessProbeHttpGetOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbeHttpGet) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpHeaders
+	}).(pulumi.StringMapOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbeHttpGet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbeHttpGet) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbeHttpGet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scheme
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceInitContainerLivenessProbeTcpSocket struct {
+	Port int `pulumi:"port"`
+}
+
+// WorkloadInstanceInitContainerLivenessProbeTcpSocketInput is an input type that accepts WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs and WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerLivenessProbeTcpSocketInput` via:
+//
+//	WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs{...}
+type WorkloadInstanceInitContainerLivenessProbeTcpSocketInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerLivenessProbeTcpSocketOutput() WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput
+	ToWorkloadInstanceInitContainerLivenessProbeTcpSocketOutputWithContext(context.Context) WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput
+}
+
+type WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeTcpSocket)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketOutput() WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput {
+	return i.ToWorkloadInstanceInitContainerLivenessProbeTcpSocketOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput)
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return i.ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput).ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrInput is an input type that accepts WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs, WorkloadInstanceInitContainerLivenessProbeTcpSocketPtr and WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrInput` via:
+//
+//	        WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput
+	ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutputWithContext(context.Context) WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput
+}
+
+type workloadInstanceInitContainerLivenessProbeTcpSocketPtrType WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs
+
+func WorkloadInstanceInitContainerLivenessProbeTcpSocketPtr(v *WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs) WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrInput {
+	return (*workloadInstanceInitContainerLivenessProbeTcpSocketPtrType)(v)
+}
+
+func (*workloadInstanceInitContainerLivenessProbeTcpSocketPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerLivenessProbeTcpSocket)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerLivenessProbeTcpSocketPtrType) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return i.ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerLivenessProbeTcpSocketPtrType) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput)
+}
+
+type WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeTcpSocket)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketOutput() WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o.ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerLivenessProbeTcpSocket) *WorkloadInstanceInitContainerLivenessProbeTcpSocket {
+		return &v
+	}).(WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerLivenessProbeTcpSocket) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerLivenessProbeTcpSocket)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput) ToWorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput) Elem() WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbeTcpSocket) WorkloadInstanceInitContainerLivenessProbeTcpSocket {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerLivenessProbeTcpSocket
+		return ret
+	}).(WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput)
+}
+
+func (o WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerLivenessProbeTcpSocket) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInstanceInitContainerPort struct {
+	EnableImplicitNetworkPolicy *bool   `pulumi:"enableImplicitNetworkPolicy"`
+	Name                        string  `pulumi:"name"`
+	Port                        int     `pulumi:"port"`
+	Protocol                    *string `pulumi:"protocol"`
+}
+
+// WorkloadInstanceInitContainerPortInput is an input type that accepts WorkloadInstanceInitContainerPortArgs and WorkloadInstanceInitContainerPortOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerPortInput` via:
+//
+//	WorkloadInstanceInitContainerPortArgs{...}
+type WorkloadInstanceInitContainerPortInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerPortOutput() WorkloadInstanceInitContainerPortOutput
+	ToWorkloadInstanceInitContainerPortOutputWithContext(context.Context) WorkloadInstanceInitContainerPortOutput
+}
+
+type WorkloadInstanceInitContainerPortArgs struct {
+	EnableImplicitNetworkPolicy pulumi.BoolPtrInput   `pulumi:"enableImplicitNetworkPolicy"`
+	Name                        pulumi.StringInput    `pulumi:"name"`
+	Port                        pulumi.IntInput       `pulumi:"port"`
+	Protocol                    pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (WorkloadInstanceInitContainerPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerPort)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerPortArgs) ToWorkloadInstanceInitContainerPortOutput() WorkloadInstanceInitContainerPortOutput {
+	return i.ToWorkloadInstanceInitContainerPortOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerPortArgs) ToWorkloadInstanceInitContainerPortOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerPortOutput)
+}
+
+// WorkloadInstanceInitContainerPortArrayInput is an input type that accepts WorkloadInstanceInitContainerPortArray and WorkloadInstanceInitContainerPortArrayOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerPortArrayInput` via:
+//
+//	WorkloadInstanceInitContainerPortArray{ WorkloadInstanceInitContainerPortArgs{...} }
+type WorkloadInstanceInitContainerPortArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerPortArrayOutput() WorkloadInstanceInitContainerPortArrayOutput
+	ToWorkloadInstanceInitContainerPortArrayOutputWithContext(context.Context) WorkloadInstanceInitContainerPortArrayOutput
+}
+
+type WorkloadInstanceInitContainerPortArray []WorkloadInstanceInitContainerPortInput
+
+func (WorkloadInstanceInitContainerPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInstanceInitContainerPort)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerPortArray) ToWorkloadInstanceInitContainerPortArrayOutput() WorkloadInstanceInitContainerPortArrayOutput {
+	return i.ToWorkloadInstanceInitContainerPortArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerPortArray) ToWorkloadInstanceInitContainerPortArrayOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerPortArrayOutput)
+}
+
+type WorkloadInstanceInitContainerPortOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerPort)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerPortOutput) ToWorkloadInstanceInitContainerPortOutput() WorkloadInstanceInitContainerPortOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerPortOutput) ToWorkloadInstanceInitContainerPortOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerPortOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerPortOutput) EnableImplicitNetworkPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerPort) *bool { return v.EnableImplicitNetworkPolicy }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerPortOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerPort) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInstanceInitContainerPortOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerPort) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInstanceInitContainerPortOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceInitContainerPortArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInstanceInitContainerPort)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerPortArrayOutput) ToWorkloadInstanceInitContainerPortArrayOutput() WorkloadInstanceInitContainerPortArrayOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerPortArrayOutput) ToWorkloadInstanceInitContainerPortArrayOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerPortArrayOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerPortArrayOutput) Index(i pulumi.IntInput) WorkloadInstanceInitContainerPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInstanceInitContainerPort {
+		return vs[0].([]WorkloadInstanceInitContainerPort)[vs[1].(int)]
+	}).(WorkloadInstanceInitContainerPortOutput)
+}
+
+type WorkloadInstanceInitContainerReadinessProbe struct {
+	FailureThreshold    int                                                   `pulumi:"failureThreshold"`
+	HttpGet             *WorkloadInstanceInitContainerReadinessProbeHttpGet   `pulumi:"httpGet"`
+	InitialDelaySeconds *int                                                  `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       *int                                                  `pulumi:"periodSeconds"`
+	SuccessThreshold    int                                                   `pulumi:"successThreshold"`
+	TcpSocket           *WorkloadInstanceInitContainerReadinessProbeTcpSocket `pulumi:"tcpSocket"`
+	TimeoutSeconds      *int                                                  `pulumi:"timeoutSeconds"`
+}
+
+// WorkloadInstanceInitContainerReadinessProbeInput is an input type that accepts WorkloadInstanceInitContainerReadinessProbeArgs and WorkloadInstanceInitContainerReadinessProbeOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerReadinessProbeInput` via:
+//
+//	WorkloadInstanceInitContainerReadinessProbeArgs{...}
+type WorkloadInstanceInitContainerReadinessProbeInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerReadinessProbeOutput() WorkloadInstanceInitContainerReadinessProbeOutput
+	ToWorkloadInstanceInitContainerReadinessProbeOutputWithContext(context.Context) WorkloadInstanceInitContainerReadinessProbeOutput
+}
+
+type WorkloadInstanceInitContainerReadinessProbeArgs struct {
+	FailureThreshold    pulumi.IntInput                                              `pulumi:"failureThreshold"`
+	HttpGet             WorkloadInstanceInitContainerReadinessProbeHttpGetPtrInput   `pulumi:"httpGet"`
+	InitialDelaySeconds pulumi.IntPtrInput                                           `pulumi:"initialDelaySeconds"`
+	PeriodSeconds       pulumi.IntPtrInput                                           `pulumi:"periodSeconds"`
+	SuccessThreshold    pulumi.IntInput                                              `pulumi:"successThreshold"`
+	TcpSocket           WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrInput `pulumi:"tcpSocket"`
+	TimeoutSeconds      pulumi.IntPtrInput                                           `pulumi:"timeoutSeconds"`
+}
+
+func (WorkloadInstanceInitContainerReadinessProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbe)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeArgs) ToWorkloadInstanceInitContainerReadinessProbeOutput() WorkloadInstanceInitContainerReadinessProbeOutput {
+	return i.ToWorkloadInstanceInitContainerReadinessProbeOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeArgs) ToWorkloadInstanceInitContainerReadinessProbeOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerReadinessProbeOutput)
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeArgs) ToWorkloadInstanceInitContainerReadinessProbePtrOutput() WorkloadInstanceInitContainerReadinessProbePtrOutput {
+	return i.ToWorkloadInstanceInitContainerReadinessProbePtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeArgs) ToWorkloadInstanceInitContainerReadinessProbePtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerReadinessProbeOutput).ToWorkloadInstanceInitContainerReadinessProbePtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerReadinessProbePtrInput is an input type that accepts WorkloadInstanceInitContainerReadinessProbeArgs, WorkloadInstanceInitContainerReadinessProbePtr and WorkloadInstanceInitContainerReadinessProbePtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerReadinessProbePtrInput` via:
+//
+//	        WorkloadInstanceInitContainerReadinessProbeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerReadinessProbePtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerReadinessProbePtrOutput() WorkloadInstanceInitContainerReadinessProbePtrOutput
+	ToWorkloadInstanceInitContainerReadinessProbePtrOutputWithContext(context.Context) WorkloadInstanceInitContainerReadinessProbePtrOutput
+}
+
+type workloadInstanceInitContainerReadinessProbePtrType WorkloadInstanceInitContainerReadinessProbeArgs
+
+func WorkloadInstanceInitContainerReadinessProbePtr(v *WorkloadInstanceInitContainerReadinessProbeArgs) WorkloadInstanceInitContainerReadinessProbePtrInput {
+	return (*workloadInstanceInitContainerReadinessProbePtrType)(v)
+}
+
+func (*workloadInstanceInitContainerReadinessProbePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerReadinessProbe)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerReadinessProbePtrType) ToWorkloadInstanceInitContainerReadinessProbePtrOutput() WorkloadInstanceInitContainerReadinessProbePtrOutput {
+	return i.ToWorkloadInstanceInitContainerReadinessProbePtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerReadinessProbePtrType) ToWorkloadInstanceInitContainerReadinessProbePtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerReadinessProbePtrOutput)
+}
+
+type WorkloadInstanceInitContainerReadinessProbeOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerReadinessProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbe)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) ToWorkloadInstanceInitContainerReadinessProbeOutput() WorkloadInstanceInitContainerReadinessProbeOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) ToWorkloadInstanceInitContainerReadinessProbeOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) ToWorkloadInstanceInitContainerReadinessProbePtrOutput() WorkloadInstanceInitContainerReadinessProbePtrOutput {
+	return o.ToWorkloadInstanceInitContainerReadinessProbePtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) ToWorkloadInstanceInitContainerReadinessProbePtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerReadinessProbe) *WorkloadInstanceInitContainerReadinessProbe {
+		return &v
+	}).(WorkloadInstanceInitContainerReadinessProbePtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) FailureThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbe) int { return v.FailureThreshold }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) HttpGet() WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbe) *WorkloadInstanceInitContainerReadinessProbeHttpGet {
+		return v.HttpGet
+	}).(WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) SuccessThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbe) int { return v.SuccessThreshold }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) TcpSocket() WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbe) *WorkloadInstanceInitContainerReadinessProbeTcpSocket {
+		return v.TcpSocket
+	}).(WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInstanceInitContainerReadinessProbePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerReadinessProbePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerReadinessProbe)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) ToWorkloadInstanceInitContainerReadinessProbePtrOutput() WorkloadInstanceInitContainerReadinessProbePtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) ToWorkloadInstanceInitContainerReadinessProbePtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbePtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) Elem() WorkloadInstanceInitContainerReadinessProbeOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbe) WorkloadInstanceInitContainerReadinessProbe {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerReadinessProbe
+		return ret
+	}).(WorkloadInstanceInitContainerReadinessProbeOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FailureThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) HttpGet() WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbe) *WorkloadInstanceInitContainerReadinessProbeHttpGet {
+		if v == nil {
+			return nil
+		}
+		return v.HttpGet
+	}).(WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InitialDelaySeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PeriodSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SuccessThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) TcpSocket() WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbe) *WorkloadInstanceInitContainerReadinessProbeTcpSocket {
+		if v == nil {
+			return nil
+		}
+		return v.TcpSocket
+	}).(WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbe) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInstanceInitContainerReadinessProbeHttpGet struct {
+	HttpHeaders map[string]string `pulumi:"httpHeaders"`
+	Path        *string           `pulumi:"path"`
+	Port        int               `pulumi:"port"`
+	Scheme      *string           `pulumi:"scheme"`
+}
+
+// WorkloadInstanceInitContainerReadinessProbeHttpGetInput is an input type that accepts WorkloadInstanceInitContainerReadinessProbeHttpGetArgs and WorkloadInstanceInitContainerReadinessProbeHttpGetOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerReadinessProbeHttpGetInput` via:
+//
+//	WorkloadInstanceInitContainerReadinessProbeHttpGetArgs{...}
+type WorkloadInstanceInitContainerReadinessProbeHttpGetInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerReadinessProbeHttpGetOutput() WorkloadInstanceInitContainerReadinessProbeHttpGetOutput
+	ToWorkloadInstanceInitContainerReadinessProbeHttpGetOutputWithContext(context.Context) WorkloadInstanceInitContainerReadinessProbeHttpGetOutput
+}
+
+type WorkloadInstanceInitContainerReadinessProbeHttpGetArgs struct {
+	HttpHeaders pulumi.StringMapInput `pulumi:"httpHeaders"`
+	Path        pulumi.StringPtrInput `pulumi:"path"`
+	Port        pulumi.IntInput       `pulumi:"port"`
+	Scheme      pulumi.StringPtrInput `pulumi:"scheme"`
+}
+
+func (WorkloadInstanceInitContainerReadinessProbeHttpGetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbeHttpGet)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeHttpGetArgs) ToWorkloadInstanceInitContainerReadinessProbeHttpGetOutput() WorkloadInstanceInitContainerReadinessProbeHttpGetOutput {
+	return i.ToWorkloadInstanceInitContainerReadinessProbeHttpGetOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeHttpGetArgs) ToWorkloadInstanceInitContainerReadinessProbeHttpGetOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeHttpGetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerReadinessProbeHttpGetOutput)
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeHttpGetArgs) ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return i.ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeHttpGetArgs) ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerReadinessProbeHttpGetOutput).ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerReadinessProbeHttpGetPtrInput is an input type that accepts WorkloadInstanceInitContainerReadinessProbeHttpGetArgs, WorkloadInstanceInitContainerReadinessProbeHttpGetPtr and WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerReadinessProbeHttpGetPtrInput` via:
+//
+//	        WorkloadInstanceInitContainerReadinessProbeHttpGetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerReadinessProbeHttpGetPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput
+	ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutputWithContext(context.Context) WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput
+}
+
+type workloadInstanceInitContainerReadinessProbeHttpGetPtrType WorkloadInstanceInitContainerReadinessProbeHttpGetArgs
+
+func WorkloadInstanceInitContainerReadinessProbeHttpGetPtr(v *WorkloadInstanceInitContainerReadinessProbeHttpGetArgs) WorkloadInstanceInitContainerReadinessProbeHttpGetPtrInput {
+	return (*workloadInstanceInitContainerReadinessProbeHttpGetPtrType)(v)
+}
+
+func (*workloadInstanceInitContainerReadinessProbeHttpGetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerReadinessProbeHttpGet)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerReadinessProbeHttpGetPtrType) ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return i.ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerReadinessProbeHttpGetPtrType) ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput)
+}
+
+type WorkloadInstanceInitContainerReadinessProbeHttpGetOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerReadinessProbeHttpGetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbeHttpGet)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetOutput) ToWorkloadInstanceInitContainerReadinessProbeHttpGetOutput() WorkloadInstanceInitContainerReadinessProbeHttpGetOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetOutput) ToWorkloadInstanceInitContainerReadinessProbeHttpGetOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeHttpGetOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetOutput) ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return o.ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetOutput) ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerReadinessProbeHttpGet) *WorkloadInstanceInitContainerReadinessProbeHttpGet {
+		return &v
+	}).(WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbeHttpGet) map[string]string { return v.HttpHeaders }).(pulumi.StringMapOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbeHttpGet) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbeHttpGet) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbeHttpGet) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerReadinessProbeHttpGet)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput) ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput() WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput) ToWorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput) Elem() WorkloadInstanceInitContainerReadinessProbeHttpGetOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbeHttpGet) WorkloadInstanceInitContainerReadinessProbeHttpGet {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerReadinessProbeHttpGet
+		return ret
+	}).(WorkloadInstanceInitContainerReadinessProbeHttpGetOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput) HttpHeaders() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbeHttpGet) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpHeaders
+	}).(pulumi.StringMapOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbeHttpGet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbeHttpGet) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput) Scheme() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbeHttpGet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scheme
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceInitContainerReadinessProbeTcpSocket struct {
+	Port int `pulumi:"port"`
+}
+
+// WorkloadInstanceInitContainerReadinessProbeTcpSocketInput is an input type that accepts WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs and WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerReadinessProbeTcpSocketInput` via:
+//
+//	WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs{...}
+type WorkloadInstanceInitContainerReadinessProbeTcpSocketInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerReadinessProbeTcpSocketOutput() WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput
+	ToWorkloadInstanceInitContainerReadinessProbeTcpSocketOutputWithContext(context.Context) WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput
+}
+
+type WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs struct {
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbeTcpSocket)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketOutput() WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput {
+	return i.ToWorkloadInstanceInitContainerReadinessProbeTcpSocketOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput)
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return i.ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput).ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrInput is an input type that accepts WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs, WorkloadInstanceInitContainerReadinessProbeTcpSocketPtr and WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrInput` via:
+//
+//	        WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput
+	ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutputWithContext(context.Context) WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput
+}
+
+type workloadInstanceInitContainerReadinessProbeTcpSocketPtrType WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs
+
+func WorkloadInstanceInitContainerReadinessProbeTcpSocketPtr(v *WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs) WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrInput {
+	return (*workloadInstanceInitContainerReadinessProbeTcpSocketPtrType)(v)
+}
+
+func (*workloadInstanceInitContainerReadinessProbeTcpSocketPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerReadinessProbeTcpSocket)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerReadinessProbeTcpSocketPtrType) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return i.ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerReadinessProbeTcpSocketPtrType) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput)
+}
+
+type WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbeTcpSocket)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketOutput() WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o.ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerReadinessProbeTcpSocket) *WorkloadInstanceInitContainerReadinessProbeTcpSocket {
+		return &v
+	}).(WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerReadinessProbeTcpSocket) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerReadinessProbeTcpSocket)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput() WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput) ToWorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput) Elem() WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbeTcpSocket) WorkloadInstanceInitContainerReadinessProbeTcpSocket {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerReadinessProbeTcpSocket
+		return ret
+	}).(WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput)
+}
+
+func (o WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerReadinessProbeTcpSocket) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkloadInstanceInitContainerResources struct {
+	Requests map[string]string `pulumi:"requests"`
+}
+
+// WorkloadInstanceInitContainerResourcesInput is an input type that accepts WorkloadInstanceInitContainerResourcesArgs and WorkloadInstanceInitContainerResourcesOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerResourcesInput` via:
+//
+//	WorkloadInstanceInitContainerResourcesArgs{...}
+type WorkloadInstanceInitContainerResourcesInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerResourcesOutput() WorkloadInstanceInitContainerResourcesOutput
+	ToWorkloadInstanceInitContainerResourcesOutputWithContext(context.Context) WorkloadInstanceInitContainerResourcesOutput
+}
+
+type WorkloadInstanceInitContainerResourcesArgs struct {
+	Requests pulumi.StringMapInput `pulumi:"requests"`
+}
+
+func (WorkloadInstanceInitContainerResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerResources)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerResourcesArgs) ToWorkloadInstanceInitContainerResourcesOutput() WorkloadInstanceInitContainerResourcesOutput {
+	return i.ToWorkloadInstanceInitContainerResourcesOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerResourcesArgs) ToWorkloadInstanceInitContainerResourcesOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerResourcesOutput)
+}
+
+type WorkloadInstanceInitContainerResourcesOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerResources)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerResourcesOutput) ToWorkloadInstanceInitContainerResourcesOutput() WorkloadInstanceInitContainerResourcesOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerResourcesOutput) ToWorkloadInstanceInitContainerResourcesOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerResourcesOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerResourcesOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerResources) map[string]string { return v.Requests }).(pulumi.StringMapOutput)
+}
+
+type WorkloadInstanceInitContainerSecurityContext struct {
+	AllowPrivilegeEscalation *bool                                                     `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             *WorkloadInstanceInitContainerSecurityContextCapabilities `pulumi:"capabilities"`
+	ReadOnlyRootFilesystem   *bool                                                     `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               *string                                                   `pulumi:"runAsGroup"`
+	RunAsNonRoot             *bool                                                     `pulumi:"runAsNonRoot"`
+	RunAsUser                *string                                                   `pulumi:"runAsUser"`
+}
+
+// WorkloadInstanceInitContainerSecurityContextInput is an input type that accepts WorkloadInstanceInitContainerSecurityContextArgs and WorkloadInstanceInitContainerSecurityContextOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerSecurityContextInput` via:
+//
+//	WorkloadInstanceInitContainerSecurityContextArgs{...}
+type WorkloadInstanceInitContainerSecurityContextInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerSecurityContextOutput() WorkloadInstanceInitContainerSecurityContextOutput
+	ToWorkloadInstanceInitContainerSecurityContextOutputWithContext(context.Context) WorkloadInstanceInitContainerSecurityContextOutput
+}
+
+type WorkloadInstanceInitContainerSecurityContextArgs struct {
+	AllowPrivilegeEscalation pulumi.BoolPtrInput                                              `pulumi:"allowPrivilegeEscalation"`
+	Capabilities             WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrInput `pulumi:"capabilities"`
+	ReadOnlyRootFilesystem   pulumi.BoolPtrInput                                              `pulumi:"readOnlyRootFilesystem"`
+	RunAsGroup               pulumi.StringPtrInput                                            `pulumi:"runAsGroup"`
+	RunAsNonRoot             pulumi.BoolPtrInput                                              `pulumi:"runAsNonRoot"`
+	RunAsUser                pulumi.StringPtrInput                                            `pulumi:"runAsUser"`
+}
+
+func (WorkloadInstanceInitContainerSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerSecurityContextArgs) ToWorkloadInstanceInitContainerSecurityContextOutput() WorkloadInstanceInitContainerSecurityContextOutput {
+	return i.ToWorkloadInstanceInitContainerSecurityContextOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerSecurityContextArgs) ToWorkloadInstanceInitContainerSecurityContextOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerSecurityContextOutput)
+}
+
+func (i WorkloadInstanceInitContainerSecurityContextArgs) ToWorkloadInstanceInitContainerSecurityContextPtrOutput() WorkloadInstanceInitContainerSecurityContextPtrOutput {
+	return i.ToWorkloadInstanceInitContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerSecurityContextArgs) ToWorkloadInstanceInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerSecurityContextOutput).ToWorkloadInstanceInitContainerSecurityContextPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerSecurityContextPtrInput is an input type that accepts WorkloadInstanceInitContainerSecurityContextArgs, WorkloadInstanceInitContainerSecurityContextPtr and WorkloadInstanceInitContainerSecurityContextPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerSecurityContextPtrInput` via:
+//
+//	        WorkloadInstanceInitContainerSecurityContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerSecurityContextPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerSecurityContextPtrOutput() WorkloadInstanceInitContainerSecurityContextPtrOutput
+	ToWorkloadInstanceInitContainerSecurityContextPtrOutputWithContext(context.Context) WorkloadInstanceInitContainerSecurityContextPtrOutput
+}
+
+type workloadInstanceInitContainerSecurityContextPtrType WorkloadInstanceInitContainerSecurityContextArgs
+
+func WorkloadInstanceInitContainerSecurityContextPtr(v *WorkloadInstanceInitContainerSecurityContextArgs) WorkloadInstanceInitContainerSecurityContextPtrInput {
+	return (*workloadInstanceInitContainerSecurityContextPtrType)(v)
+}
+
+func (*workloadInstanceInitContainerSecurityContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerSecurityContextPtrType) ToWorkloadInstanceInitContainerSecurityContextPtrOutput() WorkloadInstanceInitContainerSecurityContextPtrOutput {
+	return i.ToWorkloadInstanceInitContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerSecurityContextPtrType) ToWorkloadInstanceInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerSecurityContextPtrOutput)
+}
+
+type WorkloadInstanceInitContainerSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) ToWorkloadInstanceInitContainerSecurityContextOutput() WorkloadInstanceInitContainerSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) ToWorkloadInstanceInitContainerSecurityContextOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) ToWorkloadInstanceInitContainerSecurityContextPtrOutput() WorkloadInstanceInitContainerSecurityContextPtrOutput {
+	return o.ToWorkloadInstanceInitContainerSecurityContextPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) ToWorkloadInstanceInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerSecurityContext) *WorkloadInstanceInitContainerSecurityContext {
+		return &v
+	}).(WorkloadInstanceInitContainerSecurityContextPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerSecurityContext) *bool { return v.AllowPrivilegeEscalation }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) Capabilities() WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerSecurityContext) *WorkloadInstanceInitContainerSecurityContextCapabilities {
+		return v.Capabilities
+	}).(WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerSecurityContext) *bool { return v.ReadOnlyRootFilesystem }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerSecurityContext) *string { return v.RunAsGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerSecurityContext) *bool { return v.RunAsNonRoot }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerSecurityContext) *string { return v.RunAsUser }).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceInitContainerSecurityContextPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerSecurityContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerSecurityContext)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextPtrOutput) ToWorkloadInstanceInitContainerSecurityContextPtrOutput() WorkloadInstanceInitContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextPtrOutput) ToWorkloadInstanceInitContainerSecurityContextPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextPtrOutput) Elem() WorkloadInstanceInitContainerSecurityContextOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContext) WorkloadInstanceInitContainerSecurityContext {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerSecurityContext
+		return ret
+	}).(WorkloadInstanceInitContainerSecurityContextOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextPtrOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextPtrOutput) Capabilities() WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContext) *WorkloadInstanceInitContainerSecurityContextCapabilities {
+		if v == nil {
+			return nil
+		}
+		return v.Capabilities
+	}).(WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextPtrOutput) ReadOnlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnlyRootFilesystem
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextPtrOutput) RunAsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsNonRoot
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextPtrOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RunAsUser
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkloadInstanceInitContainerSecurityContextCapabilities struct {
+	Adds  []string `pulumi:"adds"`
+	Drops []string `pulumi:"drops"`
+}
+
+// WorkloadInstanceInitContainerSecurityContextCapabilitiesInput is an input type that accepts WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs and WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerSecurityContextCapabilitiesInput` via:
+//
+//	WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs{...}
+type WorkloadInstanceInitContainerSecurityContextCapabilitiesInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerSecurityContextCapabilitiesOutput() WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput
+	ToWorkloadInstanceInitContainerSecurityContextCapabilitiesOutputWithContext(context.Context) WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput
+}
+
+type WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs struct {
+	Adds  pulumi.StringArrayInput `pulumi:"adds"`
+	Drops pulumi.StringArrayInput `pulumi:"drops"`
+}
+
+func (WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesOutput() WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput {
+	return i.ToWorkloadInstanceInitContainerSecurityContextCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput)
+}
+
+func (i WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return i.ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput).ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrInput is an input type that accepts WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs, WorkloadInstanceInitContainerSecurityContextCapabilitiesPtr and WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrInput` via:
+//
+//	        WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput
+	ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Context) WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput
+}
+
+type workloadInstanceInitContainerSecurityContextCapabilitiesPtrType WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs
+
+func WorkloadInstanceInitContainerSecurityContextCapabilitiesPtr(v *WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs) WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrInput {
+	return (*workloadInstanceInitContainerSecurityContextCapabilitiesPtrType)(v)
+}
+
+func (*workloadInstanceInitContainerSecurityContextCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerSecurityContextCapabilitiesPtrType) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return i.ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerSecurityContextCapabilitiesPtrType) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+type WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesOutput() WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerSecurityContextCapabilities) *WorkloadInstanceInitContainerSecurityContextCapabilities {
+		return &v
+	}).(WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput) Adds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerSecurityContextCapabilities) []string { return v.Adds }).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput) Drops() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerSecurityContextCapabilities) []string { return v.Drops }).(pulumi.StringArrayOutput)
+}
+
+type WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerSecurityContextCapabilities)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput() WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput) ToWorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput) Elem() WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContextCapabilities) WorkloadInstanceInitContainerSecurityContextCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerSecurityContextCapabilities
+		return ret
+	}).(WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput) Adds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContextCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Adds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput) Drops() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerSecurityContextCapabilities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Drops
+	}).(pulumi.StringArrayOutput)
+}
+
+type WorkloadInstanceInitContainerVolumeMount struct {
+	MountPath string `pulumi:"mountPath"`
+	Slug      string `pulumi:"slug"`
+}
+
+// WorkloadInstanceInitContainerVolumeMountInput is an input type that accepts WorkloadInstanceInitContainerVolumeMountArgs and WorkloadInstanceInitContainerVolumeMountOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerVolumeMountInput` via:
+//
+//	WorkloadInstanceInitContainerVolumeMountArgs{...}
+type WorkloadInstanceInitContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerVolumeMountOutput() WorkloadInstanceInitContainerVolumeMountOutput
+	ToWorkloadInstanceInitContainerVolumeMountOutputWithContext(context.Context) WorkloadInstanceInitContainerVolumeMountOutput
+}
+
+type WorkloadInstanceInitContainerVolumeMountArgs struct {
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	Slug      pulumi.StringInput `pulumi:"slug"`
+}
+
+func (WorkloadInstanceInitContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerVolumeMountArgs) ToWorkloadInstanceInitContainerVolumeMountOutput() WorkloadInstanceInitContainerVolumeMountOutput {
+	return i.ToWorkloadInstanceInitContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerVolumeMountArgs) ToWorkloadInstanceInitContainerVolumeMountOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerVolumeMountOutput)
+}
+
+// WorkloadInstanceInitContainerVolumeMountArrayInput is an input type that accepts WorkloadInstanceInitContainerVolumeMountArray and WorkloadInstanceInitContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerVolumeMountArrayInput` via:
+//
+//	WorkloadInstanceInitContainerVolumeMountArray{ WorkloadInstanceInitContainerVolumeMountArgs{...} }
+type WorkloadInstanceInitContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerVolumeMountArrayOutput() WorkloadInstanceInitContainerVolumeMountArrayOutput
+	ToWorkloadInstanceInitContainerVolumeMountArrayOutputWithContext(context.Context) WorkloadInstanceInitContainerVolumeMountArrayOutput
+}
+
+type WorkloadInstanceInitContainerVolumeMountArray []WorkloadInstanceInitContainerVolumeMountInput
+
+func (WorkloadInstanceInitContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInstanceInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerVolumeMountArray) ToWorkloadInstanceInitContainerVolumeMountArrayOutput() WorkloadInstanceInitContainerVolumeMountArrayOutput {
+	return i.ToWorkloadInstanceInitContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerVolumeMountArray) ToWorkloadInstanceInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerVolumeMountArrayOutput)
+}
+
+type WorkloadInstanceInitContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerVolumeMountOutput) ToWorkloadInstanceInitContainerVolumeMountOutput() WorkloadInstanceInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerVolumeMountOutput) ToWorkloadInstanceInitContainerVolumeMountOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerVolumeMountOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerVolumeMountOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerVolumeMount) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+func (o WorkloadInstanceInitContainerVolumeMountOutput) Slug() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerVolumeMount) string { return v.Slug }).(pulumi.StringOutput)
+}
+
+type WorkloadInstanceInitContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkloadInstanceInitContainerVolumeMount)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerVolumeMountArrayOutput) ToWorkloadInstanceInitContainerVolumeMountArrayOutput() WorkloadInstanceInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerVolumeMountArrayOutput) ToWorkloadInstanceInitContainerVolumeMountArrayOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) WorkloadInstanceInitContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInstanceInitContainerVolumeMount {
+		return vs[0].([]WorkloadInstanceInitContainerVolumeMount)[vs[1].(int)]
+	}).(WorkloadInstanceInitContainerVolumeMountOutput)
 }
 
 type WorkloadInstanceLocation struct {
@@ -14086,6 +17998,31 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadImagePullCredentialInput)(nil)).Elem(), WorkloadImagePullCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadImagePullCredentialArrayInput)(nil)).Elem(), WorkloadImagePullCredentialArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadImagePullCredentialDockerRegistryInput)(nil)).Elem(), WorkloadImagePullCredentialDockerRegistryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerInput)(nil)).Elem(), WorkloadInitContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerArrayInput)(nil)).Elem(), WorkloadInitContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerEnvInput)(nil)).Elem(), WorkloadInitContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerEnvArrayInput)(nil)).Elem(), WorkloadInitContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerLivenessProbeInput)(nil)).Elem(), WorkloadInitContainerLivenessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerLivenessProbePtrInput)(nil)).Elem(), WorkloadInitContainerLivenessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerLivenessProbeHttpGetInput)(nil)).Elem(), WorkloadInitContainerLivenessProbeHttpGetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerLivenessProbeHttpGetPtrInput)(nil)).Elem(), WorkloadInitContainerLivenessProbeHttpGetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerLivenessProbeTcpSocketInput)(nil)).Elem(), WorkloadInitContainerLivenessProbeTcpSocketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerLivenessProbeTcpSocketPtrInput)(nil)).Elem(), WorkloadInitContainerLivenessProbeTcpSocketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerPortInput)(nil)).Elem(), WorkloadInitContainerPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerPortArrayInput)(nil)).Elem(), WorkloadInitContainerPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerReadinessProbeInput)(nil)).Elem(), WorkloadInitContainerReadinessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerReadinessProbePtrInput)(nil)).Elem(), WorkloadInitContainerReadinessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerReadinessProbeHttpGetInput)(nil)).Elem(), WorkloadInitContainerReadinessProbeHttpGetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerReadinessProbeHttpGetPtrInput)(nil)).Elem(), WorkloadInitContainerReadinessProbeHttpGetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerReadinessProbeTcpSocketInput)(nil)).Elem(), WorkloadInitContainerReadinessProbeTcpSocketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerReadinessProbeTcpSocketPtrInput)(nil)).Elem(), WorkloadInitContainerReadinessProbeTcpSocketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerResourcesInput)(nil)).Elem(), WorkloadInitContainerResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerSecurityContextInput)(nil)).Elem(), WorkloadInitContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerSecurityContextPtrInput)(nil)).Elem(), WorkloadInitContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerSecurityContextCapabilitiesInput)(nil)).Elem(), WorkloadInitContainerSecurityContextCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerSecurityContextCapabilitiesPtrInput)(nil)).Elem(), WorkloadInitContainerSecurityContextCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerVolumeMountInput)(nil)).Elem(), WorkloadInitContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerVolumeMountArrayInput)(nil)).Elem(), WorkloadInitContainerVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInput)(nil)).Elem(), WorkloadInstanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceArrayInput)(nil)).Elem(), WorkloadInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerInput)(nil)).Elem(), WorkloadInstanceContainerArgs{})
@@ -14113,6 +18050,31 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerSecurityContextCapabilitiesPtrInput)(nil)).Elem(), WorkloadInstanceContainerSecurityContextCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerVolumeMountInput)(nil)).Elem(), WorkloadInstanceContainerVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerVolumeMountArrayInput)(nil)).Elem(), WorkloadInstanceContainerVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerInput)(nil)).Elem(), WorkloadInstanceInitContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerArrayInput)(nil)).Elem(), WorkloadInstanceInitContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerEnvInput)(nil)).Elem(), WorkloadInstanceInitContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerEnvArrayInput)(nil)).Elem(), WorkloadInstanceInitContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeInput)(nil)).Elem(), WorkloadInstanceInitContainerLivenessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbePtrInput)(nil)).Elem(), WorkloadInstanceInitContainerLivenessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeHttpGetInput)(nil)).Elem(), WorkloadInstanceInitContainerLivenessProbeHttpGetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeHttpGetPtrInput)(nil)).Elem(), WorkloadInstanceInitContainerLivenessProbeHttpGetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeTcpSocketInput)(nil)).Elem(), WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrInput)(nil)).Elem(), WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerPortInput)(nil)).Elem(), WorkloadInstanceInitContainerPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerPortArrayInput)(nil)).Elem(), WorkloadInstanceInitContainerPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbeInput)(nil)).Elem(), WorkloadInstanceInitContainerReadinessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbePtrInput)(nil)).Elem(), WorkloadInstanceInitContainerReadinessProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbeHttpGetInput)(nil)).Elem(), WorkloadInstanceInitContainerReadinessProbeHttpGetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbeHttpGetPtrInput)(nil)).Elem(), WorkloadInstanceInitContainerReadinessProbeHttpGetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbeTcpSocketInput)(nil)).Elem(), WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrInput)(nil)).Elem(), WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerResourcesInput)(nil)).Elem(), WorkloadInstanceInitContainerResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerSecurityContextInput)(nil)).Elem(), WorkloadInstanceInitContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerSecurityContextPtrInput)(nil)).Elem(), WorkloadInstanceInitContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerSecurityContextCapabilitiesInput)(nil)).Elem(), WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrInput)(nil)).Elem(), WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerVolumeMountInput)(nil)).Elem(), WorkloadInstanceInitContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerVolumeMountArrayInput)(nil)).Elem(), WorkloadInstanceInitContainerVolumeMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceLocationInput)(nil)).Elem(), WorkloadInstanceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceLocationPtrInput)(nil)).Elem(), WorkloadInstanceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceMetadataInput)(nil)).Elem(), WorkloadInstanceMetadataArgs{})
@@ -14278,6 +18240,31 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadImagePullCredentialOutput{})
 	pulumi.RegisterOutputType(WorkloadImagePullCredentialArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadImagePullCredentialDockerRegistryOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerEnvOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerLivenessProbeOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerLivenessProbePtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerLivenessProbeHttpGetOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerLivenessProbeHttpGetPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerLivenessProbeTcpSocketOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerLivenessProbeTcpSocketPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerPortOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerPortArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerReadinessProbeOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerReadinessProbePtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerReadinessProbeHttpGetOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerReadinessProbeHttpGetPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerReadinessProbeTcpSocketOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerReadinessProbeTcpSocketPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerResourcesOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerSecurityContextOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerSecurityContextPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerSecurityContextCapabilitiesOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerSecurityContextCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerOutput{})
@@ -14305,6 +18292,31 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadInstanceContainerSecurityContextCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerVolumeMountOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerEnvOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerLivenessProbeOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerLivenessProbePtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerLivenessProbeHttpGetOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerLivenessProbeHttpGetPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerLivenessProbeTcpSocketOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerLivenessProbeTcpSocketPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerPortOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerPortArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerReadinessProbeOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerReadinessProbePtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerReadinessProbeHttpGetOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerReadinessProbeHttpGetPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerReadinessProbeTcpSocketOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerReadinessProbeTcpSocketPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerResourcesOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerSecurityContextOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerSecurityContextPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerSecurityContextCapabilitiesOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerSecurityContextCapabilitiesPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerVolumeMountArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceLocationOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceLocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceMetadataOutput{})

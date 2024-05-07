@@ -24,6 +24,7 @@ class WorkloadArgs:
                  container_runtime_environment: Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentArgs']] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerArgs']]]] = None,
                  image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadImagePullCredentialArgs']]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerArgs']]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceArgs']]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  virtual_machine: Optional[pulumi.Input['WorkloadVirtualMachineArgs']] = None,
@@ -44,6 +45,8 @@ class WorkloadArgs:
             pulumi.set(__self__, "containers", containers)
         if image_pull_credentials is not None:
             pulumi.set(__self__, "image_pull_credentials", image_pull_credentials)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
         if instances is not None:
             pulumi.set(__self__, "instances", instances)
         if labels is not None:
@@ -128,6 +131,15 @@ class WorkloadArgs:
         pulumi.set(self, "image_pull_credentials", value)
 
     @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerArgs']]]]:
+        return pulumi.get(self, "init_containers")
+
+    @init_containers.setter
+    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerArgs']]]]):
+        pulumi.set(self, "init_containers", value)
+
+    @property
     @pulumi.getter
     def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceArgs']]]]:
         return pulumi.get(self, "instances")
@@ -180,6 +192,7 @@ class _WorkloadState:
                  container_runtime_environment: Optional[pulumi.Input['WorkloadContainerRuntimeEnvironmentArgs']] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerArgs']]]] = None,
                  image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadImagePullCredentialArgs']]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerArgs']]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceArgs']]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -201,6 +214,8 @@ class _WorkloadState:
             pulumi.set(__self__, "containers", containers)
         if image_pull_credentials is not None:
             pulumi.set(__self__, "image_pull_credentials", image_pull_credentials)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
         if instances is not None:
             pulumi.set(__self__, "instances", instances)
         if labels is not None:
@@ -257,6 +272,15 @@ class _WorkloadState:
     @image_pull_credentials.setter
     def image_pull_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadImagePullCredentialArgs']]]]):
         pulumi.set(self, "image_pull_credentials", value)
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerArgs']]]]:
+        return pulumi.get(self, "init_containers")
+
+    @init_containers.setter
+    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerArgs']]]]):
+        pulumi.set(self, "init_containers", value)
 
     @property
     @pulumi.getter
@@ -358,6 +382,7 @@ class Workload(pulumi.CustomResource):
                  container_runtime_environment: Optional[pulumi.Input[pulumi.InputType['WorkloadContainerRuntimeEnvironmentArgs']]] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadContainerArgs']]]]] = None,
                  image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadImagePullCredentialArgs']]]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadInitContainerArgs']]]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadInstanceArgs']]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -400,6 +425,7 @@ class Workload(pulumi.CustomResource):
                  container_runtime_environment: Optional[pulumi.Input[pulumi.InputType['WorkloadContainerRuntimeEnvironmentArgs']]] = None,
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadContainerArgs']]]]] = None,
                  image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadImagePullCredentialArgs']]]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadInitContainerArgs']]]]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadInstanceArgs']]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -422,6 +448,7 @@ class Workload(pulumi.CustomResource):
             __props__.__dict__["container_runtime_environment"] = container_runtime_environment
             __props__.__dict__["containers"] = containers
             __props__.__dict__["image_pull_credentials"] = image_pull_credentials
+            __props__.__dict__["init_containers"] = init_containers
             __props__.__dict__["instances"] = instances
             __props__.__dict__["labels"] = labels
             if name is None and not opts.urn:
@@ -454,6 +481,7 @@ class Workload(pulumi.CustomResource):
             container_runtime_environment: Optional[pulumi.Input[pulumi.InputType['WorkloadContainerRuntimeEnvironmentArgs']]] = None,
             containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadContainerArgs']]]]] = None,
             image_pull_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadImagePullCredentialArgs']]]]] = None,
+            init_containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadInitContainerArgs']]]]] = None,
             instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkloadInstanceArgs']]]]] = None,
             labels: Optional[pulumi.Input[Mapping[str, Any]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -480,6 +508,7 @@ class Workload(pulumi.CustomResource):
         __props__.__dict__["container_runtime_environment"] = container_runtime_environment
         __props__.__dict__["containers"] = containers
         __props__.__dict__["image_pull_credentials"] = image_pull_credentials
+        __props__.__dict__["init_containers"] = init_containers
         __props__.__dict__["instances"] = instances
         __props__.__dict__["labels"] = labels
         __props__.__dict__["name"] = name
@@ -511,6 +540,11 @@ class Workload(pulumi.CustomResource):
     @pulumi.getter(name="imagePullCredentials")
     def image_pull_credentials(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadImagePullCredential']]]:
         return pulumi.get(self, "image_pull_credentials")
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> pulumi.Output[Optional[Sequence['outputs.WorkloadInitContainer']]]:
+        return pulumi.get(self, "init_containers")
 
     @property
     @pulumi.getter

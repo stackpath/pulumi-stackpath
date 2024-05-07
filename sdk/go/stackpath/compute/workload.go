@@ -19,6 +19,7 @@ type Workload struct {
 	ContainerRuntimeEnvironment      WorkloadContainerRuntimeEnvironmentPtrOutput      `pulumi:"containerRuntimeEnvironment"`
 	Containers                       WorkloadContainerArrayOutput                      `pulumi:"containers"`
 	ImagePullCredentials             WorkloadImagePullCredentialArrayOutput            `pulumi:"imagePullCredentials"`
+	InitContainers                   WorkloadInitContainerArrayOutput                  `pulumi:"initContainers"`
 	Instances                        WorkloadInstanceArrayOutput                       `pulumi:"instances"`
 	Labels                           pulumi.MapOutput                                  `pulumi:"labels"`
 	Name                             pulumi.StringOutput                               `pulumi:"name"`
@@ -77,6 +78,7 @@ type workloadState struct {
 	ContainerRuntimeEnvironment      *WorkloadContainerRuntimeEnvironment      `pulumi:"containerRuntimeEnvironment"`
 	Containers                       []WorkloadContainer                       `pulumi:"containers"`
 	ImagePullCredentials             []WorkloadImagePullCredential             `pulumi:"imagePullCredentials"`
+	InitContainers                   []WorkloadInitContainer                   `pulumi:"initContainers"`
 	Instances                        []WorkloadInstance                        `pulumi:"instances"`
 	Labels                           map[string]interface{}                    `pulumi:"labels"`
 	Name                             *string                                   `pulumi:"name"`
@@ -94,6 +96,7 @@ type WorkloadState struct {
 	ContainerRuntimeEnvironment      WorkloadContainerRuntimeEnvironmentPtrInput
 	Containers                       WorkloadContainerArrayInput
 	ImagePullCredentials             WorkloadImagePullCredentialArrayInput
+	InitContainers                   WorkloadInitContainerArrayInput
 	Instances                        WorkloadInstanceArrayInput
 	Labels                           pulumi.MapInput
 	Name                             pulumi.StringPtrInput
@@ -115,6 +118,7 @@ type workloadArgs struct {
 	ContainerRuntimeEnvironment      *WorkloadContainerRuntimeEnvironment      `pulumi:"containerRuntimeEnvironment"`
 	Containers                       []WorkloadContainer                       `pulumi:"containers"`
 	ImagePullCredentials             []WorkloadImagePullCredential             `pulumi:"imagePullCredentials"`
+	InitContainers                   []WorkloadInitContainer                   `pulumi:"initContainers"`
 	Instances                        []WorkloadInstance                        `pulumi:"instances"`
 	Labels                           map[string]interface{}                    `pulumi:"labels"`
 	Name                             string                                    `pulumi:"name"`
@@ -132,6 +136,7 @@ type WorkloadArgs struct {
 	ContainerRuntimeEnvironment      WorkloadContainerRuntimeEnvironmentPtrInput
 	Containers                       WorkloadContainerArrayInput
 	ImagePullCredentials             WorkloadImagePullCredentialArrayInput
+	InitContainers                   WorkloadInitContainerArrayInput
 	Instances                        WorkloadInstanceArrayInput
 	Labels                           pulumi.MapInput
 	Name                             pulumi.StringInput
@@ -244,6 +249,10 @@ func (o WorkloadOutput) Containers() WorkloadContainerArrayOutput {
 
 func (o WorkloadOutput) ImagePullCredentials() WorkloadImagePullCredentialArrayOutput {
 	return o.ApplyT(func(v *Workload) WorkloadImagePullCredentialArrayOutput { return v.ImagePullCredentials }).(WorkloadImagePullCredentialArrayOutput)
+}
+
+func (o WorkloadOutput) InitContainers() WorkloadInitContainerArrayOutput {
+	return o.ApplyT(func(v *Workload) WorkloadInitContainerArrayOutput { return v.InitContainers }).(WorkloadInitContainerArrayOutput)
 }
 
 func (o WorkloadOutput) Instances() WorkloadInstanceArrayOutput {

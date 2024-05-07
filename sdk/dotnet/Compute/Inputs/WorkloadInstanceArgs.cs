@@ -27,6 +27,14 @@ namespace Stackpath.Stackpath.Compute.Inputs
         [Input("externalIpv6Address")]
         public Input<string>? ExternalIpv6Address { get; set; }
 
+        [Input("initContainers")]
+        private InputList<Inputs.WorkloadInstanceInitContainerArgs>? _initContainers;
+        public InputList<Inputs.WorkloadInstanceInitContainerArgs> InitContainers
+        {
+            get => _initContainers ?? (_initContainers = new InputList<Inputs.WorkloadInstanceInitContainerArgs>());
+            set => _initContainers = value;
+        }
+
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
 

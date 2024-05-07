@@ -969,6 +969,294 @@
                 "username"
             ]
         },
+        "stackpath:compute/WorkloadInitContainer:WorkloadInitContainer": {
+            "properties": {
+                "commands": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "envs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInitContainerEnv:WorkloadInitContainerEnv"
+                    }
+                },
+                "image": {
+                    "type": "string"
+                },
+                "livenessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerLivenessProbe:WorkloadInitContainerLivenessProbe"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInitContainerPort:WorkloadInitContainerPort"
+                    }
+                },
+                "readinessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerReadinessProbe:WorkloadInitContainerReadinessProbe"
+                },
+                "resources": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerResources:WorkloadInitContainerResources"
+                },
+                "securityContext": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerSecurityContext:WorkloadInitContainerSecurityContext"
+                },
+                "volumeMounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInitContainerVolumeMount:WorkloadInitContainerVolumeMount"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "image",
+                "name",
+                "resources"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerEnv:WorkloadInitContainerEnv": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "secretValue": {
+                    "type": "string",
+                    "secret": true
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerLivenessProbe:WorkloadInitContainerLivenessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer"
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerLivenessProbeHttpGet:WorkloadInitContainerLivenessProbeHttpGet"
+                },
+                "initialDelaySeconds": {
+                    "type": "integer"
+                },
+                "periodSeconds": {
+                    "type": "integer"
+                },
+                "successThreshold": {
+                    "type": "integer"
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerLivenessProbeTcpSocket:WorkloadInitContainerLivenessProbeTcpSocket"
+                },
+                "timeoutSeconds": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerLivenessProbeHttpGet:WorkloadInitContainerLivenessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "path": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "scheme": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerLivenessProbeTcpSocket:WorkloadInitContainerLivenessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerPort:WorkloadInitContainerPort": {
+            "properties": {
+                "enableImplicitNetworkPolicy": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "protocol": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerReadinessProbe:WorkloadInitContainerReadinessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer"
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerReadinessProbeHttpGet:WorkloadInitContainerReadinessProbeHttpGet"
+                },
+                "initialDelaySeconds": {
+                    "type": "integer"
+                },
+                "periodSeconds": {
+                    "type": "integer"
+                },
+                "successThreshold": {
+                    "type": "integer"
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerReadinessProbeTcpSocket:WorkloadInitContainerReadinessProbeTcpSocket"
+                },
+                "timeoutSeconds": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerReadinessProbeHttpGet:WorkloadInitContainerReadinessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "path": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "scheme": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerReadinessProbeTcpSocket:WorkloadInitContainerReadinessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerResources:WorkloadInitContainerResources": {
+            "properties": {
+                "requests": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "requests"
+            ]
+        },
+        "stackpath:compute/WorkloadInitContainerSecurityContext:WorkloadInitContainerSecurityContext": {
+            "properties": {
+                "allowPrivilegeEscalation": {
+                    "type": "boolean"
+                },
+                "capabilities": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerSecurityContextCapabilities:WorkloadInitContainerSecurityContextCapabilities"
+                },
+                "readOnlyRootFilesystem": {
+                    "type": "boolean"
+                },
+                "runAsGroup": {
+                    "type": "string"
+                },
+                "runAsNonRoot": {
+                    "type": "boolean"
+                },
+                "runAsUser": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInitContainerSecurityContextCapabilities:WorkloadInitContainerSecurityContextCapabilities": {
+            "properties": {
+                "adds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "drops": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInitContainerVolumeMount:WorkloadInitContainerVolumeMount": {
+            "properties": {
+                "mountPath": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mountPath",
+                "slug"
+            ]
+        },
         "stackpath:compute/WorkloadInstance:WorkloadInstance": {
             "properties": {
                 "containers": {
@@ -982,6 +1270,12 @@
                 },
                 "externalIpv6Address": {
                     "type": "string"
+                },
+                "initContainers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainer:WorkloadInstanceInitContainer"
+                    }
                 },
                 "ipAddress": {
                     "type": "string"
@@ -1296,6 +1590,294 @@
             "type": "object"
         },
         "stackpath:compute/WorkloadInstanceContainerVolumeMount:WorkloadInstanceContainerVolumeMount": {
+            "properties": {
+                "mountPath": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "mountPath",
+                "slug"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainer:WorkloadInstanceInitContainer": {
+            "properties": {
+                "commands": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "envs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerEnv:WorkloadInstanceInitContainerEnv"
+                    }
+                },
+                "image": {
+                    "type": "string"
+                },
+                "livenessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerLivenessProbe:WorkloadInstanceInitContainerLivenessProbe"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "ports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerPort:WorkloadInstanceInitContainerPort"
+                    }
+                },
+                "readinessProbe": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerReadinessProbe:WorkloadInstanceInitContainerReadinessProbe"
+                },
+                "resources": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerResources:WorkloadInstanceInitContainerResources"
+                },
+                "securityContext": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerSecurityContext:WorkloadInstanceInitContainerSecurityContext"
+                },
+                "volumeMounts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerVolumeMount:WorkloadInstanceInitContainerVolumeMount"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "image",
+                "name",
+                "resources"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerEnv:WorkloadInstanceInitContainerEnv": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "secretValue": {
+                    "type": "string",
+                    "secret": true
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "key"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerLivenessProbe:WorkloadInstanceInitContainerLivenessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer"
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerLivenessProbeHttpGet:WorkloadInstanceInitContainerLivenessProbeHttpGet"
+                },
+                "initialDelaySeconds": {
+                    "type": "integer"
+                },
+                "periodSeconds": {
+                    "type": "integer"
+                },
+                "successThreshold": {
+                    "type": "integer"
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerLivenessProbeTcpSocket:WorkloadInstanceInitContainerLivenessProbeTcpSocket"
+                },
+                "timeoutSeconds": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerLivenessProbeHttpGet:WorkloadInstanceInitContainerLivenessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "path": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "scheme": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerLivenessProbeTcpSocket:WorkloadInstanceInitContainerLivenessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerPort:WorkloadInstanceInitContainerPort": {
+            "properties": {
+                "enableImplicitNetworkPolicy": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "protocol": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerReadinessProbe:WorkloadInstanceInitContainerReadinessProbe": {
+            "properties": {
+                "failureThreshold": {
+                    "type": "integer"
+                },
+                "httpGet": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerReadinessProbeHttpGet:WorkloadInstanceInitContainerReadinessProbeHttpGet"
+                },
+                "initialDelaySeconds": {
+                    "type": "integer"
+                },
+                "periodSeconds": {
+                    "type": "integer"
+                },
+                "successThreshold": {
+                    "type": "integer"
+                },
+                "tcpSocket": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerReadinessProbeTcpSocket:WorkloadInstanceInitContainerReadinessProbeTcpSocket"
+                },
+                "timeoutSeconds": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "failureThreshold",
+                "successThreshold"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerReadinessProbeHttpGet:WorkloadInstanceInitContainerReadinessProbeHttpGet": {
+            "properties": {
+                "httpHeaders": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "path": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "integer"
+                },
+                "scheme": {
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerReadinessProbeTcpSocket:WorkloadInstanceInitContainerReadinessProbeTcpSocket": {
+            "properties": {
+                "port": {
+                    "type": "integer"
+                }
+            },
+            "type": "object",
+            "required": [
+                "port"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerResources:WorkloadInstanceInitContainerResources": {
+            "properties": {
+                "requests": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "requests"
+            ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerSecurityContext:WorkloadInstanceInitContainerSecurityContext": {
+            "properties": {
+                "allowPrivilegeEscalation": {
+                    "type": "boolean"
+                },
+                "capabilities": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerSecurityContextCapabilities:WorkloadInstanceInitContainerSecurityContextCapabilities"
+                },
+                "readOnlyRootFilesystem": {
+                    "type": "boolean"
+                },
+                "runAsGroup": {
+                    "type": "string"
+                },
+                "runAsNonRoot": {
+                    "type": "boolean"
+                },
+                "runAsUser": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerSecurityContextCapabilities:WorkloadInstanceInitContainerSecurityContextCapabilities": {
+            "properties": {
+                "adds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "drops": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerVolumeMount:WorkloadInstanceInitContainerVolumeMount": {
             "properties": {
                 "mountPath": {
                     "type": "string"
@@ -2699,6 +3281,12 @@
                         "$ref": "#/types/stackpath:compute/WorkloadImagePullCredential:WorkloadImagePullCredential"
                     }
                 },
+                "initContainers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInitContainer:WorkloadInitContainer"
+                    }
+                },
                 "instances": {
                     "type": "array",
                     "items": {
@@ -2776,6 +3364,12 @@
                         "$ref": "#/types/stackpath:compute/WorkloadImagePullCredential:WorkloadImagePullCredential"
                     }
                 },
+                "initContainers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/stackpath:compute/WorkloadInitContainer:WorkloadInitContainer"
+                    }
+                },
                 "instances": {
                     "type": "array",
                     "items": {
@@ -2848,6 +3442,12 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/stackpath:compute/WorkloadImagePullCredential:WorkloadImagePullCredential"
+                        }
+                    },
+                    "initContainers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/stackpath:compute/WorkloadInitContainer:WorkloadInitContainer"
                         }
                     },
                     "instances": {

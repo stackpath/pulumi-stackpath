@@ -38,6 +38,7 @@ export class Workload extends pulumi.CustomResource {
     public readonly containerRuntimeEnvironment!: pulumi.Output<outputs.compute.WorkloadContainerRuntimeEnvironment | undefined>;
     public readonly containers!: pulumi.Output<outputs.compute.WorkloadContainer[] | undefined>;
     public readonly imagePullCredentials!: pulumi.Output<outputs.compute.WorkloadImagePullCredential[] | undefined>;
+    public readonly initContainers!: pulumi.Output<outputs.compute.WorkloadInitContainer[] | undefined>;
     public readonly instances!: pulumi.Output<outputs.compute.WorkloadInstance[]>;
     public readonly labels!: pulumi.Output<{[key: string]: any} | undefined>;
     public readonly name!: pulumi.Output<string>;
@@ -66,6 +67,7 @@ export class Workload extends pulumi.CustomResource {
             resourceInputs["containerRuntimeEnvironment"] = state ? state.containerRuntimeEnvironment : undefined;
             resourceInputs["containers"] = state ? state.containers : undefined;
             resourceInputs["imagePullCredentials"] = state ? state.imagePullCredentials : undefined;
+            resourceInputs["initContainers"] = state ? state.initContainers : undefined;
             resourceInputs["instances"] = state ? state.instances : undefined;
             resourceInputs["labels"] = state ? state.labels : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -94,6 +96,7 @@ export class Workload extends pulumi.CustomResource {
             resourceInputs["containerRuntimeEnvironment"] = args ? args.containerRuntimeEnvironment : undefined;
             resourceInputs["containers"] = args ? args.containers : undefined;
             resourceInputs["imagePullCredentials"] = args ? args.imagePullCredentials : undefined;
+            resourceInputs["initContainers"] = args ? args.initContainers : undefined;
             resourceInputs["instances"] = args ? args.instances : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -118,6 +121,7 @@ export interface WorkloadState {
     containerRuntimeEnvironment?: pulumi.Input<inputs.compute.WorkloadContainerRuntimeEnvironment>;
     containers?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadContainer>[]>;
     imagePullCredentials?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadImagePullCredential>[]>;
+    initContainers?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInitContainer>[]>;
     instances?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstance>[]>;
     labels?: pulumi.Input<{[key: string]: any}>;
     name?: pulumi.Input<string>;
@@ -138,6 +142,7 @@ export interface WorkloadArgs {
     containerRuntimeEnvironment?: pulumi.Input<inputs.compute.WorkloadContainerRuntimeEnvironment>;
     containers?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadContainer>[]>;
     imagePullCredentials?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadImagePullCredential>[]>;
+    initContainers?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInitContainer>[]>;
     instances?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstance>[]>;
     labels?: pulumi.Input<{[key: string]: any}>;
     name: pulumi.Input<string>;

@@ -295,10 +295,102 @@ export namespace compute {
         username: pulumi.Input<string>;
     }
 
+    export interface WorkloadInitContainer {
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        envs?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInitContainerEnv>[]>;
+        image: pulumi.Input<string>;
+        livenessProbe?: pulumi.Input<inputs.compute.WorkloadInitContainerLivenessProbe>;
+        name: pulumi.Input<string>;
+        ports?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInitContainerPort>[]>;
+        readinessProbe?: pulumi.Input<inputs.compute.WorkloadInitContainerReadinessProbe>;
+        resources: pulumi.Input<inputs.compute.WorkloadInitContainerResources>;
+        securityContext?: pulumi.Input<inputs.compute.WorkloadInitContainerSecurityContext>;
+        volumeMounts?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInitContainerVolumeMount>[]>;
+    }
+
+    export interface WorkloadInitContainerEnv {
+        key: pulumi.Input<string>;
+        secretValue?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInitContainerLivenessProbe {
+        failureThreshold: pulumi.Input<number>;
+        httpGet?: pulumi.Input<inputs.compute.WorkloadInitContainerLivenessProbeHttpGet>;
+        initialDelaySeconds?: pulumi.Input<number>;
+        periodSeconds?: pulumi.Input<number>;
+        successThreshold: pulumi.Input<number>;
+        tcpSocket?: pulumi.Input<inputs.compute.WorkloadInitContainerLivenessProbeTcpSocket>;
+        timeoutSeconds?: pulumi.Input<number>;
+    }
+
+    export interface WorkloadInitContainerLivenessProbeHttpGet {
+        httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        path?: pulumi.Input<string>;
+        port: pulumi.Input<number>;
+        scheme?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInitContainerLivenessProbeTcpSocket {
+        port: pulumi.Input<number>;
+    }
+
+    export interface WorkloadInitContainerPort {
+        enableImplicitNetworkPolicy?: pulumi.Input<boolean>;
+        name: pulumi.Input<string>;
+        port: pulumi.Input<number>;
+        protocol?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInitContainerReadinessProbe {
+        failureThreshold: pulumi.Input<number>;
+        httpGet?: pulumi.Input<inputs.compute.WorkloadInitContainerReadinessProbeHttpGet>;
+        initialDelaySeconds?: pulumi.Input<number>;
+        periodSeconds?: pulumi.Input<number>;
+        successThreshold: pulumi.Input<number>;
+        tcpSocket?: pulumi.Input<inputs.compute.WorkloadInitContainerReadinessProbeTcpSocket>;
+        timeoutSeconds?: pulumi.Input<number>;
+    }
+
+    export interface WorkloadInitContainerReadinessProbeHttpGet {
+        httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        path?: pulumi.Input<string>;
+        port: pulumi.Input<number>;
+        scheme?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInitContainerReadinessProbeTcpSocket {
+        port: pulumi.Input<number>;
+    }
+
+    export interface WorkloadInitContainerResources {
+        requests: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface WorkloadInitContainerSecurityContext {
+        allowPrivilegeEscalation?: pulumi.Input<boolean>;
+        capabilities?: pulumi.Input<inputs.compute.WorkloadInitContainerSecurityContextCapabilities>;
+        readOnlyRootFilesystem?: pulumi.Input<boolean>;
+        runAsGroup?: pulumi.Input<string>;
+        runAsNonRoot?: pulumi.Input<boolean>;
+        runAsUser?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInitContainerSecurityContextCapabilities {
+        adds?: pulumi.Input<pulumi.Input<string>[]>;
+        drops?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkloadInitContainerVolumeMount {
+        mountPath: pulumi.Input<string>;
+        slug: pulumi.Input<string>;
+    }
+
     export interface WorkloadInstance {
         containers?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceContainer>[]>;
         externalIpAddress?: pulumi.Input<string>;
         externalIpv6Address?: pulumi.Input<string>;
+        initContainers?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceInitContainer>[]>;
         ipAddress?: pulumi.Input<string>;
         ipv6Address?: pulumi.Input<string>;
         location?: pulumi.Input<inputs.compute.WorkloadInstanceLocation>;
@@ -398,6 +490,97 @@ export namespace compute {
     }
 
     export interface WorkloadInstanceContainerVolumeMount {
+        mountPath: pulumi.Input<string>;
+        slug: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInstanceInitContainer {
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        envs?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceInitContainerEnv>[]>;
+        image: pulumi.Input<string>;
+        livenessProbe?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerLivenessProbe>;
+        name: pulumi.Input<string>;
+        ports?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceInitContainerPort>[]>;
+        readinessProbe?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerReadinessProbe>;
+        resources: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerResources>;
+        securityContext?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerSecurityContext>;
+        volumeMounts?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceInitContainerVolumeMount>[]>;
+    }
+
+    export interface WorkloadInstanceInitContainerEnv {
+        key: pulumi.Input<string>;
+        secretValue?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInstanceInitContainerLivenessProbe {
+        failureThreshold: pulumi.Input<number>;
+        httpGet?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerLivenessProbeHttpGet>;
+        initialDelaySeconds?: pulumi.Input<number>;
+        periodSeconds?: pulumi.Input<number>;
+        successThreshold: pulumi.Input<number>;
+        tcpSocket?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerLivenessProbeTcpSocket>;
+        timeoutSeconds?: pulumi.Input<number>;
+    }
+
+    export interface WorkloadInstanceInitContainerLivenessProbeHttpGet {
+        httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        path?: pulumi.Input<string>;
+        port: pulumi.Input<number>;
+        scheme?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInstanceInitContainerLivenessProbeTcpSocket {
+        port: pulumi.Input<number>;
+    }
+
+    export interface WorkloadInstanceInitContainerPort {
+        enableImplicitNetworkPolicy?: pulumi.Input<boolean>;
+        name: pulumi.Input<string>;
+        port: pulumi.Input<number>;
+        protocol?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInstanceInitContainerReadinessProbe {
+        failureThreshold: pulumi.Input<number>;
+        httpGet?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerReadinessProbeHttpGet>;
+        initialDelaySeconds?: pulumi.Input<number>;
+        periodSeconds?: pulumi.Input<number>;
+        successThreshold: pulumi.Input<number>;
+        tcpSocket?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerReadinessProbeTcpSocket>;
+        timeoutSeconds?: pulumi.Input<number>;
+    }
+
+    export interface WorkloadInstanceInitContainerReadinessProbeHttpGet {
+        httpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        path?: pulumi.Input<string>;
+        port: pulumi.Input<number>;
+        scheme?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInstanceInitContainerReadinessProbeTcpSocket {
+        port: pulumi.Input<number>;
+    }
+
+    export interface WorkloadInstanceInitContainerResources {
+        requests: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface WorkloadInstanceInitContainerSecurityContext {
+        allowPrivilegeEscalation?: pulumi.Input<boolean>;
+        capabilities?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerSecurityContextCapabilities>;
+        readOnlyRootFilesystem?: pulumi.Input<boolean>;
+        runAsGroup?: pulumi.Input<string>;
+        runAsNonRoot?: pulumi.Input<boolean>;
+        runAsUser?: pulumi.Input<string>;
+    }
+
+    export interface WorkloadInstanceInitContainerSecurityContextCapabilities {
+        adds?: pulumi.Input<pulumi.Input<string>[]>;
+        drops?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkloadInstanceInitContainerVolumeMount {
         mountPath: pulumi.Input<string>;
         slug: pulumi.Input<string>;
     }

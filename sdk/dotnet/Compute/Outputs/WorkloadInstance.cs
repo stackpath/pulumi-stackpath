@@ -17,6 +17,7 @@ namespace Stackpath.Stackpath.Compute.Outputs
         public readonly ImmutableArray<Outputs.WorkloadInstanceContainer> Containers;
         public readonly string? ExternalIpAddress;
         public readonly string? ExternalIpv6Address;
+        public readonly ImmutableArray<Outputs.WorkloadInstanceInitContainer> InitContainers;
         public readonly string? IpAddress;
         public readonly string? Ipv6Address;
         public readonly Outputs.WorkloadInstanceLocation? Location;
@@ -35,6 +36,8 @@ namespace Stackpath.Stackpath.Compute.Outputs
             string? externalIpAddress,
 
             string? externalIpv6Address,
+
+            ImmutableArray<Outputs.WorkloadInstanceInitContainer> initContainers,
 
             string? ipAddress,
 
@@ -59,6 +62,7 @@ namespace Stackpath.Stackpath.Compute.Outputs
             Containers = containers;
             ExternalIpAddress = externalIpAddress;
             ExternalIpv6Address = externalIpv6Address;
+            InitContainers = initContainers;
             IpAddress = ipAddress;
             Ipv6Address = ipv6Address;
             Location = location;

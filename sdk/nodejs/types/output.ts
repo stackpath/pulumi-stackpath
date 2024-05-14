@@ -295,10 +295,102 @@ export namespace compute {
         username: string;
     }
 
+    export interface WorkloadInitContainer {
+        commands?: string[];
+        envs?: outputs.compute.WorkloadInitContainerEnv[];
+        image: string;
+        livenessProbe?: outputs.compute.WorkloadInitContainerLivenessProbe;
+        name: string;
+        ports?: outputs.compute.WorkloadInitContainerPort[];
+        readinessProbe?: outputs.compute.WorkloadInitContainerReadinessProbe;
+        resources: outputs.compute.WorkloadInitContainerResources;
+        securityContext?: outputs.compute.WorkloadInitContainerSecurityContext;
+        volumeMounts?: outputs.compute.WorkloadInitContainerVolumeMount[];
+    }
+
+    export interface WorkloadInitContainerEnv {
+        key: string;
+        secretValue?: string;
+        value?: string;
+    }
+
+    export interface WorkloadInitContainerLivenessProbe {
+        failureThreshold: number;
+        httpGet?: outputs.compute.WorkloadInitContainerLivenessProbeHttpGet;
+        initialDelaySeconds?: number;
+        periodSeconds?: number;
+        successThreshold: number;
+        tcpSocket?: outputs.compute.WorkloadInitContainerLivenessProbeTcpSocket;
+        timeoutSeconds?: number;
+    }
+
+    export interface WorkloadInitContainerLivenessProbeHttpGet {
+        httpHeaders?: {[key: string]: string};
+        path?: string;
+        port: number;
+        scheme?: string;
+    }
+
+    export interface WorkloadInitContainerLivenessProbeTcpSocket {
+        port: number;
+    }
+
+    export interface WorkloadInitContainerPort {
+        enableImplicitNetworkPolicy?: boolean;
+        name: string;
+        port: number;
+        protocol?: string;
+    }
+
+    export interface WorkloadInitContainerReadinessProbe {
+        failureThreshold: number;
+        httpGet?: outputs.compute.WorkloadInitContainerReadinessProbeHttpGet;
+        initialDelaySeconds?: number;
+        periodSeconds?: number;
+        successThreshold: number;
+        tcpSocket?: outputs.compute.WorkloadInitContainerReadinessProbeTcpSocket;
+        timeoutSeconds?: number;
+    }
+
+    export interface WorkloadInitContainerReadinessProbeHttpGet {
+        httpHeaders?: {[key: string]: string};
+        path?: string;
+        port: number;
+        scheme?: string;
+    }
+
+    export interface WorkloadInitContainerReadinessProbeTcpSocket {
+        port: number;
+    }
+
+    export interface WorkloadInitContainerResources {
+        requests: {[key: string]: string};
+    }
+
+    export interface WorkloadInitContainerSecurityContext {
+        allowPrivilegeEscalation?: boolean;
+        capabilities?: outputs.compute.WorkloadInitContainerSecurityContextCapabilities;
+        readOnlyRootFilesystem?: boolean;
+        runAsGroup?: string;
+        runAsNonRoot?: boolean;
+        runAsUser?: string;
+    }
+
+    export interface WorkloadInitContainerSecurityContextCapabilities {
+        adds?: string[];
+        drops?: string[];
+    }
+
+    export interface WorkloadInitContainerVolumeMount {
+        mountPath: string;
+        slug: string;
+    }
+
     export interface WorkloadInstance {
         containers?: outputs.compute.WorkloadInstanceContainer[];
         externalIpAddress?: string;
         externalIpv6Address?: string;
+        initContainers?: outputs.compute.WorkloadInstanceInitContainer[];
         ipAddress?: string;
         ipv6Address?: string;
         location?: outputs.compute.WorkloadInstanceLocation;
@@ -398,6 +490,97 @@ export namespace compute {
     }
 
     export interface WorkloadInstanceContainerVolumeMount {
+        mountPath: string;
+        slug: string;
+    }
+
+    export interface WorkloadInstanceInitContainer {
+        commands?: string[];
+        envs?: outputs.compute.WorkloadInstanceInitContainerEnv[];
+        image: string;
+        livenessProbe?: outputs.compute.WorkloadInstanceInitContainerLivenessProbe;
+        name: string;
+        ports?: outputs.compute.WorkloadInstanceInitContainerPort[];
+        readinessProbe?: outputs.compute.WorkloadInstanceInitContainerReadinessProbe;
+        resources: outputs.compute.WorkloadInstanceInitContainerResources;
+        securityContext?: outputs.compute.WorkloadInstanceInitContainerSecurityContext;
+        volumeMounts?: outputs.compute.WorkloadInstanceInitContainerVolumeMount[];
+    }
+
+    export interface WorkloadInstanceInitContainerEnv {
+        key: string;
+        secretValue?: string;
+        value?: string;
+    }
+
+    export interface WorkloadInstanceInitContainerLivenessProbe {
+        failureThreshold: number;
+        httpGet?: outputs.compute.WorkloadInstanceInitContainerLivenessProbeHttpGet;
+        initialDelaySeconds?: number;
+        periodSeconds?: number;
+        successThreshold: number;
+        tcpSocket?: outputs.compute.WorkloadInstanceInitContainerLivenessProbeTcpSocket;
+        timeoutSeconds?: number;
+    }
+
+    export interface WorkloadInstanceInitContainerLivenessProbeHttpGet {
+        httpHeaders?: {[key: string]: string};
+        path?: string;
+        port: number;
+        scheme?: string;
+    }
+
+    export interface WorkloadInstanceInitContainerLivenessProbeTcpSocket {
+        port: number;
+    }
+
+    export interface WorkloadInstanceInitContainerPort {
+        enableImplicitNetworkPolicy?: boolean;
+        name: string;
+        port: number;
+        protocol?: string;
+    }
+
+    export interface WorkloadInstanceInitContainerReadinessProbe {
+        failureThreshold: number;
+        httpGet?: outputs.compute.WorkloadInstanceInitContainerReadinessProbeHttpGet;
+        initialDelaySeconds?: number;
+        periodSeconds?: number;
+        successThreshold: number;
+        tcpSocket?: outputs.compute.WorkloadInstanceInitContainerReadinessProbeTcpSocket;
+        timeoutSeconds?: number;
+    }
+
+    export interface WorkloadInstanceInitContainerReadinessProbeHttpGet {
+        httpHeaders?: {[key: string]: string};
+        path?: string;
+        port: number;
+        scheme?: string;
+    }
+
+    export interface WorkloadInstanceInitContainerReadinessProbeTcpSocket {
+        port: number;
+    }
+
+    export interface WorkloadInstanceInitContainerResources {
+        requests: {[key: string]: string};
+    }
+
+    export interface WorkloadInstanceInitContainerSecurityContext {
+        allowPrivilegeEscalation?: boolean;
+        capabilities?: outputs.compute.WorkloadInstanceInitContainerSecurityContextCapabilities;
+        readOnlyRootFilesystem?: boolean;
+        runAsGroup?: string;
+        runAsNonRoot?: boolean;
+        runAsUser?: string;
+    }
+
+    export interface WorkloadInstanceInitContainerSecurityContextCapabilities {
+        adds?: string[];
+        drops?: string[];
+    }
+
+    export interface WorkloadInstanceInitContainerVolumeMount {
         mountPath: string;
         slug: string;
     }

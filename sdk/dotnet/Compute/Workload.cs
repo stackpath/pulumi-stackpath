@@ -25,6 +25,9 @@ namespace Stackpath.Stackpath.Compute
         [Output("imagePullCredentials")]
         public Output<ImmutableArray<Outputs.WorkloadImagePullCredential>> ImagePullCredentials { get; private set; } = null!;
 
+        [Output("initContainers")]
+        public Output<ImmutableArray<Outputs.WorkloadInitContainer>> InitContainers { get; private set; } = null!;
+
         [Output("instances")]
         public Output<ImmutableArray<Outputs.WorkloadInstance>> Instances { get; private set; } = null!;
 
@@ -129,6 +132,14 @@ namespace Stackpath.Stackpath.Compute
             set => _imagePullCredentials = value;
         }
 
+        [Input("initContainers")]
+        private InputList<Inputs.WorkloadInitContainerArgs>? _initContainers;
+        public InputList<Inputs.WorkloadInitContainerArgs> InitContainers
+        {
+            get => _initContainers ?? (_initContainers = new InputList<Inputs.WorkloadInitContainerArgs>());
+            set => _initContainers = value;
+        }
+
         [Input("instances")]
         private InputList<Inputs.WorkloadInstanceArgs>? _instances;
         public InputList<Inputs.WorkloadInstanceArgs> Instances
@@ -214,6 +225,14 @@ namespace Stackpath.Stackpath.Compute
         {
             get => _imagePullCredentials ?? (_imagePullCredentials = new InputList<Inputs.WorkloadImagePullCredentialGetArgs>());
             set => _imagePullCredentials = value;
+        }
+
+        [Input("initContainers")]
+        private InputList<Inputs.WorkloadInitContainerGetArgs>? _initContainers;
+        public InputList<Inputs.WorkloadInitContainerGetArgs> InitContainers
+        {
+            get => _initContainers ?? (_initContainers = new InputList<Inputs.WorkloadInitContainerGetArgs>());
+            set => _initContainers = value;
         }
 
         [Input("instances")]

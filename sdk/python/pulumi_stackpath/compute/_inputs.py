@@ -60,6 +60,19 @@ __all__ = [
     'WorkloadContainerVolumeMountArgs',
     'WorkloadImagePullCredentialArgs',
     'WorkloadImagePullCredentialDockerRegistryArgs',
+    'WorkloadInitContainerArgs',
+    'WorkloadInitContainerEnvArgs',
+    'WorkloadInitContainerLivenessProbeArgs',
+    'WorkloadInitContainerLivenessProbeHttpGetArgs',
+    'WorkloadInitContainerLivenessProbeTcpSocketArgs',
+    'WorkloadInitContainerPortArgs',
+    'WorkloadInitContainerReadinessProbeArgs',
+    'WorkloadInitContainerReadinessProbeHttpGetArgs',
+    'WorkloadInitContainerReadinessProbeTcpSocketArgs',
+    'WorkloadInitContainerResourcesArgs',
+    'WorkloadInitContainerSecurityContextArgs',
+    'WorkloadInitContainerSecurityContextCapabilitiesArgs',
+    'WorkloadInitContainerVolumeMountArgs',
     'WorkloadInstanceArgs',
     'WorkloadInstanceContainerArgs',
     'WorkloadInstanceContainerEnvArgs',
@@ -74,6 +87,19 @@ __all__ = [
     'WorkloadInstanceContainerSecurityContextArgs',
     'WorkloadInstanceContainerSecurityContextCapabilitiesArgs',
     'WorkloadInstanceContainerVolumeMountArgs',
+    'WorkloadInstanceInitContainerArgs',
+    'WorkloadInstanceInitContainerEnvArgs',
+    'WorkloadInstanceInitContainerLivenessProbeArgs',
+    'WorkloadInstanceInitContainerLivenessProbeHttpGetArgs',
+    'WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs',
+    'WorkloadInstanceInitContainerPortArgs',
+    'WorkloadInstanceInitContainerReadinessProbeArgs',
+    'WorkloadInstanceInitContainerReadinessProbeHttpGetArgs',
+    'WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs',
+    'WorkloadInstanceInitContainerResourcesArgs',
+    'WorkloadInstanceInitContainerSecurityContextArgs',
+    'WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs',
+    'WorkloadInstanceInitContainerVolumeMountArgs',
     'WorkloadInstanceLocationArgs',
     'WorkloadInstanceMetadataArgs',
     'WorkloadInstanceNetworkInterfaceArgs',
@@ -1988,12 +2014,685 @@ class WorkloadImagePullCredentialDockerRegistryArgs:
 
 
 @pulumi.input_type
+class WorkloadInitContainerArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resources: pulumi.Input['WorkloadInitContainerResourcesArgs'],
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 envs: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerEnvArgs']]]] = None,
+                 liveness_probe: Optional[pulumi.Input['WorkloadInitContainerLivenessProbeArgs']] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerPortArgs']]]] = None,
+                 readiness_probe: Optional[pulumi.Input['WorkloadInitContainerReadinessProbeArgs']] = None,
+                 security_context: Optional[pulumi.Input['WorkloadInitContainerSecurityContextArgs']] = None,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerVolumeMountArgs']]]] = None):
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resources", resources)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input['WorkloadInitContainerResourcesArgs']:
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input['WorkloadInitContainerResourcesArgs']):
+        pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerEnvArgs']]]]:
+        return pulumi.get(self, "envs")
+
+    @envs.setter
+    def envs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerEnvArgs']]]]):
+        pulumi.set(self, "envs", value)
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional[pulumi.Input['WorkloadInitContainerLivenessProbeArgs']]:
+        return pulumi.get(self, "liveness_probe")
+
+    @liveness_probe.setter
+    def liveness_probe(self, value: Optional[pulumi.Input['WorkloadInitContainerLivenessProbeArgs']]):
+        pulumi.set(self, "liveness_probe", value)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerPortArgs']]]]:
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerPortArgs']]]]):
+        pulumi.set(self, "ports", value)
+
+    @property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional[pulumi.Input['WorkloadInitContainerReadinessProbeArgs']]:
+        return pulumi.get(self, "readiness_probe")
+
+    @readiness_probe.setter
+    def readiness_probe(self, value: Optional[pulumi.Input['WorkloadInitContainerReadinessProbeArgs']]):
+        pulumi.set(self, "readiness_probe", value)
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional[pulumi.Input['WorkloadInitContainerSecurityContextArgs']]:
+        return pulumi.get(self, "security_context")
+
+    @security_context.setter
+    def security_context(self, value: Optional[pulumi.Input['WorkloadInitContainerSecurityContextArgs']]):
+        pulumi.set(self, "security_context", value)
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerVolumeMountArgs']]]]:
+        return pulumi.get(self, "volume_mounts")
+
+    @volume_mounts.setter
+    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerVolumeMountArgs']]]]):
+        pulumi.set(self, "volume_mounts", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerEnvArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret_value: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        if secret_value is not None:
+            pulumi.set(__self__, "secret_value", secret_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="secretValue")
+    def secret_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secret_value")
+
+    @secret_value.setter
+    def secret_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerLivenessProbeArgs:
+    def __init__(__self__, *,
+                 failure_threshold: pulumi.Input[int],
+                 success_threshold: pulumi.Input[int],
+                 http_get: Optional[pulumi.Input['WorkloadInitContainerLivenessProbeHttpGetArgs']] = None,
+                 initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 period_seconds: Optional[pulumi.Input[int]] = None,
+                 tcp_socket: Optional[pulumi.Input['WorkloadInitContainerLivenessProbeTcpSocketArgs']] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "failure_threshold", failure_threshold)
+        pulumi.set(__self__, "success_threshold", success_threshold)
+        if http_get is not None:
+            pulumi.set(__self__, "http_get", http_get)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if tcp_socket is not None:
+            pulumi.set(__self__, "tcp_socket", tcp_socket)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "failure_threshold")
+
+    @failure_threshold.setter
+    def failure_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "failure_threshold", value)
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "success_threshold")
+
+    @success_threshold.setter
+    def success_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "success_threshold", value)
+
+    @property
+    @pulumi.getter(name="httpGet")
+    def http_get(self) -> Optional[pulumi.Input['WorkloadInitContainerLivenessProbeHttpGetArgs']]:
+        return pulumi.get(self, "http_get")
+
+    @http_get.setter
+    def http_get(self, value: Optional[pulumi.Input['WorkloadInitContainerLivenessProbeHttpGetArgs']]):
+        pulumi.set(self, "http_get", value)
+
+    @property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @initial_delay_seconds.setter
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay_seconds", value)
+
+    @property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "period_seconds")
+
+    @period_seconds.setter
+    def period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period_seconds", value)
+
+    @property
+    @pulumi.getter(name="tcpSocket")
+    def tcp_socket(self) -> Optional[pulumi.Input['WorkloadInitContainerLivenessProbeTcpSocketArgs']]:
+        return pulumi.get(self, "tcp_socket")
+
+    @tcp_socket.setter
+    def tcp_socket(self, value: Optional[pulumi.Input['WorkloadInitContainerLivenessProbeTcpSocketArgs']]):
+        pulumi.set(self, "tcp_socket", value)
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_seconds", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerLivenessProbeHttpGetArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 scheme: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "port", port)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "http_headers", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheme", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerLivenessProbeTcpSocketArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int]):
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerPortArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 enable_implicit_network_policy: Optional[pulumi.Input[bool]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "port", port)
+        if enable_implicit_network_policy is not None:
+            pulumi.set(__self__, "enable_implicit_network_policy", enable_implicit_network_policy)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="enableImplicitNetworkPolicy")
+    def enable_implicit_network_policy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_implicit_network_policy")
+
+    @enable_implicit_network_policy.setter
+    def enable_implicit_network_policy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_implicit_network_policy", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerReadinessProbeArgs:
+    def __init__(__self__, *,
+                 failure_threshold: pulumi.Input[int],
+                 success_threshold: pulumi.Input[int],
+                 http_get: Optional[pulumi.Input['WorkloadInitContainerReadinessProbeHttpGetArgs']] = None,
+                 initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 period_seconds: Optional[pulumi.Input[int]] = None,
+                 tcp_socket: Optional[pulumi.Input['WorkloadInitContainerReadinessProbeTcpSocketArgs']] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "failure_threshold", failure_threshold)
+        pulumi.set(__self__, "success_threshold", success_threshold)
+        if http_get is not None:
+            pulumi.set(__self__, "http_get", http_get)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if tcp_socket is not None:
+            pulumi.set(__self__, "tcp_socket", tcp_socket)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "failure_threshold")
+
+    @failure_threshold.setter
+    def failure_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "failure_threshold", value)
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "success_threshold")
+
+    @success_threshold.setter
+    def success_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "success_threshold", value)
+
+    @property
+    @pulumi.getter(name="httpGet")
+    def http_get(self) -> Optional[pulumi.Input['WorkloadInitContainerReadinessProbeHttpGetArgs']]:
+        return pulumi.get(self, "http_get")
+
+    @http_get.setter
+    def http_get(self, value: Optional[pulumi.Input['WorkloadInitContainerReadinessProbeHttpGetArgs']]):
+        pulumi.set(self, "http_get", value)
+
+    @property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @initial_delay_seconds.setter
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay_seconds", value)
+
+    @property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "period_seconds")
+
+    @period_seconds.setter
+    def period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period_seconds", value)
+
+    @property
+    @pulumi.getter(name="tcpSocket")
+    def tcp_socket(self) -> Optional[pulumi.Input['WorkloadInitContainerReadinessProbeTcpSocketArgs']]:
+        return pulumi.get(self, "tcp_socket")
+
+    @tcp_socket.setter
+    def tcp_socket(self, value: Optional[pulumi.Input['WorkloadInitContainerReadinessProbeTcpSocketArgs']]):
+        pulumi.set(self, "tcp_socket", value)
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_seconds", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerReadinessProbeHttpGetArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 scheme: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "port", port)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "http_headers", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheme", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerReadinessProbeTcpSocketArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int]):
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerResourcesArgs:
+    def __init__(__self__, *,
+                 requests: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(__self__, "requests", requests)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "requests", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerSecurityContextArgs:
+    def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[pulumi.Input[bool]] = None,
+                 capabilities: Optional[pulumi.Input['WorkloadInitContainerSecurityContextCapabilitiesArgs']] = None,
+                 read_only_root_filesystem: Optional[pulumi.Input[bool]] = None,
+                 run_as_group: Optional[pulumi.Input[str]] = None,
+                 run_as_non_root: Optional[pulumi.Input[bool]] = None,
+                 run_as_user: Optional[pulumi.Input[str]] = None):
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if read_only_root_filesystem is not None:
+            pulumi.set(__self__, "read_only_root_filesystem", read_only_root_filesystem)
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_non_root is not None:
+            pulumi.set(__self__, "run_as_non_root", run_as_non_root)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_privilege_escalation")
+
+    @allow_privilege_escalation.setter
+    def allow_privilege_escalation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_privilege_escalation", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input['WorkloadInitContainerSecurityContextCapabilitiesArgs']]:
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input['WorkloadInitContainerSecurityContextCapabilitiesArgs']]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter(name="readOnlyRootFilesystem")
+    def read_only_root_filesystem(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "read_only_root_filesystem")
+
+    @read_only_root_filesystem.setter
+    def read_only_root_filesystem(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only_root_filesystem", value)
+
+    @property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_group")
+
+    @run_as_group.setter
+    def run_as_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_group", value)
+
+    @property
+    @pulumi.getter(name="runAsNonRoot")
+    def run_as_non_root(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "run_as_non_root")
+
+    @run_as_non_root.setter
+    def run_as_non_root(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_as_non_root", value)
+
+    @property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_user")
+
+    @run_as_user.setter
+    def run_as_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_user", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerSecurityContextCapabilitiesArgs:
+    def __init__(__self__, *,
+                 adds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 drops: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if adds is not None:
+            pulumi.set(__self__, "adds", adds)
+        if drops is not None:
+            pulumi.set(__self__, "drops", drops)
+
+    @property
+    @pulumi.getter
+    def adds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "adds")
+
+    @adds.setter
+    def adds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "adds", value)
+
+    @property
+    @pulumi.getter
+    def drops(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "drops")
+
+    @drops.setter
+    def drops(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "drops", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerVolumeMountArgs:
+    def __init__(__self__, *,
+                 mount_path: pulumi.Input[str],
+                 slug: pulumi.Input[str]):
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "slug", slug)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mount_path", value)
+
+    @property
+    @pulumi.getter
+    def slug(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slug")
+
+    @slug.setter
+    def slug(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slug", value)
+
+
+@pulumi.input_type
 class WorkloadInstanceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceContainerArgs']]]] = None,
                  external_ip_address: Optional[pulumi.Input[str]] = None,
                  external_ipv6_address: Optional[pulumi.Input[str]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerArgs']]]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  ipv6_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input['WorkloadInstanceLocationArgs']] = None,
@@ -2010,6 +2709,8 @@ class WorkloadInstanceArgs:
             pulumi.set(__self__, "external_ip_address", external_ip_address)
         if external_ipv6_address is not None:
             pulumi.set(__self__, "external_ipv6_address", external_ipv6_address)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if ipv6_address is not None:
@@ -2064,6 +2765,15 @@ class WorkloadInstanceArgs:
     @external_ipv6_address.setter
     def external_ipv6_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "external_ipv6_address", value)
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerArgs']]]]:
+        return pulumi.get(self, "init_containers")
+
+    @init_containers.setter
+    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerArgs']]]]):
+        pulumi.set(self, "init_containers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -2794,6 +3504,678 @@ class WorkloadInstanceContainerSecurityContextCapabilitiesArgs:
 
 @pulumi.input_type
 class WorkloadInstanceContainerVolumeMountArgs:
+    def __init__(__self__, *,
+                 mount_path: pulumi.Input[str],
+                 slug: pulumi.Input[str]):
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "slug", slug)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mount_path", value)
+
+    @property
+    @pulumi.getter
+    def slug(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "slug")
+
+    @slug.setter
+    def slug(self, value: pulumi.Input[str]):
+        pulumi.set(self, "slug", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resources: pulumi.Input['WorkloadInstanceInitContainerResourcesArgs'],
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 envs: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerEnvArgs']]]] = None,
+                 liveness_probe: Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeArgs']] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerPortArgs']]]] = None,
+                 readiness_probe: Optional[pulumi.Input['WorkloadInstanceInitContainerReadinessProbeArgs']] = None,
+                 security_context: Optional[pulumi.Input['WorkloadInstanceInitContainerSecurityContextArgs']] = None,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerVolumeMountArgs']]]] = None):
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resources", resources)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if envs is not None:
+            pulumi.set(__self__, "envs", envs)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input['WorkloadInstanceInitContainerResourcesArgs']:
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input['WorkloadInstanceInitContainerResourcesArgs']):
+        pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter
+    def envs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerEnvArgs']]]]:
+        return pulumi.get(self, "envs")
+
+    @envs.setter
+    def envs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerEnvArgs']]]]):
+        pulumi.set(self, "envs", value)
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeArgs']]:
+        return pulumi.get(self, "liveness_probe")
+
+    @liveness_probe.setter
+    def liveness_probe(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeArgs']]):
+        pulumi.set(self, "liveness_probe", value)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerPortArgs']]]]:
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerPortArgs']]]]):
+        pulumi.set(self, "ports", value)
+
+    @property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerReadinessProbeArgs']]:
+        return pulumi.get(self, "readiness_probe")
+
+    @readiness_probe.setter
+    def readiness_probe(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerReadinessProbeArgs']]):
+        pulumi.set(self, "readiness_probe", value)
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerSecurityContextArgs']]:
+        return pulumi.get(self, "security_context")
+
+    @security_context.setter
+    def security_context(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerSecurityContextArgs']]):
+        pulumi.set(self, "security_context", value)
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerVolumeMountArgs']]]]:
+        return pulumi.get(self, "volume_mounts")
+
+    @volume_mounts.setter
+    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerVolumeMountArgs']]]]):
+        pulumi.set(self, "volume_mounts", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerEnvArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 secret_value: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        if secret_value is not None:
+            pulumi.set(__self__, "secret_value", secret_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="secretValue")
+    def secret_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secret_value")
+
+    @secret_value.setter
+    def secret_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerLivenessProbeArgs:
+    def __init__(__self__, *,
+                 failure_threshold: pulumi.Input[int],
+                 success_threshold: pulumi.Input[int],
+                 http_get: Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeHttpGetArgs']] = None,
+                 initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 period_seconds: Optional[pulumi.Input[int]] = None,
+                 tcp_socket: Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs']] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "failure_threshold", failure_threshold)
+        pulumi.set(__self__, "success_threshold", success_threshold)
+        if http_get is not None:
+            pulumi.set(__self__, "http_get", http_get)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if tcp_socket is not None:
+            pulumi.set(__self__, "tcp_socket", tcp_socket)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "failure_threshold")
+
+    @failure_threshold.setter
+    def failure_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "failure_threshold", value)
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "success_threshold")
+
+    @success_threshold.setter
+    def success_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "success_threshold", value)
+
+    @property
+    @pulumi.getter(name="httpGet")
+    def http_get(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeHttpGetArgs']]:
+        return pulumi.get(self, "http_get")
+
+    @http_get.setter
+    def http_get(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeHttpGetArgs']]):
+        pulumi.set(self, "http_get", value)
+
+    @property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @initial_delay_seconds.setter
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay_seconds", value)
+
+    @property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "period_seconds")
+
+    @period_seconds.setter
+    def period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period_seconds", value)
+
+    @property
+    @pulumi.getter(name="tcpSocket")
+    def tcp_socket(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs']]:
+        return pulumi.get(self, "tcp_socket")
+
+    @tcp_socket.setter
+    def tcp_socket(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs']]):
+        pulumi.set(self, "tcp_socket", value)
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_seconds", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerLivenessProbeHttpGetArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 scheme: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "port", port)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "http_headers", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheme", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int]):
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerPortArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 enable_implicit_network_policy: Optional[pulumi.Input[bool]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "port", port)
+        if enable_implicit_network_policy is not None:
+            pulumi.set(__self__, "enable_implicit_network_policy", enable_implicit_network_policy)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="enableImplicitNetworkPolicy")
+    def enable_implicit_network_policy(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_implicit_network_policy")
+
+    @enable_implicit_network_policy.setter
+    def enable_implicit_network_policy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_implicit_network_policy", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerReadinessProbeArgs:
+    def __init__(__self__, *,
+                 failure_threshold: pulumi.Input[int],
+                 success_threshold: pulumi.Input[int],
+                 http_get: Optional[pulumi.Input['WorkloadInstanceInitContainerReadinessProbeHttpGetArgs']] = None,
+                 initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+                 period_seconds: Optional[pulumi.Input[int]] = None,
+                 tcp_socket: Optional[pulumi.Input['WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs']] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "failure_threshold", failure_threshold)
+        pulumi.set(__self__, "success_threshold", success_threshold)
+        if http_get is not None:
+            pulumi.set(__self__, "http_get", http_get)
+        if initial_delay_seconds is not None:
+            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+        if period_seconds is not None:
+            pulumi.set(__self__, "period_seconds", period_seconds)
+        if tcp_socket is not None:
+            pulumi.set(__self__, "tcp_socket", tcp_socket)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "failure_threshold")
+
+    @failure_threshold.setter
+    def failure_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "failure_threshold", value)
+
+    @property
+    @pulumi.getter(name="successThreshold")
+    def success_threshold(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "success_threshold")
+
+    @success_threshold.setter
+    def success_threshold(self, value: pulumi.Input[int]):
+        pulumi.set(self, "success_threshold", value)
+
+    @property
+    @pulumi.getter(name="httpGet")
+    def http_get(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerReadinessProbeHttpGetArgs']]:
+        return pulumi.get(self, "http_get")
+
+    @http_get.setter
+    def http_get(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerReadinessProbeHttpGetArgs']]):
+        pulumi.set(self, "http_get", value)
+
+    @property
+    @pulumi.getter(name="initialDelaySeconds")
+    def initial_delay_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "initial_delay_seconds")
+
+    @initial_delay_seconds.setter
+    def initial_delay_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay_seconds", value)
+
+    @property
+    @pulumi.getter(name="periodSeconds")
+    def period_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "period_seconds")
+
+    @period_seconds.setter
+    def period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period_seconds", value)
+
+    @property
+    @pulumi.getter(name="tcpSocket")
+    def tcp_socket(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs']]:
+        return pulumi.get(self, "tcp_socket")
+
+    @tcp_socket.setter
+    def tcp_socket(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs']]):
+        pulumi.set(self, "tcp_socket", value)
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_seconds", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerReadinessProbeHttpGetArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 scheme: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "port", port)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if scheme is not None:
+            pulumi.set(__self__, "scheme", scheme)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "http_headers", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheme", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerReadinessProbeTcpSocketArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int]):
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerResourcesArgs:
+    def __init__(__self__, *,
+                 requests: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(__self__, "requests", requests)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "requests", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerSecurityContextArgs:
+    def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[pulumi.Input[bool]] = None,
+                 capabilities: Optional[pulumi.Input['WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs']] = None,
+                 read_only_root_filesystem: Optional[pulumi.Input[bool]] = None,
+                 run_as_group: Optional[pulumi.Input[str]] = None,
+                 run_as_non_root: Optional[pulumi.Input[bool]] = None,
+                 run_as_user: Optional[pulumi.Input[str]] = None):
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if read_only_root_filesystem is not None:
+            pulumi.set(__self__, "read_only_root_filesystem", read_only_root_filesystem)
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_non_root is not None:
+            pulumi.set(__self__, "run_as_non_root", run_as_non_root)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "allow_privilege_escalation")
+
+    @allow_privilege_escalation.setter
+    def allow_privilege_escalation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_privilege_escalation", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs']]:
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs']]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter(name="readOnlyRootFilesystem")
+    def read_only_root_filesystem(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "read_only_root_filesystem")
+
+    @read_only_root_filesystem.setter
+    def read_only_root_filesystem(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only_root_filesystem", value)
+
+    @property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_group")
+
+    @run_as_group.setter
+    def run_as_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_group", value)
+
+    @property
+    @pulumi.getter(name="runAsNonRoot")
+    def run_as_non_root(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "run_as_non_root")
+
+    @run_as_non_root.setter
+    def run_as_non_root(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "run_as_non_root", value)
+
+    @property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "run_as_user")
+
+    @run_as_user.setter
+    def run_as_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_as_user", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerSecurityContextCapabilitiesArgs:
+    def __init__(__self__, *,
+                 adds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 drops: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if adds is not None:
+            pulumi.set(__self__, "adds", adds)
+        if drops is not None:
+            pulumi.set(__self__, "drops", drops)
+
+    @property
+    @pulumi.getter
+    def adds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "adds")
+
+    @adds.setter
+    def adds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "adds", value)
+
+    @property
+    @pulumi.getter
+    def drops(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "drops")
+
+    @drops.setter
+    def drops(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "drops", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerVolumeMountArgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[str],
                  slug: pulumi.Input[str]):

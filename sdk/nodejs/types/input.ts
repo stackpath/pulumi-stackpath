@@ -163,6 +163,7 @@ export namespace compute {
     }
 
     export interface WorkloadContainer {
+        args?: pulumi.Input<pulumi.Input<string>[]>;
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         envs?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadContainerEnv>[]>;
         image: pulumi.Input<string>;
@@ -179,6 +180,16 @@ export namespace compute {
         key: pulumi.Input<string>;
         secretValue?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+        valueFrom?: pulumi.Input<inputs.compute.WorkloadContainerEnvValueFrom>;
+    }
+
+    export interface WorkloadContainerEnvValueFrom {
+        instanceFieldRef?: pulumi.Input<inputs.compute.WorkloadContainerEnvValueFromInstanceFieldRef>;
+    }
+
+    export interface WorkloadContainerEnvValueFromInstanceFieldRef {
+        fieldPath?: pulumi.Input<string>;
+        optional?: pulumi.Input<boolean>;
     }
 
     export interface WorkloadContainerLivenessProbe {
@@ -296,6 +307,7 @@ export namespace compute {
     }
 
     export interface WorkloadInitContainer {
+        args?: pulumi.Input<pulumi.Input<string>[]>;
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         envs?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInitContainerEnv>[]>;
         image: pulumi.Input<string>;
@@ -312,6 +324,16 @@ export namespace compute {
         key: pulumi.Input<string>;
         secretValue?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+        valueFrom?: pulumi.Input<inputs.compute.WorkloadInitContainerEnvValueFrom>;
+    }
+
+    export interface WorkloadInitContainerEnvValueFrom {
+        instanceFieldRef?: pulumi.Input<inputs.compute.WorkloadInitContainerEnvValueFromInstanceFieldRef>;
+    }
+
+    export interface WorkloadInitContainerEnvValueFromInstanceFieldRef {
+        fieldPath?: pulumi.Input<string>;
+        optional?: pulumi.Input<boolean>;
     }
 
     export interface WorkloadInitContainerLivenessProbe {
@@ -404,6 +426,7 @@ export namespace compute {
     }
 
     export interface WorkloadInstanceContainer {
+        args?: pulumi.Input<pulumi.Input<string>[]>;
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         envs?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceContainerEnv>[]>;
         image: pulumi.Input<string>;
@@ -420,6 +443,16 @@ export namespace compute {
         key: pulumi.Input<string>;
         secretValue?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+        valueFrom?: pulumi.Input<inputs.compute.WorkloadInstanceContainerEnvValueFrom>;
+    }
+
+    export interface WorkloadInstanceContainerEnvValueFrom {
+        instanceFieldRef?: pulumi.Input<inputs.compute.WorkloadInstanceContainerEnvValueFromInstanceFieldRef>;
+    }
+
+    export interface WorkloadInstanceContainerEnvValueFromInstanceFieldRef {
+        fieldPath?: pulumi.Input<string>;
+        optional?: pulumi.Input<boolean>;
     }
 
     export interface WorkloadInstanceContainerLivenessProbe {
@@ -495,6 +528,7 @@ export namespace compute {
     }
 
     export interface WorkloadInstanceInitContainer {
+        args?: pulumi.Input<pulumi.Input<string>[]>;
         commands?: pulumi.Input<pulumi.Input<string>[]>;
         envs?: pulumi.Input<pulumi.Input<inputs.compute.WorkloadInstanceInitContainerEnv>[]>;
         image: pulumi.Input<string>;
@@ -511,6 +545,16 @@ export namespace compute {
         key: pulumi.Input<string>;
         secretValue?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+        valueFrom?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerEnvValueFrom>;
+    }
+
+    export interface WorkloadInstanceInitContainerEnvValueFrom {
+        instanceFieldRef?: pulumi.Input<inputs.compute.WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef>;
+    }
+
+    export interface WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef {
+        fieldPath?: pulumi.Input<string>;
+        optional?: pulumi.Input<boolean>;
     }
 
     export interface WorkloadInstanceInitContainerLivenessProbe {

@@ -163,6 +163,7 @@ export namespace compute {
     }
 
     export interface WorkloadContainer {
+        args?: string[];
         commands?: string[];
         envs?: outputs.compute.WorkloadContainerEnv[];
         image: string;
@@ -179,6 +180,16 @@ export namespace compute {
         key: string;
         secretValue?: string;
         value?: string;
+        valueFrom?: outputs.compute.WorkloadContainerEnvValueFrom;
+    }
+
+    export interface WorkloadContainerEnvValueFrom {
+        instanceFieldRef?: outputs.compute.WorkloadContainerEnvValueFromInstanceFieldRef;
+    }
+
+    export interface WorkloadContainerEnvValueFromInstanceFieldRef {
+        fieldPath?: string;
+        optional?: boolean;
     }
 
     export interface WorkloadContainerLivenessProbe {
@@ -296,6 +307,7 @@ export namespace compute {
     }
 
     export interface WorkloadInitContainer {
+        args?: string[];
         commands?: string[];
         envs?: outputs.compute.WorkloadInitContainerEnv[];
         image: string;
@@ -312,6 +324,16 @@ export namespace compute {
         key: string;
         secretValue?: string;
         value?: string;
+        valueFrom?: outputs.compute.WorkloadInitContainerEnvValueFrom;
+    }
+
+    export interface WorkloadInitContainerEnvValueFrom {
+        instanceFieldRef?: outputs.compute.WorkloadInitContainerEnvValueFromInstanceFieldRef;
+    }
+
+    export interface WorkloadInitContainerEnvValueFromInstanceFieldRef {
+        fieldPath?: string;
+        optional?: boolean;
     }
 
     export interface WorkloadInitContainerLivenessProbe {
@@ -404,6 +426,7 @@ export namespace compute {
     }
 
     export interface WorkloadInstanceContainer {
+        args?: string[];
         commands?: string[];
         envs?: outputs.compute.WorkloadInstanceContainerEnv[];
         image: string;
@@ -420,6 +443,16 @@ export namespace compute {
         key: string;
         secretValue?: string;
         value?: string;
+        valueFrom?: outputs.compute.WorkloadInstanceContainerEnvValueFrom;
+    }
+
+    export interface WorkloadInstanceContainerEnvValueFrom {
+        instanceFieldRef?: outputs.compute.WorkloadInstanceContainerEnvValueFromInstanceFieldRef;
+    }
+
+    export interface WorkloadInstanceContainerEnvValueFromInstanceFieldRef {
+        fieldPath?: string;
+        optional?: boolean;
     }
 
     export interface WorkloadInstanceContainerLivenessProbe {
@@ -495,6 +528,7 @@ export namespace compute {
     }
 
     export interface WorkloadInstanceInitContainer {
+        args?: string[];
         commands?: string[];
         envs?: outputs.compute.WorkloadInstanceInitContainerEnv[];
         image: string;
@@ -511,6 +545,16 @@ export namespace compute {
         key: string;
         secretValue?: string;
         value?: string;
+        valueFrom?: outputs.compute.WorkloadInstanceInitContainerEnvValueFrom;
+    }
+
+    export interface WorkloadInstanceInitContainerEnvValueFrom {
+        instanceFieldRef?: outputs.compute.WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef;
+    }
+
+    export interface WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef {
+        fieldPath?: string;
+        optional?: boolean;
     }
 
     export interface WorkloadInstanceInitContainerLivenessProbe {

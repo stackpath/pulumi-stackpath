@@ -17,6 +17,7 @@ namespace Stackpath.Stackpath.Compute.Outputs
         public readonly string Key;
         public readonly string? SecretValue;
         public readonly string? Value;
+        public readonly Outputs.WorkloadContainerEnvValueFrom? ValueFrom;
 
         [OutputConstructor]
         private WorkloadContainerEnv(
@@ -24,11 +25,14 @@ namespace Stackpath.Stackpath.Compute.Outputs
 
             string? secretValue,
 
-            string? value)
+            string? value,
+
+            Outputs.WorkloadContainerEnvValueFrom? valueFrom)
         {
             Key = key;
             SecretValue = secretValue;
             Value = value;
+            ValueFrom = valueFrom;
         }
     }
 }

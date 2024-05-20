@@ -14,6 +14,7 @@ namespace Stackpath.Stackpath.Compute.Outputs
     [OutputType]
     public sealed class WorkloadContainer
     {
+        public readonly ImmutableArray<string> Args;
         public readonly ImmutableArray<string> Commands;
         public readonly ImmutableArray<Outputs.WorkloadContainerEnv> Envs;
         public readonly string Image;
@@ -27,6 +28,8 @@ namespace Stackpath.Stackpath.Compute.Outputs
 
         [OutputConstructor]
         private WorkloadContainer(
+            ImmutableArray<string> args,
+
             ImmutableArray<string> commands,
 
             ImmutableArray<Outputs.WorkloadContainerEnv> envs,
@@ -47,6 +50,7 @@ namespace Stackpath.Stackpath.Compute.Outputs
 
             ImmutableArray<Outputs.WorkloadContainerVolumeMount> volumeMounts)
         {
+            Args = args;
             Commands = commands;
             Envs = envs;
             Image = image;

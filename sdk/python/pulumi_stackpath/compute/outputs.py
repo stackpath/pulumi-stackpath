@@ -43,6 +43,8 @@ __all__ = [
     'NetworkRouteGatewaySelectorInterfaceSelector',
     'WorkloadContainer',
     'WorkloadContainerEnv',
+    'WorkloadContainerEnvValueFrom',
+    'WorkloadContainerEnvValueFromInstanceFieldRef',
     'WorkloadContainerLivenessProbe',
     'WorkloadContainerLivenessProbeHttpGet',
     'WorkloadContainerLivenessProbeTcpSocket',
@@ -63,6 +65,8 @@ __all__ = [
     'WorkloadImagePullCredentialDockerRegistry',
     'WorkloadInitContainer',
     'WorkloadInitContainerEnv',
+    'WorkloadInitContainerEnvValueFrom',
+    'WorkloadInitContainerEnvValueFromInstanceFieldRef',
     'WorkloadInitContainerLivenessProbe',
     'WorkloadInitContainerLivenessProbeHttpGet',
     'WorkloadInitContainerLivenessProbeTcpSocket',
@@ -77,6 +81,8 @@ __all__ = [
     'WorkloadInstance',
     'WorkloadInstanceContainer',
     'WorkloadInstanceContainerEnv',
+    'WorkloadInstanceContainerEnvValueFrom',
+    'WorkloadInstanceContainerEnvValueFromInstanceFieldRef',
     'WorkloadInstanceContainerLivenessProbe',
     'WorkloadInstanceContainerLivenessProbeHttpGet',
     'WorkloadInstanceContainerLivenessProbeTcpSocket',
@@ -90,6 +96,8 @@ __all__ = [
     'WorkloadInstanceContainerVolumeMount',
     'WorkloadInstanceInitContainer',
     'WorkloadInstanceInitContainerEnv',
+    'WorkloadInstanceInitContainerEnvValueFrom',
+    'WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef',
     'WorkloadInstanceInitContainerLivenessProbe',
     'WorkloadInstanceInitContainerLivenessProbeHttpGet',
     'WorkloadInstanceInitContainerLivenessProbeTcpSocket',
@@ -1050,6 +1058,7 @@ class WorkloadContainer(dict):
                  image: str,
                  name: str,
                  resources: 'outputs.WorkloadContainerResources',
+                 args: Optional[Sequence[str]] = None,
                  commands: Optional[Sequence[str]] = None,
                  envs: Optional[Sequence['outputs.WorkloadContainerEnv']] = None,
                  liveness_probe: Optional['outputs.WorkloadContainerLivenessProbe'] = None,
@@ -1060,6 +1069,8 @@ class WorkloadContainer(dict):
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if envs is not None:
@@ -1089,6 +1100,11 @@ class WorkloadContainer(dict):
     @pulumi.getter
     def resources(self) -> 'outputs.WorkloadContainerResources':
         return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "args")
 
     @property
     @pulumi.getter
@@ -1133,6 +1149,8 @@ class WorkloadContainerEnv(dict):
         suggest = None
         if key == "secretValue":
             suggest = "secret_value"
+        elif key == "valueFrom":
+            suggest = "value_from"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkloadContainerEnv. Access the value via the '{suggest}' property getter instead.")
@@ -1148,12 +1166,15 @@ class WorkloadContainerEnv(dict):
     def __init__(__self__, *,
                  key: str,
                  secret_value: Optional[str] = None,
-                 value: Optional[str] = None):
+                 value: Optional[str] = None,
+                 value_from: Optional['outputs.WorkloadContainerEnvValueFrom'] = None):
         pulumi.set(__self__, "key", key)
         if secret_value is not None:
             pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_from is not None:
+            pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -1169,6 +1190,79 @@ class WorkloadContainerEnv(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> Optional['outputs.WorkloadContainerEnvValueFrom']:
+        return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class WorkloadContainerEnvValueFrom(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceFieldRef":
+            suggest = "instance_field_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadContainerEnvValueFrom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadContainerEnvValueFrom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadContainerEnvValueFrom.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_field_ref: Optional['outputs.WorkloadContainerEnvValueFromInstanceFieldRef'] = None):
+        if instance_field_ref is not None:
+            pulumi.set(__self__, "instance_field_ref", instance_field_ref)
+
+    @property
+    @pulumi.getter(name="instanceFieldRef")
+    def instance_field_ref(self) -> Optional['outputs.WorkloadContainerEnvValueFromInstanceFieldRef']:
+        return pulumi.get(self, "instance_field_ref")
+
+
+@pulumi.output_type
+class WorkloadContainerEnvValueFromInstanceFieldRef(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldPath":
+            suggest = "field_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadContainerEnvValueFromInstanceFieldRef. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadContainerEnvValueFromInstanceFieldRef.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadContainerEnvValueFromInstanceFieldRef.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_path: Optional[str] = None,
+                 optional: Optional[bool] = None):
+        if field_path is not None:
+            pulumi.set(__self__, "field_path", field_path)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter(name="fieldPath")
+    def field_path(self) -> Optional[str]:
+        return pulumi.get(self, "field_path")
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[bool]:
+        return pulumi.get(self, "optional")
 
 
 @pulumi.output_type
@@ -1982,6 +2076,7 @@ class WorkloadInitContainer(dict):
                  image: str,
                  name: str,
                  resources: 'outputs.WorkloadInitContainerResources',
+                 args: Optional[Sequence[str]] = None,
                  commands: Optional[Sequence[str]] = None,
                  envs: Optional[Sequence['outputs.WorkloadInitContainerEnv']] = None,
                  liveness_probe: Optional['outputs.WorkloadInitContainerLivenessProbe'] = None,
@@ -1992,6 +2087,8 @@ class WorkloadInitContainer(dict):
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if envs is not None:
@@ -2021,6 +2118,11 @@ class WorkloadInitContainer(dict):
     @pulumi.getter
     def resources(self) -> 'outputs.WorkloadInitContainerResources':
         return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "args")
 
     @property
     @pulumi.getter
@@ -2065,6 +2167,8 @@ class WorkloadInitContainerEnv(dict):
         suggest = None
         if key == "secretValue":
             suggest = "secret_value"
+        elif key == "valueFrom":
+            suggest = "value_from"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkloadInitContainerEnv. Access the value via the '{suggest}' property getter instead.")
@@ -2080,12 +2184,15 @@ class WorkloadInitContainerEnv(dict):
     def __init__(__self__, *,
                  key: str,
                  secret_value: Optional[str] = None,
-                 value: Optional[str] = None):
+                 value: Optional[str] = None,
+                 value_from: Optional['outputs.WorkloadInitContainerEnvValueFrom'] = None):
         pulumi.set(__self__, "key", key)
         if secret_value is not None:
             pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_from is not None:
+            pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -2101,6 +2208,79 @@ class WorkloadInitContainerEnv(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> Optional['outputs.WorkloadInitContainerEnvValueFrom']:
+        return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class WorkloadInitContainerEnvValueFrom(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceFieldRef":
+            suggest = "instance_field_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadInitContainerEnvValueFrom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadInitContainerEnvValueFrom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadInitContainerEnvValueFrom.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_field_ref: Optional['outputs.WorkloadInitContainerEnvValueFromInstanceFieldRef'] = None):
+        if instance_field_ref is not None:
+            pulumi.set(__self__, "instance_field_ref", instance_field_ref)
+
+    @property
+    @pulumi.getter(name="instanceFieldRef")
+    def instance_field_ref(self) -> Optional['outputs.WorkloadInitContainerEnvValueFromInstanceFieldRef']:
+        return pulumi.get(self, "instance_field_ref")
+
+
+@pulumi.output_type
+class WorkloadInitContainerEnvValueFromInstanceFieldRef(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldPath":
+            suggest = "field_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadInitContainerEnvValueFromInstanceFieldRef. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadInitContainerEnvValueFromInstanceFieldRef.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadInitContainerEnvValueFromInstanceFieldRef.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_path: Optional[str] = None,
+                 optional: Optional[bool] = None):
+        if field_path is not None:
+            pulumi.set(__self__, "field_path", field_path)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter(name="fieldPath")
+    def field_path(self) -> Optional[str]:
+        return pulumi.get(self, "field_path")
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[bool]:
+        return pulumi.get(self, "optional")
 
 
 @pulumi.output_type
@@ -2782,6 +2962,7 @@ class WorkloadInstanceContainer(dict):
                  image: str,
                  name: str,
                  resources: 'outputs.WorkloadInstanceContainerResources',
+                 args: Optional[Sequence[str]] = None,
                  commands: Optional[Sequence[str]] = None,
                  envs: Optional[Sequence['outputs.WorkloadInstanceContainerEnv']] = None,
                  liveness_probe: Optional['outputs.WorkloadInstanceContainerLivenessProbe'] = None,
@@ -2792,6 +2973,8 @@ class WorkloadInstanceContainer(dict):
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if envs is not None:
@@ -2821,6 +3004,11 @@ class WorkloadInstanceContainer(dict):
     @pulumi.getter
     def resources(self) -> 'outputs.WorkloadInstanceContainerResources':
         return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "args")
 
     @property
     @pulumi.getter
@@ -2865,6 +3053,8 @@ class WorkloadInstanceContainerEnv(dict):
         suggest = None
         if key == "secretValue":
             suggest = "secret_value"
+        elif key == "valueFrom":
+            suggest = "value_from"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkloadInstanceContainerEnv. Access the value via the '{suggest}' property getter instead.")
@@ -2880,12 +3070,15 @@ class WorkloadInstanceContainerEnv(dict):
     def __init__(__self__, *,
                  key: str,
                  secret_value: Optional[str] = None,
-                 value: Optional[str] = None):
+                 value: Optional[str] = None,
+                 value_from: Optional['outputs.WorkloadInstanceContainerEnvValueFrom'] = None):
         pulumi.set(__self__, "key", key)
         if secret_value is not None:
             pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_from is not None:
+            pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -2901,6 +3094,79 @@ class WorkloadInstanceContainerEnv(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> Optional['outputs.WorkloadInstanceContainerEnvValueFrom']:
+        return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class WorkloadInstanceContainerEnvValueFrom(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceFieldRef":
+            suggest = "instance_field_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadInstanceContainerEnvValueFrom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadInstanceContainerEnvValueFrom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadInstanceContainerEnvValueFrom.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_field_ref: Optional['outputs.WorkloadInstanceContainerEnvValueFromInstanceFieldRef'] = None):
+        if instance_field_ref is not None:
+            pulumi.set(__self__, "instance_field_ref", instance_field_ref)
+
+    @property
+    @pulumi.getter(name="instanceFieldRef")
+    def instance_field_ref(self) -> Optional['outputs.WorkloadInstanceContainerEnvValueFromInstanceFieldRef']:
+        return pulumi.get(self, "instance_field_ref")
+
+
+@pulumi.output_type
+class WorkloadInstanceContainerEnvValueFromInstanceFieldRef(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldPath":
+            suggest = "field_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadInstanceContainerEnvValueFromInstanceFieldRef. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadInstanceContainerEnvValueFromInstanceFieldRef.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadInstanceContainerEnvValueFromInstanceFieldRef.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_path: Optional[str] = None,
+                 optional: Optional[bool] = None):
+        if field_path is not None:
+            pulumi.set(__self__, "field_path", field_path)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter(name="fieldPath")
+    def field_path(self) -> Optional[str]:
+        return pulumi.get(self, "field_path")
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[bool]:
+        return pulumi.get(self, "optional")
 
 
 @pulumi.output_type
@@ -3437,6 +3703,7 @@ class WorkloadInstanceInitContainer(dict):
                  image: str,
                  name: str,
                  resources: 'outputs.WorkloadInstanceInitContainerResources',
+                 args: Optional[Sequence[str]] = None,
                  commands: Optional[Sequence[str]] = None,
                  envs: Optional[Sequence['outputs.WorkloadInstanceInitContainerEnv']] = None,
                  liveness_probe: Optional['outputs.WorkloadInstanceInitContainerLivenessProbe'] = None,
@@ -3447,6 +3714,8 @@ class WorkloadInstanceInitContainer(dict):
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if envs is not None:
@@ -3476,6 +3745,11 @@ class WorkloadInstanceInitContainer(dict):
     @pulumi.getter
     def resources(self) -> 'outputs.WorkloadInstanceInitContainerResources':
         return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "args")
 
     @property
     @pulumi.getter
@@ -3520,6 +3794,8 @@ class WorkloadInstanceInitContainerEnv(dict):
         suggest = None
         if key == "secretValue":
             suggest = "secret_value"
+        elif key == "valueFrom":
+            suggest = "value_from"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkloadInstanceInitContainerEnv. Access the value via the '{suggest}' property getter instead.")
@@ -3535,12 +3811,15 @@ class WorkloadInstanceInitContainerEnv(dict):
     def __init__(__self__, *,
                  key: str,
                  secret_value: Optional[str] = None,
-                 value: Optional[str] = None):
+                 value: Optional[str] = None,
+                 value_from: Optional['outputs.WorkloadInstanceInitContainerEnvValueFrom'] = None):
         pulumi.set(__self__, "key", key)
         if secret_value is not None:
             pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_from is not None:
+            pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -3556,6 +3835,79 @@ class WorkloadInstanceInitContainerEnv(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> Optional['outputs.WorkloadInstanceInitContainerEnvValueFrom']:
+        return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class WorkloadInstanceInitContainerEnvValueFrom(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceFieldRef":
+            suggest = "instance_field_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadInstanceInitContainerEnvValueFrom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadInstanceInitContainerEnvValueFrom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadInstanceInitContainerEnvValueFrom.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_field_ref: Optional['outputs.WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef'] = None):
+        if instance_field_ref is not None:
+            pulumi.set(__self__, "instance_field_ref", instance_field_ref)
+
+    @property
+    @pulumi.getter(name="instanceFieldRef")
+    def instance_field_ref(self) -> Optional['outputs.WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef']:
+        return pulumi.get(self, "instance_field_ref")
+
+
+@pulumi.output_type
+class WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldPath":
+            suggest = "field_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_path: Optional[str] = None,
+                 optional: Optional[bool] = None):
+        if field_path is not None:
+            pulumi.set(__self__, "field_path", field_path)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter(name="fieldPath")
+    def field_path(self) -> Optional[str]:
+        return pulumi.get(self, "field_path")
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[bool]:
+        return pulumi.get(self, "optional")
 
 
 @pulumi.output_type

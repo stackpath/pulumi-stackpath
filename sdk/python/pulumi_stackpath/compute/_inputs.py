@@ -42,6 +42,8 @@ __all__ = [
     'NetworkRouteGatewaySelectorInterfaceSelectorArgs',
     'WorkloadContainerArgs',
     'WorkloadContainerEnvArgs',
+    'WorkloadContainerEnvValueFromArgs',
+    'WorkloadContainerEnvValueFromInstanceFieldRefArgs',
     'WorkloadContainerLivenessProbeArgs',
     'WorkloadContainerLivenessProbeHttpGetArgs',
     'WorkloadContainerLivenessProbeTcpSocketArgs',
@@ -62,6 +64,8 @@ __all__ = [
     'WorkloadImagePullCredentialDockerRegistryArgs',
     'WorkloadInitContainerArgs',
     'WorkloadInitContainerEnvArgs',
+    'WorkloadInitContainerEnvValueFromArgs',
+    'WorkloadInitContainerEnvValueFromInstanceFieldRefArgs',
     'WorkloadInitContainerLivenessProbeArgs',
     'WorkloadInitContainerLivenessProbeHttpGetArgs',
     'WorkloadInitContainerLivenessProbeTcpSocketArgs',
@@ -76,6 +80,8 @@ __all__ = [
     'WorkloadInstanceArgs',
     'WorkloadInstanceContainerArgs',
     'WorkloadInstanceContainerEnvArgs',
+    'WorkloadInstanceContainerEnvValueFromArgs',
+    'WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs',
     'WorkloadInstanceContainerLivenessProbeArgs',
     'WorkloadInstanceContainerLivenessProbeHttpGetArgs',
     'WorkloadInstanceContainerLivenessProbeTcpSocketArgs',
@@ -89,6 +95,8 @@ __all__ = [
     'WorkloadInstanceContainerVolumeMountArgs',
     'WorkloadInstanceInitContainerArgs',
     'WorkloadInstanceInitContainerEnvArgs',
+    'WorkloadInstanceInitContainerEnvValueFromArgs',
+    'WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs',
     'WorkloadInstanceInitContainerLivenessProbeArgs',
     'WorkloadInstanceInitContainerLivenessProbeHttpGetArgs',
     'WorkloadInstanceInitContainerLivenessProbeTcpSocketArgs',
@@ -1066,6 +1074,7 @@ class WorkloadContainerArgs:
                  image: pulumi.Input[str],
                  name: pulumi.Input[str],
                  resources: pulumi.Input['WorkloadContainerResourcesArgs'],
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  envs: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadContainerEnvArgs']]]] = None,
                  liveness_probe: Optional[pulumi.Input['WorkloadContainerLivenessProbeArgs']] = None,
@@ -1076,6 +1085,8 @@ class WorkloadContainerArgs:
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if envs is not None:
@@ -1117,6 +1128,15 @@ class WorkloadContainerArgs:
     @resources.setter
     def resources(self, value: pulumi.Input['WorkloadContainerResourcesArgs']):
         pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
 
     @property
     @pulumi.getter
@@ -1187,12 +1207,15 @@ class WorkloadContainerEnvArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  secret_value: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_from: Optional[pulumi.Input['WorkloadContainerEnvValueFromArgs']] = None):
         pulumi.set(__self__, "key", key)
         if secret_value is not None:
             pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_from is not None:
+            pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -1220,6 +1243,61 @@ class WorkloadContainerEnvArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> Optional[pulumi.Input['WorkloadContainerEnvValueFromArgs']]:
+        return pulumi.get(self, "value_from")
+
+    @value_from.setter
+    def value_from(self, value: Optional[pulumi.Input['WorkloadContainerEnvValueFromArgs']]):
+        pulumi.set(self, "value_from", value)
+
+
+@pulumi.input_type
+class WorkloadContainerEnvValueFromArgs:
+    def __init__(__self__, *,
+                 instance_field_ref: Optional[pulumi.Input['WorkloadContainerEnvValueFromInstanceFieldRefArgs']] = None):
+        if instance_field_ref is not None:
+            pulumi.set(__self__, "instance_field_ref", instance_field_ref)
+
+    @property
+    @pulumi.getter(name="instanceFieldRef")
+    def instance_field_ref(self) -> Optional[pulumi.Input['WorkloadContainerEnvValueFromInstanceFieldRefArgs']]:
+        return pulumi.get(self, "instance_field_ref")
+
+    @instance_field_ref.setter
+    def instance_field_ref(self, value: Optional[pulumi.Input['WorkloadContainerEnvValueFromInstanceFieldRefArgs']]):
+        pulumi.set(self, "instance_field_ref", value)
+
+
+@pulumi.input_type
+class WorkloadContainerEnvValueFromInstanceFieldRefArgs:
+    def __init__(__self__, *,
+                 field_path: Optional[pulumi.Input[str]] = None,
+                 optional: Optional[pulumi.Input[bool]] = None):
+        if field_path is not None:
+            pulumi.set(__self__, "field_path", field_path)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter(name="fieldPath")
+    def field_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_path")
+
+    @field_path.setter
+    def field_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_path", value)
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "optional")
+
+    @optional.setter
+    def optional(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optional", value)
 
 
 @pulumi.input_type
@@ -2019,6 +2097,7 @@ class WorkloadInitContainerArgs:
                  image: pulumi.Input[str],
                  name: pulumi.Input[str],
                  resources: pulumi.Input['WorkloadInitContainerResourcesArgs'],
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  envs: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInitContainerEnvArgs']]]] = None,
                  liveness_probe: Optional[pulumi.Input['WorkloadInitContainerLivenessProbeArgs']] = None,
@@ -2029,6 +2108,8 @@ class WorkloadInitContainerArgs:
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if envs is not None:
@@ -2070,6 +2151,15 @@ class WorkloadInitContainerArgs:
     @resources.setter
     def resources(self, value: pulumi.Input['WorkloadInitContainerResourcesArgs']):
         pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
 
     @property
     @pulumi.getter
@@ -2140,12 +2230,15 @@ class WorkloadInitContainerEnvArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  secret_value: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_from: Optional[pulumi.Input['WorkloadInitContainerEnvValueFromArgs']] = None):
         pulumi.set(__self__, "key", key)
         if secret_value is not None:
             pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_from is not None:
+            pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -2173,6 +2266,61 @@ class WorkloadInitContainerEnvArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> Optional[pulumi.Input['WorkloadInitContainerEnvValueFromArgs']]:
+        return pulumi.get(self, "value_from")
+
+    @value_from.setter
+    def value_from(self, value: Optional[pulumi.Input['WorkloadInitContainerEnvValueFromArgs']]):
+        pulumi.set(self, "value_from", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerEnvValueFromArgs:
+    def __init__(__self__, *,
+                 instance_field_ref: Optional[pulumi.Input['WorkloadInitContainerEnvValueFromInstanceFieldRefArgs']] = None):
+        if instance_field_ref is not None:
+            pulumi.set(__self__, "instance_field_ref", instance_field_ref)
+
+    @property
+    @pulumi.getter(name="instanceFieldRef")
+    def instance_field_ref(self) -> Optional[pulumi.Input['WorkloadInitContainerEnvValueFromInstanceFieldRefArgs']]:
+        return pulumi.get(self, "instance_field_ref")
+
+    @instance_field_ref.setter
+    def instance_field_ref(self, value: Optional[pulumi.Input['WorkloadInitContainerEnvValueFromInstanceFieldRefArgs']]):
+        pulumi.set(self, "instance_field_ref", value)
+
+
+@pulumi.input_type
+class WorkloadInitContainerEnvValueFromInstanceFieldRefArgs:
+    def __init__(__self__, *,
+                 field_path: Optional[pulumi.Input[str]] = None,
+                 optional: Optional[pulumi.Input[bool]] = None):
+        if field_path is not None:
+            pulumi.set(__self__, "field_path", field_path)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter(name="fieldPath")
+    def field_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_path")
+
+    @field_path.setter
+    def field_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_path", value)
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "optional")
+
+    @optional.setter
+    def optional(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optional", value)
 
 
 @pulumi.input_type
@@ -2863,6 +3011,7 @@ class WorkloadInstanceContainerArgs:
                  image: pulumi.Input[str],
                  name: pulumi.Input[str],
                  resources: pulumi.Input['WorkloadInstanceContainerResourcesArgs'],
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  envs: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceContainerEnvArgs']]]] = None,
                  liveness_probe: Optional[pulumi.Input['WorkloadInstanceContainerLivenessProbeArgs']] = None,
@@ -2873,6 +3022,8 @@ class WorkloadInstanceContainerArgs:
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if envs is not None:
@@ -2914,6 +3065,15 @@ class WorkloadInstanceContainerArgs:
     @resources.setter
     def resources(self, value: pulumi.Input['WorkloadInstanceContainerResourcesArgs']):
         pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
 
     @property
     @pulumi.getter
@@ -2984,12 +3144,15 @@ class WorkloadInstanceContainerEnvArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  secret_value: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_from: Optional[pulumi.Input['WorkloadInstanceContainerEnvValueFromArgs']] = None):
         pulumi.set(__self__, "key", key)
         if secret_value is not None:
             pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_from is not None:
+            pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -3017,6 +3180,61 @@ class WorkloadInstanceContainerEnvArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> Optional[pulumi.Input['WorkloadInstanceContainerEnvValueFromArgs']]:
+        return pulumi.get(self, "value_from")
+
+    @value_from.setter
+    def value_from(self, value: Optional[pulumi.Input['WorkloadInstanceContainerEnvValueFromArgs']]):
+        pulumi.set(self, "value_from", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceContainerEnvValueFromArgs:
+    def __init__(__self__, *,
+                 instance_field_ref: Optional[pulumi.Input['WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs']] = None):
+        if instance_field_ref is not None:
+            pulumi.set(__self__, "instance_field_ref", instance_field_ref)
+
+    @property
+    @pulumi.getter(name="instanceFieldRef")
+    def instance_field_ref(self) -> Optional[pulumi.Input['WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs']]:
+        return pulumi.get(self, "instance_field_ref")
+
+    @instance_field_ref.setter
+    def instance_field_ref(self, value: Optional[pulumi.Input['WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs']]):
+        pulumi.set(self, "instance_field_ref", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs:
+    def __init__(__self__, *,
+                 field_path: Optional[pulumi.Input[str]] = None,
+                 optional: Optional[pulumi.Input[bool]] = None):
+        if field_path is not None:
+            pulumi.set(__self__, "field_path", field_path)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter(name="fieldPath")
+    def field_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_path")
+
+    @field_path.setter
+    def field_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_path", value)
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "optional")
+
+    @optional.setter
+    def optional(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optional", value)
 
 
 @pulumi.input_type
@@ -3535,6 +3753,7 @@ class WorkloadInstanceInitContainerArgs:
                  image: pulumi.Input[str],
                  name: pulumi.Input[str],
                  resources: pulumi.Input['WorkloadInstanceInitContainerResourcesArgs'],
+                 args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  envs: Optional[pulumi.Input[Sequence[pulumi.Input['WorkloadInstanceInitContainerEnvArgs']]]] = None,
                  liveness_probe: Optional[pulumi.Input['WorkloadInstanceInitContainerLivenessProbeArgs']] = None,
@@ -3545,6 +3764,8 @@ class WorkloadInstanceInitContainerArgs:
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resources", resources)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if envs is not None:
@@ -3586,6 +3807,15 @@ class WorkloadInstanceInitContainerArgs:
     @resources.setter
     def resources(self, value: pulumi.Input['WorkloadInstanceInitContainerResourcesArgs']):
         pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "args")
+
+    @args.setter
+    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "args", value)
 
     @property
     @pulumi.getter
@@ -3656,12 +3886,15 @@ class WorkloadInstanceInitContainerEnvArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  secret_value: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
+                 value: Optional[pulumi.Input[str]] = None,
+                 value_from: Optional[pulumi.Input['WorkloadInstanceInitContainerEnvValueFromArgs']] = None):
         pulumi.set(__self__, "key", key)
         if secret_value is not None:
             pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_from is not None:
+            pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -3689,6 +3922,61 @@ class WorkloadInstanceInitContainerEnvArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerEnvValueFromArgs']]:
+        return pulumi.get(self, "value_from")
+
+    @value_from.setter
+    def value_from(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerEnvValueFromArgs']]):
+        pulumi.set(self, "value_from", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerEnvValueFromArgs:
+    def __init__(__self__, *,
+                 instance_field_ref: Optional[pulumi.Input['WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs']] = None):
+        if instance_field_ref is not None:
+            pulumi.set(__self__, "instance_field_ref", instance_field_ref)
+
+    @property
+    @pulumi.getter(name="instanceFieldRef")
+    def instance_field_ref(self) -> Optional[pulumi.Input['WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs']]:
+        return pulumi.get(self, "instance_field_ref")
+
+    @instance_field_ref.setter
+    def instance_field_ref(self, value: Optional[pulumi.Input['WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs']]):
+        pulumi.set(self, "instance_field_ref", value)
+
+
+@pulumi.input_type
+class WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs:
+    def __init__(__self__, *,
+                 field_path: Optional[pulumi.Input[str]] = None,
+                 optional: Optional[pulumi.Input[bool]] = None):
+        if field_path is not None:
+            pulumi.set(__self__, "field_path", field_path)
+        if optional is not None:
+            pulumi.set(__self__, "optional", optional)
+
+    @property
+    @pulumi.getter(name="fieldPath")
+    def field_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "field_path")
+
+    @field_path.setter
+    def field_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_path", value)
+
+    @property
+    @pulumi.getter
+    def optional(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "optional")
+
+    @optional.setter
+    def optional(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "optional", value)
 
 
 @pulumi.input_type

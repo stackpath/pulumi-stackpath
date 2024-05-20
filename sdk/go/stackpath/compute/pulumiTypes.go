@@ -3882,6 +3882,7 @@ func (o NetworkRouteGatewaySelectorInterfaceSelectorArrayOutput) Index(i pulumi.
 }
 
 type WorkloadContainer struct {
+	Args            []string                          `pulumi:"args"`
 	Commands        []string                          `pulumi:"commands"`
 	Envs            []WorkloadContainerEnv            `pulumi:"envs"`
 	Image           string                            `pulumi:"image"`
@@ -3906,6 +3907,7 @@ type WorkloadContainerInput interface {
 }
 
 type WorkloadContainerArgs struct {
+	Args            pulumi.StringArrayInput                  `pulumi:"args"`
 	Commands        pulumi.StringArrayInput                  `pulumi:"commands"`
 	Envs            WorkloadContainerEnvArrayInput           `pulumi:"envs"`
 	Image           pulumi.StringInput                       `pulumi:"image"`
@@ -3969,6 +3971,10 @@ func (o WorkloadContainerOutput) ToWorkloadContainerOutputWithContext(ctx contex
 	return o
 }
 
+func (o WorkloadContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
 func (o WorkloadContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkloadContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -4030,9 +4036,10 @@ func (o WorkloadContainerArrayOutput) Index(i pulumi.IntInput) WorkloadContainer
 }
 
 type WorkloadContainerEnv struct {
-	Key         string  `pulumi:"key"`
-	SecretValue *string `pulumi:"secretValue"`
-	Value       *string `pulumi:"value"`
+	Key         string                         `pulumi:"key"`
+	SecretValue *string                        `pulumi:"secretValue"`
+	Value       *string                        `pulumi:"value"`
+	ValueFrom   *WorkloadContainerEnvValueFrom `pulumi:"valueFrom"`
 }
 
 // WorkloadContainerEnvInput is an input type that accepts WorkloadContainerEnvArgs and WorkloadContainerEnvOutput values.
@@ -4047,9 +4054,10 @@ type WorkloadContainerEnvInput interface {
 }
 
 type WorkloadContainerEnvArgs struct {
-	Key         pulumi.StringInput    `pulumi:"key"`
-	SecretValue pulumi.StringPtrInput `pulumi:"secretValue"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
+	Key         pulumi.StringInput                    `pulumi:"key"`
+	SecretValue pulumi.StringPtrInput                 `pulumi:"secretValue"`
+	Value       pulumi.StringPtrInput                 `pulumi:"value"`
+	ValueFrom   WorkloadContainerEnvValueFromPtrInput `pulumi:"valueFrom"`
 }
 
 func (WorkloadContainerEnvArgs) ElementType() reflect.Type {
@@ -4115,6 +4123,10 @@ func (o WorkloadContainerEnvOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkloadContainerEnvOutput) ValueFrom() WorkloadContainerEnvValueFromPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerEnv) *WorkloadContainerEnvValueFrom { return v.ValueFrom }).(WorkloadContainerEnvValueFromPtrOutput)
+}
+
 type WorkloadContainerEnvArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkloadContainerEnvArrayOutput) ElementType() reflect.Type {
@@ -4133,6 +4145,289 @@ func (o WorkloadContainerEnvArrayOutput) Index(i pulumi.IntInput) WorkloadContai
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadContainerEnv {
 		return vs[0].([]WorkloadContainerEnv)[vs[1].(int)]
 	}).(WorkloadContainerEnvOutput)
+}
+
+type WorkloadContainerEnvValueFrom struct {
+	InstanceFieldRef *WorkloadContainerEnvValueFromInstanceFieldRef `pulumi:"instanceFieldRef"`
+}
+
+// WorkloadContainerEnvValueFromInput is an input type that accepts WorkloadContainerEnvValueFromArgs and WorkloadContainerEnvValueFromOutput values.
+// You can construct a concrete instance of `WorkloadContainerEnvValueFromInput` via:
+//
+//	WorkloadContainerEnvValueFromArgs{...}
+type WorkloadContainerEnvValueFromInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerEnvValueFromOutput() WorkloadContainerEnvValueFromOutput
+	ToWorkloadContainerEnvValueFromOutputWithContext(context.Context) WorkloadContainerEnvValueFromOutput
+}
+
+type WorkloadContainerEnvValueFromArgs struct {
+	InstanceFieldRef WorkloadContainerEnvValueFromInstanceFieldRefPtrInput `pulumi:"instanceFieldRef"`
+}
+
+func (WorkloadContainerEnvValueFromArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (i WorkloadContainerEnvValueFromArgs) ToWorkloadContainerEnvValueFromOutput() WorkloadContainerEnvValueFromOutput {
+	return i.ToWorkloadContainerEnvValueFromOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerEnvValueFromArgs) ToWorkloadContainerEnvValueFromOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerEnvValueFromOutput)
+}
+
+func (i WorkloadContainerEnvValueFromArgs) ToWorkloadContainerEnvValueFromPtrOutput() WorkloadContainerEnvValueFromPtrOutput {
+	return i.ToWorkloadContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerEnvValueFromArgs) ToWorkloadContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerEnvValueFromOutput).ToWorkloadContainerEnvValueFromPtrOutputWithContext(ctx)
+}
+
+// WorkloadContainerEnvValueFromPtrInput is an input type that accepts WorkloadContainerEnvValueFromArgs, WorkloadContainerEnvValueFromPtr and WorkloadContainerEnvValueFromPtrOutput values.
+// You can construct a concrete instance of `WorkloadContainerEnvValueFromPtrInput` via:
+//
+//	        WorkloadContainerEnvValueFromArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadContainerEnvValueFromPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerEnvValueFromPtrOutput() WorkloadContainerEnvValueFromPtrOutput
+	ToWorkloadContainerEnvValueFromPtrOutputWithContext(context.Context) WorkloadContainerEnvValueFromPtrOutput
+}
+
+type workloadContainerEnvValueFromPtrType WorkloadContainerEnvValueFromArgs
+
+func WorkloadContainerEnvValueFromPtr(v *WorkloadContainerEnvValueFromArgs) WorkloadContainerEnvValueFromPtrInput {
+	return (*workloadContainerEnvValueFromPtrType)(v)
+}
+
+func (*workloadContainerEnvValueFromPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (i *workloadContainerEnvValueFromPtrType) ToWorkloadContainerEnvValueFromPtrOutput() WorkloadContainerEnvValueFromPtrOutput {
+	return i.ToWorkloadContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadContainerEnvValueFromPtrType) ToWorkloadContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerEnvValueFromPtrOutput)
+}
+
+type WorkloadContainerEnvValueFromOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerEnvValueFromOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (o WorkloadContainerEnvValueFromOutput) ToWorkloadContainerEnvValueFromOutput() WorkloadContainerEnvValueFromOutput {
+	return o
+}
+
+func (o WorkloadContainerEnvValueFromOutput) ToWorkloadContainerEnvValueFromOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromOutput {
+	return o
+}
+
+func (o WorkloadContainerEnvValueFromOutput) ToWorkloadContainerEnvValueFromPtrOutput() WorkloadContainerEnvValueFromPtrOutput {
+	return o.ToWorkloadContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadContainerEnvValueFromOutput) ToWorkloadContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadContainerEnvValueFrom) *WorkloadContainerEnvValueFrom {
+		return &v
+	}).(WorkloadContainerEnvValueFromPtrOutput)
+}
+
+func (o WorkloadContainerEnvValueFromOutput) InstanceFieldRef() WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerEnvValueFrom) *WorkloadContainerEnvValueFromInstanceFieldRef {
+		return v.InstanceFieldRef
+	}).(WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadContainerEnvValueFromPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerEnvValueFromPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (o WorkloadContainerEnvValueFromPtrOutput) ToWorkloadContainerEnvValueFromPtrOutput() WorkloadContainerEnvValueFromPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerEnvValueFromPtrOutput) ToWorkloadContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerEnvValueFromPtrOutput) Elem() WorkloadContainerEnvValueFromOutput {
+	return o.ApplyT(func(v *WorkloadContainerEnvValueFrom) WorkloadContainerEnvValueFrom {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadContainerEnvValueFrom
+		return ret
+	}).(WorkloadContainerEnvValueFromOutput)
+}
+
+func (o WorkloadContainerEnvValueFromPtrOutput) InstanceFieldRef() WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerEnvValueFrom) *WorkloadContainerEnvValueFromInstanceFieldRef {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceFieldRef
+	}).(WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadContainerEnvValueFromInstanceFieldRef struct {
+	FieldPath *string `pulumi:"fieldPath"`
+	Optional  *bool   `pulumi:"optional"`
+}
+
+// WorkloadContainerEnvValueFromInstanceFieldRefInput is an input type that accepts WorkloadContainerEnvValueFromInstanceFieldRefArgs and WorkloadContainerEnvValueFromInstanceFieldRefOutput values.
+// You can construct a concrete instance of `WorkloadContainerEnvValueFromInstanceFieldRefInput` via:
+//
+//	WorkloadContainerEnvValueFromInstanceFieldRefArgs{...}
+type WorkloadContainerEnvValueFromInstanceFieldRefInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerEnvValueFromInstanceFieldRefOutput() WorkloadContainerEnvValueFromInstanceFieldRefOutput
+	ToWorkloadContainerEnvValueFromInstanceFieldRefOutputWithContext(context.Context) WorkloadContainerEnvValueFromInstanceFieldRefOutput
+}
+
+type WorkloadContainerEnvValueFromInstanceFieldRefArgs struct {
+	FieldPath pulumi.StringPtrInput `pulumi:"fieldPath"`
+	Optional  pulumi.BoolPtrInput   `pulumi:"optional"`
+}
+
+func (WorkloadContainerEnvValueFromInstanceFieldRefArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (i WorkloadContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadContainerEnvValueFromInstanceFieldRefOutput() WorkloadContainerEnvValueFromInstanceFieldRefOutput {
+	return i.ToWorkloadContainerEnvValueFromInstanceFieldRefOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadContainerEnvValueFromInstanceFieldRefOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromInstanceFieldRefOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerEnvValueFromInstanceFieldRefOutput)
+}
+
+func (i WorkloadContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return i.ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerEnvValueFromInstanceFieldRefOutput).ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx)
+}
+
+// WorkloadContainerEnvValueFromInstanceFieldRefPtrInput is an input type that accepts WorkloadContainerEnvValueFromInstanceFieldRefArgs, WorkloadContainerEnvValueFromInstanceFieldRefPtr and WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput values.
+// You can construct a concrete instance of `WorkloadContainerEnvValueFromInstanceFieldRefPtrInput` via:
+//
+//	        WorkloadContainerEnvValueFromInstanceFieldRefArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadContainerEnvValueFromInstanceFieldRefPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput
+	ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Context) WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput
+}
+
+type workloadContainerEnvValueFromInstanceFieldRefPtrType WorkloadContainerEnvValueFromInstanceFieldRefArgs
+
+func WorkloadContainerEnvValueFromInstanceFieldRefPtr(v *WorkloadContainerEnvValueFromInstanceFieldRefArgs) WorkloadContainerEnvValueFromInstanceFieldRefPtrInput {
+	return (*workloadContainerEnvValueFromInstanceFieldRefPtrType)(v)
+}
+
+func (*workloadContainerEnvValueFromInstanceFieldRefPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (i *workloadContainerEnvValueFromInstanceFieldRefPtrType) ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return i.ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadContainerEnvValueFromInstanceFieldRefPtrType) ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadContainerEnvValueFromInstanceFieldRefOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerEnvValueFromInstanceFieldRefOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadContainerEnvValueFromInstanceFieldRefOutput() WorkloadContainerEnvValueFromInstanceFieldRefOutput {
+	return o
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadContainerEnvValueFromInstanceFieldRefOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromInstanceFieldRefOutput {
+	return o
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadContainerEnvValueFromInstanceFieldRef) *WorkloadContainerEnvValueFromInstanceFieldRef {
+		return &v
+	}).(WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefOutput) FieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerEnvValueFromInstanceFieldRef) *string { return v.FieldPath }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadContainerEnvValueFromInstanceFieldRef) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
+}
+
+type WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput) ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput) ToWorkloadContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput) Elem() WorkloadContainerEnvValueFromInstanceFieldRefOutput {
+	return o.ApplyT(func(v *WorkloadContainerEnvValueFromInstanceFieldRef) WorkloadContainerEnvValueFromInstanceFieldRef {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadContainerEnvValueFromInstanceFieldRef
+		return ret
+	}).(WorkloadContainerEnvValueFromInstanceFieldRefOutput)
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput) FieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerEnvValueFromInstanceFieldRef) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadContainerEnvValueFromInstanceFieldRef) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Optional
+	}).(pulumi.BoolPtrOutput)
 }
 
 type WorkloadContainerLivenessProbe struct {
@@ -6715,6 +7010,7 @@ func (o WorkloadImagePullCredentialDockerRegistryOutput) Username() pulumi.Strin
 }
 
 type WorkloadInitContainer struct {
+	Args            []string                              `pulumi:"args"`
 	Commands        []string                              `pulumi:"commands"`
 	Envs            []WorkloadInitContainerEnv            `pulumi:"envs"`
 	Image           string                                `pulumi:"image"`
@@ -6739,6 +7035,7 @@ type WorkloadInitContainerInput interface {
 }
 
 type WorkloadInitContainerArgs struct {
+	Args            pulumi.StringArrayInput                      `pulumi:"args"`
 	Commands        pulumi.StringArrayInput                      `pulumi:"commands"`
 	Envs            WorkloadInitContainerEnvArrayInput           `pulumi:"envs"`
 	Image           pulumi.StringInput                           `pulumi:"image"`
@@ -6802,6 +7099,10 @@ func (o WorkloadInitContainerOutput) ToWorkloadInitContainerOutputWithContext(ct
 	return o
 }
 
+func (o WorkloadInitContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
 func (o WorkloadInitContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkloadInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -6863,9 +7164,10 @@ func (o WorkloadInitContainerArrayOutput) Index(i pulumi.IntInput) WorkloadInitC
 }
 
 type WorkloadInitContainerEnv struct {
-	Key         string  `pulumi:"key"`
-	SecretValue *string `pulumi:"secretValue"`
-	Value       *string `pulumi:"value"`
+	Key         string                             `pulumi:"key"`
+	SecretValue *string                            `pulumi:"secretValue"`
+	Value       *string                            `pulumi:"value"`
+	ValueFrom   *WorkloadInitContainerEnvValueFrom `pulumi:"valueFrom"`
 }
 
 // WorkloadInitContainerEnvInput is an input type that accepts WorkloadInitContainerEnvArgs and WorkloadInitContainerEnvOutput values.
@@ -6880,9 +7182,10 @@ type WorkloadInitContainerEnvInput interface {
 }
 
 type WorkloadInitContainerEnvArgs struct {
-	Key         pulumi.StringInput    `pulumi:"key"`
-	SecretValue pulumi.StringPtrInput `pulumi:"secretValue"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
+	Key         pulumi.StringInput                        `pulumi:"key"`
+	SecretValue pulumi.StringPtrInput                     `pulumi:"secretValue"`
+	Value       pulumi.StringPtrInput                     `pulumi:"value"`
+	ValueFrom   WorkloadInitContainerEnvValueFromPtrInput `pulumi:"valueFrom"`
 }
 
 func (WorkloadInitContainerEnvArgs) ElementType() reflect.Type {
@@ -6948,6 +7251,10 @@ func (o WorkloadInitContainerEnvOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadInitContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkloadInitContainerEnvOutput) ValueFrom() WorkloadInitContainerEnvValueFromPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerEnv) *WorkloadInitContainerEnvValueFrom { return v.ValueFrom }).(WorkloadInitContainerEnvValueFromPtrOutput)
+}
+
 type WorkloadInitContainerEnvArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkloadInitContainerEnvArrayOutput) ElementType() reflect.Type {
@@ -6966,6 +7273,289 @@ func (o WorkloadInitContainerEnvArrayOutput) Index(i pulumi.IntInput) WorkloadIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInitContainerEnv {
 		return vs[0].([]WorkloadInitContainerEnv)[vs[1].(int)]
 	}).(WorkloadInitContainerEnvOutput)
+}
+
+type WorkloadInitContainerEnvValueFrom struct {
+	InstanceFieldRef *WorkloadInitContainerEnvValueFromInstanceFieldRef `pulumi:"instanceFieldRef"`
+}
+
+// WorkloadInitContainerEnvValueFromInput is an input type that accepts WorkloadInitContainerEnvValueFromArgs and WorkloadInitContainerEnvValueFromOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerEnvValueFromInput` via:
+//
+//	WorkloadInitContainerEnvValueFromArgs{...}
+type WorkloadInitContainerEnvValueFromInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerEnvValueFromOutput() WorkloadInitContainerEnvValueFromOutput
+	ToWorkloadInitContainerEnvValueFromOutputWithContext(context.Context) WorkloadInitContainerEnvValueFromOutput
+}
+
+type WorkloadInitContainerEnvValueFromArgs struct {
+	InstanceFieldRef WorkloadInitContainerEnvValueFromInstanceFieldRefPtrInput `pulumi:"instanceFieldRef"`
+}
+
+func (WorkloadInitContainerEnvValueFromArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerEnvValueFromArgs) ToWorkloadInitContainerEnvValueFromOutput() WorkloadInitContainerEnvValueFromOutput {
+	return i.ToWorkloadInitContainerEnvValueFromOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerEnvValueFromArgs) ToWorkloadInitContainerEnvValueFromOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerEnvValueFromOutput)
+}
+
+func (i WorkloadInitContainerEnvValueFromArgs) ToWorkloadInitContainerEnvValueFromPtrOutput() WorkloadInitContainerEnvValueFromPtrOutput {
+	return i.ToWorkloadInitContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerEnvValueFromArgs) ToWorkloadInitContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerEnvValueFromOutput).ToWorkloadInitContainerEnvValueFromPtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerEnvValueFromPtrInput is an input type that accepts WorkloadInitContainerEnvValueFromArgs, WorkloadInitContainerEnvValueFromPtr and WorkloadInitContainerEnvValueFromPtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerEnvValueFromPtrInput` via:
+//
+//	        WorkloadInitContainerEnvValueFromArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerEnvValueFromPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerEnvValueFromPtrOutput() WorkloadInitContainerEnvValueFromPtrOutput
+	ToWorkloadInitContainerEnvValueFromPtrOutputWithContext(context.Context) WorkloadInitContainerEnvValueFromPtrOutput
+}
+
+type workloadInitContainerEnvValueFromPtrType WorkloadInitContainerEnvValueFromArgs
+
+func WorkloadInitContainerEnvValueFromPtr(v *WorkloadInitContainerEnvValueFromArgs) WorkloadInitContainerEnvValueFromPtrInput {
+	return (*workloadInitContainerEnvValueFromPtrType)(v)
+}
+
+func (*workloadInitContainerEnvValueFromPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (i *workloadInitContainerEnvValueFromPtrType) ToWorkloadInitContainerEnvValueFromPtrOutput() WorkloadInitContainerEnvValueFromPtrOutput {
+	return i.ToWorkloadInitContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerEnvValueFromPtrType) ToWorkloadInitContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerEnvValueFromPtrOutput)
+}
+
+type WorkloadInitContainerEnvValueFromOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerEnvValueFromOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerEnvValueFromOutput) ToWorkloadInitContainerEnvValueFromOutput() WorkloadInitContainerEnvValueFromOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvValueFromOutput) ToWorkloadInitContainerEnvValueFromOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvValueFromOutput) ToWorkloadInitContainerEnvValueFromPtrOutput() WorkloadInitContainerEnvValueFromPtrOutput {
+	return o.ToWorkloadInitContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerEnvValueFromOutput) ToWorkloadInitContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerEnvValueFrom) *WorkloadInitContainerEnvValueFrom {
+		return &v
+	}).(WorkloadInitContainerEnvValueFromPtrOutput)
+}
+
+func (o WorkloadInitContainerEnvValueFromOutput) InstanceFieldRef() WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerEnvValueFrom) *WorkloadInitContainerEnvValueFromInstanceFieldRef {
+		return v.InstanceFieldRef
+	}).(WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadInitContainerEnvValueFromPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerEnvValueFromPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerEnvValueFromPtrOutput) ToWorkloadInitContainerEnvValueFromPtrOutput() WorkloadInitContainerEnvValueFromPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvValueFromPtrOutput) ToWorkloadInitContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvValueFromPtrOutput) Elem() WorkloadInitContainerEnvValueFromOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerEnvValueFrom) WorkloadInitContainerEnvValueFrom {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerEnvValueFrom
+		return ret
+	}).(WorkloadInitContainerEnvValueFromOutput)
+}
+
+func (o WorkloadInitContainerEnvValueFromPtrOutput) InstanceFieldRef() WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerEnvValueFrom) *WorkloadInitContainerEnvValueFromInstanceFieldRef {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceFieldRef
+	}).(WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadInitContainerEnvValueFromInstanceFieldRef struct {
+	FieldPath *string `pulumi:"fieldPath"`
+	Optional  *bool   `pulumi:"optional"`
+}
+
+// WorkloadInitContainerEnvValueFromInstanceFieldRefInput is an input type that accepts WorkloadInitContainerEnvValueFromInstanceFieldRefArgs and WorkloadInitContainerEnvValueFromInstanceFieldRefOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerEnvValueFromInstanceFieldRefInput` via:
+//
+//	WorkloadInitContainerEnvValueFromInstanceFieldRefArgs{...}
+type WorkloadInitContainerEnvValueFromInstanceFieldRefInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerEnvValueFromInstanceFieldRefOutput() WorkloadInitContainerEnvValueFromInstanceFieldRefOutput
+	ToWorkloadInitContainerEnvValueFromInstanceFieldRefOutputWithContext(context.Context) WorkloadInitContainerEnvValueFromInstanceFieldRefOutput
+}
+
+type WorkloadInitContainerEnvValueFromInstanceFieldRefArgs struct {
+	FieldPath pulumi.StringPtrInput `pulumi:"fieldPath"`
+	Optional  pulumi.BoolPtrInput   `pulumi:"optional"`
+}
+
+func (WorkloadInitContainerEnvValueFromInstanceFieldRefArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (i WorkloadInitContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInitContainerEnvValueFromInstanceFieldRefOutput() WorkloadInitContainerEnvValueFromInstanceFieldRefOutput {
+	return i.ToWorkloadInitContainerEnvValueFromInstanceFieldRefOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInitContainerEnvValueFromInstanceFieldRefOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromInstanceFieldRefOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerEnvValueFromInstanceFieldRefOutput)
+}
+
+func (i WorkloadInitContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return i.ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInitContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerEnvValueFromInstanceFieldRefOutput).ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx)
+}
+
+// WorkloadInitContainerEnvValueFromInstanceFieldRefPtrInput is an input type that accepts WorkloadInitContainerEnvValueFromInstanceFieldRefArgs, WorkloadInitContainerEnvValueFromInstanceFieldRefPtr and WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput values.
+// You can construct a concrete instance of `WorkloadInitContainerEnvValueFromInstanceFieldRefPtrInput` via:
+//
+//	        WorkloadInitContainerEnvValueFromInstanceFieldRefArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInitContainerEnvValueFromInstanceFieldRefPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput
+	ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Context) WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput
+}
+
+type workloadInitContainerEnvValueFromInstanceFieldRefPtrType WorkloadInitContainerEnvValueFromInstanceFieldRefArgs
+
+func WorkloadInitContainerEnvValueFromInstanceFieldRefPtr(v *WorkloadInitContainerEnvValueFromInstanceFieldRefArgs) WorkloadInitContainerEnvValueFromInstanceFieldRefPtrInput {
+	return (*workloadInitContainerEnvValueFromInstanceFieldRefPtrType)(v)
+}
+
+func (*workloadInitContainerEnvValueFromInstanceFieldRefPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (i *workloadInitContainerEnvValueFromInstanceFieldRefPtrType) ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return i.ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInitContainerEnvValueFromInstanceFieldRefPtrType) ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadInitContainerEnvValueFromInstanceFieldRefOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerEnvValueFromInstanceFieldRefOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInitContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInitContainerEnvValueFromInstanceFieldRefOutput() WorkloadInitContainerEnvValueFromInstanceFieldRefOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInitContainerEnvValueFromInstanceFieldRefOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromInstanceFieldRefOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInitContainerEnvValueFromInstanceFieldRef) *WorkloadInitContainerEnvValueFromInstanceFieldRef {
+		return &v
+	}).(WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefOutput) FieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerEnvValueFromInstanceFieldRef) *string { return v.FieldPath }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInitContainerEnvValueFromInstanceFieldRef) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
+}
+
+type WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInitContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput) ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput) ToWorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput) Elem() WorkloadInitContainerEnvValueFromInstanceFieldRefOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerEnvValueFromInstanceFieldRef) WorkloadInitContainerEnvValueFromInstanceFieldRef {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInitContainerEnvValueFromInstanceFieldRef
+		return ret
+	}).(WorkloadInitContainerEnvValueFromInstanceFieldRefOutput)
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput) FieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerEnvValueFromInstanceFieldRef) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInitContainerEnvValueFromInstanceFieldRef) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Optional
+	}).(pulumi.BoolPtrOutput)
 }
 
 type WorkloadInitContainerLivenessProbe struct {
@@ -8836,6 +9426,7 @@ func (o WorkloadInstanceArrayOutput) Index(i pulumi.IntInput) WorkloadInstanceOu
 }
 
 type WorkloadInstanceContainer struct {
+	Args            []string                                  `pulumi:"args"`
 	Commands        []string                                  `pulumi:"commands"`
 	Envs            []WorkloadInstanceContainerEnv            `pulumi:"envs"`
 	Image           string                                    `pulumi:"image"`
@@ -8860,6 +9451,7 @@ type WorkloadInstanceContainerInput interface {
 }
 
 type WorkloadInstanceContainerArgs struct {
+	Args            pulumi.StringArrayInput                          `pulumi:"args"`
 	Commands        pulumi.StringArrayInput                          `pulumi:"commands"`
 	Envs            WorkloadInstanceContainerEnvArrayInput           `pulumi:"envs"`
 	Image           pulumi.StringInput                               `pulumi:"image"`
@@ -8923,6 +9515,10 @@ func (o WorkloadInstanceContainerOutput) ToWorkloadInstanceContainerOutputWithCo
 	return o
 }
 
+func (o WorkloadInstanceContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
 func (o WorkloadInstanceContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkloadInstanceContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
@@ -8984,9 +9580,10 @@ func (o WorkloadInstanceContainerArrayOutput) Index(i pulumi.IntInput) WorkloadI
 }
 
 type WorkloadInstanceContainerEnv struct {
-	Key         string  `pulumi:"key"`
-	SecretValue *string `pulumi:"secretValue"`
-	Value       *string `pulumi:"value"`
+	Key         string                                 `pulumi:"key"`
+	SecretValue *string                                `pulumi:"secretValue"`
+	Value       *string                                `pulumi:"value"`
+	ValueFrom   *WorkloadInstanceContainerEnvValueFrom `pulumi:"valueFrom"`
 }
 
 // WorkloadInstanceContainerEnvInput is an input type that accepts WorkloadInstanceContainerEnvArgs and WorkloadInstanceContainerEnvOutput values.
@@ -9001,9 +9598,10 @@ type WorkloadInstanceContainerEnvInput interface {
 }
 
 type WorkloadInstanceContainerEnvArgs struct {
-	Key         pulumi.StringInput    `pulumi:"key"`
-	SecretValue pulumi.StringPtrInput `pulumi:"secretValue"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
+	Key         pulumi.StringInput                            `pulumi:"key"`
+	SecretValue pulumi.StringPtrInput                         `pulumi:"secretValue"`
+	Value       pulumi.StringPtrInput                         `pulumi:"value"`
+	ValueFrom   WorkloadInstanceContainerEnvValueFromPtrInput `pulumi:"valueFrom"`
 }
 
 func (WorkloadInstanceContainerEnvArgs) ElementType() reflect.Type {
@@ -9069,6 +9667,10 @@ func (o WorkloadInstanceContainerEnvOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadInstanceContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkloadInstanceContainerEnvOutput) ValueFrom() WorkloadInstanceContainerEnvValueFromPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerEnv) *WorkloadInstanceContainerEnvValueFrom { return v.ValueFrom }).(WorkloadInstanceContainerEnvValueFromPtrOutput)
+}
+
 type WorkloadInstanceContainerEnvArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkloadInstanceContainerEnvArrayOutput) ElementType() reflect.Type {
@@ -9087,6 +9689,289 @@ func (o WorkloadInstanceContainerEnvArrayOutput) Index(i pulumi.IntInput) Worklo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInstanceContainerEnv {
 		return vs[0].([]WorkloadInstanceContainerEnv)[vs[1].(int)]
 	}).(WorkloadInstanceContainerEnvOutput)
+}
+
+type WorkloadInstanceContainerEnvValueFrom struct {
+	InstanceFieldRef *WorkloadInstanceContainerEnvValueFromInstanceFieldRef `pulumi:"instanceFieldRef"`
+}
+
+// WorkloadInstanceContainerEnvValueFromInput is an input type that accepts WorkloadInstanceContainerEnvValueFromArgs and WorkloadInstanceContainerEnvValueFromOutput values.
+// You can construct a concrete instance of `WorkloadInstanceContainerEnvValueFromInput` via:
+//
+//	WorkloadInstanceContainerEnvValueFromArgs{...}
+type WorkloadInstanceContainerEnvValueFromInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceContainerEnvValueFromOutput() WorkloadInstanceContainerEnvValueFromOutput
+	ToWorkloadInstanceContainerEnvValueFromOutputWithContext(context.Context) WorkloadInstanceContainerEnvValueFromOutput
+}
+
+type WorkloadInstanceContainerEnvValueFromArgs struct {
+	InstanceFieldRef WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrInput `pulumi:"instanceFieldRef"`
+}
+
+func (WorkloadInstanceContainerEnvValueFromArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (i WorkloadInstanceContainerEnvValueFromArgs) ToWorkloadInstanceContainerEnvValueFromOutput() WorkloadInstanceContainerEnvValueFromOutput {
+	return i.ToWorkloadInstanceContainerEnvValueFromOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceContainerEnvValueFromArgs) ToWorkloadInstanceContainerEnvValueFromOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerEnvValueFromOutput)
+}
+
+func (i WorkloadInstanceContainerEnvValueFromArgs) ToWorkloadInstanceContainerEnvValueFromPtrOutput() WorkloadInstanceContainerEnvValueFromPtrOutput {
+	return i.ToWorkloadInstanceContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceContainerEnvValueFromArgs) ToWorkloadInstanceContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerEnvValueFromOutput).ToWorkloadInstanceContainerEnvValueFromPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceContainerEnvValueFromPtrInput is an input type that accepts WorkloadInstanceContainerEnvValueFromArgs, WorkloadInstanceContainerEnvValueFromPtr and WorkloadInstanceContainerEnvValueFromPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceContainerEnvValueFromPtrInput` via:
+//
+//	        WorkloadInstanceContainerEnvValueFromArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceContainerEnvValueFromPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceContainerEnvValueFromPtrOutput() WorkloadInstanceContainerEnvValueFromPtrOutput
+	ToWorkloadInstanceContainerEnvValueFromPtrOutputWithContext(context.Context) WorkloadInstanceContainerEnvValueFromPtrOutput
+}
+
+type workloadInstanceContainerEnvValueFromPtrType WorkloadInstanceContainerEnvValueFromArgs
+
+func WorkloadInstanceContainerEnvValueFromPtr(v *WorkloadInstanceContainerEnvValueFromArgs) WorkloadInstanceContainerEnvValueFromPtrInput {
+	return (*workloadInstanceContainerEnvValueFromPtrType)(v)
+}
+
+func (*workloadInstanceContainerEnvValueFromPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (i *workloadInstanceContainerEnvValueFromPtrType) ToWorkloadInstanceContainerEnvValueFromPtrOutput() WorkloadInstanceContainerEnvValueFromPtrOutput {
+	return i.ToWorkloadInstanceContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceContainerEnvValueFromPtrType) ToWorkloadInstanceContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerEnvValueFromPtrOutput)
+}
+
+type WorkloadInstanceContainerEnvValueFromOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceContainerEnvValueFromOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (o WorkloadInstanceContainerEnvValueFromOutput) ToWorkloadInstanceContainerEnvValueFromOutput() WorkloadInstanceContainerEnvValueFromOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerEnvValueFromOutput) ToWorkloadInstanceContainerEnvValueFromOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerEnvValueFromOutput) ToWorkloadInstanceContainerEnvValueFromPtrOutput() WorkloadInstanceContainerEnvValueFromPtrOutput {
+	return o.ToWorkloadInstanceContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceContainerEnvValueFromOutput) ToWorkloadInstanceContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceContainerEnvValueFrom) *WorkloadInstanceContainerEnvValueFrom {
+		return &v
+	}).(WorkloadInstanceContainerEnvValueFromPtrOutput)
+}
+
+func (o WorkloadInstanceContainerEnvValueFromOutput) InstanceFieldRef() WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerEnvValueFrom) *WorkloadInstanceContainerEnvValueFromInstanceFieldRef {
+		return v.InstanceFieldRef
+	}).(WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadInstanceContainerEnvValueFromPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceContainerEnvValueFromPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (o WorkloadInstanceContainerEnvValueFromPtrOutput) ToWorkloadInstanceContainerEnvValueFromPtrOutput() WorkloadInstanceContainerEnvValueFromPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerEnvValueFromPtrOutput) ToWorkloadInstanceContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerEnvValueFromPtrOutput) Elem() WorkloadInstanceContainerEnvValueFromOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerEnvValueFrom) WorkloadInstanceContainerEnvValueFrom {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceContainerEnvValueFrom
+		return ret
+	}).(WorkloadInstanceContainerEnvValueFromOutput)
+}
+
+func (o WorkloadInstanceContainerEnvValueFromPtrOutput) InstanceFieldRef() WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerEnvValueFrom) *WorkloadInstanceContainerEnvValueFromInstanceFieldRef {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceFieldRef
+	}).(WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadInstanceContainerEnvValueFromInstanceFieldRef struct {
+	FieldPath *string `pulumi:"fieldPath"`
+	Optional  *bool   `pulumi:"optional"`
+}
+
+// WorkloadInstanceContainerEnvValueFromInstanceFieldRefInput is an input type that accepts WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs and WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput values.
+// You can construct a concrete instance of `WorkloadInstanceContainerEnvValueFromInstanceFieldRefInput` via:
+//
+//	WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs{...}
+type WorkloadInstanceContainerEnvValueFromInstanceFieldRefInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput() WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput
+	ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefOutputWithContext(context.Context) WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput
+}
+
+type WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs struct {
+	FieldPath pulumi.StringPtrInput `pulumi:"fieldPath"`
+	Optional  pulumi.BoolPtrInput   `pulumi:"optional"`
+}
+
+func (WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (i WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput() WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput {
+	return i.ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput)
+}
+
+func (i WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return i.ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput).ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrInput is an input type that accepts WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs, WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtr and WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrInput` via:
+//
+//	        WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput
+	ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Context) WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput
+}
+
+type workloadInstanceContainerEnvValueFromInstanceFieldRefPtrType WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs
+
+func WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtr(v *WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs) WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrInput {
+	return (*workloadInstanceContainerEnvValueFromInstanceFieldRefPtrType)(v)
+}
+
+func (*workloadInstanceContainerEnvValueFromInstanceFieldRefPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (i *workloadInstanceContainerEnvValueFromInstanceFieldRefPtrType) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return i.ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceContainerEnvValueFromInstanceFieldRefPtrType) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput() WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceContainerEnvValueFromInstanceFieldRef) *WorkloadInstanceContainerEnvValueFromInstanceFieldRef {
+		return &v
+	}).(WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput) FieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerEnvValueFromInstanceFieldRef) *string { return v.FieldPath }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceContainerEnvValueFromInstanceFieldRef) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
+}
+
+type WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput) ToWorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput) Elem() WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerEnvValueFromInstanceFieldRef) WorkloadInstanceContainerEnvValueFromInstanceFieldRef {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceContainerEnvValueFromInstanceFieldRef
+		return ret
+	}).(WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput)
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput) FieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerEnvValueFromInstanceFieldRef) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceContainerEnvValueFromInstanceFieldRef) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Optional
+	}).(pulumi.BoolPtrOutput)
 }
 
 type WorkloadInstanceContainerLivenessProbe struct {
@@ -10785,6 +11670,7 @@ func (o WorkloadInstanceContainerVolumeMountArrayOutput) Index(i pulumi.IntInput
 }
 
 type WorkloadInstanceInitContainer struct {
+	Args            []string                                      `pulumi:"args"`
 	Commands        []string                                      `pulumi:"commands"`
 	Envs            []WorkloadInstanceInitContainerEnv            `pulumi:"envs"`
 	Image           string                                        `pulumi:"image"`
@@ -10809,6 +11695,7 @@ type WorkloadInstanceInitContainerInput interface {
 }
 
 type WorkloadInstanceInitContainerArgs struct {
+	Args            pulumi.StringArrayInput                              `pulumi:"args"`
 	Commands        pulumi.StringArrayInput                              `pulumi:"commands"`
 	Envs            WorkloadInstanceInitContainerEnvArrayInput           `pulumi:"envs"`
 	Image           pulumi.StringInput                                   `pulumi:"image"`
@@ -10870,6 +11757,10 @@ func (o WorkloadInstanceInitContainerOutput) ToWorkloadInstanceInitContainerOutp
 
 func (o WorkloadInstanceInitContainerOutput) ToWorkloadInstanceInitContainerOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerOutput {
 	return o
+}
+
+func (o WorkloadInstanceInitContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
 }
 
 func (o WorkloadInstanceInitContainerOutput) Commands() pulumi.StringArrayOutput {
@@ -10941,9 +11832,10 @@ func (o WorkloadInstanceInitContainerArrayOutput) Index(i pulumi.IntInput) Workl
 }
 
 type WorkloadInstanceInitContainerEnv struct {
-	Key         string  `pulumi:"key"`
-	SecretValue *string `pulumi:"secretValue"`
-	Value       *string `pulumi:"value"`
+	Key         string                                     `pulumi:"key"`
+	SecretValue *string                                    `pulumi:"secretValue"`
+	Value       *string                                    `pulumi:"value"`
+	ValueFrom   *WorkloadInstanceInitContainerEnvValueFrom `pulumi:"valueFrom"`
 }
 
 // WorkloadInstanceInitContainerEnvInput is an input type that accepts WorkloadInstanceInitContainerEnvArgs and WorkloadInstanceInitContainerEnvOutput values.
@@ -10958,9 +11850,10 @@ type WorkloadInstanceInitContainerEnvInput interface {
 }
 
 type WorkloadInstanceInitContainerEnvArgs struct {
-	Key         pulumi.StringInput    `pulumi:"key"`
-	SecretValue pulumi.StringPtrInput `pulumi:"secretValue"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
+	Key         pulumi.StringInput                                `pulumi:"key"`
+	SecretValue pulumi.StringPtrInput                             `pulumi:"secretValue"`
+	Value       pulumi.StringPtrInput                             `pulumi:"value"`
+	ValueFrom   WorkloadInstanceInitContainerEnvValueFromPtrInput `pulumi:"valueFrom"`
 }
 
 func (WorkloadInstanceInitContainerEnvArgs) ElementType() reflect.Type {
@@ -11026,6 +11919,12 @@ func (o WorkloadInstanceInitContainerEnvOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkloadInstanceInitContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
+func (o WorkloadInstanceInitContainerEnvOutput) ValueFrom() WorkloadInstanceInitContainerEnvValueFromPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerEnv) *WorkloadInstanceInitContainerEnvValueFrom {
+		return v.ValueFrom
+	}).(WorkloadInstanceInitContainerEnvValueFromPtrOutput)
+}
+
 type WorkloadInstanceInitContainerEnvArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkloadInstanceInitContainerEnvArrayOutput) ElementType() reflect.Type {
@@ -11044,6 +11943,289 @@ func (o WorkloadInstanceInitContainerEnvArrayOutput) Index(i pulumi.IntInput) Wo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkloadInstanceInitContainerEnv {
 		return vs[0].([]WorkloadInstanceInitContainerEnv)[vs[1].(int)]
 	}).(WorkloadInstanceInitContainerEnvOutput)
+}
+
+type WorkloadInstanceInitContainerEnvValueFrom struct {
+	InstanceFieldRef *WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef `pulumi:"instanceFieldRef"`
+}
+
+// WorkloadInstanceInitContainerEnvValueFromInput is an input type that accepts WorkloadInstanceInitContainerEnvValueFromArgs and WorkloadInstanceInitContainerEnvValueFromOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerEnvValueFromInput` via:
+//
+//	WorkloadInstanceInitContainerEnvValueFromArgs{...}
+type WorkloadInstanceInitContainerEnvValueFromInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerEnvValueFromOutput() WorkloadInstanceInitContainerEnvValueFromOutput
+	ToWorkloadInstanceInitContainerEnvValueFromOutputWithContext(context.Context) WorkloadInstanceInitContainerEnvValueFromOutput
+}
+
+type WorkloadInstanceInitContainerEnvValueFromArgs struct {
+	InstanceFieldRef WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrInput `pulumi:"instanceFieldRef"`
+}
+
+func (WorkloadInstanceInitContainerEnvValueFromArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerEnvValueFromArgs) ToWorkloadInstanceInitContainerEnvValueFromOutput() WorkloadInstanceInitContainerEnvValueFromOutput {
+	return i.ToWorkloadInstanceInitContainerEnvValueFromOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerEnvValueFromArgs) ToWorkloadInstanceInitContainerEnvValueFromOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerEnvValueFromOutput)
+}
+
+func (i WorkloadInstanceInitContainerEnvValueFromArgs) ToWorkloadInstanceInitContainerEnvValueFromPtrOutput() WorkloadInstanceInitContainerEnvValueFromPtrOutput {
+	return i.ToWorkloadInstanceInitContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerEnvValueFromArgs) ToWorkloadInstanceInitContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerEnvValueFromOutput).ToWorkloadInstanceInitContainerEnvValueFromPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerEnvValueFromPtrInput is an input type that accepts WorkloadInstanceInitContainerEnvValueFromArgs, WorkloadInstanceInitContainerEnvValueFromPtr and WorkloadInstanceInitContainerEnvValueFromPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerEnvValueFromPtrInput` via:
+//
+//	        WorkloadInstanceInitContainerEnvValueFromArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerEnvValueFromPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerEnvValueFromPtrOutput() WorkloadInstanceInitContainerEnvValueFromPtrOutput
+	ToWorkloadInstanceInitContainerEnvValueFromPtrOutputWithContext(context.Context) WorkloadInstanceInitContainerEnvValueFromPtrOutput
+}
+
+type workloadInstanceInitContainerEnvValueFromPtrType WorkloadInstanceInitContainerEnvValueFromArgs
+
+func WorkloadInstanceInitContainerEnvValueFromPtr(v *WorkloadInstanceInitContainerEnvValueFromArgs) WorkloadInstanceInitContainerEnvValueFromPtrInput {
+	return (*workloadInstanceInitContainerEnvValueFromPtrType)(v)
+}
+
+func (*workloadInstanceInitContainerEnvValueFromPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerEnvValueFromPtrType) ToWorkloadInstanceInitContainerEnvValueFromPtrOutput() WorkloadInstanceInitContainerEnvValueFromPtrOutput {
+	return i.ToWorkloadInstanceInitContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerEnvValueFromPtrType) ToWorkloadInstanceInitContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerEnvValueFromPtrOutput)
+}
+
+type WorkloadInstanceInitContainerEnvValueFromOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerEnvValueFromOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromOutput) ToWorkloadInstanceInitContainerEnvValueFromOutput() WorkloadInstanceInitContainerEnvValueFromOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromOutput) ToWorkloadInstanceInitContainerEnvValueFromOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromOutput) ToWorkloadInstanceInitContainerEnvValueFromPtrOutput() WorkloadInstanceInitContainerEnvValueFromPtrOutput {
+	return o.ToWorkloadInstanceInitContainerEnvValueFromPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromOutput) ToWorkloadInstanceInitContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerEnvValueFrom) *WorkloadInstanceInitContainerEnvValueFrom {
+		return &v
+	}).(WorkloadInstanceInitContainerEnvValueFromPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromOutput) InstanceFieldRef() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerEnvValueFrom) *WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef {
+		return v.InstanceFieldRef
+	}).(WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadInstanceInitContainerEnvValueFromPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerEnvValueFromPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerEnvValueFrom)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromPtrOutput) ToWorkloadInstanceInitContainerEnvValueFromPtrOutput() WorkloadInstanceInitContainerEnvValueFromPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromPtrOutput) ToWorkloadInstanceInitContainerEnvValueFromPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromPtrOutput) Elem() WorkloadInstanceInitContainerEnvValueFromOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerEnvValueFrom) WorkloadInstanceInitContainerEnvValueFrom {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerEnvValueFrom
+		return ret
+	}).(WorkloadInstanceInitContainerEnvValueFromOutput)
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromPtrOutput) InstanceFieldRef() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerEnvValueFrom) *WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceFieldRef
+	}).(WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef struct {
+	FieldPath *string `pulumi:"fieldPath"`
+	Optional  *bool   `pulumi:"optional"`
+}
+
+// WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefInput is an input type that accepts WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs and WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefInput` via:
+//
+//	WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs{...}
+type WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput
+	ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutputWithContext(context.Context) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput
+}
+
+type WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs struct {
+	FieldPath pulumi.StringPtrInput `pulumi:"fieldPath"`
+	Optional  pulumi.BoolPtrInput   `pulumi:"optional"`
+}
+
+func (WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (i WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput {
+	return i.ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput)
+}
+
+func (i WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return i.ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (i WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput).ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx)
+}
+
+// WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrInput is an input type that accepts WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs, WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtr and WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput values.
+// You can construct a concrete instance of `WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrInput` via:
+//
+//	        WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrInput interface {
+	pulumi.Input
+
+	ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput
+	ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Context) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput
+}
+
+type workloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrType WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs
+
+func WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtr(v *WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrInput {
+	return (*workloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrType)(v)
+}
+
+func (*workloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (i *workloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrType) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return i.ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (i *workloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrType) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+type WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(context.Background())
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef) *WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef {
+		return &v
+	}).(WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput) FieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef) *string { return v.FieldPath }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef) *bool { return v.Optional }).(pulumi.BoolPtrOutput)
+}
+
+type WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef)(nil)).Elem()
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput) ToWorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutputWithContext(ctx context.Context) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput {
+	return o
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput) Elem() WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef) WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef
+		return ret
+	}).(WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput)
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput) FieldPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput) Optional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Optional
+	}).(pulumi.BoolPtrOutput)
 }
 
 type WorkloadInstanceInitContainerLivenessProbe struct {
@@ -17964,6 +19146,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerArrayInput)(nil)).Elem(), WorkloadContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerEnvInput)(nil)).Elem(), WorkloadContainerEnvArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerEnvArrayInput)(nil)).Elem(), WorkloadContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerEnvValueFromInput)(nil)).Elem(), WorkloadContainerEnvValueFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerEnvValueFromPtrInput)(nil)).Elem(), WorkloadContainerEnvValueFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerEnvValueFromInstanceFieldRefInput)(nil)).Elem(), WorkloadContainerEnvValueFromInstanceFieldRefArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerEnvValueFromInstanceFieldRefPtrInput)(nil)).Elem(), WorkloadContainerEnvValueFromInstanceFieldRefArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerLivenessProbeInput)(nil)).Elem(), WorkloadContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerLivenessProbePtrInput)(nil)).Elem(), WorkloadContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadContainerLivenessProbeHttpGetInput)(nil)).Elem(), WorkloadContainerLivenessProbeHttpGetArgs{})
@@ -18002,6 +19188,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerArrayInput)(nil)).Elem(), WorkloadInitContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerEnvInput)(nil)).Elem(), WorkloadInitContainerEnvArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerEnvArrayInput)(nil)).Elem(), WorkloadInitContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerEnvValueFromInput)(nil)).Elem(), WorkloadInitContainerEnvValueFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerEnvValueFromPtrInput)(nil)).Elem(), WorkloadInitContainerEnvValueFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerEnvValueFromInstanceFieldRefInput)(nil)).Elem(), WorkloadInitContainerEnvValueFromInstanceFieldRefArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerEnvValueFromInstanceFieldRefPtrInput)(nil)).Elem(), WorkloadInitContainerEnvValueFromInstanceFieldRefArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerLivenessProbeInput)(nil)).Elem(), WorkloadInitContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerLivenessProbePtrInput)(nil)).Elem(), WorkloadInitContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInitContainerLivenessProbeHttpGetInput)(nil)).Elem(), WorkloadInitContainerLivenessProbeHttpGetArgs{})
@@ -18029,6 +19219,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerArrayInput)(nil)).Elem(), WorkloadInstanceContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerEnvInput)(nil)).Elem(), WorkloadInstanceContainerEnvArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerEnvArrayInput)(nil)).Elem(), WorkloadInstanceContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerEnvValueFromInput)(nil)).Elem(), WorkloadInstanceContainerEnvValueFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerEnvValueFromPtrInput)(nil)).Elem(), WorkloadInstanceContainerEnvValueFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerEnvValueFromInstanceFieldRefInput)(nil)).Elem(), WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrInput)(nil)).Elem(), WorkloadInstanceContainerEnvValueFromInstanceFieldRefArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerLivenessProbeInput)(nil)).Elem(), WorkloadInstanceContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerLivenessProbePtrInput)(nil)).Elem(), WorkloadInstanceContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceContainerLivenessProbeHttpGetInput)(nil)).Elem(), WorkloadInstanceContainerLivenessProbeHttpGetArgs{})
@@ -18054,6 +19248,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerArrayInput)(nil)).Elem(), WorkloadInstanceInitContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerEnvInput)(nil)).Elem(), WorkloadInstanceInitContainerEnvArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerEnvArrayInput)(nil)).Elem(), WorkloadInstanceInitContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerEnvValueFromInput)(nil)).Elem(), WorkloadInstanceInitContainerEnvValueFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerEnvValueFromPtrInput)(nil)).Elem(), WorkloadInstanceInitContainerEnvValueFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefInput)(nil)).Elem(), WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrInput)(nil)).Elem(), WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeInput)(nil)).Elem(), WorkloadInstanceInitContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbePtrInput)(nil)).Elem(), WorkloadInstanceInitContainerLivenessProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkloadInstanceInitContainerLivenessProbeHttpGetInput)(nil)).Elem(), WorkloadInstanceInitContainerLivenessProbeHttpGetArgs{})
@@ -18206,6 +19404,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadContainerArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadContainerEnvOutput{})
 	pulumi.RegisterOutputType(WorkloadContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerEnvValueFromOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerEnvValueFromPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerEnvValueFromInstanceFieldRefOutput{})
+	pulumi.RegisterOutputType(WorkloadContainerEnvValueFromInstanceFieldRefPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadContainerLivenessProbeOutput{})
 	pulumi.RegisterOutputType(WorkloadContainerLivenessProbePtrOutput{})
 	pulumi.RegisterOutputType(WorkloadContainerLivenessProbeHttpGetOutput{})
@@ -18244,6 +19446,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadInitContainerArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadInitContainerEnvOutput{})
 	pulumi.RegisterOutputType(WorkloadInitContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerEnvValueFromOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerEnvValueFromPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerEnvValueFromInstanceFieldRefOutput{})
+	pulumi.RegisterOutputType(WorkloadInitContainerEnvValueFromInstanceFieldRefPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInitContainerLivenessProbeOutput{})
 	pulumi.RegisterOutputType(WorkloadInitContainerLivenessProbePtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInitContainerLivenessProbeHttpGetOutput{})
@@ -18271,6 +19477,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadInstanceContainerArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerEnvOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceContainerEnvValueFromOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceContainerEnvValueFromPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceContainerEnvValueFromInstanceFieldRefOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceContainerEnvValueFromInstanceFieldRefPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerLivenessProbeOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerLivenessProbePtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceContainerLivenessProbeHttpGetOutput{})
@@ -18296,6 +19506,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkloadInstanceInitContainerArrayOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceInitContainerEnvOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceInitContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerEnvValueFromOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerEnvValueFromPtrOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefOutput{})
+	pulumi.RegisterOutputType(WorkloadInstanceInitContainerEnvValueFromInstanceFieldRefPtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceInitContainerLivenessProbeOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceInitContainerLivenessProbePtrOutput{})
 	pulumi.RegisterOutputType(WorkloadInstanceInitContainerLivenessProbeHttpGetOutput{})

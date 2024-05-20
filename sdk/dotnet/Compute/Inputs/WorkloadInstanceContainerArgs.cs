@@ -13,6 +13,14 @@ namespace Stackpath.Stackpath.Compute.Inputs
 
     public sealed class WorkloadInstanceContainerArgs : global::Pulumi.ResourceArgs
     {
+        [Input("args")]
+        private InputList<string>? _args;
+        public InputList<string> Args
+        {
+            get => _args ?? (_args = new InputList<string>());
+            set => _args = value;
+        }
+
         [Input("commands")]
         private InputList<string>? _commands;
         public InputList<string> Commands

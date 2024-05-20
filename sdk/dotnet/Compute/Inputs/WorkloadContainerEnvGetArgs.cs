@@ -31,6 +31,9 @@ namespace Stackpath.Stackpath.Compute.Inputs
         [Input("value")]
         public Input<string>? Value { get; set; }
 
+        [Input("valueFrom")]
+        public Input<Inputs.WorkloadContainerEnvValueFromGetArgs>? ValueFrom { get; set; }
+
         public WorkloadContainerEnvGetArgs()
         {
         }

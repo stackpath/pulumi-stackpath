@@ -545,6 +545,12 @@
         },
         "stackpath:compute/WorkloadContainer:WorkloadContainer": {
             "properties": {
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "commands": {
                     "type": "array",
                     "items": {
@@ -606,12 +612,34 @@
                 },
                 "value": {
                     "type": "string"
+                },
+                "valueFrom": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerEnvValueFrom:WorkloadContainerEnvValueFrom"
                 }
             },
             "type": "object",
             "required": [
                 "key"
             ]
+        },
+        "stackpath:compute/WorkloadContainerEnvValueFrom:WorkloadContainerEnvValueFrom": {
+            "properties": {
+                "instanceFieldRef": {
+                    "$ref": "#/types/stackpath:compute/WorkloadContainerEnvValueFromInstanceFieldRef:WorkloadContainerEnvValueFromInstanceFieldRef"
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadContainerEnvValueFromInstanceFieldRef:WorkloadContainerEnvValueFromInstanceFieldRef": {
+            "properties": {
+                "fieldPath": {
+                    "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
         },
         "stackpath:compute/WorkloadContainerLivenessProbe:WorkloadContainerLivenessProbe": {
             "properties": {
@@ -971,6 +999,12 @@
         },
         "stackpath:compute/WorkloadInitContainer:WorkloadInitContainer": {
             "properties": {
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "commands": {
                     "type": "array",
                     "items": {
@@ -1032,12 +1066,34 @@
                 },
                 "value": {
                     "type": "string"
+                },
+                "valueFrom": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerEnvValueFrom:WorkloadInitContainerEnvValueFrom"
                 }
             },
             "type": "object",
             "required": [
                 "key"
             ]
+        },
+        "stackpath:compute/WorkloadInitContainerEnvValueFrom:WorkloadInitContainerEnvValueFrom": {
+            "properties": {
+                "instanceFieldRef": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInitContainerEnvValueFromInstanceFieldRef:WorkloadInitContainerEnvValueFromInstanceFieldRef"
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInitContainerEnvValueFromInstanceFieldRef:WorkloadInitContainerEnvValueFromInstanceFieldRef": {
+            "properties": {
+                "fieldPath": {
+                    "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
         },
         "stackpath:compute/WorkloadInitContainerLivenessProbe:WorkloadInitContainerLivenessProbe": {
             "properties": {
@@ -1318,6 +1374,12 @@
         },
         "stackpath:compute/WorkloadInstanceContainer:WorkloadInstanceContainer": {
             "properties": {
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "commands": {
                     "type": "array",
                     "items": {
@@ -1379,12 +1441,34 @@
                 },
                 "value": {
                     "type": "string"
+                },
+                "valueFrom": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerEnvValueFrom:WorkloadInstanceContainerEnvValueFrom"
                 }
             },
             "type": "object",
             "required": [
                 "key"
             ]
+        },
+        "stackpath:compute/WorkloadInstanceContainerEnvValueFrom:WorkloadInstanceContainerEnvValueFrom": {
+            "properties": {
+                "instanceFieldRef": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceContainerEnvValueFromInstanceFieldRef:WorkloadInstanceContainerEnvValueFromInstanceFieldRef"
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInstanceContainerEnvValueFromInstanceFieldRef:WorkloadInstanceContainerEnvValueFromInstanceFieldRef": {
+            "properties": {
+                "fieldPath": {
+                    "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
         },
         "stackpath:compute/WorkloadInstanceContainerLivenessProbe:WorkloadInstanceContainerLivenessProbe": {
             "properties": {
@@ -1606,6 +1690,12 @@
         },
         "stackpath:compute/WorkloadInstanceInitContainer:WorkloadInstanceInitContainer": {
             "properties": {
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "commands": {
                     "type": "array",
                     "items": {
@@ -1667,12 +1757,34 @@
                 },
                 "value": {
                     "type": "string"
+                },
+                "valueFrom": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerEnvValueFrom:WorkloadInstanceInitContainerEnvValueFrom"
                 }
             },
             "type": "object",
             "required": [
                 "key"
             ]
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerEnvValueFrom:WorkloadInstanceInitContainerEnvValueFrom": {
+            "properties": {
+                "instanceFieldRef": {
+                    "$ref": "#/types/stackpath:compute/WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef:WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef"
+                }
+            },
+            "type": "object"
+        },
+        "stackpath:compute/WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef:WorkloadInstanceInitContainerEnvValueFromInstanceFieldRef": {
+            "properties": {
+                "fieldPath": {
+                    "type": "string"
+                },
+                "optional": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
         },
         "stackpath:compute/WorkloadInstanceInitContainerLivenessProbe:WorkloadInstanceInitContainerLivenessProbe": {
             "properties": {
